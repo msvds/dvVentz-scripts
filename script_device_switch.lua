@@ -9,7 +9,7 @@ return {
 	execute = function(domoticz, mySwitch)
 		if (mySwitch.state == 'On') then
 			--domoticz.notify('Hey!', 'I am on!', domoticz.PRIORITY_NORMAL)
-			domoticz.log('Hey! I am on!')
+			domoticz.log('Hey! I am on, yes!')
 		end
 	end
 }
