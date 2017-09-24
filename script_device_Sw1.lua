@@ -1,10 +1,4 @@
-local lamp_boven_tv = domoticz.devices(13)
-local lamp_spoelb_keuken = domoticz.devices(36)
-local lamp_bank = domoticz.devices(15)
-local schemerlamp_bank = domoticz.devices(16)
-local schemerlamp_deur = domoticz.devices(97)
-local harmony_poweroff = domoticz.devices(6)
-local radio = domoticz.devices(8)
+
 return {
 	active = true, -- set to false to disable this script
 	on = {
@@ -14,7 +8,13 @@ return {
 	},
 
 	execute = function(domoticz, device)
-
+		local lamp_boven_tv = domoticz.devices(13)
+		local lamp_spoelb_keuken = domoticz.devices(36)
+		local lamp_bank = domoticz.devices(15)
+		local schemerlamp_bank = domoticz.devices(16)
+		local schemerlamp_deur = domoticz.devices(97)
+		local harmony_poweroff = domoticz.devices(6)
+		local radio = domoticz.devices(8)
 		domoticz.log(device.state)
 		if (device.state == 'Long Click') then
 			lamp_boven_tv.switchOn()
