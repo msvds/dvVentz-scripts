@@ -8,7 +8,7 @@ return {
 	},
 
 	execute = function(domoticz, device)
-	    local lamp_logeerkamer = domoticz.devices('Lampen logeerkamer')
+	    	local lamp_logeerkamer = domoticz.devices(98)
 		domoticz.log(device.state)
 		if (device.state == 'Double Click') then
 			lamp_logeerkamer.switchOff()
