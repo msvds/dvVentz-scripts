@@ -26,6 +26,8 @@ return {
 		if (hum_woonk.humidity > 55) then
 			if (hum_buiten.humidity < hum_woonk.humidity) then
 				domoticz.notify('Vochtigheid hoog',"De vochtigheid in de woonkamer begint " ..hum_string .. " te worden, namelijk " ..tonumber(hum_woonk.humidity) .. ". Buiten is de vochtigheid lager, namelijk " ..tonumber(hum_buiten.humidity) .." dus een raampje open zetten kan helpen.",domoticz.PRIORITY_LOW)  
+				--TODO Need to adapt intervals at the end of next line
+				domoticz.helpers.message("De vochtigheid in de woonkamer begint " ..hum_string .. " te worden, namelijk " ..tonumber(hum_woonk.humidity) .. ". Buiten is de vochtigheid lager, namelijk " ..tonumber(hum_buiten.humidity) .." dus een raampje open zetten kan helpen."', 100,90)
 				lastMessageSent = domoticz.time		
 			elseif (hum_buiten.humidity > hum_woonk.humidity) then
 				domoticz.notify('Vochtigheid hoog',"De vochtigheid in de woonkamer begint " ..hum_string .. " te worden, namelijk " ..tonumber(hum_woonk.humidity) .. ". Buiten is de vochtigheid hoger, namelijk " ..tonumber(hum_buiten.humidity) .." dus een raampje open zetten helpt helaas niet.",domoticz.PRIORITY_LOW)  
@@ -34,12 +36,3 @@ return {
 		end
 	end
 }
-
---function message (u)
---    if (time > lastMessageSent + MessageInterval) then
---        commandArray['SendNotification']=u
---        os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t ' ..u)
---        os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t ' ..u)
---    end
---    commandArray["Variable:HumidityMessage"] = tostring(time) --Last run time of the script is updated to Kamerplant1Message variable
---end
