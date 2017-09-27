@@ -1,5 +1,5 @@
 return {
-    helpers = {
+	helpers = {
 		timedifference = function(s)
 			 year = string.sub(s, 1, 4)
 			 month = string.sub(s, 6, 7)
@@ -11,7 +11,7 @@ return {
 			 t2 = os.time{year=year, month=month, day=day, hour=hour, min=minutes, sec=seconds}
 			 timedifference = os.difftime (t1, t2)
 			 return timedifference
-        end,
+        	end,
 		message = function(MessageText,lastMessageSent,MessageInterval)
 			if (time > lastMessageSent + MessageInterval) then
 				commandArray['SendNotification']=u
@@ -54,5 +54,11 @@ return {
 			end			
 			return no_motion_minutes
 		end,
-    }
+    	}
+	data = {
+		MC_Eetkamerdeur = { initial = 0 },
+		NMC_Eetkamerdeur = { initial = 0 },
+		NMC_PIR_woonkamer = { initial = 0 },
+		NMC_PIR_woonkamer = { initial = 0 }
+	}
 }
