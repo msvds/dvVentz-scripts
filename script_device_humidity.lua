@@ -14,7 +14,7 @@ return {
         local MessageInterval = 6*60*60 --Interval of sending email notifications
         local hum_string
         
-		domoticz.log(device.state)
+		--domoticz.log(device.state)
 		if (domoticz.time > lastMessageSent + MessageInterval) then
 			if (hum_woonk.humidity > 70) then
 				hum_string = "extreem"
