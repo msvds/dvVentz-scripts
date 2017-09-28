@@ -53,8 +53,8 @@ return {
 				domoticz.log(device.name .. ' voor ' ..tostring(no_motion_minutes) ..' minuten')
 			end			
 			return no_motion_minutes
-		end,
-    	}
+		end
+    	},
 	data = {
 		MC_Eetkamerdeur = { initial = 0 },
 		NMC_Eetkamerdeur = { initial = 0 },
