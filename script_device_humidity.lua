@@ -1,4 +1,4 @@
--- when motion, no motion, open or closed windows/door are detected, the counters are set to 0 here
+-- humidity checks and notifications are set here
 return {
 	active = true, -- set to false to disable this script
 	on = {
