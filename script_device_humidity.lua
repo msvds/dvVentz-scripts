@@ -28,6 +28,11 @@ return {
 		local average_humidities_badk = domoticz.data.humidities_badk.avg()
 		local average_humidities_buiten = domoticz.data.humidities_buiten.avg()
 		
+		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(hum_woonk.humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(average_humidities_woonk) .)
+		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(hum_k_lars.humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(average_humidities_k_lars) .)
+		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(hum_badk.humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(average_humidities_badk) .)
+		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(hum_buiten.humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(average_humidities_buiten) .)
+		
 		local hum_string_woonk
 		if (hum_woonk.humidity > 70) then
 			hum_string_woonk = "extreem"
