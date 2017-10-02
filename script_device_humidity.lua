@@ -17,10 +17,10 @@ return {
 		local hum_badk = domoticz.devices(114)        	
 		
 		-- add new data
-		domoticz.data.humidities_woonk.add(hum_woonk)
-		domoticz.data.humidities_k_lars.add(hum_k_lars)
-		domoticz.data.humidities_badk.add(hum_buiten)
-		domoticz.data.humidities_buiten.add(hum_badk)
+		domoticz.data.humidities_woonk.add(hum_woonk.humidity)
+		domoticz.data.humidities_k_lars.add(hum_k_lars.humidity)
+		domoticz.data.humidities_badk.add(hum_buiten.humidity)
+		domoticz.data.humidities_buiten.add(hum_badk.humidity)
 
 		-- average over 12 items each 2 hours (1 day)
 		local average_humidities_woonk = domoticz.data.humidities_woonk.avg()
@@ -29,9 +29,9 @@ return {
 		local average_humidities_buiten = domoticz.data.humidities_buiten.avg()
 		
 		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(hum_woonk.humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(average_humidities_woonk) .)
-		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(hum_k_lars.humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(average_humidities_k_lars) .)
-		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(hum_badk.humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(average_humidities_badk) .)
-		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(hum_buiten.humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(average_humidities_buiten) .)
+		domoticz.log("De vochtigheid in de kamer van Lars is " ..tonumber(hum_k_lars.humidity) .. ". De gemiddelde vochtigheid in de kamer van Lars de afgelopen 24 uur was " ..tonumber(average_humidities_k_lars) .)
+		domoticz.log("De vochtigheid in de badkamer is " ..tonumber(hum_badk.humidity) .. ". De gemiddelde vochtigheid in de badkamer de afgelopen 24 uur was " ..tonumber(average_humidities_badk) .)
+		domoticz.log("De vochtigheid buiten is " ..tonumber(hum_buiten.humidity) .. ". De gemiddelde vochtigheid buiten de afgelopen 24 uur was " ..tonumber(average_humidities_buiten) .)
 		
 		local hum_string_woonk
 		if (hum_woonk.humidity > 70) then
