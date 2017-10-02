@@ -3,11 +3,15 @@
 return {
 	active = true,
 	on = {
-		devices = {25},
+		devices = {25,81},
 	},
 	execute = function(domoticz)
-            local Eetkamerdeur = domoticz.devices(25)
+    	local Eetkamerdeur = domoticz.devices(25)
+		local Dakraamslaapk = domoticz.devices(81)
 			if (Eetkamerdeur == 'On') then
+				domoticz.globalData.MC_Eetkamerdeur = 0
+			end
+			if (Dakraamslaapk == 'On') then
 				domoticz.globalData.MC_Eetkamerdeur = 0
 			end
 	end
