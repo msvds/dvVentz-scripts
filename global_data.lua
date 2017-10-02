@@ -58,7 +58,9 @@ return {
 	data = {
 		MC_Eetkamerdeur = { initial = 0 },
 		NMC_Eetkamerdeur = { initial = 0 },
+		MC_PIR_woonkamer = { initial = 0 },
 		NMC_PIR_woonkamer = { initial = 0 },
-		NMC_PIR_woonkamer = { initial = 0 }
+		MC_Dakraamslaapk = { initial = 0 },
+		NMC_Dakraamslaapk = { initial = 0 }
 	}
 }
