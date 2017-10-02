@@ -1,3 +1,4 @@
+-- Counters for motion, no motion, open and closed windows/doors in minutes
 return {
 	active = true,
 	on = {
