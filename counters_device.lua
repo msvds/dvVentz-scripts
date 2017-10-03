@@ -10,11 +10,11 @@ return {
 		local Dakraamslaapk = domoticz.devices(81)
 		if (Eetkamerdeur == 'On') then
 			domoticz.globalData.MC_Eetkamerdeur = 0
-			domoticz.log('MC_Eetkamerdeur set to zero)
+			domoticz.log('MC_Eetkamerdeur set to zero')
 		end
 		if (Dakraamslaapk == 'On') then
 			domoticz.globalData.MC_Dakraamslaapk = 0
-			domoticz.log('MC_Dakraamslaapk set to zero)
+			domoticz.log('MC_Dakraamslaapk set to zero')
 		end
 	end
 }
