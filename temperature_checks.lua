@@ -28,10 +28,10 @@ return {
 		local average_temperatures_badk = domoticz.data.badk.avg()
 		local average_temperatures_buiten = domoticz.data.buiten.avg()
 		
-		domoticz.log("De temperatuur in de woonkamer is " ..tonumber(temperature_woonk.temperature) .. ". De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_woonk) .)
-		domoticz.log("De temperatuur in de kamer van Lars is " ..tonumber(temperature_k_lars.temperature) .. ". De gemiddelde temperatuur in de kamer van Lars de afgelopen 24 uur was " ..tonumber(average_temperatures_k_lars) .)
-		domoticz.log("De temperatuur in de badkamer is " ..tonumber(temperature_badk.temperature) .. ". De gemiddelde temperatuur in de badkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_badk) .)
-		domoticz.log("De temperatuur buiten is " ..tonumber(temperature_buiten.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(average_temperatures_buiten) .)
+		domoticz.log("De temperatuur in de woonkamer is " ..tonumber(temperature_woonk.temperature) .. ". De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_woonk) .. ".")
+		domoticz.log("De temperatuur in de kamer van Lars is " ..tonumber(temperature_k_lars.temperature) .. ". De gemiddelde temperatuur in de kamer van Lars de afgelopen 24 uur was " ..tonumber(average_temperatures_k_lars) .. ".")
+		domoticz.log("De temperatuur in de badkamer is " ..tonumber(temperature_badk.temperature) .. ". De gemiddelde temperatuur in de badkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_badk) .. ".")
+		domoticz.log("De temperatuur buiten is " ..tonumber(temperature_buiten.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(average_temperatures_buiten) .. ".")
 		
 		local temperature_string_woonk
 		if (woonk.temperature > 30) then
