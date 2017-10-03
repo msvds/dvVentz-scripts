@@ -6,7 +6,7 @@ return {
     },
     execute = function(domoticz, SmokeAlarm)
         if (SmokeAlarm.state == 'On') then
-            domoticz.devices(27).state == 'Accident tone'
+			--domoticz.devices(27).state == 'Accident tone'
 			domoticz.notify('Brand!', "De rookmelder in de hal boven gaat af" ,domoticz.PRIORITY_HIGH)  
         end
 	end
