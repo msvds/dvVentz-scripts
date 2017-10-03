@@ -34,47 +34,47 @@ return {
 		domoticz.log("De temperatuur buiten is " ..tonumber(temperature_buiten.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(average_temperatures_buiten) .. ".")
 		
 		local temperature_string_woonk
-		if (woonk.temperature > 30) then
+		if (temperature_woonk.temperature > 30) then
 			temperature_string_woonk = "extreem"
-		elseif (woonk.temperature > 28) then
+		elseif (temperature_woonk.temperature > 28) then
 			temperature_string_woonk = "heel erg"
-		elseif (woonk.temperature > 26) then
+		elseif (temperature_woonk.temperature > 26) then
 			temperature_string_woonk = "erg"
-		elseif (woonk.temperature > 24) then
+		elseif (temperature_woonk.temperature > 24) then
 			temperature_string_woonk = "redelijk"
 		end
 
-		if (woonk.temperature > 24) then
-			if (buiten.temperature < woonk.temperature) then
-				domoticz.notify('Hoge temperatuur binnen',"De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(woonk.temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(buiten.temperature) .." dus deuren en ramen open zetten kan helpen. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_woonk) ..".",domoticz.PRIORITY_LOW)  
+		if (temperature_woonk.temperature > 24) then
+			if (temperature_buiten.temperature < temperature_woonk.temperature) then
+				domoticz.notify('Hoge temperatuur binnen',"De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(temperature_woonk.temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(temperature_buiten.temperature) .." dus deuren en ramen open zetten kan helpen. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_woonk) ..".",domoticz.PRIORITY_LOW)  
 				--TODO Need to adapt intervals at the end of next line
-				domoticz.helpers.message("De vochtigheid in de woonkamer begint " ..hum_string_woonk .. " hoogte worden, namelijk " ..tonumber(hum_woonk.humidity) .. ". Buiten is de vochtigheid lager, namelijk " ..tonumber(hum_buiten.humidity) .." dus een raampje open zetten kan helpen.", 100,90)	
-			elseif (buiten.temperature > woonk.temperature) then
-				domoticz.notify('Hoge temperatuur binnen',"De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(woonk.temperature) .. ". Buiten is de temperatuur hoger, namelijk " ..tonumber(buiten.temperature) .." dus deuren en ramen open zetten helpt helaas niet. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_woonk) ..".",domoticz.PRIORITY_LOW)  
+				domoticz.helpers.message("De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(temperature_woonk.temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(temperature_buiten.temperature) .." dus een raampje open zetten kan helpen.", 100,90)	
+			elseif (temperature_buiten.temperature > temperature_woonk.temperature) then
+				domoticz.notify('Hoge temperatuur binnen',"De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(temperature_woonk.temperature) .. ". Buiten is de temperatuur hoger, namelijk " ..tonumber(temperature_buiten.temperature) .." dus deuren en ramen open zetten helpt helaas niet. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_woonk) ..".",domoticz.PRIORITY_LOW)  
 			end
 		end
 
-		if (woonk.temperature - average_temperatures_woonk > 10) then
-			domoticz.notify('Grote temperatuur stijging woonkamer'," De temperatuur stijgt snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((woonk.temperature - average_temperatures_woonk)),domoticz.PRIORITY_LOW)  
+		if (temperature_woonk.temperature - average_temperatures_woonk > 10) then
+			domoticz.notify('Grote temperatuur stijging woonkamer'," De temperatuur stijgt snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_woonk.temperature - average_temperatures_woonk)),domoticz.PRIORITY_LOW)  
 		end
-		if (k_lars.temperature - average_temperatures_k_lars > 10) then
-			domoticz.notify('Grote temperatuur stijging kamer Lars'," De temperatuur stijgt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((k_lars.temperature - average_temperatures_k_lars)),domoticz.PRIORITY_LOW)  
+		if (temperature_k_lars.temperature - average_temperatures_k_lars > 10) then
+			domoticz.notify('Grote temperatuur stijging kamer Lars'," De temperatuur stijgt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_k_lars.temperature - average_temperatures_k_lars)),domoticz.PRIORITY_LOW)  
 		end
-		if (badk.temperature - average_temperatures_badk > 10) then
-			domoticz.notify('Grote temperatuur stijging badkamer'," De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((badk.temperature - average_temperatures_badk)),domoticz.PRIORITY_LOW)  
+		if (temperature_badk.temperature - average_temperatures_badk > 10) then
+			domoticz.notify('Grote temperatuur stijging badkamer'," De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_badk.temperature - average_temperatures_badk)),domoticz.PRIORITY_LOW)  
 		end
-		if (buiten.temperature - average_temperatures_buiten > 10) then
-			domoticz.notify('Grote temperatuur stijging buiten'," De temperatuur stijgt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((buiten.temperature - average_temperatures_buiten)),domoticz.PRIORITY_LOW)  
+		if (temperature_buiten.temperature - average_temperatures_buiten > 10) then
+			domoticz.notify('Grote temperatuur stijging buiten'," De temperatuur stijgt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_buiten.temperature - average_temperatures_buiten)),domoticz.PRIORITY_LOW)  
 		end
 		
-		if (woonk.temperature - average_temperatures_woonk > 30) then
-			domoticz.notify('Brand! Extreem grote temperatuur stijging woonkamer'," De temperatuur stijgt extreem snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((woonk.temperature - average_temperatures_woonk)),domoticz.PRIORITY_HIGH)  
+		if (temperature_woonk.temperature - average_temperatures_woonk > 30) then
+			domoticz.notify('Brand! Extreem grote temperatuur stijging woonkamer'," De temperatuur stijgt extreem snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_woonk.temperature - average_temperatures_woonk)),domoticz.PRIORITY_HIGH)  
 		end
-		if (k_lars.temperature - average_temperatures_k_lars > 30) then
-			domoticz.notify('Brand! Extreem grote temperatuur stijging kamer Lars'," De temperatuur stijgt extreem snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((k_lars.temperature - average_temperatures_k_lars)),domoticz.PRIORITY_HIGH)  
+		if (temperature_k_lars.temperature - average_temperatures_k_lars > 30) then
+			domoticz.notify('Brand! Extreem grote temperatuur stijging kamer Lars'," De temperatuur stijgt extreem snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_k_lars.temperature - average_temperatures_k_lars)),domoticz.PRIORITY_HIGH)  
 		end
-		if (badk.temperature - average_temperatures_badk > 30) then
-			domoticz.notify('Brand! Extreem grote temperatuur stijging badkamer'," De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((badk.temperature - average_temperatures_badk)),domoticz.PRIORITY_HIGH)  
+		if (temperature_badk.temperature - average_temperatures_badk > 30) then
+			domoticz.notify('Brand! Extreem grote temperatuur stijging badkamer'," De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_badk.temperature - average_temperatures_badk)),domoticz.PRIORITY_HIGH)  
 		end
 		
 	end
