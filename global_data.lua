@@ -71,6 +71,12 @@ return {
 		MC_Slaapkdeur = { initial = 0 },
 		NMC_Slaapkdeur = { initial = 0 },
 		MC_Dakraamzolder = { initial = 0 },
-		NMC_Dakraamzolder = { initial = 0 }
+		NMC_Dakraamzolder = { initial = 0 },
+		MC_PIR_woonk  = { initial = 0 },
+		NMC_PIR_woonk  = { initial = 0 },
+		MC_PIR_kamerLars  = { initial = 0 },
+		NMC_PIR_kamerLars  = { initial = 0 },
+		MC_PIR_halboven  = { initial = 0 },
+		NMC_PIR_halboven  = { initial = 0 }
 	}
 }
