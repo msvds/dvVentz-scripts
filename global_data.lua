@@ -61,7 +61,15 @@ return {
 				domoticz.globalData.NMC_Floor1 = 0			  
 				domoticz.log('NMC_Eetkamerdeur & NMC_Floor1 set to zero')
 			end
-		end,	
+		end,		
+		getdevname4idx = function(deviceIDX)
+			for i, v in pairs(otherdevices_idx) do
+				if v == deviceIDX then
+					return i
+				end
+			end
+			return 0
+		end
     	},
 	data = {
 		MC_Eetkamerdeur = { initial = 0 },
