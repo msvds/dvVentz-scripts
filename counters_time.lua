@@ -18,17 +18,25 @@ return {
 		local PIR_halboven = domoticz.devices(119)
 		if (Eetkamerdeur == 'On') then
 			domoticz.globalData.MC_Eetkamerdeur = domoticz.globalData.MC_Eetkamerdeur + 1
+			domoticz.globalData.MC_Floor1 = domoticz.globalData.MC_Floor1 + 1
 			domoticz.log('MC_Eetkamerdeur = ' ..domoticz.globalData.MC_Eetkamerdeur)
+			domoticz.log('MC_Floor1 = ' ..domoticz.globalData.MC_Floor1)
 		else
 			domoticz.globalData.NMC_Eetkamerdeur = domoticz.globalData.NMC_Eetkamerdeur + 1
+			domoticz.globalData.NMC_Floor1 = domoticz.globalData.NMC_Floor1 + 1
 			domoticz.log('NMC_Eetkamerdeur = ' ..domoticz.globalData.NMC_Eetkamerdeur)
+			domoticz.log('NMC_Floor1 = ' ..domoticz.globalData.NMC_Floor1)
 		end
 		if (Dakraamslaapk == 'On') then
 			domoticz.globalData.MC_Dakraamslaapk = domoticz.globalData.MC_Dakraamslaapk + 1
+			domoticz.globalData.MC_Floor2 = domoticz.globalData.MC_Floor2 + 1
 			domoticz.log('MC_Dakraamslaapk = ' ..domoticz.globalData.MC_Dakraamslaapk)
+			domoticz.log('MC_Floor2 = ' ..domoticz.globalData.MC_Floor2)
 		else
 			domoticz.globalData.NMC_Dakraamslaapk = domoticz.globalData.NMC_Dakraamslaapk + 1
+			domoticz.globalData.NMC_Floor2 = domoticz.globalData.NMC_Floor2 + 1
 			domoticz.log('NMC_Dakraamslaapk = ' ..domoticz.globalData.NMC_Dakraamslaapk)
+			domoticz.log('NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2)
 		end
 		if (Balkondeurslaapk == 'On') then
 			domoticz.globalData.MC_Balkondeurslaapk = domoticz.globalData.MC_Balkondeurslaapk + 1
