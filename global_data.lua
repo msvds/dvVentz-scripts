@@ -61,6 +61,16 @@ return {
 		MC_PIR_woonkamer = { initial = 0 },
 		NMC_PIR_woonkamer = { initial = 0 },
 		MC_Dakraamslaapk = { initial = 0 },
-		NMC_Dakraamslaapk = { initial = 0 }
+		NMC_Dakraamslaapk = { initial = 0 },
+		MC_Balkondeurslaapk = { initial = 0 },
+		NMC_Balkondeurslaapk = { initial = 0 },
+		MC_Voordeur = { initial = 0 },
+		NMC_Voordeur = { initial = 0 },
+		MC_BalkondeurNienke = { initial = 0 },
+		NMC_BalkondeurNienke = { initial = 0 },
+		MC_Slaapkdeur = { initial = 0 },
+		NMC_Slaapkdeur = { initial = 0 },
+		MC_Dakraamzolder = { initial = 0 },
+		NMC_Dakraamzolder = { initial = 0 }
 	}
 }
