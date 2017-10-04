@@ -77,6 +77,12 @@ return {
 		MC_PIR_kamerLars  = { initial = 0 },
 		NMC_PIR_kamerLars  = { initial = 0 },
 		MC_PIR_halboven  = { initial = 0 },
-		NMC_PIR_halboven  = { initial = 0 }
+		NMC_PIR_halboven  = { initial = 0 },
+		MC_Floor1  = { initial = 0 },
+		NMC_Floor1  = { initial = 0 },
+		MC_Floor2  = { initial = 0 },
+		NMC_Floor2  = { initial = 0 },
+		MC_Floor3  = { initial = 0 },
+		NMC_Floor3  = { initial = 0 }
 	}
 }
