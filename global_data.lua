@@ -53,7 +53,15 @@ return {
 				domoticz.log(device.name .. ' voor ' ..tostring(no_motion_minutes) ..' minuten')
 			end			
 			return no_motion_minutes
-		end
+		end,
+		CountersDevice =function(domoticz,DeviceIdx,DeviceName,DeviceState,DeviceGroup1,DeviceGroup2)
+			local Device = domoticz.devices(DeviceIdx)
+			if (Device == 'On') then
+				domoticz.globalData.NMC_Eetkamerdeur = 0
+				domoticz.globalData.NMC_Floor1 = 0			  
+				domoticz.log('NMC_Eetkamerdeur & NMC_Floor1 set to zero')
+			end
+		end,	
     	},
 	data = {
 		MC_Eetkamerdeur = { initial = 0 },
