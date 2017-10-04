@@ -5,6 +5,7 @@ return {
 		['timer'] = 'every minute'
 	},
 	execute = function(domoticz)
+		domoticz.log('counters_time.lua executed')
 		local Eetkamerdeur = domoticz.devices(25)
 		local Dakraamslaapk = domoticz.devices(81)
 		local Balkondeurslaapk = domoticz.devices(83)
