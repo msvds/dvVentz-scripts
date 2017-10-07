@@ -14,15 +14,15 @@ return {
 	execute = function(domoticz, device)
 		local hum_woonk = domoticz.devices(21)
 		local hum_k_lars = domoticz.devices(63)
-		local hum_buiten = domoticz.devices(60)		
-		local hum_badk = domoticz.devices(114) 	
+		local hum_badk = domoticz.devices(114) 
+		local hum_buiten = domoticz.devices(60)				
 		local hum_bijkeuken = domoticz.devices(111)       	
 		
 		-- add new data
 		domoticz.data.woonk.add(hum_woonk.humidity)
 		domoticz.data.k_lars.add(hum_k_lars.humidity)
-		domoticz.data.badk.add(hum_buiten.humidity)
-		domoticz.data.buiten.add(hum_badk.humidity)		
+		domoticz.data.badk.add(hum_badk.humidity)
+		domoticz.data.buiten.add(hum_buiten.humidity)		
 		domoticz.data.bijkeuken.add(hum_bijkeuken.humidity)
 
 		-- average over 12 items each 6 hours (3 days)
