@@ -4,7 +4,7 @@ return {
 	active = true, -- set to false to disable this script
 	on = {
 		devices = {131
-		--,91
+		,91
 		}
 	},
 	execute = function(domoticz, device)
