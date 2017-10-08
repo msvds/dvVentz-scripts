@@ -1,8 +1,9 @@
 -- front door bell checks and actions are set here
+-- test switch idx = 91
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		devices = {131}
+		devices = {131,91}
 	},
 	execute = function(domoticz, device)
 		local schemerlamp_deur = domoticz.devices(97)
