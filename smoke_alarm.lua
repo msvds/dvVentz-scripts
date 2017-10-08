@@ -33,7 +33,7 @@ return {
 				domoticz.notify('Brand!', "De rookmelder in de keuken boven gaat af" ,domoticz.PRIORITY_HIGH) 
 			end
 			if (device.name == 'Test Switch') then 
-				domoticz.notify('Brand!', "Dit was een test" ,domoticz.PRIORITY_HIGH) 
+				domoticz.notify('Brand alarm test!', "Dit was een test, niks aan de hand" ,domoticz.PRIORITY_HIGH) 
 			end
 		end
 	end
