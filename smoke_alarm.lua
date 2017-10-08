@@ -25,10 +25,10 @@ return {
 			lamp_hal_boven.switchOn().forSec(1).repeatAfterSec(1, 10)			
 			domoticz.notify('Brand!', "Een rookmelder gaat af" ,domoticz.PRIORITY_HIGH)
 			domoticz.SOUND_SIREN
-			if (smoke_alarm_zolder.state == 'On') then 
+			if (SmokeAlarm.name == 'Smoke Detector Zolder') then 
 				domoticz.notify('Brand!', "De rookmelder in de hal boven gaat af" ,domoticz.PRIORITY_HIGH) 
 			end
-			if (smoke_alarm_keuken.state == 'On') then 
+			if (SmokeAlarm.name == 'Smoke Detector Keuken') then 
 				domoticz.notify('Brand!', "De rookmelder in de keuken boven gaat af" ,domoticz.PRIORITY_HIGH) 
 			end
         end
