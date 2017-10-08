@@ -31,7 +31,7 @@ return {
 			if (SmokeAlarm.name == 'Smoke Detector Keuken') then 
 				domoticz.notify('Brand!', "De rookmelder in de keuken boven gaat af" ,domoticz.PRIORITY_HIGH) 
 			end
-        end
+		end
 	end
 }
 
