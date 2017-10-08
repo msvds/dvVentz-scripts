@@ -24,7 +24,7 @@ return {
 			schemerlamp_deur.switchOn().forSec(1).repeatAfterSec(1, 10)
 			lamp_hal_boven.switchOn().forSec(1).repeatAfterSec(1, 10)			
 			domoticz.notify('Brand!', "Een rookmelder gaat af" ,domoticz.PRIORITY_HIGH)
-			domoticz.SOUND_SIREN
+			--domoticz.SOUND_SIREN
 			if (device.name == 'Smoke Detector Zolder') then 
 				domoticz.notify('Brand!', "De rookmelder in de hal boven gaat af" ,domoticz.PRIORITY_HIGH) 
 			end
