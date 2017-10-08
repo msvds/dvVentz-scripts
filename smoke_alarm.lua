@@ -4,6 +4,7 @@ return {
 	active = true, -- set to false to disable this script
 	on = {
 		devices = {129,197,91},
+	},
 	execute = function(domoticz, device)
 		local smoke_alarm_zolder = domoticz.devices(129)
 		local smoke_alarm_keuken = domoticz.devices(197)
@@ -37,4 +38,3 @@ return {
 		end
 	end
 }
-
