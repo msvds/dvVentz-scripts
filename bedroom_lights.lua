@@ -10,6 +10,7 @@ return {
 		local dimmer_bed_martijn = domoticz.devices(149)
 		local dimmer_bed_suzanne = domoticz.devices(150)
 		local IsDark = domoticz.devices(78)
+		domoticz.log('bedroom_lights.lua ' ..device.state.. ' and ' ..IsDark)
 		if (device.state == 'On' and IsDark == 'On') then
 			dimmer_bed_martijn.switchOn()
 			dimmer_bed_suzanne.switchOn()  
