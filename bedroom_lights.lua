@@ -14,7 +14,7 @@ return {
 		if (device.state == 'Open' and IsDark.state == 'On') then
 			dimmer_bed_martijn.switchOn()
 			dimmer_bed_suzanne.switchOn()  
-			domoticz.log('Eetkamerdeur op terwijl het donker is -> Nachtlampjes aangezet')
+			domoticz.log('Slaapkamerdeur open terwijl het donker is -> Nachtlampjes aangezet')
 		end
 	end
 }
