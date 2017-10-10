@@ -11,8 +11,9 @@ return {
 		local dimmer_bed_suzanne = domoticz.devices(150)
 		local IsDark = domoticz.devices(78)
 		local Time = require('Time')
+		local t = Time('2016-12-12 07:35:00')
 		domoticz.log('bedroom_lights.lua ' ..device.state.. ' and ' ..IsDark.state)		
-		if (Time.matchesRule('at 19:00-00:30') and device.state == 'Open' and IsDark.state == 'On') then
+		if (t.matchesRule('at 19:00-00:30') and device.state == 'Open' and IsDark.state == 'On') then
 			-- between 19:00 and 0:30 then next day
 			if (dimmer_bed_martijn.state == 'Off') then
 				dimmer_bed_martijn.switchOn()
