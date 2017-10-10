@@ -1,4 +1,6 @@
-on = {
+return {
+	active = true, -- set to false to disable this script
+	on = {
 		timer = {'every 6 hours'}
 	},
 	data = {
