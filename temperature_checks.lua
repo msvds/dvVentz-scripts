@@ -32,11 +32,11 @@ return {
 		local average_temperatures_buiten = domoticz.data.buiten.avg()		
 		local average_temperatures_bijkeuken = domoticz.data.bijkeuken.avg()
 		
-		domoticz.log("De temperatuur in de woonkamer is " ..tonumber(temperature_woonk.temperature) .. ". De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_woonk) .. ".")
-		domoticz.log("De temperatuur in de kamer van Lars is " ..tonumber(temperature_k_lars.temperature) .. ". De gemiddelde temperatuur in de kamer van Lars de afgelopen 24 uur was " ..tonumber(average_temperatures_k_lars) .. ".")
-		domoticz.log("De temperatuur in de badkamer is " ..tonumber(temperature_badk.temperature) .. ". De gemiddelde temperatuur in de badkamer de afgelopen 24 uur was " ..tonumber(average_temperatures_badk) .. ".")
-		domoticz.log("De temperatuur buiten is " ..tonumber(temperature_buiten.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(average_temperatures_buiten) .. ".")
-		domoticz.log("De temperatuur in de bijkeuken is " ..tonumber(temperature_bijkeuken.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(average_temperatures_bijkeuken) .. ".")
+		domoticz.log("De temperatuur in de woonkamer is " ..tonumber(temperature_woonk.temperature) .. ". De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(round(average_temperatures_woonk,1)) .. ".")
+		domoticz.log("De temperatuur in de kamer van Lars is " ..tonumber(temperature_k_lars.temperature) .. ". De gemiddelde temperatuur in de kamer van Lars de afgelopen 24 uur was " ..tonumber(round(average_temperatures_k_lars,1)) .. ".")
+		domoticz.log("De temperatuur in de badkamer is " ..tonumber(temperature_badk.temperature) .. ". De gemiddelde temperatuur in de badkamer de afgelopen 24 uur was " ..tonumber(round(average_temperatures_badk,1)) .. ".")
+		domoticz.log("De temperatuur buiten is " ..tonumber(temperature_buiten.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(round(average_temperatures_buiten,1)) .. ".")
+		domoticz.log("De temperatuur in de bijkeuken is " ..tonumber(temperature_bijkeuken.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(round(average_temperatures_bijkeuken,1)) .. ".")
 		
 		local temperature_string_woonk
 		if (temperature_woonk.temperature > 30) then
@@ -60,26 +60,26 @@ return {
 		end
 
 		if (temperature_woonk.temperature - average_temperatures_woonk > 2) then
-			domoticz.notify('Grote temperatuur stijging woonkamer'," De temperatuur stijgt snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_woonk.temperature - average_temperatures_woonk)),domoticz.PRIORITY_LOW)  
+			domoticz.notify('Grote temperatuur stijging woonkamer'," De temperatuur stijgt snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(round((temperature_woonk.temperature - average_temperatures_woonk),1)),domoticz.PRIORITY_LOW)  
 		end
 		if (temperature_k_lars.temperature - average_temperatures_k_lars > 2) then
-			domoticz.notify('Grote temperatuur stijging kamer Lars'," De temperatuur stijgt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_k_lars.temperature - average_temperatures_k_lars)),domoticz.PRIORITY_LOW)  
+			domoticz.notify('Grote temperatuur stijging kamer Lars'," De temperatuur stijgt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(round((temperature_k_lars.temperature - average_temperatures_k_lars),1)),domoticz.PRIORITY_LOW)  
 		end
 		if (temperature_badk.temperature - average_temperatures_badk > 2) then
-			domoticz.notify('Grote temperatuur stijging badkamer'," De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_badk.temperature - average_temperatures_badk)),domoticz.PRIORITY_LOW)  
+			domoticz.notify('Grote temperatuur stijging badkamer'," De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(round((temperature_badk.temperature - average_temperatures_badk),1)),domoticz.PRIORITY_LOW)  
 		end
 		if (temperature_buiten.temperature - average_temperatures_buiten > 2) then
-			domoticz.notify('Grote temperatuur stijging buiten'," De temperatuur stijgt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_buiten.temperature - average_temperatures_buiten)),domoticz.PRIORITY_LOW)  
+			domoticz.notify('Grote temperatuur stijging buiten'," De temperatuur stijgt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(round((temperature_buiten.temperature - average_temperatures_buiten),1)),domoticz.PRIORITY_LOW)  
 		end
 		
 		if (temperature_woonk.temperature - average_temperatures_woonk > 30) then
-			domoticz.notify('Brand! Extreem grote temperatuur stijging woonkamer'," De temperatuur stijgt extreem snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_woonk.temperature - average_temperatures_woonk)),domoticz.PRIORITY_HIGH)  
+			domoticz.notify('Brand! Extreem grote temperatuur stijging woonkamer'," De temperatuur stijgt extreem snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(round((temperature_woonk.temperature - average_temperatures_woonk),1)),domoticz.PRIORITY_HIGH)  
 		end
 		if (temperature_k_lars.temperature - average_temperatures_k_lars > 30) then
-			domoticz.notify('Brand! Extreem grote temperatuur stijging kamer Lars'," De temperatuur stijgt extreem snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_k_lars.temperature - average_temperatures_k_lars)),domoticz.PRIORITY_HIGH)  
+			domoticz.notify('Brand! Extreem grote temperatuur stijging kamer Lars'," De temperatuur stijgt extreem snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(round((temperature_k_lars.temperature - average_temperatures_k_lars),1)),domoticz.PRIORITY_HIGH)  
 		end
 		if (temperature_badk.temperature - average_temperatures_badk > 30) then
-			domoticz.notify('Brand! Extreem grote temperatuur stijging badkamer'," De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber((temperature_badk.temperature - average_temperatures_badk)),domoticz.PRIORITY_HIGH)  
+			domoticz.notify('Brand! Extreem grote temperatuur stijging badkamer'," De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(round((temperature_badk.temperature - average_temperatures_badk),1)),domoticz.PRIORITY_HIGH)  
 		end
 		
 		if (temperature_bijkeuken.temperature < 5) then
