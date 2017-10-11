@@ -7,7 +7,7 @@ return {
 	},
 
 	execute = function(domoticz, device)
-		local lampen_woonkamer = domoticz.devices(1)
+		local lampen_woonkamer = domoticz.groups(1)
 		local IsDark = domoticz.devices(78)
 		local SomeoneHome = domoticz.devices(96)
 		local Time = require('Time')
