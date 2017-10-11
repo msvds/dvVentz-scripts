@@ -10,7 +10,6 @@ return {
 		local lampen_woonkamer = domoticz.groups(1)
 		local IsDark = domoticz.devices(78)
 		local SomeoneHome = domoticz.devices(96)
-		local Time = require('Time')
 		domoticz.log('eetkamerdeur.lua ' ..device.state.. ' and ' ..IsDark.state)		
 		if (device.state == 'Open' and IsDark.state == 'On' and SomeoneHome.state == 'Off') then
 			if (lampen_woonkamer.state == 'Off') then
