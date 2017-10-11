@@ -32,11 +32,17 @@ return {
 		local average_temperatures_buiten = domoticz.data.buiten.avg()		
 		local average_temperatures_bijkeuken = domoticz.data.bijkeuken.avg()
 		
-		domoticz.log("De temperatuur in de woonkamer is " ..tonumber(temperature_woonk.temperature) .. ". De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(round(average_temperatures_woonk,1)) .. ".")
-		domoticz.log("De temperatuur in de kamer van Lars is " ..tonumber(temperature_k_lars.temperature) .. ". De gemiddelde temperatuur in de kamer van Lars de afgelopen 24 uur was " ..tonumber(round(average_temperatures_k_lars,1)) .. ".")
-		domoticz.log("De temperatuur in de badkamer is " ..tonumber(temperature_badk.temperature) .. ". De gemiddelde temperatuur in de badkamer de afgelopen 24 uur was " ..tonumber(round(average_temperatures_badk,1)) .. ".")
-		domoticz.log("De temperatuur buiten is " ..tonumber(temperature_buiten.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(round(average_temperatures_buiten,1)) .. ".")
-		domoticz.log("De temperatuur in de bijkeuken is " ..tonumber(temperature_bijkeuken.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(round(average_temperatures_bijkeuken,1)) .. ".")
+		domoticz.log('average_temperatures_woonk = ' ..average_temperatures_woonk)
+		domoticz.log('average_temperatures_k_lars = ' ..average_temperatures_k_lars)
+		domoticz.log('average_temperatures_badk = ' ..average_temperatures_badk)
+		domoticz.log('average_temperatures_buiten = ' ..average_temperatures_buiten)
+		domoticz.log('average_temperatures_bijkeuken = ' ..average_temperatures_bijkeuken)
+		
+		--domoticz.log("De temperatuur in de woonkamer is " ..tonumber(temperature_woonk.temperature) .. ". De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(round(average_temperatures_woonk,1)) .. ".")
+		--domoticz.log("De temperatuur in de kamer van Lars is " ..tonumber(temperature_k_lars.temperature) .. ". De gemiddelde temperatuur in de kamer van Lars de afgelopen 24 uur was " ..tonumber(round(average_temperatures_k_lars,1)) .. ".")
+		--domoticz.log("De temperatuur in de badkamer is " ..tonumber(temperature_badk.temperature) .. ". De gemiddelde temperatuur in de badkamer de afgelopen 24 uur was " ..tonumber(round(average_temperatures_badk,1)) .. ".")
+		--domoticz.log("De temperatuur buiten is " ..tonumber(temperature_buiten.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(round(average_temperatures_buiten,1)) .. ".")
+		--domoticz.log("De temperatuur in de bijkeuken is " ..tonumber(temperature_bijkeuken.temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(round(average_temperatures_bijkeuken,1)) .. ".")
 		
 		local temperature_string_woonk
 		if (temperature_woonk.temperature > 30) then
