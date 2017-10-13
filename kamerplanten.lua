@@ -20,13 +20,13 @@ return {
 		local average_humidities_plant1  = domoticz.data.plant1.avg()
 		local average_humidities_plant2  = domoticz.data.plant2.avg()    
     
-		if (hum_plant1.humidity < 25) then				
+		if (hum_plant1.percentage < 25) then				
         	message = message .. 'De plant in de hal boven begint heel erg droog te worden (<25%), namelijk ' ..tonumber(hum_plant1.percentage) .. '), '
-		elseif (hum_plant1.humidity < 35) then				
+		elseif (hum_plant1.percentage < 35) then				
         	message = message .. 'De plant in de hal boven begint erg droog te worden (<35%), namelijk ' ..tonumber(hum_plant1.percentage) .. '), '
-		elseif (hum_plant1.humidity < 40) then				
+		elseif (hum_plant1.percentage < 40) then				
         	message = message .. 'De plant in de hal boven begint droog te worden (<40%), namelijk ' ..tonumber(hum_plant1.percentage) .. '), '
-		elseif (hum_plant1.humidity < 50) then				
+		elseif (hum_plant1.percentage < 50) then				
         	message = message .. 'De plant in de hal boven begint een beetje droog te worden (<50%), namelijk ' ..tonumber(hum_plant1.percentage) .. '), '
 		end
     
