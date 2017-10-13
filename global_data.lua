@@ -99,6 +99,8 @@ return {
 		MC_Floor2  = { initial = 0 },
 		NMC_Floor2  = { initial = 0 },
 		MC_Floor3  = { initial = 0 },
-		NMC_Floor3  = { initial = 0 }
+		NMC_Floor3  = { initial = 0 },
+		MC_Total  = { initial = 0 },
+		NMC_Total  = { initial = 0 }
 	}
 }
