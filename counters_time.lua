@@ -16,6 +16,10 @@ return {
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
+		domoticz.log('MC_Eetkamerdeur = ' ..domoticz.globalData.MC_Eetkamerdeur)
+		domoticz.log('NMC_Eetkamerdeur = ' ..domoticz.globalData.NMC_Eetkamerdeur)
+		domoticz.log('MC_Dakraamslaapk = ' ..domoticz.globalData.MC_Dakraamslaapk)
+		domoticz.log('NMC_Dakraamslaapk = ' ..domoticz.globalData.NMC_Dakraamslaapk)
 		if (Eetkamerdeur == 'On') then
 			domoticz.globalData.MC_Eetkamerdeur = domoticz.globalData.MC_Eetkamerdeur + 1
 			domoticz.globalData.MC_Floor1 = domoticz.globalData.MC_Floor1 + 1
