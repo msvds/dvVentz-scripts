@@ -62,7 +62,7 @@ return {
 				ClosedC_Floor2 = 1
 			else
 				ClosedC_Floor2 = 0
-			end if
+			end
 		end
 		if (Voordeur.state == 'Open') then
 			domoticz.globalData.OpenC_Voordeur = domoticz.globalData.OpenC_Voordeur + 1
