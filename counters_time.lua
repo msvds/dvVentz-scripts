@@ -16,64 +16,81 @@ return {
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
-		domoticz.log('domoticz.globalData.NMC_Dakraamzolder: ' ..domoticz.globalData.NMC_Dakraamzolder)		
-		domoticz.log('domoticz.globalData.MC_Dakraamzolder: ' ..domoticz.globalData.MC_Dakraamzolder)
+		-- OpenC increases if 1 door on a floor is open
+		-- ClosedC increases only if all doors on a floor are open
+		local OpenC_Floor1 = 0
+		local OpenC_Floor2 = 0
+		local OpenC_Floor3 = 0
+		local ClosedC_Floor1 = 0
+		local ClosedC_Floor2 = 0
+		local ClosedC_Floor3 = 0
+		local MC_Floor1 = 0
+		local MC_Floor2 = 0
+		local MC_Floor3 = 0
+		local NMC_Floor1 = 0
+		local NMC_Floor2 = 0
+		local NMC_Floor3 = 0
+		
+		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)		
+		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 		if (Eetkamerdeur.state == 'Open') then
-			domoticz.globalData.MC_Eetkamerdeur = domoticz.globalData.MC_Eetkamerdeur + 1
-			domoticz.globalData.MC_Floor1 = domoticz.globalData.MC_Floor1 + 1
-			domoticz.log('MC_Eetkamerdeur = ' ..domoticz.globalData.MC_Eetkamerdeur)
-			domoticz.log('MC_Floor1 = ' ..domoticz.globalData.MC_Floor1)
+			domoticz.globalData.OpenC_Eetkamerdeur  = domoticz.globalData.OpenC_Eetkamerdeur + 1
+			domoticz.log('OpenC_Eetkamerdeur = ' ..domoticz.globalData.OpenC_Eetkamerdeur)
+			OpenC_Floor1 = 1
 		else
-			domoticz.globalData.NMC_Eetkamerdeur = domoticz.globalData.NMC_Eetkamerdeur + 1
-			domoticz.globalData.NMC_Floor1 = domoticz.globalData.NMC_Floor1 + 1
-			domoticz.log('NMC_Eetkamerdeur = ' ..domoticz.globalData.NMC_Eetkamerdeur)
-			domoticz.log('NMC_Floor1 = ' ..domoticz.globalData.NMC_Floor1)
+			domoticz.globalData.ClosedC_Eetkamerdeur = domoticz.globalData.ClosedC_Eetkamerdeur + 1
+			domoticz.log('ClosedC_Eetkamerdeur = ' ..domoticz.globalData.ClosedC_Eetkamerdeur)
+			ClosedC_Floor1 = 1
 		end
 		if (Dakraamslaapk.state == 'Open') then
-			domoticz.globalData.MC_Dakraamslaapk = domoticz.globalData.MC_Dakraamslaapk + 1
-			domoticz.globalData.MC_Floor2 = domoticz.globalData.MC_Floor2 + 1
-			domoticz.log('MC_Dakraamslaapk = ' ..domoticz.globalData.MC_Dakraamslaapk)
-			domoticz.log('MC_Floor2 = ' ..domoticz.globalData.MC_Floor2)
+			domoticz.globalData.OpenC_Dakraamslaapk = domoticz.globalData.OpenC_Dakraamslaapk + 1
+			domoticz.log('OpenC_Dakraamslaapk = ' ..domoticz.globalData.OpenC_Dakraamslaapk)
+			OpenC_Floor2 = 1
 		else
-			domoticz.globalData.NMC_Dakraamslaapk = domoticz.globalData.NMC_Dakraamslaapk + 1
-			domoticz.globalData.NMC_Floor2 = domoticz.globalData.NMC_Floor2 + 1
-			domoticz.log('NMC_Dakraamslaapk = ' ..domoticz.globalData.NMC_Dakraamslaapk)
-			domoticz.log('NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2)
+			domoticz.globalData.ClosedC_Dakraamslaapk = domoticz.globalData.ClosedC_Dakraamslaapk + 1
+			domoticz.log('ClosedC_Dakraamslaapk = ' ..domoticz.globalData.ClosedC_Dakraamslaapk)
+			ClosedC_Floor2 = 1
 		end
 		if (Balkondeurslaapk.state == 'Open') then
-			domoticz.globalData.MC_Balkondeurslaapk = domoticz.globalData.MC_Balkondeurslaapk + 1
-			domoticz.log('MC_Balkondeurslaapk = ' ..domoticz.globalData.MC_Balkondeurslaapk)
+			domoticz.globalData.OpenC_Balkondeurslaapk = domoticz.globalData.OpenC_Balkondeurslaapk + 1
+			domoticz.log('OpenC_Balkondeurslaapk = ' ..domoticz.globalData.OpenC_Balkondeurslaapk)
+			OpenC_Floor2 = 1
 		else
-			domoticz.globalData.NMC_Balkondeurslaapk = domoticz.globalData.NMC_Balkondeurslaapk + 1
-			domoticz.log('NMC_Balkondeurslaapk = ' ..domoticz.globalData.NMC_Balkondeurslaapk)
+			domoticz.globalData.ClosedC_Balkondeurslaapk = domoticz.globalData.ClosedC_Balkondeurslaapk + 1
+			domoticz.log('ClosedC_Balkondeurslaapk = ' ..domoticz.globalData.ClosedC_Balkondeurslaapk)
+			if (ClosedC_Floor2 == 1) then
+				ClosedC_Floor2 = 1
+			else
+				ClosedC_Floor2 = 0
+			end if
 		end
 		if (Voordeur.state == 'Open') then
-			domoticz.globalData.MC_Voordeur = domoticz.globalData.MC_Voordeur + 1
-			domoticz.log('MC_Voordeur = ' ..domoticz.globalData.MC_Voordeur)
+			domoticz.globalData.OpenC_Voordeur = domoticz.globalData.OpenC_Voordeur + 1
+			domoticz.log('OpenC_Voordeur = ' ..domoticz.globalData.OpenC_Voordeur)
 		else
-			domoticz.globalData.NMC_Voordeur = domoticz.globalData.NMC_Voordeur + 1
-			domoticz.log('NMC_Voordeur = ' ..domoticz.globalData.NMC_Voordeur)
+			domoticz.globalData.ClosedC_Voordeur = domoticz.globalData.ClosedC_Voordeur + 1
+			domoticz.log('ClosedC_Voordeur = ' ..domoticz.globalData.ClosedC_Voordeur)
 		end
 		if (BalkondeurNienke.state == 'Open') then
-			domoticz.globalData.MC_BalkondeurNienke = domoticz.globalData.MC_BalkondeurNienke + 1
-			domoticz.log('MC_BalkondeurNienke = ' ..domoticz.globalData.MC_BalkondeurNienke)
+			domoticz.globalData.OpenC_BalkondeurNienke = domoticz.globalData.OpenC_BalkondeurNienke + 1
+			domoticz.log('OpenC_BalkondeurNienke = ' ..domoticz.globalData.OpenC_BalkondeurNienke)
 		else
-			domoticz.globalData.NMC_BalkondeurNienke = domoticz.globalData.NMC_BalkondeurNienke + 1
-			domoticz.log('NMC_BalkondeurNienke = ' ..domoticz.globalData.NMC_BalkondeurNienke)
+			domoticz.globalData.ClosedC_BalkondeurNienke = domoticz.globalData.ClosedC_BalkondeurNienke + 1
+			domoticz.log('ClosedC_BalkondeurNienke = ' ..domoticz.globalData.ClosedC_BalkondeurNienke)
 		end
 		if (Slaapkdeur.state == 'Open') then
-			domoticz.globalData.MC_Slaapkdeur = domoticz.globalData.MC_Slaapkdeur + 1
-			domoticz.log('MC_Slaapkdeur = ' ..domoticz.globalData.MC_Slaapkdeur)
+			domoticz.globalData.OpenC_Slaapkdeur = domoticz.globalData.OpenC_Slaapkdeur + 1
+			domoticz.log('OpenC_Slaapkdeur = ' ..domoticz.globalData.OpenC_Slaapkdeur)
 		else
-			domoticz.globalData.NMC_Slaapkdeur = domoticz.globalData.NMC_Slaapkdeur + 1
-			domoticz.log('NMC_Slaapkdeur = ' ..domoticz.globalData.NMC_Slaapkdeur)
+			domoticz.globalData.ClosedC_Slaapkdeur = domoticz.globalData.ClosedC_Slaapkdeur + 1
+			domoticz.log('ClosedC_Slaapkdeur = ' ..domoticz.globalData.ClosedC_Slaapkdeur)
 		end
 		if (Dakraamzolder.state == 'Open') then
-			domoticz.globalData.MC_Dakraamzolder = domoticz.globalData.MC_Dakraamzolder + 1
-			domoticz.log('MC_Dakraamzolder = ' ..domoticz.globalData.MC_Dakraamzolder)
+			domoticz.globalData.OpenC_Dakraamzolder = domoticz.globalData.OpenC_Dakraamzolder + 1
+			domoticz.log('OpenC_Dakraamzolder = ' ..domoticz.globalData.OpenC_Dakraamzolder)
 		else
-			domoticz.globalData.NMC_Dakraamzolder = domoticz.globalData.NMC_Dakraamzolder + 1
-			domoticz.log('NMC_Dakraamzolder = ' ..domoticz.globalData.NMC_Dakraamzolder)
+			domoticz.globalData.ClosedC_Dakraamzolder = domoticz.globalData.ClosedC_Dakraamzolder + 1
+			domoticz.log('ClosedC_Dakraamzolder = ' ..domoticz.globalData.ClosedC_Dakraamzolder)
 		end
 		
 		if (PIR_woonk.state == 'On') then
@@ -99,7 +116,15 @@ return {
 			domoticz.globalData.NMC_PIR_halboven = domoticz.globalData.NMC_PIR_halboven + 1
 			domoticz.log('NMC_PIR_halboven = ' ..domoticz.globalData.NMC_PIR_halboven)
 		end
-		domoticz.log('domoticz.globalData.NMC_Dakraamzolder: ' ..domoticz.globalData.NMC_Dakraamzolder)		
-		domoticz.log('domoticz.globalData.MC_Dakraamzolder: ' ..domoticz.globalData.MC_Dakraamzolder)
+		domoticz.globalData.OpenC_Floor1 = domoticz.globalData.OpenC_Floor1 + 1	
+		domoticz.globalData.OpenC_Floor2 = domoticz.globalData.OpenC_Floor2 + 1
+		domoticz.globalData.OpenC_Floor3 = domoticz.globalData.OpenC_Floor3 + 1
+		domoticz.globalData.ClosedC_Floor1 = domoticz.globalData.ClosedC_Floor1 + 1	
+		domoticz.globalData.ClosedC_Floor2 = domoticz.globalData.ClosedC_Floor2 + 1
+		domoticz.globalData.ClosedC_Floor3 = domoticz.globalData.ClosedC_Floor3 + 1	
+		domoticz.log('OpenC_Floor1 = ' ..domoticz.globalData.OpenC_Floor1)
+			
+		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)		
+		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 	end
 }
