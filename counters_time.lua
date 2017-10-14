@@ -2,7 +2,7 @@
 return {
 	active = true,
 	on = {
-		['timer'] = 'every minute'
+		timer = {'every minute'}
 	},
 	execute = function(domoticz)
 		domoticz.log('counters_time.lua executed')
