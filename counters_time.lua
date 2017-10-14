@@ -5,7 +5,7 @@ return {
 		timer = {'every minute'}
 	},
 	execute = function(domoticz)
-		domoticz.log('counters_time.lua executed')
+		--domoticz.log('counters_time.lua executed')
 		local Eetkamerdeur = domoticz.devices(25)
 		local Dakraamslaapk = domoticz.devices(81)
 		local Balkondeurslaapk = domoticz.devices(83)
@@ -16,14 +16,8 @@ return {
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
-		domoticz.log('MC_Eetkamerdeur = ' ..domoticz.globalData.MC_Eetkamerdeur)
-		domoticz.log('NMC_Eetkamerdeur = ' ..domoticz.globalData.NMC_Eetkamerdeur)
-		domoticz.log('MC_Dakraamslaapk = ' ..domoticz.globalData.MC_Dakraamslaapk)
-		domoticz.log('NMC_Dakraamslaapk = ' ..domoticz.globalData.NMC_Dakraamslaapk)
-		domoticz.log('Dakraamzolder.state: ' ..Dakraamzolder.state)
-		domoticz.log('domoticz.globalData.NMC_Eetkamerdeur: ' ..domoticz.globalData.NMC_Eetkamerdeur)		
-		domoticz.log('domoticz.globalData.MC_Eetkamerdeur: ' ..domoticz.globalData.MC_Eetkamerdeur)
-		domoticz.log('PIR_halboven.state: ' ..PIR_halboven.state)
+		domoticz.log('domoticz.globalData.NMC_Dakraamzolder: ' ..domoticz.globalData.NMC_Dakraamzolder)		
+		domoticz.log('domoticz.globalData.MC_Dakraamzolder: ' ..domoticz.globalData.MC_Dakraamzolder)
 		if (Eetkamerdeur.state == 'Open') then
 			domoticz.globalData.MC_Eetkamerdeur = domoticz.globalData.MC_Eetkamerdeur + 1
 			domoticz.globalData.MC_Floor1 = domoticz.globalData.MC_Floor1 + 1
@@ -105,8 +99,7 @@ return {
 			domoticz.globalData.NMC_PIR_halboven = domoticz.globalData.NMC_PIR_halboven + 1
 			domoticz.log('NMC_PIR_halboven = ' ..domoticz.globalData.NMC_PIR_halboven)
 		end
-		domoticz.log('Dakraamzolder.state: ' ..Dakraamzolder.state)
-		domoticz.log('domoticz.globalData.NMC_Eetkamerdeur: ' ..domoticz.globalData.NMC_Eetkamerdeur)		
-		domoticz.log('domoticz.globalData.MC_Eetkamerdeur: ' ..domoticz.globalData.MC_Eetkamerdeur)
+		domoticz.log('domoticz.globalData.NMC_Dakraamzolder: ' ..domoticz.globalData.NMC_Dakraamzolder)		
+		domoticz.log('domoticz.globalData.MC_Dakraamzolder: ' ..domoticz.globalData.MC_Dakraamzolder)
 	end
 }
