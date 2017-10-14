@@ -100,7 +100,15 @@ return {
 		NMC_Floor2  = { initial = 0 },
 		MC_Floor3  = { initial = 0 },
 		NMC_Floor3  = { initial = 0 },
+		OpenC_Floor1  = { initial = 0 },
+		ClosedC_Floor1  = { initial = 0 },
+		OpenC_Floor2  = { initial = 0 },
+		ClosedC_Floor2  = { initial = 0 },
+		OpenC_Floor3  = { initial = 0 },
+		ClosedC_Floor3  = { initial = 0 },
 		MC_Total  = { initial = 0 },
-		NMC_Total  = { initial = 0 }
+		NMC_Total  = { initial = 0 },
+		OpenC_Total  = { initial = 0 },
+		ClosedC_Total  = { initial = 0 }
 	}
 }
