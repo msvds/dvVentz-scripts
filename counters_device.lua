@@ -17,7 +17,10 @@ return {
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
 		domoticz.log('Dakraamzolder.state: ' ..Dakraamzolder.state)
+		domoticz.log('domoticz.globalData.NMC_Eetkamerdeur: ' ..domoticz.globalData.NMC_Eetkamerdeur)		
+		domoticz.log('domoticz.globalData.MC_Eetkamerdeur: ' ..domoticz.globalData.MC_Eetkamerdeur)
 		domoticz.log('PIR_halboven.state: ' ..PIR_halboven.state)
+		
 		if (Eetkamerdeur.state == 'Open') then
 			domoticz.globalData.NMC_Eetkamerdeur = 0
 			domoticz.globalData.NMC_Floor1 = 0			  
@@ -53,7 +56,7 @@ return {
 			domoticz.globalData.NMC_Floor3 = 0
 			domoticz.log('NMC_Dakraamzolder & NMC_Floor3 set to zero')
 		end
-		if (PIR_woonk.state == 'Motion') then
+		if (PIR_woonk.state == 'On') then
 			domoticz.globalData.NMC_PIR_woonk = 0
 			domoticz.globalData.NMC_Floor1 = 0
 			domoticz.log('NMC_PIR_woonk & NMC_Floor1 set to zero')
@@ -68,5 +71,7 @@ return {
 			domoticz.globalData.NMC_Floor2 = 0
 			domoticz.log('NMC_PIR_halboven & NMC_Floor2 set to zero')
 		end
+		domoticz.log('domoticz.globalData.NMC_Eetkamerdeur: ' ..domoticz.globalData.NMC_Eetkamerdeur)		
+		domoticz.log('domoticz.globalData.MC_Eetkamerdeur: ' ..domoticz.globalData.MC_Eetkamerdeur)
 	end
 }
