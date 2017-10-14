@@ -16,52 +16,52 @@ return {
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
-		if (Eetkamerdeur == 'On') then
+		if (Eetkamerdeur.state == 'On') then
 			domoticz.globalData.NMC_Eetkamerdeur = 0
 			domoticz.globalData.NMC_Floor1 = 0			  
 			domoticz.log('NMC_Eetkamerdeur & NMC_Floor1 set to zero')
 		end
-		if (Dakraamslaapk == 'On') then
+		if (Dakraamslaapk.state == 'On') then
 			domoticz.globalData.NMC_Dakraamslaapk = 0
 			domoticz.globalData.NMC_Floor3 = 0
 			domoticz.log('NMC_Dakraamslaapk & NMC_Floor3 set to zero')
 		end
-		if (Balkondeurslaapk == 'On') then
+		if (Balkondeurslaapk.state == 'On') then
 			domoticz.globalData.NMC_Balkondeurslaapk = 0
 			domoticz.globalData.NMC_Floor2 = 0
 			domoticz.log('NMC_Balkondeurslaapk & NMC_Floor2 set to zero')
 		end
-		if (Voordeur == 'On') then
+		if (Voordeur.state == 'On') then
 			domoticz.globalData.NMC_Voordeur = 0
 			domoticz.globalData.NMC_Floor1 = 0
 			domoticz.log('NMC_Voordeur & NMC_Floor1 set to zero')
 		end
-		if (BalkondeurNienke == 'On') then
+		if (BalkondeurNienke.state == 'On') then
 			domoticz.globalData.NMC_BalkondeurNienke = 0
 			domoticz.globalData.NMC_Floor2 = 0
 			domoticz.log('NMC_BalkondeurNienke & NMC_Floor2 set to zero')
 		end
-		if (Slaapkdeur == 'On') then
+		if (Slaapkdeur.state == 'On') then
 			domoticz.globalData.NMC_Slaapkdeur = 0
 			domoticz.globalData.NMC_Floor2 = 0
 			domoticz.log('NMC_Slaapkdeur & NMC_Floor2 set to zero')
 		end
-		if (Dakraamzolder == 'On') then
+		if (Dakraamzolder.state == 'On') then
 			domoticz.globalData.NMC_Dakraamzolder = 0
 			domoticz.globalData.NMC_Floor3 = 0
 			domoticz.log('NMC_Dakraamzolder & NMC_Floor3 set to zero')
 		end
-		if (PIR_woonk == 'On') then
+		if (PIR_woonk.state == 'On') then
 			domoticz.globalData.NMC_PIR_woonk = 0
 			domoticz.globalData.NMC_Floor1 = 0
 			domoticz.log('NMC_PIR_woonk & NMC_Floor1 set to zero')
 		end
-		if (PIR_kamerLars == 'On') then
+		if (PIR_kamerLars.state == 'On') then
 			domoticz.globalData.NMC_PIR_kamerLars = 0
 			domoticz.globalData.NMC_Floor2 = 0
 			domoticz.log('NMC_PIR_kamerLars & NMC_Floor2 set to zero')
 		end
-		if (PIR_halboven == 'On') then
+		if (PIR_halboven.state == 'On') then
 			domoticz.globalData.NMC_PIR_halboven = 0
 			domoticz.globalData.NMC_Floor2 = 0
 			domoticz.log('NMC_PIR_halboven & NMC_Floor2 set to zero')
