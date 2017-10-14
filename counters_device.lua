@@ -3,7 +3,7 @@
 return {
 	active = true,
 	on = {
-		devices = {25,81,83,107,116,153},
+		devices = {25,81,83,107,116,153,85,23,66,119},
 	},
 	execute = function(domoticz)
 		local Eetkamerdeur = domoticz.devices(25)
