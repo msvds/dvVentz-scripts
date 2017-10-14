@@ -16,6 +16,7 @@ return {
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
+		domoticz.log('Dakraamzolder.state' ..Dakraamzolder.state)
 		if (Eetkamerdeur.state == 'On') then
 			domoticz.globalData.NMC_Eetkamerdeur = 0
 			domoticz.globalData.NMC_Floor1 = 0			  
