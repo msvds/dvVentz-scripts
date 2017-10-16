@@ -33,7 +33,15 @@ return {
 		
 		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)		
 		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		CountersDevice = function(domoticz,25,'Door','OpenC_Floor1','OpenC_Total')
+		domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
+		--CountersDevice = function(domoticz,25,'Door','OpenC_Floor1','OpenC_Total')
+		local domoticz.globalData.OpenC_Eetkamerdeur = domoticz.devices().reduce(function(acc, device)
+		    if (device.state == 'On') then
+			acc = acc + 1 -- increase the accumulator
+		    end
+		    return acc -- always return the accumulator
+		end, 0)
+		domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
 		--if (Eetkamerdeur.state == 'Open') then
 		--	domoticz.globalData.OpenC_Eetkamerdeur  = domoticz.globalData.OpenC_Eetkamerdeur + 1
 		--	domoticz.log('OpenC_Eetkamerdeur = ' ..domoticz.globalData.OpenC_Eetkamerdeur)
@@ -86,7 +94,7 @@ return {
 			domoticz.globalData.ClosedC_Slaapkdeur = domoticz.globalData.ClosedC_Slaapkdeur + 1
 			domoticz.log('ClosedC_Slaapkdeur = ' ..domoticz.globalData.ClosedC_Slaapkdeur)
 		end
-		CountersDevice =function(domoticz,85,'Raam','OpenC_Floor3','OpenC_Total')
+		--CountersDevice =function(domoticz,85,'Raam','OpenC_Floor3','OpenC_Total')
 		--if (Dakraamzolder.state == 'Open') then
 		--	domoticz.globalData.OpenC_Dakraamzolder = domoticz.globalData.OpenC_Dakraamzolder + 1
 		--	domoticz.log('OpenC_Dakraamzolder = ' ..domoticz.globalData.OpenC_Dakraamzolder)
