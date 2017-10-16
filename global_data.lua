@@ -58,9 +58,12 @@ return {
 			domoticz.log('device.state = ' ..device.state)
 			domoticz.log('Counter = ' ..Counter)
 			local OpenC_Eetkamerdeur = domoticz.devices().reduce(function(Counter, device)
-			    if (device.state == 'Open') then
+			    domoticz.log('device.state = ' ..device.state)
+				if (device.state == 'Open') then
 					Counter = Counter + 1 -- increase the counter
+					domoticz.log('If Counter = ' ..Counter)
 			    else
+					domoticz.log('else Counter = ' ..Counter)
 					Counter = 0
 				end
 			    return Counter -- always return the counter
