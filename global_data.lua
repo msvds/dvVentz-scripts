@@ -86,12 +86,14 @@ return {
 				--domoticz.log('device.name = ' ..device.name)
 				--domoticz.log('DeviceName = ' ..DeviceName)
 				Counter = tonumber(count)
+				domoticz.log('Counter = ' ..Counter)
 				if (device.name == DeviceName) then
 					if (device.state == 'Closed') then						
-						--domoticz.log('If Counter = ' ..Counter)
-						return Counter + 1 -- increase the counter
+						domoticz.log('If Counter = ' ..Counter)
+						Counter =  Counter + 1 	
+						return Counter
 					else
-						--domoticz.log('else Counter = ' ..Counter)
+						domoticz.log('else Counter = ' ..Counter)
 						return 0
 					end
 				end
