@@ -54,13 +54,32 @@ return {
 			end			
 			return no_motion_minutes
 		end,
-		CountersDevice =function(domoticz,DeviceIdx,DeviceName,DeviceState,DeviceGroup1,DeviceGroup2)
+		CountersDevice =function(domoticz,DeviceIdx,DeviceType,DeviceGroup1,DeviceGroup2)
 			local Device = domoticz.devices(DeviceIdx)
-			if (Device == 'On') then
-				domoticz.globalData.NMC_Eetkamerdeur = 0
-				domoticz.globalData.NMC_Floor1 = 0			  
-				domoticz.log('NMC_Eetkamerdeur & NMC_Floor1 set to zero')
+			local On_string
+			local message
+			message = 'domoticz'
+			message = message .. ' ' .. DeviceIdx
+			message = message .. ' ' .. DeviceType
+			message = message .. ' ' .. DeviceGroup1
+			message = message .. ' ' .. DeviceGroup2
+			domoticz.log(message)
+			If (DeviceType == 'Door') then
+				On_string = 'Open'
+			elseif (DeviceType == 'Window') then
+				On_string = 'Open'
+			elseif (DeviceType == 'PIR') then
+				On_string = 'On'
 			end
+			domoticz.log('Device.state = ' ..Device.state)	
+			domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
+			if (Device.state == On_string) then
+				domoticz.globalData.OpenC_Eetkamerdeur  = domoticz.globalData.OpenC_Eetkamerdeur + 1
+				domoticz.log('OpenC_Eetkamerdeur = ' ..domoticz.globalData.OpenC_Eetkamerdeur)
+				domoticz.globalData.OpenC_Floor1 = domoticz.globalData.OpenC_Floor1 + 1
+			end
+			domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
+			domoticz.log('domoticz.globalData.OpenC_Floor1: ' ..domoticz.globalData.OpenC_Floor1)
 		end,		
 		getdevname4idx = function(deviceIDX)
 			for i, v in pairs(otherdevices_idx) do
