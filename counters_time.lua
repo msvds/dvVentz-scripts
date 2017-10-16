@@ -30,44 +30,44 @@ return {
 		local NMC_Floor1 = 0
 		local NMC_Floor2 = 0
 		local NMC_Floor3 = 0
-		OpenC_Eetkamerdeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.OpenC_Eetkamerdeur))
+		OpenC_Eetkamerdeur = domoticz.helpers.Counter(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.OpenC_Eetkamerdeur),'Open')
 		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur
-		ClosedC_Eetkamerdeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.ClosedC_Eetkamerdeur))
+		ClosedC_Eetkamerdeur = domoticz.helpers.Counter(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.ClosedC_Eetkamerdeur),'Closed')
 		domoticz.globalData.ClosedC_Eetkamerdeur = ClosedC_Eetkamerdeur
 		domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
 		domoticz.log('domoticz.globalData.ClosedC_Eetkamerdeur: ' ..domoticz.globalData.ClosedC_Eetkamerdeur)		
 		
-		OpenC_Dakraamslaapk = domoticz.helpers.OpenC(domoticz, domoticz.devices(81), tonumber(domoticz.globalData.OpenC_Dakraamslaapk))
+		OpenC_Dakraamslaapk = domoticz.helpers.Counter(domoticz, domoticz.devices(81), tonumber(domoticz.globalData.OpenC_Dakraamslaapk),'Open')
 		domoticz.globalData.OpenC_Dakraamslaapk = OpenC_Dakraamslaapk
-		ClosedC_Dakraamslaapk = domoticz.helpers.ClosedC(domoticz, domoticz.devices(81), tonumber(domoticz.globalData.ClosedC_Dakraamslaapk))
+		ClosedC_Dakraamslaapk = domoticz.helpers.Counter(domoticz, domoticz.devices(81), tonumber(domoticz.globalData.ClosedC_Dakraamslaapk),'Closed')
 		domoticz.globalData.ClosedC_Dakraamslaapk = ClosedC_Dakraamslaapk	
 		domoticz.log('domoticz.globalData.OpenC_Dakraamslaapk: ' ..domoticz.globalData.OpenC_Dakraamslaapk)		
 		domoticz.log('domoticz.globalData.ClosedC_Dakraamslaapk: ' ..domoticz.globalData.ClosedC_Dakraamslaapk)
 		
-		OpenC_Balkondeurslaapk = domoticz.helpers.OpenC(domoticz, domoticz.devices(83), tonumber(domoticz.globalData.OpenC_Balkondeurslaapk))
+		OpenC_Balkondeurslaapk = domoticz.helpers.Counter(domoticz, domoticz.devices(83), tonumber(domoticz.globalData.OpenC_Balkondeurslaapk),'Open')
 		domoticz.globalData.OpenC_Balkondeurslaapk = OpenC_Balkondeurslaapk
-		ClosedC_Balkondeurslaapk = domoticz.helpers.ClosedC(domoticz, domoticz.devices(83), tonumber(domoticz.globalData.ClosedC_Balkondeurslaapk))
+		ClosedC_Balkondeurslaapk = domoticz.helpers.Counter(domoticz, domoticz.devices(83), tonumber(domoticz.globalData.ClosedC_Balkondeurslaapk),'Closed')
 		domoticz.globalData.ClosedC_Balkondeurslaapk = ClosedC_Balkondeurslaapk	
 		domoticz.log('domoticz.globalData.OpenC_Balkondeurslaapk: ' ..domoticz.globalData.OpenC_Balkondeurslaapk)		
 		domoticz.log('domoticz.globalData.ClosedC_Balkondeurslaapk: ' ..domoticz.globalData.ClosedC_Balkondeurslaapk)
 		
-		OpenC_Voordeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(107), tonumber(domoticz.globalData.OpenC_Voordeur))
+		OpenC_Voordeur = domoticz.helpers.Counter(domoticz, domoticz.devices(107), tonumber(domoticz.globalData.OpenC_Voordeur),'Open')
 		domoticz.globalData.OpenC_Voordeur = OpenC_Voordeur
-		ClosedC_Voordeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(107), tonumber(domoticz.globalData.ClosedC_Voordeur))
+		ClosedC_Voordeur = domoticz.helpers.Counter(domoticz, domoticz.devices(107), tonumber(domoticz.globalData.ClosedC_Voordeur),'Closed')
 		domoticz.globalData.ClosedC_Voordeur = ClosedC_Voordeur
 		domoticz.log('domoticz.globalData.OpenC_Voordeur: ' ..domoticz.globalData.OpenC_Voordeur)		
 		domoticz.log('domoticz.globalData.ClosedC_Voordeur: ' ..domoticz.globalData.ClosedC_Voordeur)
 		
-		OpenC_BalkondeurNienke = domoticz.helpers.OpenC(domoticz, domoticz.devices(116), tonumber(domoticz.globalData.OpenC_BalkondeurNienke))
+		OpenC_BalkondeurNienke = domoticz.helpers.Counter(domoticz, domoticz.devices(116), tonumber(domoticz.globalData.OpenC_BalkondeurNienke),'Open')
 		domoticz.globalData.OpenC_BalkondeurNienke = OpenC_BalkondeurNienke
-		ClosedC_BalkondeurNienke = domoticz.helpers.ClosedC(domoticz, domoticz.devices(116), tonumber(domoticz.globalData.ClosedC_BalkondeurNienke))
+		ClosedC_BalkondeurNienke = domoticz.helpers.Counter(domoticz, domoticz.devices(116), tonumber(domoticz.globalData.ClosedC_BalkondeurNienke),'Closed')
 		domoticz.globalData.ClosedC_BalkondeurNienke = ClosedC_BalkondeurNienke
 		domoticz.log('domoticz.globalData.OpenC_BalkondeurNienke: ' ..domoticz.globalData.OpenC_BalkondeurNienke)		
 		domoticz.log('domoticz.globalData.ClosedC_BalkondeurNienke: ' ..domoticz.globalData.ClosedC_BalkondeurNienke)
 		
-		OpenC_Slaapkdeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(153), tonumber(domoticz.globalData.OpenC_Slaapkdeur))
+		OpenC_Slaapkdeur = domoticz.helpers.Counter(domoticz, domoticz.devices(153), tonumber(domoticz.globalData.OpenC_Slaapkdeur),'Open')
 		domoticz.globalData.OpenC_Slaapkdeur = OpenC_Slaapkdeur
-		ClosedC_Slaapkdeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(153), tonumber(domoticz.globalData.ClosedC_Slaapkdeur))
+		ClosedC_Slaapkdeur = domoticz.helpers.Counter(domoticz, domoticz.devices(153), tonumber(domoticz.globalData.ClosedC_Slaapkdeur),'Closed')
 		domoticz.globalData.ClosedC_Slaapkdeur = ClosedC_Slaapkdeur
 		domoticz.log('domoticz.globalData.OpenC_Slaapkdeur: ' ..domoticz.globalData.OpenC_Slaapkdeur)		
 		domoticz.log('domoticz.globalData.ClosedC_Slaapkdeur: ' ..domoticz.globalData.ClosedC_Slaapkdeur)
