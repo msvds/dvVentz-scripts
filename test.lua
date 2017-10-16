@@ -23,7 +23,7 @@ return {
 				end
 		    end
 		    return acc
-		end, 0)
+		end, acc)
 		domoticz.log('ClosedC_Dakraamzolder: ' .. count)
 		domoticz.globalData.ClosedC_Dakraamzolder = count		
 	end
