@@ -43,11 +43,11 @@ return {
 		--end, 0)
 		--domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur		
 		domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
-		OpenC_Eetkamerdeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(25), OpenC_Eetkamerdeur)
+		OpenC_Eetkamerdeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(25), domoticz.globalData.OpenC_Eetkamerdeur)
 		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur		
 		domoticz.log(OpenC_Eetkamerdeur)
 		domoticz.log('domoticz.globalData.ClosedC_Eetkamerdeur: ' ..domoticz.globalData.ClosedC_Eetkamerdeur)
-		OpenC_Eetkamerdeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(25), ClosedC_Eetkamerdeur)
+		OpenC_Eetkamerdeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(25), domoticz.globalData.ClosedC_Eetkamerdeur)
 		domoticz.globalData.ClosedC_Eetkamerdeur = ClosedC_Eetkamerdeur		
 		domoticz.log(ClosedC_Eetkamerdeur)
 		--if (Eetkamerdeur.state == 'Open') then
