@@ -106,8 +106,8 @@ return {
 		end
 		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 		DeviceName = domoticz.devices(85).name
-		--Counter = domoticz.globalData.OpenC_Dakraamzolder
-		Counter = 0
+		domoticz.globalData.OpenC_Dakraamzolder = 0
+		Counter = domoticz.globalData.OpenC_Dakraamzolder
 		count = domoticz.devices().reduce(function(Counter, device)
 			if (device.name == DeviceName) then
 				if (device.state == 'Open') then						
