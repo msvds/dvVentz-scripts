@@ -77,18 +77,14 @@ return {
 		ClosedC_Dakraamzolder = domoticz.helpers.Counter(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.ClosedC_Dakraamzolder),'Closed')
 		domoticz.globalData.ClosedC_Dakraamzolder = ClosedC_Dakraamzolder
 		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)		
-		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-					
+		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)		
 		
-		
-			
-		if (PIR_woonk.state == 'On') then
-			domoticz.globalData.MC_PIR_woonk = domoticz.globalData.MC_PIR_woonk + 1
-			domoticz.log('MC_PIR_woonk = ' ..domoticz.globalData.MC_PIR_woonk)
-		else
-			domoticz.globalData.NMC_PIR_woonk = domoticz.globalData.NMC_PIR_woonk + 1
-			domoticz.log('NMC_PIR_woonk = ' ..domoticz.globalData.NMC_PIR_woonk)
-		end
+		MC_PIR_woonk = domoticz.helpers.Counter(domoticz, domoticz.devices(23), tonumber(domoticz.globalData.MC_PIR_woonk),'On')
+		domoticz.globalData.MC_PIR_woonk = MC_PIR_woonk
+		NMC_PIR_woonk = domoticz.helpers.Counter(domoticz, domoticz.devices(23), tonumber(domoticz.globalData.NMC_PIR_woonk),'Off')
+		domoticz.globalData.NMC_PIR_woonk = NMC_PIR_woonk
+		domoticz.log('domoticz.globalData.MC_PIR_woonk: ' ..domoticz.globalData.MC_PIR_woonk)		
+		domoticz.log('domoticz.globalData.NMC_PIR_woonk: ' ..domoticz.globalData.NMC_PIR_woonk)
 		
 		if (PIR_kamerLars.state  == 'On') then
 			domoticz.globalData.MC_PIR_kamerLars  = domoticz.globalData.MC_PIR_kamerLars + 1
