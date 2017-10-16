@@ -64,7 +64,7 @@ return {
 			message = message .. ' ' .. DeviceGroup1
 			message = message .. ' ' .. DeviceGroup2
 			domoticz.log(message)
-			If (DeviceType == 'Door') then
+			if (DeviceType == 'Door') then
 				On_string = 'Open'
 			elseif (DeviceType == 'Window') then
 				On_string = 'Open'
