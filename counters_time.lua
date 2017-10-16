@@ -34,8 +34,8 @@ return {
 		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur
 		ClosedC_Eetkamerdeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.ClosedC_Eetkamerdeur))
 		domoticz.globalData.ClosedC_Eetkamerdeur = ClosedC_Eetkamerdeur
-		domoticz.log('domoticz.globalData.ClosedC_Eetkamerdeur: ' ..domoticz.globalData.ClosedC_Eetkamerdeur)		
 		domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
+		domoticz.log('domoticz.globalData.ClosedC_Eetkamerdeur: ' ..domoticz.globalData.ClosedC_Eetkamerdeur)		
 		
 		OpenC_Dakraamslaapk = domoticz.helpers.OpenC(domoticz, domoticz.devices(81), tonumber(domoticz.globalData.OpenC_Dakraamslaapk))
 		domoticz.globalData.OpenC_Dakraamslaapk = OpenC_Dakraamslaapk
