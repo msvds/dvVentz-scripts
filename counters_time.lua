@@ -34,7 +34,7 @@ return {
 		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur
 		ClosedC_Eetkamerdeur = domoticz.helpers.Counter(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.ClosedC_Eetkamerdeur),'Closed')
 		domoticz.globalData.ClosedC_Eetkamerdeur = ClosedC_Eetkamerdeur
-		if (domoticz.globalData.OpenC_Eetkamerdeur =~ 0) then
+		if (domoticz.globalData.OpenC_Eetkamerdeur ~= 0) then
 			domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
 		end
 		domoticz.log('domoticz.globalData.ClosedC_Eetkamerdeur: ' ..domoticz.globalData.ClosedC_Eetkamerdeur)		
