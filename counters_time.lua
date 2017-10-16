@@ -123,8 +123,8 @@ return {
 		--end, 0) -- 0 is the initial value for the accumulator
 		--OpenC_Dakraamzolder = count		
 		OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), domoticz.globalData.OpenC_Dakraamzolder)
-		domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
-		domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder		
+		--domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
+		--domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder		
 		--domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
 		
 		acc = domoticz.globalData.ClosedC_Dakraamzolder
