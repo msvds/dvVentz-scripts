@@ -60,7 +60,8 @@ return {
 			local DeviceName = device.name
 			local count = domoticz.devices().reduce(function(Counter, device)
 			domoticz.log('device.state = ' ..device.state)
-			domoticz.log('device.name = ' ..DeviceName)
+			domoticz.log('device.name = ' ..device.name)
+			domoticz.log('DeviceName = ' ..DeviceName)
 			if (device.name == DeviceName) then
 				if (device.state == 'Open') then
 					Counter = Counter + 1 -- increase the counter
@@ -77,12 +78,20 @@ return {
 		ClosedC = function(domoticz,device,Counter)
 			domoticz.log('device.state = ' ..device.state)
 			domoticz.log('Counter = ' ..Counter)
-			local OpenC_Eetkamerdeur = domoticz.devices().reduce(function(Counter, device)
-			    if (device.state == 'Closed') then
+			local DeviceName = device.name
+			local count = domoticz.devices().reduce(function(Counter, device)
+			domoticz.log('device.state = ' ..device.state)
+			domoticz.log('device.name = ' ..device.name)
+			domoticz.log('DeviceName = ' ..DeviceName)
+			if (device.name == DeviceName) then
+				if (device.state == 'Closed') then
 					Counter = Counter + 1 -- increase the counter
-			    else
-					Counter = 0						
+					domoticz.log('If Counter = ' ..Counter)
+				else
+					domoticz.log('else Counter = ' ..Counter)
+					Counter = 0
 				end
+			end
 			    return Counter -- always return the counter
 			end,0)
 			domoticz.log('Counter = ' ..Counter)
