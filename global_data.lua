@@ -75,7 +75,7 @@ return {
 			    return tostring(Counter) -- always return the counter
 			end,0)
 			domoticz.log('count = ' ..tostring(count))
-			domoticz.log('count = ' ..count.value)
+			--domoticz.log('count = ' ..count.value)
 			return tostring(count)
 		end,
 		ClosedC = function(domoticz,device,count)
