@@ -96,8 +96,8 @@ return {
 			    end
 			    return acc
 			end, acc)
-			domoticz.log('ClosedC_Dakraamzolder: ' .. count)
-			domoticz.globalData.ClosedC_Dakraamzolder = count
+			domoticz.log('count: ' .. count)
+			--domoticz.globalData.ClosedC_Dakraamzolder = count
 			return count
 		end,
 		--CountersDevice =function(domoticz,DeviceIdx,DeviceType,DeviceGroup1,DeviceGroup2)
