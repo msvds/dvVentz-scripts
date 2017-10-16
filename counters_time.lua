@@ -33,15 +33,16 @@ return {
 		
 		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)		
 		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		if (Eetkamerdeur.state == 'Open') then
-			domoticz.globalData.OpenC_Eetkamerdeur  = domoticz.globalData.OpenC_Eetkamerdeur + 1
-			domoticz.log('OpenC_Eetkamerdeur = ' ..domoticz.globalData.OpenC_Eetkamerdeur)
-			OpenC_Floor1 = 1
-		else
-			domoticz.globalData.ClosedC_Eetkamerdeur = domoticz.globalData.ClosedC_Eetkamerdeur + 1
-			domoticz.log('ClosedC_Eetkamerdeur = ' ..domoticz.globalData.ClosedC_Eetkamerdeur)
-			ClosedC_Floor1 = 1
-		end
+		CountersDevice =function(domoticz,25,'Door','OpenC_Floor1','OpenC_Total')
+		--if (Eetkamerdeur.state == 'Open') then
+		--	domoticz.globalData.OpenC_Eetkamerdeur  = domoticz.globalData.OpenC_Eetkamerdeur + 1
+		--	domoticz.log('OpenC_Eetkamerdeur = ' ..domoticz.globalData.OpenC_Eetkamerdeur)
+		--	OpenC_Floor1 = 1
+		--else
+		--	domoticz.globalData.ClosedC_Eetkamerdeur = domoticz.globalData.ClosedC_Eetkamerdeur + 1
+		--	domoticz.log('ClosedC_Eetkamerdeur = ' ..domoticz.globalData.ClosedC_Eetkamerdeur)
+		--	ClosedC_Floor1 = 1
+		--end
 		if (Dakraamslaapk.state == 'Open') then
 			domoticz.globalData.OpenC_Dakraamslaapk = domoticz.globalData.OpenC_Dakraamslaapk + 1
 			domoticz.log('OpenC_Dakraamslaapk = ' ..domoticz.globalData.OpenC_Dakraamslaapk)
@@ -85,13 +86,14 @@ return {
 			domoticz.globalData.ClosedC_Slaapkdeur = domoticz.globalData.ClosedC_Slaapkdeur + 1
 			domoticz.log('ClosedC_Slaapkdeur = ' ..domoticz.globalData.ClosedC_Slaapkdeur)
 		end
-		if (Dakraamzolder.state == 'Open') then
-			domoticz.globalData.OpenC_Dakraamzolder = domoticz.globalData.OpenC_Dakraamzolder + 1
-			domoticz.log('OpenC_Dakraamzolder = ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		else
-			domoticz.globalData.ClosedC_Dakraamzolder = domoticz.globalData.ClosedC_Dakraamzolder + 1
-			domoticz.log('ClosedC_Dakraamzolder = ' ..domoticz.globalData.ClosedC_Dakraamzolder)
-		end
+		CountersDevice =function(domoticz,85,'Raam','OpenC_Floor3','OpenC_Total')
+		--if (Dakraamzolder.state == 'Open') then
+		--	domoticz.globalData.OpenC_Dakraamzolder = domoticz.globalData.OpenC_Dakraamzolder + 1
+		--	domoticz.log('OpenC_Dakraamzolder = ' ..domoticz.globalData.OpenC_Dakraamzolder)
+		--else
+		--	domoticz.globalData.ClosedC_Dakraamzolder = domoticz.globalData.ClosedC_Dakraamzolder + 1
+		--	domoticz.log('ClosedC_Dakraamzolder = ' ..domoticz.globalData.ClosedC_Dakraamzolder)
+		--end
 		
 		if (PIR_woonk.state == 'On') then
 			domoticz.globalData.MC_PIR_woonk = domoticz.globalData.MC_PIR_woonk + 1
