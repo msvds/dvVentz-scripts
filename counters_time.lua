@@ -105,7 +105,20 @@ return {
 			domoticz.log('ClosedC_Slaapkdeur = ' ..domoticz.globalData.ClosedC_Slaapkdeur)
 		end
 		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), domoticz.globalData.OpenC_Dakraamzolder)
+		DeviceName = domoticz.devices(85).name
+		count = domoticz.devices().reduce(function(Counter, device)
+			if (device.name == DeviceName) then
+				if (device.state == 'Open') then						
+					--domoticz.log('If Counter = ' ..Counter)
+					return Counter + 1 -- increase the counter
+				else
+					--domoticz.log('else Counter = ' ..Counter)
+					return 0
+				end
+			end
+		end,0)
+		OpenC_Dakraamzolder = count		
+		--OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), domoticz.globalData.OpenC_Dakraamzolder)
 		domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
 		domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder		
 		domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
