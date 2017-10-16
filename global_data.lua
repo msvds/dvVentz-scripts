@@ -55,7 +55,7 @@ return {
 			return no_motion_minutes
 		end,
 		OpenC = function(domoticz,device,count)
-			domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
+			--domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 			--DeviceName = domoticz.devices(85).name
 			DeviceName = device.name
 			acc = tonumber(domoticz.globalData.OpenC_Dakraamzolder)
@@ -72,7 +72,7 @@ return {
 			return count
 		end,
 		ClosedC = function(domoticz,device,count)
-			domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
+			--domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
 			--DeviceName = domoticz.devices(85).name
 			DeviceName = device.name
 			acc = tonumber(domoticz.globalData.ClosedC_Dakraamzolder)
