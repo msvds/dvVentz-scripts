@@ -1,6 +1,6 @@
 -- Counters for motion, no motion, open and closed windows/doors in minutes
 return {
-	active = false,
+	active = true,
 	on = {
 		timer = {'every minute'}
 	},
