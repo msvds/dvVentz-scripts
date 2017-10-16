@@ -58,7 +58,7 @@ return {
 			domoticz.log('device.state = ' ..device.state)
 			domoticz.log('count = ' ..count)
 			local DeviceName = device.name
-			count = domoticz.devices().reduce(function(Counter, device)
+			return count = domoticz.devices().reduce(function(Counter, device)
 				--domoticz.log('device.state = ' ..device.state)
 				--domoticz.log('device.name = ' ..device.name)
 				--domoticz.log('DeviceName = ' ..DeviceName)
@@ -73,9 +73,9 @@ return {
 					end
 				end
 			end,0)
-			domoticz.log('count = ' ..tostring(count))
+			--domoticz.log('count = ' ..tostring(count))
 			--domoticz.log('count = ' ..count.value)
-			return tostring(count)
+			--return tostring(count)
 		end,
 		ClosedC = function(domoticz,device,count)
 			domoticz.log('device.state = ' ..device.state)
