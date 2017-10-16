@@ -104,6 +104,7 @@ return {
 			domoticz.globalData.ClosedC_Slaapkdeur = domoticz.globalData.ClosedC_Slaapkdeur + 1
 			domoticz.log('ClosedC_Slaapkdeur = ' ..domoticz.globalData.ClosedC_Slaapkdeur)
 		end
+		local OpenC_Dakraamzolder = 0
 		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 		OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), domoticz.globalData.OpenC_Dakraamzolder)
 		domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder		
