@@ -9,7 +9,7 @@ return {
 		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
 		DeviceName = domoticz.devices(85).name
 		--domoticz.globalData.ClosedC_Dakraamzolder = 0
-		acc = domoticz.globalData.ClosedC_Dakraamzolder
+		acc = tonumber(domoticz.globalData.ClosedC_Dakraamzolder)
 		
 		local count = domoticz.devices().reduce(function(acc, device)
 		    if (device.name == DeviceName) then
