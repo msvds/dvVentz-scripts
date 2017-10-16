@@ -54,7 +54,7 @@ return {
 			end			
 			return no_motion_minutes
 		end,
-		OpenC = function(domoticz,device,Counter)
+		OpenC = function(domoticz,device,count)
 			domoticz.log('device.state = ' ..device.state)
 			domoticz.log('Counter = ' ..Counter)
 			local DeviceName = device.name
@@ -73,7 +73,7 @@ return {
 			end
 			    return Counter -- always return the counter
 			end,0)
-			--return count
+			return count
 			domoticz.log('count = ' ..count)
 		end,
 		ClosedC = function(domoticz,device,Counter)
