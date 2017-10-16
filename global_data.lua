@@ -65,10 +65,10 @@ return {
 				Counter = tonumber(count)
 				if (device.name == DeviceName) then
 					if (device.state == 'Open') then						
-						domoticz.log('If Counter = ' ..Counter)
+						--domoticz.log('If Counter = ' ..Counter)
 						return Counter + 1 -- increase the counter
 					else
-						domoticz.log('else Counter = ' ..Counter)
+						--domoticz.log('else Counter = ' ..Counter)
 						return 0
 					end
 				end
