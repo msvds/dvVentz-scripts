@@ -60,7 +60,7 @@ return {
 				Counter = Counter + 1 -- increase the counter
 			    end
 			    return Counter -- always return the counter
-			end,0),
+			end,0)
 		end,
 		--CountersDevice =function(domoticz,DeviceIdx,DeviceType,DeviceGroup1,DeviceGroup2)
 		--	local Device = domoticz.devices(DeviceIdx)
