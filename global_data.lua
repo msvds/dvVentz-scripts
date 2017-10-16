@@ -57,47 +57,33 @@ return {
 		OpenC = function(domoticz,device,count)
 			domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 			DeviceName = domoticz.devices(85).name
-			--domoticz.globalData.OpenC_Dakraamzolder = 0
 			acc = tonumber(domoticz.globalData.OpenC_Dakraamzolder)
-
 			local count = domoticz.devices().reduce(function(acc, device)
 			    if (device.name == DeviceName) then
 					if (device.state == 'Open') then					
-						domoticz.log('If acc = ' ..acc)
 						acc = acc + 1
-						domoticz.log('If acc = ' ..acc)
 					else
 						acc = 0
-						domoticz.log('else acc = ' ..acc)
 					end
 			    end
 			    return acc
 			end, acc)
-			domoticz.log('count: ' .. count)
-			--domoticz.globalData.OpenC_Dakraamzolder = count
 			return count
 		end,
 		ClosedC = function(domoticz,device,count)
 			domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
 			DeviceName = domoticz.devices(85).name
-			--domoticz.globalData.ClosedC_Dakraamzolder = 0
 			acc = tonumber(domoticz.globalData.ClosedC_Dakraamzolder)
-
 			local count = domoticz.devices().reduce(function(acc, device)
 			    if (device.name == DeviceName) then
 					if (device.state == 'Closed') then					
-						domoticz.log('If acc = ' ..acc)
 						acc = acc + 1
-						domoticz.log('If acc = ' ..acc)
 					else
 						acc = 0
-						domoticz.log('else acc = ' ..acc)
 					end
 			    end
 			    return acc
 			end, acc)
-			domoticz.log('count: ' .. count)
-			--domoticz.globalData.ClosedC_Dakraamzolder = count
 			return count
 		end,
 		--CountersDevice =function(domoticz,DeviceIdx,DeviceType,DeviceGroup1,DeviceGroup2)
