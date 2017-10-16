@@ -108,17 +108,19 @@ return {
 		DeviceName = domoticz.devices(85).name
 		domoticz.globalData.OpenC_Dakraamzolder = 0
 		Counter = domoticz.globalData.OpenC_Dakraamzolder
-		count = domoticz.devices().reduce(function(Counter, device)
-			if (device.name == DeviceName) then
-				if (device.state == 'Open') then						
-					domoticz.log('If Counter = ' ..Counter)
-					return Counter + 1 -- increase the counter
+		
+		local count = domoticz.devices().reduce(function(acc, device)
+		    if (device.name == DeviceName) then
+				if (device.state == 'Open') then
+					domoticz.log('If acc = ' ..acc)
+					acc = acc + 1
 				else
-					domoticz.log('else Counter = ' ..Counter)
-					return 0
+					domoticz.log('else acc = ' ..acc)
+					acc = 0
 				end
-			end
-		end,0)
+		    end
+		    return acc -- always return the accumulator
+		end, 0) -- 0 is the initial value for the accumulator
 		OpenC_Dakraamzolder = count		
 		--OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), domoticz.globalData.OpenC_Dakraamzolder)
 		domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
