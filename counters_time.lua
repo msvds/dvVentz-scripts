@@ -142,7 +142,7 @@ return {
 		--end, 0) -- 0 is the initial value for the accumulator
 		--ClosedC_Dakraamzolder = count		
 		
-		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
+		--domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
 		ClosedC_Dakraamzolder = domoticz.helpers.ClosedC(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.ClosedC_Dakraamzolder))
 		domoticz.globalData.ClosedC_Dakraamzolder = ClosedC_Dakraamzolder	
 		--CountersDevice =function(domoticz,85,'Raam','OpenC_Floor3','OpenC_Total')
