@@ -80,7 +80,7 @@ return {
 			acc = count
 			local count = domoticz.devices().reduce(function(acc, device)
 			    if (device.name == DeviceName) then
-					if (device.state == countstring) then					
+					if (device.state == statestring) then					
 						acc = acc + 1
 					else
 						acc = 0
