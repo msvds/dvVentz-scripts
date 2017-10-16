@@ -62,7 +62,7 @@ return {
 				--domoticz.log('device.state = ' ..device.state)
 				--domoticz.log('device.name = ' ..device.name)
 				--domoticz.log('DeviceName = ' ..DeviceName)
-				Counter = count
+				Counter = tonumber(count)
 				if (device.name == DeviceName) then
 					if (device.state == 'Open') then						
 						domoticz.log('If Counter = ' ..Counter)
