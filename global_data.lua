@@ -58,7 +58,7 @@ return {
 			domoticz.log('device.state = ' ..device.state)
 			domoticz.log('Counter = ' ..Counter)
 			local DeviceName = device.name
-			local OpenC_Eetkamerdeur = domoticz.devices().reduce(function(Counter, device)
+			local count = domoticz.devices().reduce(function(Counter, device)
 			domoticz.log('device.state = ' ..device.state)
 			domoticz.log('device.name = ' ..DeviceName)
 			if (device.name == DeviceName) then
