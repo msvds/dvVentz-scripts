@@ -55,12 +55,13 @@ return {
 			return no_motion_minutes
 		end,
 		OpenC = function(domoticz,Counter)
-		local OpenC_Eetkamerdeur = domoticz.devices().reduce(function(Counter, device)
-		    if (device.state == 'On') then
-			Counter = Counter + 1 -- increase the counter
-		    end
-		    return Counter -- always return the counter
-		end,0),
+			local OpenC_Eetkamerdeur = domoticz.devices().reduce(function(Counter, device)
+			    if (device.state == 'On') then
+				Counter = Counter + 1 -- increase the counter
+			    end
+			    return Counter -- always return the counter
+			end,0),
+		end,
 		--CountersDevice =function(domoticz,DeviceIdx,DeviceType,DeviceGroup1,DeviceGroup2)
 		--	local Device = domoticz.devices(DeviceIdx)
 		--	local On_string
