@@ -72,7 +72,7 @@ return {
 						return 0
 					end
 				end
-			end,0)
+			end,count)
 			--domoticz.log('count = ' ..tostring(count))
 			--domoticz.log('count = ' ..count.value)
 			return count
@@ -96,7 +96,7 @@ return {
 				end
 			end
 			    return Counter -- always return the counter
-			end,0)
+			end,count)
 			return count
 		end,
 		--CountersDevice =function(domoticz,DeviceIdx,DeviceType,DeviceGroup1,DeviceGroup2)
