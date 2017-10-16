@@ -30,7 +30,10 @@ return {
 		local NMC_Floor1 = 0
 		local NMC_Floor2 = 0
 		local NMC_Floor3 = 0
-		
+		OpenC_Eetkamerdeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.OpenC_Eetkamerdeur))
+		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur
+		ClosedC_Eetkamerdeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.ClosedC_Eetkamerdeur))
+		domoticz.globalData.ClosedC_Eetkamerdeur = ClosedC_Eetkamerdeur
 		--domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)		
 		--domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 		--domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
