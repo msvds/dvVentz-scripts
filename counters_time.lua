@@ -72,9 +72,9 @@ return {
 		domoticz.log('domoticz.globalData.OpenC_Slaapkdeur: ' ..domoticz.globalData.OpenC_Slaapkdeur)		
 		domoticz.log('domoticz.globalData.ClosedC_Slaapkdeur: ' ..domoticz.globalData.ClosedC_Slaapkdeur)
 		
-		OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.OpenC_Dakraamzolder))
+		OpenC_Dakraamzolder = domoticz.helpers.Counter(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.OpenC_Dakraamzolder),'Open')
 		domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder
-		ClosedC_Dakraamzolder = domoticz.helpers.ClosedC(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.ClosedC_Dakraamzolder))
+		ClosedC_Dakraamzolder = domoticz.helpers.Counter(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.ClosedC_Dakraamzolder),'Closed')
 		domoticz.globalData.ClosedC_Dakraamzolder = ClosedC_Dakraamzolder
 		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)		
 		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
