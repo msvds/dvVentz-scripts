@@ -104,47 +104,47 @@ return {
 			domoticz.globalData.ClosedC_Slaapkdeur = domoticz.globalData.ClosedC_Slaapkdeur + 1
 			domoticz.log('ClosedC_Slaapkdeur = ' ..domoticz.globalData.ClosedC_Slaapkdeur)
 		end
-		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		DeviceName = domoticz.devices(85).name
-		--domoticz.globalData.OpenC_Dakraamzolder = 0
-		acc = domoticz.globalData.OpenC_Dakraamzolder
-		
-		local count = domoticz.devices().reduce(function(acc, device)
-		    if (device.name == DeviceName) then
-				if (device.state == 'Open') then					
-					acc = acc + 1
-					domoticz.log('If acc = ' ..acc)
-				else
-					acc = 0
-					domoticz.log('else acc = ' ..acc)
-				end
-		    end
-		    return acc -- always return the accumulator
-		end, 0) -- 0 is the initial value for the accumulator
-		OpenC_Dakraamzolder = count		
-		--OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), domoticz.globalData.OpenC_Dakraamzolder)
-		domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
-		domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder		
-		--domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
-		
-		acc = domoticz.globalData.ClosedC_Dakraamzolder
-		local count = domoticz.devices().reduce(function(acc, device)
-		    if (device.name == DeviceName) then
-				if (device.state == 'Closed') then					
-					acc = acc + 1
-					domoticz.log('If acc = ' ..acc)
-				else
-					acc = 0
-					domoticz.log('else acc = ' ..acc)
-				end
-		    end
-		    return acc -- always return the accumulator
-		end, 0) -- 0 is the initial value for the accumulator
-		ClosedC_Dakraamzolder = count		
-		
-		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
-		--ClosedC_Dakraamzolder = domoticz.helpers.ClosedC(domoticz, domoticz.devices(85), domoticz.globalData.ClosedC_Dakraamzolder)
-		domoticz.globalData.ClosedC_Dakraamzolder = ClosedC_Dakraamzolder	
+--		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
+--		DeviceName = domoticz.devices(85).name
+--		--domoticz.globalData.OpenC_Dakraamzolder = 0
+--		acc = domoticz.globalData.OpenC_Dakraamzolder
+--		
+--		local count = domoticz.devices().reduce(function(acc, device)
+---		    if (device.name == DeviceName) then
+--				if (device.state == 'Open') then					
+--					acc = acc + 1
+--					domoticz.log('If acc = ' ..acc)
+--				else
+--					acc = 0
+--					domoticz.log('else acc = ' ..acc)
+--				end
+--		    end
+--		    return acc -- always return the accumulator
+--		end, 0) -- 0 is the initial value for the accumulator
+--		OpenC_Dakraamzolder = count		
+--		--OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), domoticz.globalData.OpenC_Dakraamzolder)
+--		domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
+--		domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder		
+--		--domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
+--		
+--		acc = domoticz.globalData.ClosedC_Dakraamzolder
+--		local count = domoticz.devices().reduce(function(acc, device)
+--		    if (device.name == DeviceName) then
+--				if (device.state == 'Closed') then					
+--					acc = acc + 1
+--					domoticz.log('If acc = ' ..acc)
+--				else
+--					acc = 0
+--					domoticz.log('else acc = ' ..acc)
+--				end
+--		    end
+--		    return acc -- always return the accumulator
+--		end, 0) -- 0 is the initial value for the accumulator
+--		ClosedC_Dakraamzolder = count		
+--		
+--		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
+--		--ClosedC_Dakraamzolder = domoticz.helpers.ClosedC(domoticz, domoticz.devices(85), domoticz.globalData.ClosedC_Dakraamzolder)
+--		domoticz.globalData.ClosedC_Dakraamzolder = ClosedC_Dakraamzolder	
 		--CountersDevice =function(domoticz,85,'Raam','OpenC_Floor3','OpenC_Total')
 		--if (Dakraamzolder.state == 'Open') then
 		--	domoticz.globalData.OpenC_Dakraamzolder = domoticz.globalData.OpenC_Dakraamzolder + 1
