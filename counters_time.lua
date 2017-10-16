@@ -106,6 +106,7 @@ return {
 		end
 		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 		OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), domoticz.globalData.OpenC_Dakraamzolder)
+		domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
 		domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder		
 		domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
 		domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
