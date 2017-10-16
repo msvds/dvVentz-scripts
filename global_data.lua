@@ -73,7 +73,7 @@ return {
 			end
 			    return Counter -- always return the counter
 			end,0)
-			return count
+			--return count
 			domoticz.log('count = ' ..count)
 		end,
 		ClosedC = function(domoticz,device,Counter)
