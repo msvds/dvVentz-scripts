@@ -44,8 +44,8 @@ return {
 		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur		
 		domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
 		OpenC_Eetkamerdeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(25), OpenC_Eetkamerdeur)
-		--domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur		
-		--domoticz.log(OpenC_Eetkamerdeur)
+		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur		
+		domoticz.log(OpenC_Eetkamerdeur)
 		--if (Eetkamerdeur.state == 'Open') then
 		--	domoticz.globalData.OpenC_Eetkamerdeur  = domoticz.globalData.OpenC_Eetkamerdeur + 1
 		--	domoticz.log('OpenC_Eetkamerdeur = ' ..domoticz.globalData.OpenC_Eetkamerdeur)
