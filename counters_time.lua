@@ -111,12 +111,12 @@ return {
 		
 		local count = domoticz.devices().reduce(function(acc, device)
 		    if (device.name == DeviceName) then
-				if (device.state == 'Open') then
-					domoticz.log('If acc = ' ..acc)
+				if (device.state == 'Open') then					
 					acc = acc + 1
+					domoticz.log('If acc = ' ..acc)
 				else
-					domoticz.log('else acc = ' ..acc)
 					acc = 0
+					domoticz.log('else acc = ' ..acc)
 				end
 		    end
 		    return acc -- always return the accumulator
@@ -130,12 +130,12 @@ return {
 		Counter = domoticz.globalData.ClosedC_Dakraamzolder
 		local count = domoticz.devices().reduce(function(acc, device)
 		    if (device.name == DeviceName) then
-				if (device.state == 'Closed') then
-					domoticz.log('If acc = ' ..acc)
+				if (device.state == 'Closed') then					
 					acc = acc + 1
+					domoticz.log('If acc = ' ..acc)
 				else
-					domoticz.log('else acc = ' ..acc)
 					acc = 0
+					domoticz.log('else acc = ' ..acc)
 				end
 		    end
 		    return acc -- always return the accumulator
