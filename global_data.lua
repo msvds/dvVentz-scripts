@@ -56,7 +56,7 @@ return {
 		end,
 		OpenC = function(domoticz,device,count)
 			domoticz.log('device.state = ' ..device.state)
-			domoticz.log('Counter = ' ..Counter)
+			domoticz.log('Counter = ' ..count)
 			local DeviceName = device.name
 			local count = domoticz.devices().reduce(function(Counter, device)
 			--domoticz.log('device.state = ' ..device.state)
