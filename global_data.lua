@@ -74,6 +74,7 @@ return {
 			end
 			    return Counter -- always return the counter
 			end,0)
+			count = Counter
 			return count
 		end,
 		ClosedC = function(domoticz,device,count)
