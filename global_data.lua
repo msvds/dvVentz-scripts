@@ -56,7 +56,8 @@ return {
 		end,
 		OpenC = function(domoticz,device,count)
 			domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-			DeviceName = domoticz.devices(85).name
+			--DeviceName = domoticz.devices(85).name
+			DeviceName = device.name
 			acc = tonumber(domoticz.globalData.OpenC_Dakraamzolder)
 			local count = domoticz.devices().reduce(function(acc, device)
 			    if (device.name == DeviceName) then
@@ -72,7 +73,8 @@ return {
 		end,
 		ClosedC = function(domoticz,device,count)
 			domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
-			DeviceName = domoticz.devices(85).name
+			--DeviceName = domoticz.devices(85).name
+			DeviceName = device.name
 			acc = tonumber(domoticz.globalData.ClosedC_Dakraamzolder)
 			local count = domoticz.devices().reduce(function(acc, device)
 			    if (device.name == DeviceName) then
