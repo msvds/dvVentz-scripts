@@ -105,7 +105,7 @@ return {
 			domoticz.log('ClosedC_Slaapkdeur = ' ..domoticz.globalData.ClosedC_Slaapkdeur)
 		end
 		--domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		DeviceName = domoticz.devices(85).name
+		--DeviceName = domoticz.devices(85).name
 		--domoticz.globalData.OpenC_Dakraamzolder = 0
 		--acc = domoticz.globalData.OpenC_Dakraamzolder
 		
