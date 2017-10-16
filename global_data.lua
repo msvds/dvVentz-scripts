@@ -57,15 +57,19 @@ return {
 		OpenC = function(domoticz,device,Counter)
 			domoticz.log('device.state = ' ..device.state)
 			domoticz.log('Counter = ' ..Counter)
+			local DeviceName = device.name
 			local OpenC_Eetkamerdeur = domoticz.devices().reduce(function(Counter, device)
-			    domoticz.log('device.state = ' ..device.state)
+			domoticz.log('device.state = ' ..device.state)
+			domoticz.log('device.name = ' ..DeviceName)
+			if (device.name == DeviceName) then
 				if (device.state == 'Open') then
 					Counter = Counter + 1 -- increase the counter
 					domoticz.log('If Counter = ' ..Counter)
-			    else
+				else
 					domoticz.log('else Counter = ' ..Counter)
 					Counter = 0
 				end
+			end
 			    return Counter -- always return the counter
 			end,0)
 			domoticz.log('Counter = ' ..Counter)
