@@ -14,6 +14,7 @@ return {
 		local count = domoticz.devices().reduce(function(acc, device)
 		    if (device.name == DeviceName) then
 				if (device.state == 'Closed') then					
+					domoticz.log('If acc = ' ..acc)
 					acc = acc + 1
 					domoticz.log('If acc = ' ..acc)
 				else
