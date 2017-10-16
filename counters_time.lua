@@ -34,131 +34,37 @@ return {
 		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur
 		ClosedC_Eetkamerdeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.ClosedC_Eetkamerdeur))
 		domoticz.globalData.ClosedC_Eetkamerdeur = ClosedC_Eetkamerdeur
-		--domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)		
-		--domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		--domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
-		--CountersDevice = function(domoticz,25,'Door','OpenC_Floor1','OpenC_Total')
-		--local OpenC_Eetkamerdeur = domoticz.devices().reduce(function(acc, device)
-		--    if (device.state == 'On') then
-		--	acc = acc + 1 -- increase the accumulator
-		--    end
-		--    return acc -- always return the accumulator
-		--end, 0)
-		--domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur		
 		
-		--domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
-		--OpenC_Eetkamerdeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(25), domoticz.globalData.OpenC_Eetkamerdeur)
-		--domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur		
-		--domoticz.log('OpenC_Eetkamerdeur: ' .. OpenC_Eetkamerdeur)
-		--domoticz.log('domoticz.globalData.ClosedC_Eetkamerdeur: ' ..domoticz.globalData.ClosedC_Eetkamerdeur)
-		--OpenC_Eetkamerdeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(25), domoticz.globalData.ClosedC_Eetkamerdeur)
+		OpenC_Dakraamslaapk = domoticz.helpers.OpenC(domoticz, domoticz.devices(81), tonumber(domoticz.globalData.OpenC_Dakraamslaapk))
+		domoticz.globalData.OpenC_Dakraamslaapk = OpenC_Dakraamslaapk
+		ClosedC_Dakraamslaapk = domoticz.helpers.ClosedC(domoticz, domoticz.devices(81), tonumber(domoticz.globalData.ClosedC_Dakraamslaapk))
+		domoticz.globalData.ClosedC_Dakraamslaapk = ClosedC_Dakraamslaapk	
 		
-		-- domoticz.globalData.ClosedC_Eetkamerdeur = ClosedC_Eetkamerdeur		
-		-- domoticz.log('ClosedC_Eetkamerdeur: ' .. ClosedC_Eetkamerdeur)
-		--if (Eetkamerdeur.state == 'Open') then
-		--	domoticz.globalData.OpenC_Eetkamerdeur  = domoticz.globalData.OpenC_Eetkamerdeur + 1
-		--	domoticz.log('OpenC_Eetkamerdeur = ' ..domoticz.globalData.OpenC_Eetkamerdeur)
-		--	OpenC_Floor1 = 1
-		--else
-		--	domoticz.globalData.ClosedC_Eetkamerdeur = domoticz.globalData.ClosedC_Eetkamerdeur + 1
-		--	domoticz.log('ClosedC_Eetkamerdeur = ' ..domoticz.globalData.ClosedC_Eetkamerdeur)
-		--	ClosedC_Floor1 = 1
-		--end
-		if (Dakraamslaapk.state == 'Open') then
-			domoticz.globalData.OpenC_Dakraamslaapk = domoticz.globalData.OpenC_Dakraamslaapk + 1
-			domoticz.log('OpenC_Dakraamslaapk = ' ..domoticz.globalData.OpenC_Dakraamslaapk)
-			OpenC_Floor2 = 1
-		else
-			domoticz.globalData.ClosedC_Dakraamslaapk = domoticz.globalData.ClosedC_Dakraamslaapk + 1
-			domoticz.log('ClosedC_Dakraamslaapk = ' ..domoticz.globalData.ClosedC_Dakraamslaapk)
-			ClosedC_Floor2 = 1
-		end
-		if (Balkondeurslaapk.state == 'Open') then
-			domoticz.globalData.OpenC_Balkondeurslaapk = domoticz.globalData.OpenC_Balkondeurslaapk + 1
-			domoticz.log('OpenC_Balkondeurslaapk = ' ..domoticz.globalData.OpenC_Balkondeurslaapk)
-			OpenC_Floor2 = 1
-		else
-			domoticz.globalData.ClosedC_Balkondeurslaapk = domoticz.globalData.ClosedC_Balkondeurslaapk + 1
-			domoticz.log('ClosedC_Balkondeurslaapk = ' ..domoticz.globalData.ClosedC_Balkondeurslaapk)
-			if (ClosedC_Floor2 == 1) then
-				ClosedC_Floor2 = 1
-			else
-				ClosedC_Floor2 = 0
-			end
-		end
-		if (Voordeur.state == 'Open') then
-			domoticz.globalData.OpenC_Voordeur = domoticz.globalData.OpenC_Voordeur + 1
-			domoticz.log('OpenC_Voordeur = ' ..domoticz.globalData.OpenC_Voordeur)
-		else
-			domoticz.globalData.ClosedC_Voordeur = domoticz.globalData.ClosedC_Voordeur + 1
-			domoticz.log('ClosedC_Voordeur = ' ..domoticz.globalData.ClosedC_Voordeur)
-		end
-		if (BalkondeurNienke.state == 'Open') then
-			domoticz.globalData.OpenC_BalkondeurNienke = domoticz.globalData.OpenC_BalkondeurNienke + 1
-			domoticz.log('OpenC_BalkondeurNienke = ' ..domoticz.globalData.OpenC_BalkondeurNienke)
-		else
-			domoticz.globalData.ClosedC_BalkondeurNienke = domoticz.globalData.ClosedC_BalkondeurNienke + 1
-			domoticz.log('ClosedC_BalkondeurNienke = ' ..domoticz.globalData.ClosedC_BalkondeurNienke)
-		end
-		if (Slaapkdeur.state == 'Open') then
-			domoticz.globalData.OpenC_Slaapkdeur = domoticz.globalData.OpenC_Slaapkdeur + 1
-			domoticz.log('OpenC_Slaapkdeur = ' ..domoticz.globalData.OpenC_Slaapkdeur)
-		else
-			domoticz.globalData.ClosedC_Slaapkdeur = domoticz.globalData.ClosedC_Slaapkdeur + 1
-			domoticz.log('ClosedC_Slaapkdeur = ' ..domoticz.globalData.ClosedC_Slaapkdeur)
-		end
-		--domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		--DeviceName = domoticz.devices(85).name
-		--domoticz.globalData.OpenC_Dakraamzolder = 0
-		--acc = domoticz.globalData.OpenC_Dakraamzolder
+		OpenC_Balkondeurslaapk = domoticz.helpers.OpenC(domoticz, domoticz.devices(83), tonumber(domoticz.globalData.OpenC_Balkondeurslaapk))
+		domoticz.globalData.OpenC_Balkondeurslaapk = OpenC_Balkondeurslaapk
+		ClosedC_Balkondeurslaapk = domoticz.helpers.ClosedC(domoticz, domoticz.devices(83), tonumber(domoticz.globalData.ClosedC_Balkondeurslaapk))
+		domoticz.globalData.ClosedC_Balkondeurslaapk = ClosedC_Balkondeurslaapk	
 		
-		--local count = domoticz.devices().reduce(function(acc, device)
-		--    if (device.name == DeviceName) then
-		--		if (device.state == 'Open') then					
-		--			acc = acc + 1
-		--			domoticz.log('If acc = ' ..acc)
-		--		else
-		--			acc = 0
-		--			domoticz.log('else acc = ' ..acc)
-		--		end
-		--    end
-		--    return acc -- always return the accumulator
-		--end, 0) -- 0 is the initial value for the accumulator
-		--OpenC_Dakraamzolder = count
+		OpenC_Voordeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(107), tonumber(domoticz.globalData.OpenC_Voordeur))
+		domoticz.globalData.OpenC_Voordeur = OpenC_Voordeur
+		ClosedC_Voordeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(107), tonumber(domoticz.globalData.ClosedC_Voordeur))
+		domoticz.globalData.ClosedC_Voordeur = ClosedC_Voordeur
+
+		OpenC_BalkondeurNienke = domoticz.helpers.OpenC(domoticz, domoticz.devices(116), tonumber(domoticz.globalData.OpenC_BalkondeurNienke))
+		domoticz.globalData.OpenC_BalkondeurNienke = OpenC_BalkondeurNienke
+		ClosedC_BalkondeurNienke = domoticz.helpers.ClosedC(domoticz, domoticz.devices(116), tonumber(domoticz.globalData.ClosedC_BalkondeurNienke))
+		domoticz.globalData.ClosedC_BalkondeurNienke = ClosedC_BalkondeurNienke
+		
+		OpenC_Slaapkdeur = domoticz.helpers.OpenC(domoticz, domoticz.devices(153), tonumber(domoticz.globalData.OpenC_Slaapkdeur))
+		domoticz.globalData.OpenC_Slaapkdeur = OpenC_Slaapkdeur
+		ClosedC_Slaapkdeur = domoticz.helpers.ClosedC(domoticz, domoticz.devices(153), tonumber(domoticz.globalData.ClosedC_Slaapkdeur))
+		domoticz.globalData.ClosedC_Slaapkdeur = ClosedC_Slaapkdeur
+
 		OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.OpenC_Dakraamzolder))
 		domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder
-		--OpenC_Dakraamzolder = domoticz.helpers.OpenC(domoticz, domoticz.devices(85), domoticz.globalData.OpenC_Dakraamzolder)
-		--domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
-		--domoticz.globalData.OpenC_Dakraamzolder = OpenC_Dakraamzolder		
-		--domoticz.log('OpenC_Dakraamzolder: ' .. OpenC_Dakraamzolder)
-		
-		--acc = domoticz.globalData.ClosedC_Dakraamzolder
-		--local count = domoticz.devices().reduce(function(acc, device)
-		--    if (device.name == DeviceName) then
-		--		if (device.state == 'Closed') then					
-		--			acc = acc + 1
-		--			domoticz.log('If acc = ' ..acc)
-		--		else
-		--			acc = 0
-		--			domoticz.log('else acc = ' ..acc)
-		--		end
-		--  end
-		--    return acc -- always return the accumulator
-		--end, 0) -- 0 is the initial value for the accumulator
-		--ClosedC_Dakraamzolder = count		
-		
-		--domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
 		ClosedC_Dakraamzolder = domoticz.helpers.ClosedC(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.ClosedC_Dakraamzolder))
 		domoticz.globalData.ClosedC_Dakraamzolder = ClosedC_Dakraamzolder	
-		--CountersDevice =function(domoticz,85,'Raam','OpenC_Floor3','OpenC_Total')
-		--if (Dakraamzolder.state == 'Open') then
-		--	domoticz.globalData.OpenC_Dakraamzolder = domoticz.globalData.OpenC_Dakraamzolder + 1
-		--	domoticz.log('OpenC_Dakraamzolder = ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		--else
-		--	domoticz.globalData.ClosedC_Dakraamzolder = domoticz.globalData.ClosedC_Dakraamzolder + 1
-		--	domoticz.log('ClosedC_Dakraamzolder = ' ..domoticz.globalData.ClosedC_Dakraamzolder)
-		--end
-		
+			
 		if (PIR_woonk.state == 'On') then
 			domoticz.globalData.MC_PIR_woonk = domoticz.globalData.MC_PIR_woonk + 1
 			domoticz.log('MC_PIR_woonk = ' ..domoticz.globalData.MC_PIR_woonk)
