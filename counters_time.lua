@@ -139,7 +139,10 @@ return {
 		if (domoticz.globalData.NMC_PIR_halboven ~= 0) then
 			domoticz.log('domoticz.globalData.NMC_PIR_halboven: ' ..domoticz.globalData.NMC_PIR_halboven)
 		end
-
+		
+		--Floor1
+		--Eetkamerdeur
+		--Voordeur
 		domoticz.globalData.OpenC_Floor1 = domoticz.globalData.OpenC_Floor1 + 1	
 		domoticz.globalData.OpenC_Floor2 = domoticz.globalData.OpenC_Floor2 + 1
 		domoticz.globalData.OpenC_Floor3 = domoticz.globalData.OpenC_Floor3 + 1
