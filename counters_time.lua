@@ -143,6 +143,20 @@ return {
 		--Floor1
 		--Eetkamerdeur
 		--Voordeur
+		--PIR_woonk
+		
+		--Floor2
+		--Dakraamslaapk
+		--Balkondeurslaapk
+		--BalkondeurNienke
+		--Slaapkdeur
+		--PIR_kamerLars
+		--PIR_halboven
+		
+		--Floor3
+		--Dakraamzolder
+
+		
 		domoticz.globalData.OpenC_Floor1 = domoticz.globalData.OpenC_Floor1 + 1	
 		domoticz.globalData.OpenC_Floor2 = domoticz.globalData.OpenC_Floor2 + 1
 		domoticz.globalData.OpenC_Floor3 = domoticz.globalData.OpenC_Floor3 + 1
