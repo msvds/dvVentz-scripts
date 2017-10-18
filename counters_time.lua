@@ -194,6 +194,25 @@ return {
 			domoticz.globalData.ClosedC_Floor3 = domoticz.globalData.ClosedC_Floor3 + 1
 			domoticz.globalData.OpenC_Floor3 = 0
 		end
+		
+		--Total
+		if (domoticz.globalData.OpenC_Floor1 ~= 0 or domoticz.globalData.OpenC_Floor2 ~= 0 or domoticz.globalData.OpenC_Floor3 ~= 0) then
+			domoticz.globalData.OpenC_Total = domoticz.globalData.OpenC_Total + 1
+			domoticz.globalData.ClosedC_Total = 0
+		end
+		if (domoticz.globalData.ClosedC_Floor1 ~= 0 and domoticz.globalData.ClosedC_Floor2 ~= 0 and domoticz.globalData.ClosedC_Floor3 ~= 0) then
+			domoticz.globalData.ClosedC_Total = domoticz.globalData.ClosedC_Total + 1
+			domoticz.globalData.OpenC_Total = 0
+		end
+		if (domoticz.globalData.MC_Floor1 ~= 0 or domoticz.globalData.MC_Floor2 ~= 0 or domoticz.globalData.MC_Floor3 ~= 0) then
+			domoticz.globalData.MC_Total = domoticz.globalData.MC_Total + 1
+			domoticz.globalData.NMC_Total = 0
+		end
+		if (domoticz.globalData.NMC_Floor1 ~= 0 and domoticz.globalData.NMC_Floor2 ~= 0 and domoticz.globalData.NMC_Floor3 ~= 0) then
+			domoticz.globalData.NMC_Total = domoticz.globalData.NMC_Total + 1
+			domoticz.globalData.MC_Total = 0
+		end
+		
 		domoticz.log('OpenC_Floor1 = ' ..domoticz.globalData.OpenC_Floor1)
 		domoticz.log('ClosedC_Floor1 = ' ..domoticz.globalData.ClosedC_Floor1)
 		domoticz.log('MC_Floor1 = ' ..domoticz.globalData.MC_Floor1)
@@ -204,6 +223,9 @@ return {
 		domoticz.log('NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2)
 		domoticz.log('OpenC_Floor3 = ' ..domoticz.globalData.OpenC_Floor3)	
 		domoticz.log('ClosedC_Floor3 = ' ..domoticz.globalData.ClosedC_Floor3)
-
+		domoticz.log('OpenC_Total = ' ..domoticz.globalData.OpenC_Total)
+		domoticz.log('ClosedC_Total = ' ..domoticz.globalData.ClosedC_Total)
+		domoticz.log('MC_Total = ' ..domoticz.globalData.MC_Total)	
+		domoticz.log('NMC_Total = ' ..domoticz.globalData.NMC_Total)
 	end
 }
