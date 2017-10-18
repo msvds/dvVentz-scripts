@@ -28,9 +28,9 @@ return {
 			domoticz.globalData.OpenC_Eetkamerdeur = 0		  
 			domoticz.log('OpenC_Eetkamerdeur set to zero')
 		end
-		if (Dakraamslaapk.state == 'Open') then
+		if (device.name == Dakraamslaapk.name and Dakraamslaapk.state == 'Open') then
 			domoticz.log('ClosedC_Dakraamslaapk set to zero')
-		else
+		elseif (device.name == Dakraamslaapk.name and Dakraamslaapk.state == 'Closed') then
 			domoticz.globalData.OpenC_Dakraamslaapk = 0		  
 			domoticz.log('OpenC_Dakraamslaapk set to zero')
 		end
@@ -62,10 +62,10 @@ return {
 			domoticz.globalData.OpenC_Slaapkdeur = 0		  
 			domoticz.log('OpenC_Slaapkdeur set to zero')
 		end
-		if (Dakraamzolder.state == 'Open') then
+		if (device.name == Dakraamzolder.name and Dakraamzolder.state == 'Open') then
 			domoticz.globalData.ClosedC_Dakraamzolder = 0
 			domoticz.log('ClosedC_Dakraamzolder set to zero')
-		else
+		elseif (device.name == Dakraamzolder.name and Dakraamzolder.state == 'Closed') then
 			domoticz.globalData.OpenC_Dakraamzolder = 0		  
 			domoticz.log('OpenC_Dakraamzolder set to zero')
 		end
