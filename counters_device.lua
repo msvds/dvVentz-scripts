@@ -6,8 +6,6 @@ return {
 		devices = {25,81,83,107,116,153,85,23,66,119},
 	},
 	execute = function(domoticz)
-		local changeddevice = domoticz.changedDevices()
-		domoticz.log('changeddevice = '  ..changeddevice.name)
 		local Eetkamerdeur = domoticz.devices(25)
 		local Dakraamslaapk = domoticz.devices(81)
 		local Balkondeurslaapk = domoticz.devices(83)
@@ -23,10 +21,10 @@ return {
 		domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 		domoticz.log('PIR_halboven.state: ' ..PIR_halboven.state)
 		
-		if (Eetkamerdeur.state == 'Open') then
+		if (device.name == Eetkamerdeur.name and Eetkamerdeur.state == 'Open') then
 			domoticz.globalData.ClosedC_Eetkamerdeur = 0	  
 			domoticz.log('ClosedC_Eetkamerdeur set to zero')
-		else
+		elseif (device.name == Eetkamerdeur.name and Eetkamerdeur.state == 'Closed') then
 			domoticz.globalData.OpenC_Eetkamerdeur = 0		  
 			domoticz.log('OpenC_Eetkamerdeur set to zero')
 		end
