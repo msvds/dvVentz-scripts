@@ -7,7 +7,7 @@ return {
 	},
 	execute = function(domoticz)
 		local changeddevice = domoticz.changedDevices().name
-		domoticz.log('changeddevice = '  .changeddevice)
+		domoticz.log('changeddevice = '  ..changeddevice)
 		local Eetkamerdeur = domoticz.devices(25)
 		local Dakraamslaapk = domoticz.devices(81)
 		local Balkondeurslaapk = domoticz.devices(83)
