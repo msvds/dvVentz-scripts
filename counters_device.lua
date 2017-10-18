@@ -5,7 +5,7 @@ return {
 	on = {
 		devices = {25,81,83,107,116,153,85,23,66,119},
 	},
-	execute = function(domoticz)
+	execute = function(domoticz,device)
 		local Eetkamerdeur = domoticz.devices(25)
 		local Dakraamslaapk = domoticz.devices(81)
 		local Balkondeurslaapk = domoticz.devices(83)
