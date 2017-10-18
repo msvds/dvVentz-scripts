@@ -1,4 +1,5 @@
 -- Counters for motion, no motion, open and closed windows/doors in minutes
+-- PIR for floor 3 missing
 return {
 	active = true,
 	on = {
@@ -204,11 +205,11 @@ return {
 			domoticz.globalData.ClosedC_Total = domoticz.globalData.ClosedC_Total + 1
 			domoticz.globalData.OpenC_Total = 0
 		end
-		if (domoticz.globalData.MC_Floor1 ~= 0 or domoticz.globalData.MC_Floor2 ~= 0 or domoticz.globalData.MC_Floor3 ~= 0) then
+		if (domoticz.globalData.MC_Floor1 ~= 0 or domoticz.globalData.MC_Floor2 ~= 0) then
 			domoticz.globalData.MC_Total = domoticz.globalData.MC_Total + 1
 			domoticz.globalData.NMC_Total = 0
 		end
-		if (domoticz.globalData.NMC_Floor1 ~= 0 and domoticz.globalData.NMC_Floor2 ~= 0 and domoticz.globalData.NMC_Floor3 ~= 0) then
+		if (domoticz.globalData.NMC_Floor1 ~= 0 and domoticz.globalData.NMC_Floor2 ~= 0) then
 			domoticz.globalData.NMC_Total = domoticz.globalData.NMC_Total + 1
 			domoticz.globalData.MC_Total = 0
 		end
