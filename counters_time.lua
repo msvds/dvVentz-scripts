@@ -31,7 +31,7 @@ return {
 		local NMC_Floor1 = 0
 		local NMC_Floor2 = 0
 		local NMC_Floor3 = 0
-		local message_time = 5
+		local message_time = 15
 		domoticz.globalData.Counters_time_message = domoticz.globalData.Counters_time_message + 1  
 		
 		
