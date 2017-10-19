@@ -1,7 +1,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		timer = {'every 5 minutes'}
+		timer = {'every 1 minutes'}
 	},
 	execute = function(domoticz, device)
 		local temp_buiten = domoticz.devices(59)
