@@ -201,20 +201,20 @@ return {
 		
 		--Total
 		if (domoticz.globalData.OpenC_Floor1 ~= 0 or domoticz.globalData.OpenC_Floor2 ~= 0 or domoticz.globalData.OpenC_Floor3 ~= 0) then
-			domoticz.globalData.OpenC_Total = domoticz.globalData.OpenC_Total + 1
-			domoticz.globalData.ClosedC_Total = 0
+			domoticz.globalData.OpenC_Overall = domoticz.globalData.OpenC_Overall + 1
+			domoticz.globalData.ClosedC_Overall = 0
 		end
 		if (domoticz.globalData.ClosedC_Floor1 ~= 0 and domoticz.globalData.ClosedC_Floor2 ~= 0 and domoticz.globalData.ClosedC_Floor3 ~= 0) then
-			domoticz.globalData.ClosedC_Total = domoticz.globalData.ClosedC_Total + 1
-			domoticz.globalData.OpenC_Total = 0
+			domoticz.globalData.ClosedC_Overall = domoticz.globalData.ClosedC_Overall + 1
+			domoticz.globalData.OpenC_Overall = 0
 		end
 		if (domoticz.globalData.MC_Floor1 ~= 0 or domoticz.globalData.MC_Floor2 ~= 0) then
-			domoticz.globalData.MC_Total = domoticz.globalData.MC_Total + 1
-			domoticz.globalData.NMC_Total = 0
+			domoticz.globalData.MC_Overall = domoticz.globalData.MC_Overall + 1
+			domoticz.globalData.NMC_Overall = 0
 		end
 		if (domoticz.globalData.NMC_Floor1 ~= 0 and domoticz.globalData.NMC_Floor2 ~= 0) then
-			domoticz.globalData.NMC_Total = domoticz.globalData.NMC_Total + 1
-			domoticz.globalData.MC_Total = 0
+			domoticz.globalData.NMC_Overall = domoticz.globalData.NMC_Overall + 1
+			domoticz.globalData.MC_Overall = 0
 		end
 		if (domoticz.globalData.Counters_time_message == message_time) then
 			domoticz.log('OpenC_Floor1 = ' ..domoticz.globalData.OpenC_Floor1)
@@ -227,10 +227,10 @@ return {
 			domoticz.log('NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2)
 			domoticz.log('OpenC_Floor3 = ' ..domoticz.globalData.OpenC_Floor3)	
 			domoticz.log('ClosedC_Floor3 = ' ..domoticz.globalData.ClosedC_Floor3)
-			domoticz.log('OpenC_Total = ' ..domoticz.globalData.OpenC_Total)
-			domoticz.log('ClosedC_Total = ' ..domoticz.globalData.ClosedC_Total)
-			domoticz.log('MC_Total = ' ..domoticz.globalData.MC_Total)	
-			domoticz.log('NMC_Total = ' ..domoticz.globalData.NMC_Total)
+			domoticz.log('OpenC_Overall = ' ..domoticz.globalData.OpenC_Overall)
+			domoticz.log('ClosedC_Overall = ' ..domoticz.globalData.ClosedC_Overall)
+			domoticz.log('MC_Overall = ' ..domoticz.globalData.MC_Overall)	
+			domoticz.log('NMC_Overall = ' ..domoticz.globalData.NMC_Overall)
 		end
 		if (domoticz.globalData.Counters_time_message >= message_time) then
 			domoticz.globalData.Counters_time_message = 0
