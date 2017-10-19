@@ -1,5 +1,5 @@
 return {
-	active = false, -- set to false to disable this script
+	active = true, -- set to false to disable this script
 	on = {
 		timer = {'every 5 minutes'}
 	},
@@ -39,18 +39,18 @@ return {
 		
 		if tonumber(temp_buiten.temperature) >  tonumber(Temperature_limit) then
 			if debug then print('script_time_thermostaat: De buiten temperatuur is ' ..temp_buiten.temperature .. ' graden') end
-			changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
-			--OpenC_Eetkamerdeur = domoticz.helpers.Counter(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.OpenC_Eetkamerdeur),'Open')
+			--changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
+			domoticz.helpers.changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
 		end		
 
 		-- If we have reached the timeout, disable the linked switches
 		if(domoticz.globalData.NMC_total >= NMtimeout) then
 			if debug then print('thermostaat.lua: domoticz.globalData.NMC_total: ' ..domoticz.globalData.NMC_total) end
-			changeSetPoint('12','omdat de total no movement timout bereikt is',true)
+			domoticz.helpers.changeSetPoint('12','omdat de total no movement timout bereikt is',true)
 		end
 		if(domoticz.globalData.OpenC_Total >= Opentimeout) then
 			if debug then print('thermostaat.lua: domoticz.globalData.OpenC_Total: ' ..domoticz.globalData.OpenC_Total) end
-			changeSetPoint('12','omdat de total open timout bereikt is',true)
+			domoticz.helpers.changeSetPoint('12','omdat de total open timout bereikt is',true)
 		end
 
 				--local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
