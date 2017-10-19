@@ -6,8 +6,8 @@ return {
 	execute = function(domoticz, device)
 		local temp_buiten = domoticz.devices(59)
 		local Temperature_limit = '18'
-		local NMtimeout = tonumber(30)
-		local Opentimeout = tonumber(10)
+		local NMtimeout = 30
+		local Opentimeout = 10
 		local Time = require('Time')
 		debug = true
 		--ToonState = '50' -- Manual
