@@ -45,11 +45,11 @@ return {
 		-- If we have reached the timeout, disable the linked switches
 		if (domoticz.globalData.NMC_Overall > NM_timeout) then
 			if debug then print('thermostaat.lua: domoticz.globalData.NMC_Overall: ' ..domoticz.globalData.NMC_Overall) end
-			domoticz.helpers.changeSetPoint('12','omdat de total no movement timout bereikt is',true)
+			domoticz.helpers.changeSetPoint('12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true)
 		end
 		if (domoticz.globalData.OpenC_Overall > Open_timeout) then
 			if debug then print('thermostaat.lua: domoticz.globalData.OpenC_Overall: ' ..domoticz.globalData.OpenC_Overall) end
-			domoticz.helpers.changeSetPoint('12','omdat de total open timout bereikt is',true)
+			domoticz.helpers.changeSetPoint('12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true)
 		end
 
 				--local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
