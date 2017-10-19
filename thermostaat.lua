@@ -64,13 +64,5 @@ return {
 				--commandArray[1] = {['UpdateDevice'] = string.format('%s|1|%s', otherdevices_idx[ToonScenesSensorName], '10')}
 				--if debug then print('Huidige programma Toon veranderd naar Away omdat de woonkamerdeur open staat') end
 				--if debug then print('Huidige setpoint is '.. currentSetpoint) end
-		
-		domoticz.log(device.name ..' state = ' ..device.state)		
-		if (device.state == 'On') then
-			if (lampen_woonkamer.state == 'Off') then
-				lampen_woonkamer.switchOn()
-				domoticz.log('Eetkamerdeur open terwijl het donker is -> Nachtlampjes aangezet')
-			end		
-		end
 	end
 }
