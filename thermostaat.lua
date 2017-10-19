@@ -33,23 +33,23 @@ return {
 			local currentActiveState = tonumber(jsonThermostatInfo.activeState)
 			local currentNextTime = jsonThermostatInfo.nextTime
 			local currentNextSetPoint = tonumber(jsonThermostatInfo.nextSetpoint) / 100
-			if debug then print('script_time_thermostaat: Huidige programma Toon is '.. currentActiveState) end
-			if debug then print('script_time_thermostaat: Huidige setpoint is '.. currentSetpoint) end
+			if debug then domoticz.log('script_time_thermostaat: Huidige programma Toon is '.. currentActiveState) end
+			if debug then domoticz.log('script_time_thermostaat: Huidige setpoint is '.. currentSetpoint) end
 		end
 		
 		if tonumber(temp_buiten.temperature) >  tonumber(Temperature_limit) then
-			if debug then print('script_time_thermostaat: De buiten temperatuur is ' ..temp_buiten.temperature .. ' graden') end
+			if debug then domoticz.log('script_time_thermostaat: De buiten temperatuur is ' ..temp_buiten.temperature .. ' graden') end
 			--changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
 			--domoticz.helpers.changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
 			domoticz.helpers.changeToonScene('10',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
 		end		
 		-- If we have reached the timeout, disable the linked switches
 		if (domoticz.globalData.NMC_Overall > NM_timeout) then
-			if debug then print('thermostaat.lua: domoticz.globalData.NMC_Overall: ' ..domoticz.globalData.NMC_Overall) end
+			if debug then domoticz.log('thermostaat.lua: domoticz.globalData.NMC_Overall: ' ..domoticz.globalData.NMC_Overall) end
 			domoticz.helpers.changeSetPoint('12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true,currentSetpoint)
 		end
 		if (domoticz.globalData.OpenC_Overall > Open_timeout) then
-			if debug then print('thermostaat.lua: domoticz.globalData.OpenC_Overall: ' ..domoticz.globalData.OpenC_Overall) end
+			if debug then domoticz.log('thermostaat.lua: domoticz.globalData.OpenC_Overall: ' ..domoticz.globalData.OpenC_Overall) end
 			domoticz.helpers.changeSetPoint('12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true,currentSetpoint)
 		end
 
@@ -62,7 +62,7 @@ return {
 				--end
 				--
 				--commandArray[1] = {['UpdateDevice'] = string.format('%s|1|%s', otherdevices_idx[ToonScenesSensorName], '10')}
-				--if debug then print('Huidige programma Toon veranderd naar Away omdat de woonkamerdeur open staat') end
-				--if debug then print('Huidige setpoint is '.. currentSetpoint) end
+				--if debug then domoticz.log('Huidige programma Toon veranderd naar Away omdat de woonkamerdeur open staat') end
+				--if debug then domoticz.log('Huidige setpoint is '.. currentSetpoint) end
 	end
 }
