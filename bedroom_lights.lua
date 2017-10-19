@@ -15,10 +15,12 @@ return {
 			-- between 19:00 and 0:30 then next day
 			if (dimmer_bed_martijn.state == 'Off') then
 				dimmer_bed_martijn.switchOn()
+				dimmer_bed_martijn.level == 6
 				domoticz.log('Slaapkamerdeur open terwijl het donker is -> Nachtlampjes aangezet')
 			end
 			if (dimmer_bed_martijn.state == 'Off') then
 				dimmer_bed_suzanne.switchOn()
+				dimmer_bed_suzanne.level == 6
 				domoticz.log('Slaapkamerdeur open terwijl het donker is -> Nachtlampjes aangezet')
 			end
 			
