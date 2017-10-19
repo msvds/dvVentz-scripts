@@ -116,10 +116,10 @@ return {
 		ClosedC_Floor2  = { initial = 0 },
 		OpenC_Floor3  = { initial = 0 },
 		ClosedC_Floor3  = { initial = 0 },
-		MC_Total  = { initial = 0 },
-		NMC_Total  = { initial = 0 },
-		OpenC_Total  = { initial = 0 },
-		ClosedC_Total  = { initial = 0 },
+		MC_Overall  = { initial = 0 },
+		NMC_Overall  = { initial = 0 },
+		OpenC_Overall  = { initial = 0 },
+		ClosedC_Overall  = { initial = 0 },
 		Counters_time_message  = { initial = 0 }
 	}
 }
