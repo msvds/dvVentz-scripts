@@ -43,16 +43,14 @@ return {
 			domoticz.helpers.changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
 		end		
 		-- If we have reached the timeout, disable the linked switches
-		--if domoticz.globalData.NMC_total > NM_timeout then
-		if domoticz.globalData.NMC_Floor1 ~= nil then 
-			domoticz.log(domoticz.globalData.NMC_Floor1)
-			if (domoticz.globalData.NMC_Floor1 > NM_timeout) then
-				if debug then print('thermostaat.lua: domoticz.globalData.NMC_Floor1: ' ..domoticz.globalData.NMC_Floor1) end
-				domoticz.helpers.changeSetPoint('12','omdat de total no movement timout bereikt is',true)
-			end
+		if domoticz.globalData.NMC_Overall > NM_timeout then
+		domoticz.log(domoticz.globalData.NMC_Overall)
+		if (domoticz.globalData.NMC_Overall > NM_timeout) then
+			if debug then print('thermostaat.lua: domoticz.globalData.NMC_Overall: ' ..domoticz.globalData.NMC_Overall) end
+			domoticz.helpers.changeSetPoint('12','omdat de total no movement timout bereikt is',true)
 		end
-		if (domoticz.globalData.OpenC_Total > Open_timeout) then
-			if debug then print('thermostaat.lua: domoticz.globalData.OpenC_Total: ' ..domoticz.globalData.OpenC_Total) end
+		if (domoticz.globalData.OpenC_Overall > Open_timeout) then
+			if debug then print('thermostaat.lua: domoticz.globalData.OpenC_Overall: ' ..domoticz.globalData.OpenC_Overall) end
 			domoticz.helpers.changeSetPoint('12','omdat de total open timout bereikt is',true)
 		end
 
