@@ -119,6 +119,7 @@ return {
 		MC_Total  = { initial = 0 },
 		NMC_Total  = { initial = 0 },
 		OpenC_Total  = { initial = 0 },
-		ClosedC_Total  = { initial = 0 }
+		ClosedC_Total  = { initial = 0 },
+		Counters_time_message  = { initial = 0 }
 	}
 }
