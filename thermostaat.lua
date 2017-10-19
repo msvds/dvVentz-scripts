@@ -46,12 +46,12 @@ return {
 		--if domoticz.globalData.NMC_total > NM_timeout then
 		if domoticz.globalData.NMC_total ~= nil then 
 			domoticz.log(domoticz.globalData.NMC_total)
-			if (domoticz.globalData.NMC_total > 30) then
+			if (domoticz.globalData.NMC_total > NM_timeout) then
 				if debug then print('thermostaat.lua: domoticz.globalData.NMC_total: ' ..domoticz.globalData.NMC_total) end
 				domoticz.helpers.changeSetPoint('12','omdat de total no movement timout bereikt is',true)
 			end
 		end
-		if (domoticz.globalData.OpenC_Total > tonumber(Open_timeout)) then
+		if (domoticz.globalData.OpenC_Total > Open_timeout) then
 			if debug then print('thermostaat.lua: domoticz.globalData.OpenC_Total: ' ..domoticz.globalData.OpenC_Total) end
 			domoticz.helpers.changeSetPoint('12','omdat de total open timout bereikt is',true)
 		end
