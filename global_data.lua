@@ -29,7 +29,7 @@ return {
 			timeInSeconds = os.time{year=year, month=month, day=day, hour=hour, min=minutes, sec=seconds}
 			return timeInSeconds
 		end,
-		changeSetPoint =function(s,reason,sendmessage)
+		changeSetPoint =function(s,reason,sendmessage,currentSetpoint)
 			SetPoint = s
 			if currentSetpoint ~= SetPoint then
 				ToonCommand = string.format('http://%s/happ_thermstat?action=setSetpoint&Setpoint=%s', ToonIP, SetPoint*100)
@@ -38,6 +38,21 @@ return {
 				if sendmessage == true then
 					message('Toon setpoint gezet naar '.. SetPoint .. reason)
 				end
+			end
+		end,
+		changeToonScene =function(s,reason,sendmessage,currentSetpoint)
+			local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
+			if currentActiveState == -1 then currentActiveState = '50' -- Manual
+			elseif currentActiveState == 0 then currentActiveState = '40' -- Comfort
+			elseif currentActiveState == 1 then currentActiveState = '30' -- Home
+			elseif currentActiveState == 2 then currentActiveState = '20' -- Sleep
+			elseif currentActiveState == 3 then currentActiveState = '10' -- Away
+			end
+			SetScene = s
+			if currentActiveState ~= SetScene then
+				commandArray[1] = {['UpdateDevice'] = string.format('%s|1|%s', otherdevices_idx['Toon Thermostat'], s)}
+				if debug then print('Huidige programma Toon veranderd naar ' ..s.. ' omdat de woonkamerdeur open staat') end
+				if debug then print('Huidige setpoint is '.. currentSetpoint) end
 			end
 		end,
 		MotionCounter =function(domoticz,MotionCounterVar)
