@@ -6,8 +6,8 @@ return {
 	execute = function(domoticz, device)
 		local temp_buiten = domoticz.devices(59)
 		local Temperature_limit = '18'
-		local NM_timeout = '30'
-		local Open_timeout = '10'
+		local NM_timeout = 30
+		local Open_timeout = 10
 		local Time = require('Time')
 		debug = true
 		--ToonState = '50' -- Manual
@@ -43,7 +43,7 @@ return {
 			domoticz.helpers.changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
 		end		
 		-- If we have reached the timeout, disable the linked switches
-		if domoticz.globalData.NMC_total > tonumber(Temperature_limit) then
+		if domoticz.globalData.NMC_total > NM_timeout then
 			if debug then print('thermostaat.lua: domoticz.globalData.NMC_total: ' ..domoticz.globalData.NMC_total) end
 			domoticz.helpers.changeSetPoint('12','omdat de total no movement timout bereikt is',true)
 		end
