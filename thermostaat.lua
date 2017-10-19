@@ -45,9 +45,9 @@ return {
 		-- If we have reached the timeout, disable the linked switches
 		--if domoticz.globalData.NMC_total > NM_timeout then
 		if domoticz.globalData.NMC_Floor1 ~= nil then 
-			domoticz.log(domoticz.globalData.NMC_total)
-			if (domoticz.globalData.NMC_total > NM_timeout) then
-				if debug then print('thermostaat.lua: domoticz.globalData.NMC_total: ' ..domoticz.globalData.NMC_total) end
+			domoticz.log(domoticz.globalData.NMC_Floor1)
+			if (domoticz.globalData.NMC_Floor1 > NM_timeout) then
+				if debug then print('thermostaat.lua: domoticz.globalData.NMC_Floor1: ' ..domoticz.globalData.NMC_Floor1) end
 				domoticz.helpers.changeSetPoint('12','omdat de total no movement timout bereikt is',true)
 			end
 		end
