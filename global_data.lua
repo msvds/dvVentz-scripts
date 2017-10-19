@@ -34,7 +34,7 @@ return {
 			if currentSetpoint ~= SetPoint then
 				ToonCommand = string.format('http://%s/happ_thermstat?action=setSetpoint&Setpoint=%s', ToonIP, SetPoint*100)
 				commandArray['OpenURL'] = ToonCommand
-				if debug then print('script_time_thermostaat: Toon setpoint gezet naar '.. SetPoint .. reason) end
+				if debug then print('Toon setpoint gezet naar '.. SetPoint .. reason) end
 				if sendmessage == true then
 					message('Toon setpoint gezet naar '.. SetPoint .. reason)
 				end
