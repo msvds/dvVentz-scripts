@@ -1,21 +1,23 @@
 return {
 	active = false, -- set to false to disable this script
 	on = {
-		timer = {'every 6 hours'}
+		timer = {'every 5 minutes'}
 	},
 	execute = function(domoticz, device)
 		local temp_buiten = domoticz.devices(59)
 		local Temperature_limit = '18'
-		local timeout = tonumber(5)
+		local NMtimeout = tonumber(30)
+		local Opentimeout = tonumber(10)
 		local Time = require('Time')
+		debug = true
 		--ToonState = '50' -- Manual
 		--ToonState = '40' -- Comfort
 		--ToonState = '30' -- Home
 		--ToonState = '20' -- Sleep
 		--ToonState = '10' -- Away
-		local ToonScenesSensorName  = uservariables['UV_ToonScenesSensorName'] -- Sensor showing current program
-		local ToonThermostatSensorName = uservariables['UV_ToonThermostatSensorName'] -- Sensor showing current setpoint
-		local ToonIP = uservariables['UV_ToonIP']
+		local ToonScenesSensorName  = 'Toon Temperature' -- Sensor showing current program
+		local ToonThermostatSensorName = 'Toon Thermostat' 
+		local ToonIP = '192.168.178.183'
 		local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
 
 		local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', ToonIP)))
@@ -38,31 +40,18 @@ return {
 		if tonumber(temp_buiten.temperature) >  tonumber(Temperature_limit) then
 			if debug then print('script_time_thermostaat: De buiten temperatuur is ' ..temp_buiten.temperature .. ' graden') end
 			changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
+			--OpenC_Eetkamerdeur = domoticz.helpers.Counter(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.OpenC_Eetkamerdeur),'Open')
 		end		
 
 		-- If we have reached the timeout, disable the linked switches
-		if(timeout <= no_change_minutes) then
-			if debug then print('script_time_thermostaat: ' ..variable ..': timeout reached.') end
-			for i, detector in ipairs(devices['detectors']) do
-				if (device == 'Eetkamerdeur' and (deviceValue == 'Open' or test == 'On')) then
-					if debug then print('script_time_thermostaat: deviceValue ' ..deviceValue) end
-					changeSetPoint('12','omdat de eetkamerdeur open staat',true)
-				elseif (device == 'Balkondeur slaapkamer' and (deviceValue == 'Open' or test == 'On')) then
-					if debug then print('script_time_thermostaat: deviceValue ' ..deviceValue) end
-					changeSetPoint('12','omdat de balkondeur slaapkamer open staat',true)
-				elseif (device == 'Dakraam slaapkamer' and (deviceValue == 'Open' or test == 'On')) then
-					if debug then print('script_time_thermostaat: deviceValue ' ..deviceValue) end
-					changeSetPoint('12','omdat de dakraam slaapkamer open staat',true)
-				elseif (device == 'Zolderdakraam achter' and (deviceValue == 'Open' or test == 'On')) then
-					if debug then print('script_time_thermostaat: deviceValue ' ..deviceValue) end
-					changeSetPoint('12','omdat de zolderdakraam achter open staat',true)
-				elseif (device == 'Beweging woonkamer' and (deviceValue == 'Off' or test == 'On')) then
-					if (device == 'Beweging kamer Lars' and (deviceValue == 'Off' or test == 'On')) then
-						if debug then print('script_time_thermostaat: deviceValue ' ..deviceValue) end
-						changeSetPoint('12','omdat er niemand thuis lijkt te zijn',true)
-					end
-				end
-			end
+		if(domoticz.globalData.NMC_total >= NMtimeout) then
+			if debug then print('thermostaat.lua: domoticz.globalData.NMC_total: ' ..domoticz.globalData.NMC_total) end
+			changeSetPoint('12','omdat de total no movement timout bereikt is',true)
+		end
+		if(domoticz.globalData.OpenC_Total >= Opentimeout) then
+			if debug then print('thermostaat.lua: domoticz.globalData.OpenC_Total: ' ..domoticz.globalData.OpenC_Total) end
+			changeSetPoint('12','omdat de total open timout bereikt is',true)
+		end
 
 				--local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
 				--if currentActiveState == -1 then currentActiveState = '50' -- Manual
@@ -75,7 +64,6 @@ return {
 				--commandArray[1] = {['UpdateDevice'] = string.format('%s|1|%s', otherdevices_idx[ToonScenesSensorName], '10')}
 				--if debug then print('Huidige programma Toon veranderd naar Away omdat de woonkamerdeur open staat') end
 				--if debug then print('Huidige setpoint is '.. currentSetpoint) end
-		end
 		
 		domoticz.log(device.name ..' state = ' ..device.state)		
 		if (device.state == 'On') then
