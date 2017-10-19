@@ -33,7 +33,7 @@ return {
 		local NMC_Floor3 = 0
 		local message_time = 15
 		domoticz.globalData.Counters_time_message = domoticz.globalData.Counters_time_message + 1  
-		
+		domoticz.log(domoticz.globalData.Counters_time_message)
 		
 		OpenC_Eetkamerdeur = domoticz.helpers.Counter(domoticz, domoticz.devices(25), tonumber(domoticz.globalData.OpenC_Eetkamerdeur),'Open')
 		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur
@@ -233,6 +233,8 @@ return {
 			domoticz.log('MC_Total = ' ..domoticz.globalData.MC_Total)	
 			domoticz.log('NMC_Total = ' ..domoticz.globalData.NMC_Total)
 		end
+		domoticz.log(domoticz.globalData.Counters_time_message)
+		domoticz.log(message_time)
 		if (domoticz.globalData.Counters_time_message >= message_time) then
 			domoticz.globalData.Counters_time_message = 0
 		end
