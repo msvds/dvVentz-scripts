@@ -44,7 +44,7 @@ return {
 		end		
 		-- If we have reached the timeout, disable the linked switches
 		--if domoticz.globalData.NMC_total > NM_timeout then
-		if domoticz.globalData.NMC_total ~= nil then 
+		if domoticz.globalData.NMC_Floor1 ~= nil then 
 			domoticz.log(domoticz.globalData.NMC_total)
 			if (domoticz.globalData.NMC_total > NM_timeout) then
 				if debug then print('thermostaat.lua: domoticz.globalData.NMC_total: ' ..domoticz.globalData.NMC_total) end
