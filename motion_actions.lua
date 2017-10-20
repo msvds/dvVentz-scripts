@@ -23,6 +23,7 @@ return {
 		local dimmer_bed_martijn = domoticz.devices(149)		
 		local dimmer_bed_suzanne = domoticz.devices(150)
 		local IsDark = domoticz.devices(78)
+		local SomeoneHome = domoticz.devices(96)
 		local Time = require('Time')
 		if IsDark == 'On' then			
 			if (domoticz.time.matchesRule('at 16:00-01:00') and PIR_woonk.state == 'On') then
@@ -55,9 +56,14 @@ return {
 					domoticz.log('Slaapkamerdeur open terwijl het donker is -> Nachtlampje Suzanne aangezet')
 				end
 			end
+			if (Eetkamerdeur.state == 'Open' and SomeoneHome.state == 'Off') then
+				if (lampen_woonkamer.state == 'Off') then
+					lampen_woonkamer.switchOn()
+					domoticz.log('Eetkamerdeur open terwijl het donker is -> lampen woonkamer aangezet')
+				end		
+			end
 		else
 			if debug then print('No action because it is not dark') end
 		end
 	end
 }
-
