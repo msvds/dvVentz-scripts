@@ -37,34 +37,24 @@ return {
 			if debug then domoticz.log('script_time_thermostaat: Huidige setpoint is '.. currentSetpoint) end
 		end
 		
+		--Do something when outside temp > limit
 		if tonumber(temp_buiten.temperature) >  tonumber(Temperature_limit) then
 			if debug then domoticz.log('script_time_thermostaat: De buiten temperatuur is ' ..temp_buiten.temperature .. ' graden') end
 			--changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
 			--domoticz.helpers.changeSetPoint(domoticz,'12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
 			domoticz.helpers.changeToonScene(domoticz,'10',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
 		end		
-		-- If we have reached the timeout, disable the linked switches
+		--Do something when no movement timeout is reached
 		if (domoticz.globalData.NMC_Overall > NM_timeout) then
 			if debug then domoticz.log('thermostaat.lua: domoticz.globalData.NMC_Overall: ' ..domoticz.globalData.NMC_Overall) end
 			--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true,currentSetpoint)
 			domoticz.helpers.changeToonScene(domoticz,'10','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',false,currentSetpoint)
 		end
+		--Do something when open doors timeout is reached
 		if (domoticz.globalData.OpenC_Overall > Open_timeout) then
 			if debug then domoticz.log('thermostaat.lua: domoticz.globalData.OpenC_Overall: ' ..domoticz.globalData.OpenC_Overall) end
 			--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true,currentSetpoint)
 			domoticz.helpers.changeToonScene(domoticz,'10','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',false,currentSetpoint)
 		end
-
-				--local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
-				--if currentActiveState == -1 then currentActiveState = '50' -- Manual
-				--elseif currentActiveState == 0 then currentActiveState = '40' -- Comfort
-				--elseif currentActiveState == 1 then currentActiveState = '30' -- Home
-				--elseif currentActiveState == 2 then currentActiveState = '20' -- Sleep
-				--elseif currentActiveState == 3 then currentActiveState = '10' -- Away
-				--end
-				--
-				--commandArray[1] = {['UpdateDevice'] = string.format('%s|1|%s', otherdevices_idx[ToonScenesSensorName], '10')}
-				--if debug then domoticz.log('Huidige programma Toon veranderd naar Away omdat de woonkamerdeur open staat') end
-				--if debug then domoticz.log('Huidige setpoint is '.. currentSetpoint) end
 	end
 }
