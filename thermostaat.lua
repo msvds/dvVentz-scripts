@@ -5,8 +5,8 @@ return {
 	},
 	execute = function(domoticz, device)
 		local temp_buiten = domoticz.devices(59)
-		local Temperature_limit = '16'
-		local NM_timeout = 30
+		local Temperature_limit = '18'
+		local NM_timeout = 60
 		local Open_timeout = 10
 		local Time = require('Time')
 		debug = true
@@ -46,11 +46,13 @@ return {
 		-- If we have reached the timeout, disable the linked switches
 		if (domoticz.globalData.NMC_Overall > NM_timeout) then
 			if debug then domoticz.log('thermostaat.lua: domoticz.globalData.NMC_Overall: ' ..domoticz.globalData.NMC_Overall) end
-			domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true,currentSetpoint)
+			--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true,currentSetpoint)
+			domoticz.helpers.changeToonScene(domoticz,'10','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',false,currentSetpoint)
 		end
 		if (domoticz.globalData.OpenC_Overall > Open_timeout) then
 			if debug then domoticz.log('thermostaat.lua: domoticz.globalData.OpenC_Overall: ' ..domoticz.globalData.OpenC_Overall) end
-			domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true,currentSetpoint)
+			--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true,currentSetpoint)
+			domoticz.helpers.changeToonScene(domoticz,'10','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',false,currentSetpoint)
 		end
 
 				--local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
