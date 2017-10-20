@@ -2,13 +2,14 @@ return {
 	active = true, -- set to false to disable this script
 	on = {
 		devices = {
-			25,81,83,107,116,153,85
+			25,81,83,107,116,153,85,105
 		},
 	},
 
 	execute = function(domoticz, device)
 		debug = true
 		local Eetkamerdeur = domoticz.devices(25)
+		local Garagedeur = domoticz.devices(105)
 		local Dakraamslaapk = domoticz.devices(81)
 		local Balkondeurslaapk = domoticz.devices(83)
 		local Voordeur = domoticz.devices(107)
@@ -19,6 +20,7 @@ return {
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
 		local lampen_woonkamer = domoticz.groups(1)
+		local buitenlampen = domoticz.groups(2)
 		local lamp_hal_boven = domoticz.devices(151)
 		local dimmer_bed_martijn = domoticz.devices(149)		
 		local dimmer_bed_suzanne = domoticz.devices(150)
@@ -56,11 +58,21 @@ return {
 					domoticz.log('Slaapkamerdeur open terwijl het donker is -> Nachtlampje Suzanne aangezet')
 				end
 			end
-			if (Eetkamerdeur.state == 'Open' and SomeoneHome.state == 'Off') then
-				if (lampen_woonkamer.state == 'Off') then
-					lampen_woonkamer.switchOn()
-					domoticz.log('Eetkamerdeur open terwijl het donker is -> lampen woonkamer aangezet')
-				end		
+			if (SomeoneHome.state == 'Off') then
+				-- woonkamer aan donker + deur open
+				if (Eetkamerdeur.state == 'Open' or Voordeur.state == 'Open') then
+					if (lampen_woonkamer.state == 'Off') then
+						lampen_woonkamer.switchOn()
+						domoticz.log('Eetkamerdeur of voordeur open terwijl het donker is -> lampen woonkamer aangezet')
+					end
+				end
+			end			
+			if (Garagedeur.state == 'Open') then
+				-- buitenlampen aan donker + garage deur open
+				if (buitenlampen.state == 'Off') then
+					buitenlampen.switchOn()
+					domoticz.log('Garagedeur open terwijl het donker is -> buitenlampen aangezet')
+				end
 			end
 		else
 			if debug then print('No action because it is not dark') end
