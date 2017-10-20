@@ -32,7 +32,7 @@ return {
 				-- woonkamer aan avonds + donker
 				-- between 16:00 and 1:00 then next day
 				if (lampen_woonkamer.state == 'Off') then
-					lampen_woonkamer.switchOn
+					lampen_woonkamer.switchOn()
 					domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet')
 				end
 			elseif (domoticz.time.matchesRule('at 01:00-16:00') and PIR_woonk.state == 'On') then
@@ -42,7 +42,7 @@ return {
 			if (PIR_halboven.state == 'On') then
 				-- hal aan donker
 				if (lamp_hal_boven.state == 'Off') then
-					lamp_hal_boven.switchOn
+					lamp_hal_boven.switchOn()
 					domoticz.log('Beweging hal boven terwijl het donker is, lamp hal boven aangezet')
 				end
 			end
