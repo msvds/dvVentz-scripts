@@ -35,6 +35,8 @@ return {
 			local currentNextSetPoint = tonumber(jsonThermostatInfo.nextSetpoint) / 100
 			if debug then domoticz.log('script_time_thermostaat: Huidige programma Toon is '.. currentActiveState) end
 			if debug then domoticz.log('script_time_thermostaat: Huidige setpoint is '.. currentSetpoint) end
+		else
+			domoticz.log('jsonThermostatInfo = nil')
 		end
 		
 		--Do something when outside temp > limit
