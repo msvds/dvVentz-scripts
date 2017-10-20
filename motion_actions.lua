@@ -2,7 +2,7 @@ return {
 	active = true, -- set to false to disable this script
 	on = {
 		devices = {
-			25,81,83,107,116,153,85,105
+			25,81,83,107,116,153,85,105,23,66,119
 		},
 	},
 
