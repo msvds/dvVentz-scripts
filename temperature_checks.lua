@@ -74,17 +74,17 @@ return {
 		if (temperature_badk.temperature - average_temperatures_badk > 2) then
 			domoticz.notify('Grote temperatuur stijging badkamer'," De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(temperature_badk.temperature - average_temperatures_badk),domoticz.PRIORITY_LOW)  
 		end
-		if (temperature_buiten.temperature - average_temperatures_buiten > 2) then
+		if (temperature_buiten.temperature - average_temperatures_buiten > 5) then
 			domoticz.notify('Grote temperatuur stijging buiten'," De temperatuur stijgt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(temperature_buiten.temperature - average_temperatures_buiten),domoticz.PRIORITY_LOW)  
 		end
 		
-		if (temperature_woonk.temperature - average_temperatures_woonk > 30) then
+		if (temperature_woonk.temperature - average_temperatures_woonk > 20) then
 			domoticz.notify('Brand! Extreem grote temperatuur stijging woonkamer'," De temperatuur stijgt extreem snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(temperature_woonk.temperature - average_temperatures_woonk),domoticz.PRIORITY_HIGH)  
 		end
-		if (temperature_k_lars.temperature - average_temperatures_k_lars > 30) then
+		if (temperature_k_lars.temperature - average_temperatures_k_lars > 20) then
 			domoticz.notify('Brand! Extreem grote temperatuur stijging kamer Lars'," De temperatuur stijgt extreem snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(temperature_k_lars.temperature - average_temperatures_k_lars),domoticz.PRIORITY_HIGH)  
 		end
-		if (temperature_badk.temperature - average_temperatures_badk > 30) then
+		if (temperature_badk.temperature - average_temperatures_badk > 20) then
 			domoticz.notify('Brand! Extreem grote temperatuur stijging badkamer'," De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(temperature_badk.temperature - average_temperatures_badk),domoticz.PRIORITY_HIGH)  
 		end
 		
