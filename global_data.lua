@@ -29,7 +29,7 @@ return {
 			timeInSeconds = os.time{year=year, month=month, day=day, hour=hour, min=minutes, sec=seconds}
 			return timeInSeconds
 		end,
-		changeSetPoint =function(s,reason,sendmessage,currentSetpoint)
+		changeSetPoint =function(domoticz,s,reason,sendmessage,currentSetpoint)
 			SetPoint = s
 			if currentSetpoint ~= SetPoint then
 				ToonCommand = string.format('http://%s/happ_thermstat?action=setSetpoint&Setpoint=%s', ToonIP, SetPoint*100)
@@ -40,7 +40,7 @@ return {
 				end
 			end
 		end,
-		changeToonScene =function(s,reason,sendmessage,currentSetpoint)
+		changeToonScene =function(domoticz,s,reason,sendmessage,currentSetpoint)
 			domoticz.log('Huidige setpoint is '.. currentSetpoint)
 			local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
 			if currentActiveState == -1 then currentActiveState = '50' -- Manual
