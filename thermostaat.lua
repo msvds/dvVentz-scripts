@@ -40,17 +40,17 @@ return {
 		if tonumber(temp_buiten.temperature) >  tonumber(Temperature_limit) then
 			if debug then domoticz.log('script_time_thermostaat: De buiten temperatuur is ' ..temp_buiten.temperature .. ' graden') end
 			--changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
-			--domoticz.helpers.changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
-			domoticz.helpers.changeToonScene('10',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
+			--domoticz.helpers.changeSetPoint(domoticz,'12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
+			domoticz.helpers.changeToonScene(domoticz,'10',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
 		end		
 		-- If we have reached the timeout, disable the linked switches
 		if (domoticz.globalData.NMC_Overall > NM_timeout) then
 			if debug then domoticz.log('thermostaat.lua: domoticz.globalData.NMC_Overall: ' ..domoticz.globalData.NMC_Overall) end
-			domoticz.helpers.changeSetPoint('12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true,currentSetpoint)
+			domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true,currentSetpoint)
 		end
 		if (domoticz.globalData.OpenC_Overall > Open_timeout) then
 			if debug then domoticz.log('thermostaat.lua: domoticz.globalData.OpenC_Overall: ' ..domoticz.globalData.OpenC_Overall) end
-			domoticz.helpers.changeSetPoint('12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true,currentSetpoint)
+			domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true,currentSetpoint)
 		end
 
 				--local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
