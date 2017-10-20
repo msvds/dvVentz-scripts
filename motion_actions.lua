@@ -24,20 +24,35 @@ return {
 		local dimmer_bed_suzanne = domoticz.devices(150)
 		local IsDark = domoticz.devices(78)
 		local Time = require('Time')
-		if IsDark == 'On' then
+		if IsDark == 'On' then			
 			if (domoticz.time.matchesRule('at 16:00-01:00') and PIR_woonk.state == 'On') then
+				-- woonkamer aan avonds + donker
 				-- between 16:00 and 1:00 then next day
 				if (lampen_woonkamer.state == 'Off') then
 					lampen_woonkamer.switchOn
 					domoticz.log('Beweging woonkamer terwijl het donker is -> lampen woonkamer aangezet')
 				end
 			elseif (domoticz.time.matchesRule('at 01:00-16:00') and PIR_woonk.state == 'On') then
+				-- woonkamer nachts + donker
 				domoticz.log('Beweging nachts in de woonkamer!')		
 			end
 			if (PIR_halboven.state == 'On') then
+				-- hal aan donker
 				if (lamp_hal_boven.state == 'Off') then
 					lamp_hal_boven.switchOn
 					domoticz.log('Beweging hal boven terwijl het donker is -> lamp hal boven aangezet')
+				end
+			end
+			if (domoticz.time.matchesRule('at 19:00-00:30') and Slaapkdeur.state == 'Open') then
+				-- dimmers slaapkamer aan donker tot 0:30
+				-- between 19:00 and 0:30 then next day
+				if (dimmer_bed_martijn.state == 'Off') then
+					dimmer_bed_martijn.switchSelector(6)
+					domoticz.log('Slaapkamerdeur open terwijl het donker is -> Nachtlampje Martijn aangezet')
+				end
+				if (dimmer_bed_suzanne.state == 'Off') then
+					dimmer_bed_suzanne.switchSelector(6)
+					domoticz.log('Slaapkamerdeur open terwijl het donker is -> Nachtlampje Suzanne aangezet')
 				end
 			end
 		else
@@ -45,3 +60,4 @@ return {
 		end
 	end
 }
+
