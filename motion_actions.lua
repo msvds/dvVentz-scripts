@@ -27,7 +27,7 @@ return {
 		local IsDark = domoticz.devices(78)
 		local SomeoneHome = domoticz.devices(96)
 		local Time = require('Time')
-		if IsDark == 'On' then			
+		if IsDark.state == 'On' then			
 			if (domoticz.time.matchesRule('at 16:00-01:00') and PIR_woonk.state == 'On') then
 				-- woonkamer aan avonds + donker
 				-- between 16:00 and 1:00 then next day
