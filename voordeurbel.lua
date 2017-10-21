@@ -27,9 +27,9 @@ return {
 				domoticz.log('Voordeurlamp aangezet omdat iemand aanbeld in het donker')
 			end
 		end
-		schemerlamp_deur.switchOff()
-		lamp_boven_tv.switchOff()
-		schemerlamp_bank.switchOff()
-		lamp_hal_boven.switchOff()
+		schemerlamp_deur.switchOff().afterSec(30)
+		lamp_boven_tv.switchOff().afterSec(30)
+		schemerlamp_bank.switchOff().afterSec(30)
+		lamp_hal_boven.switchOff().afterSec(30)
 	end
 }
