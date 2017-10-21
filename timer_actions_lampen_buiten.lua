@@ -3,17 +3,16 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		timer = {'at sunset'}
+		timer = {'5 minutes before sunset'}
 	},
 	execute = function(domoticz, device)
 		local Time = require('Time')
-		local lampen_woonkamer = domoticz.groups(1)
 		local lampen_buiten = domoticz.groups(2)
 
 		-- woonkamer bij zonsondergang
-		if (lampen_woonkamer.state == 'Off') then
-			lampen_woonkamer.switchOn()
-			domoticz.log('lampen woonkamer aangezet ivm zonsondergang')
+		if (lampen_buiten.state == 'Off') then
+			lampen_buiten.switchOn()
+			domoticz.log('lampen buiten aangezet ivm zonsondergang')
 		end
 	end
 }
