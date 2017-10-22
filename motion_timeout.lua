@@ -20,7 +20,9 @@ return {
 		local IsDark = domoticz.devices(78)
 		local SomeoneHome = domoticz.devices(96)
 		debug = true
-		
+		domoticz.log('domoticz.globalData.NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2)
+		domoticz.log('NM_timeout_floor2 = ' ..NM_timeout_floor2)
+		domoticz.log('lamp_hal_boven.state = ' ..lamp_hal_boven.state)
 		--Do something when no movement timeout is reached
 		if (domoticz.globalData.NMC_Floor1 > NM_timeout_floor1) then
 			if (MediaCenter.state == 'Off' and Televisie.state == 'Off' and Televisie_lage_resolutie.state == 'Off') then
@@ -31,11 +33,17 @@ return {
 			end
 		end		
 		if (domoticz.globalData.NMC_Floor2 > NM_timeout_floor2) then
-			if (lampen_woonkamer.state == 'On') then
+			if (lamp_hal_boven.state == 'On') then
 				lamp_hal_boven.switchOff()
+				domoticz.log('No movement floor2 timeout is reached -> lamp hal boven uitgezet')
+			end
+			if (dimmer_bed_martijn.state == 'On' ) then
 				dimmer_bed_martijn.switchOff()
+				domoticz.log('No movement floor2 timeout is reached -> dimmer martijn slaapkamer uitgezet')
+			end
+			if (dimmer_bed_suzanne.state == 'On') then
 				dimmer_bed_suzanne.switchOff()
-				domoticz.log('No movement floor2 timeout is reached -> lamp hal boven en dimmers slaapkamer uitgezet')
+				domoticz.log('No movement floor2 timeout is reached -> dimmer suzanne slaapkamer uitgezet')
 			end
 		end		
 	end
