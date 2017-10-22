@@ -34,7 +34,7 @@ return {
 				-- between 16:00 and 1:00 then next day
 				if (lampen_woonkamer.state == 'Off') then
 					lampen_woonkamer.switchOn()
-					domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet')
+					domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
 				end
 			elseif (domoticz.time.matchesRule('at 01:00-16:00') and PIR_woonk.state == 'On') then
 				-- woonkamer nachts + donker
@@ -44,7 +44,7 @@ return {
 				-- hal aan donker
 				if (lamp_hal_boven.state == 'Off') then
 					lamp_hal_boven.switchOn()
-					domoticz.log('Beweging hal boven terwijl het donker is, lamp hal boven aangezet')
+					domoticz.log('Beweging hal boven terwijl het donker is, lamp hal boven aangezet', domoticz.LOG_INFO)
 				end
 			end
 			if (domoticz.time.matchesRule('at 17:00-00:30') and Slaapkdeur.state == 'Open') then
@@ -52,11 +52,11 @@ return {
 				-- between 17:00 and 0:30 then next day
 				if (dimmer_bed_martijn.state == 'Off') then
 					dimmer_bed_martijn.switchSelector(6)
-					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Martijn aangezet')
+					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Martijn aangezet', domoticz.LOG_INFO)
 				end
 				if (dimmer_bed_suzanne.state == 'Off') then
 					dimmer_bed_suzanne.switchSelector(6)
-					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet')
+					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet', domoticz.LOG_INFO)
 				end
 			end
 			if (SomeoneHome.state == 'Off') then
@@ -64,7 +64,7 @@ return {
 				if (Eetkamerdeur.state == 'Open' or Voordeur.state == 'Open') then
 					if (lampen_woonkamer.state == 'Off') then
 						lampen_woonkamer.switchOn()
-						domoticz.log('Eetkamerdeur of voordeur open terwijl het donker is, lampen woonkamer aangezet')
+						domoticz.log('Eetkamerdeur of voordeur open terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
 					end
 				end
 			end			
@@ -72,11 +72,11 @@ return {
 				-- buitenlampen aan donker + garage deur open
 				if (buitenlampen.state == 'Off') then
 					buitenlampen.switchOn()
-					domoticz.log('Garagedeur open terwijl het donker is, buitenlampen aangezet')
+					domoticz.log('Garagedeur open terwijl het donker is, buitenlampen aangezet', domoticz.LOG_INFO)
 				end
 			end
 		else
-			if debug then print('No action because it is not dark') end
+			if debug then domoticz.log('No action because it is not dark', domoticz.LOG_DEBUG)
 		end
 	end
 }
