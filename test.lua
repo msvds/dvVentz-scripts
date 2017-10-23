@@ -1,9 +1,10 @@
--- Counters for motion, no motion, open and closed windows/doors in minutes
 return {
 	active = true,
-	devices = {
+	on = {
+		devices = {
 			91
 		},
+	},
 	execute = function(domoticz, device)
 		debug = true
 		domoticz.log('Testswitch', domoticz.LOG_INFO)
