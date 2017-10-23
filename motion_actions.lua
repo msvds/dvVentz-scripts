@@ -63,13 +63,13 @@ return {
 				-- dimmers slaapkamer aan donker tot 0:30
 				-- between 17:00 and 0:30 then next day
 				if (dimmer_bed_martijn.state == 'Off') then
-					--dimmer_bed_martijn.switchSelector(6)
-					dimmer_bed_martijn.switchOn()
+					dimmer_bed_martijn.dimTo(20)
+					--dimmer_bed_martijn.switchOn()
 					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Martijn aangezet', domoticz.LOG_INFO)
 				end
 				if (dimmer_bed_suzanne.state == 'Off') then
-					--dimmer_bed_suzanne.switchSelector(6)
-					dimmer_bed_suzanne.switchOn()
+					dimmer_bed_suzanne.dimTo(20)
+					--dimmer_bed_suzanne.switchOn()
 					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet', domoticz.LOG_INFO)
 				end
 			end
