@@ -13,12 +13,12 @@ return {
 		local dimmer_bed_suzanne = domoticz.devices(150)
 		if (domoticz.time.matchesRule('at 16:00-00:30')) then --and Slaapkdeur.state == 'Open'
 			if (dimmer_bed_martijn.state == 'Off') then
-				dimmer_bed_martijn.level(10)
+				dimmer_bed_martijn.level == 10
 				dimmer_bed_martijn.switchOn()
 				domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Martijn aangezet', domoticz.LOG_INFO)
 			end
 			if (dimmer_bed_suzanne.state == 'Off') then
-				dimmer_bed_suzanne.level(10)
+				dimmer_bed_suzanne.level == 10
 				dimmer_bed_suzanne.switchOn()
 				domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet', domoticz.LOG_INFO)
 			end
