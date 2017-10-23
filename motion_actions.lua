@@ -24,6 +24,8 @@ return {
 		local lamp_hal_boven = domoticz.devices(151)
 		local dimmer_bed_martijn = domoticz.devices(149)		
 		local dimmer_bed_suzanne = domoticz.devices(150)
+		local Schemerlamp_deur = domoticz.devices(97)
+		local Lamp_spoelb_keuken = domoticz.devices(36)		
 		local IsDark = domoticz.devices(78)
 		local SomeoneHome = domoticz.devices(96)
 		local Time = require('Time')
@@ -36,9 +38,19 @@ return {
 					lampen_woonkamer.switchOn()
 					domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
 				end
-			elseif (domoticz.time.matchesRule('at 01:00-16:00') and PIR_woonk.state == 'On') then
+			elseif (domoticz.time.matchesRule('at 06:00-09:00') and PIR_woonk.state == 'On') then
+				-- woonkamer ochtends + donker
+				if (Schemerlamp_deur.state == 'Off') then
+					Schemerlamp_deur.switchOn()
+					domoticz.log('Beweging woonkamer ochtends terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO)
+				end
+				if (Lamp_spoelb_keuken.state == 'Off') then
+					Lamp_spoelb_keuken.switchOn()
+					domoticz.log('Beweging woonkamer ochtends terwijl het donker is, lamp spoelbak keuken aangezet', domoticz.LOG_INFO)
+				end
+			elseif (domoticz.time.matchesRule('at 01:00-06:00') and PIR_woonk.state == 'On') then
 				-- woonkamer nachts + donker
-				domoticz.log('Beweging nachts in de woonkamer!')		
+				domoticz.log('Beweging nachts in de woonkamer!')			
 			end
 			if (PIR_halboven.state == 'On') then
 				-- hal aan donker
@@ -51,11 +63,13 @@ return {
 				-- dimmers slaapkamer aan donker tot 0:30
 				-- between 17:00 and 0:30 then next day
 				if (dimmer_bed_martijn.state == 'Off') then
-					dimmer_bed_martijn.switchSelector(6)
+					--dimmer_bed_martijn.switchSelector(6)
+					dimmer_bed_martijn.switchOn()
 					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Martijn aangezet', domoticz.LOG_INFO)
 				end
 				if (dimmer_bed_suzanne.state == 'Off') then
-					dimmer_bed_suzanne.switchSelector(6)
+					--dimmer_bed_suzanne.switchSelector(6)
+					dimmer_bed_suzanne.switchOn()
 					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet', domoticz.LOG_INFO)
 				end
 			end
