@@ -77,6 +77,10 @@ return {
 			message = message ..hum_string_badk .. ' namelijk het verschil in vochtigheid met het gemiddelde van de afgelopen 24 uur is ' ..tonumber((hum_badk.humidity - average_humidities_badk))..'.\r'  
 		end
 		
+		if (hum_woonk.humidity - average_humidities_woonk > 8) then
+			domoticz.notify('Grote stijging in vochtigheid woonkamer','De vochtigheid stijgt snel in de woonkamer, namelijk het verschil in vochtigheid met het gemiddelde van de afgelopen 24 uur is ' ..tonumber(hum_woonk.humidity - average_humidities_woonk) ..'. Misschien moet de afzuigkap aan?',domoticz.PRIORITY_LOW)  
+		end
+		
 		if (hum_bijkeuken.humidity > 65) then
 			if (hum_buiten.humidity < hum_bijkeuken.humidity) then
 				message = message ..'De vochtigheid in de bijkeuken begint hoog te worden, namelijk ' ..tonumber(hum_bijkeuken.humidity) .. '. Buiten is de vochtigheid lager, namelijk ' ..tonumber(hum_buiten.humidity) ..' dus een raampje open zetten kan helpen. De gemiddelde vochtigheid in de bijkeuken de afgelopen 24 uur was ' ..tonumber(average_humidities_bijkeuken)  ..'.\r'  
