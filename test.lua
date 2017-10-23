@@ -6,6 +6,7 @@ return {
 		},
 	execute = function(domoticz, device)
 		debug = true
+		domoticz.log('Testswitch', domoticz.LOG_INFO)
 		local testswitch = domoticz.devices(91)
 		local dimmer_bed_martijn = domoticz.devices(149)		
 		local dimmer_bed_suzanne = domoticz.devices(150)
