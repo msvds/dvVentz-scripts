@@ -9,7 +9,7 @@ return {
 		local NM_timeout = 60
 		local Open_timeout = 10
 		local Time = require('Time')
-		debug = true
+		debug = false
 		--ToonState = '50' -- Manual
 		--ToonState = '40' -- Comfort
 		--ToonState = '30' -- Home
