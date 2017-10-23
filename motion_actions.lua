@@ -90,7 +90,7 @@ return {
 				end
 			end
 		else
-			if debug then domoticz.log('No action because it is not dark', domoticz.LOG_DEBUG)
+			if debug then domoticz.log('No action because it is not dark', domoticz.LOG_DEBUG) end
 		end
 	end
 }
