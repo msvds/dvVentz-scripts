@@ -17,6 +17,8 @@ return {
 		local lamp_hal_boven = domoticz.devices(151)
 		local dimmer_bed_martijn = domoticz.devices(149)		
 		local dimmer_bed_suzanne = domoticz.devices(150)
+		local Schemerlamp_deur = domoticz.devices(97)
+		local Lamp_spoelb_keuken = domoticz.devices(36)	
 		local IsDark = domoticz.devices(78)
 		local SomeoneHome = domoticz.devices(96)
 		debug = true
