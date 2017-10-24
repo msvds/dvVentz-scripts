@@ -28,7 +28,14 @@ return {
 			if (MediaCenter.state == 'Off' and Televisie.state == 'Off' and Televisie_lage_resolutie.state == 'Off') then
 				if (lampen_woonkamer.state == 'On') then
 					lampen_woonkamer.switchOff()
-					domoticz.log('No movement floor1 timeout is reached -> lampen woonkamer uit gezet')
+					domoticz.log('No movement floor1 timeout is reached -> lampen woonkamer uit gezet', domoticz.LOG_INFO)
+				elseif (Schemerlamp_deur.state == 'On') then
+					Schemerlamp_deur.switchOff()
+					domoticz.log('No movement floor1 timeout is reached -> Schemerlamp deur uit gezet', domoticz.LOG_INFO)
+				elseif (Lamp_spoelb_keuken.state == 'On') then
+					Lamp_spoelb_keuken.switchOff()
+					domoticz.log('No movement floor1 timeout is reached -> lamp spoelbak keuken uit gezet', domoticz.LOG_INFO)
+				end
 				end
 			end
 		end		
