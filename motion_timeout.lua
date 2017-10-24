@@ -36,7 +36,6 @@ return {
 					Lamp_spoelb_keuken.switchOff()
 					domoticz.log('No movement floor1 timeout is reached -> lamp spoelbak keuken uit gezet', domoticz.LOG_INFO)
 				end
-				end
 			end
 		end		
 		if (domoticz.globalData.NMC_Floor2 > NM_timeout_floor2) then
