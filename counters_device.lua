@@ -1,5 +1,6 @@
 -- Counters for motion, no motion, open and closed windows/doors
 -- When motion, no motion, open or closed windows/door are detected, the counters are set to 0 here
+-- Also when manually a light is switched on, counters reset
 return {
 	active = true,
 	on = {
@@ -16,6 +17,12 @@ return {
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
+		local dimmer_bed_martijn = domoticz.devices(149)		
+		local dimmer_bed_suzanne = domoticz.devices(150)
+		local lampen_woonkamer = domoticz.groups(1)
+		local lamp_hal_boven = domoticz.devices(151)
+		local Schemerlamp_deur = domoticz.devices(97)
+		local Lamp_spoelb_keuken = domoticz.devices(36)	
 		--domoticz.log('device.name: ' ..device.name)
 		--domoticz.log('Dakraamzolder.state: ' ..Dakraamzolder.state)
 		--domoticz.log('domoticz.globalData.ClosedC_Dakraamslaapk: ' ..domoticz.globalData.ClosedC_Dakraamslaapk)		
@@ -91,5 +98,47 @@ return {
 			domoticz.globalData.MC_PIR_halboven = 0		  
 			domoticz.log('MC_PIR_halboven set to zero')
 		end
+		if (device.name == dimmer_bed_martijn.name and dimmer_bed_martijn.state == 'On') then
+			domoticz.globalData.NMC_Floor2 = 0
+			domoticz.log('NMC_Floor2 set to zero')
+		elseif (device.name == dimmer_bed_suzanne.name and dimmer_bed_suzanne.state == 'Off') then
+			domoticz.globalData.MC_Floor2 = 0		  
+			domoticz.log('MC_Floor2 set to zero')
+		end		
+		if (device.name == dimmer_bed_suzanne.name and dimmer_bed_suzanne.state == 'On') then
+			domoticz.globalData.NMC_Floor2 = 0
+			domoticz.log('NMC_Floor2 set to zero')
+		elseif (device.name == dimmer_bed_suzanne.name and dimmer_bed_suzanne.state == 'Off') then
+			domoticz.globalData.MC_Floor2 = 0		  
+			domoticz.log('MC_Floor2 set to zero')
+		end
+		if (device.name == lampen_woonkamer.name and lampen_woonkamer.state == 'On') then
+			domoticz.globalData.NMC_Floor1 = 0
+			domoticz.log('NMC_Floor1 set to zero')
+		elseif (device.name == lampen_woonkamer.name and lampen_woonkamer.state == 'Off') then
+			domoticz.globalData.MC_Floor1 = 0		  
+			domoticz.log('MC_Floor1 set to zero')
+		end
+		if (device.name == lamp_hal_boven.name and lamp_hal_boven.state == 'On') then
+			domoticz.globalData.NMC_Floor2 = 0
+			domoticz.log('NMC_Floor2 set to zero')
+		elseif (device.name == lamp_hal_boven.name and lamp_hal_boven.state == 'Off') then
+			domoticz.globalData.MC_Floor2 = 0		  
+			domoticz.log('MC_Floor2 set to zero')
+		end
+		if (device.name == Schemerlamp_deur.name and Schemerlamp_deur.state == 'On') then
+			domoticz.globalData.NMC_Floor1 = 0
+			domoticz.log('NMC_Floor1 set to zero')
+		elseif (device.name == Schemerlamp_deur.name and Schemerlamp_deur.state == 'Off') then
+			domoticz.globalData.MC_Floor1 = 0		  
+			domoticz.log('MC_Floor1 set to zero')
+		end
+		if (device.name == Lamp_spoelb_keuken.name and Lamp_spoelb_keuken.state == 'On') then
+			domoticz.globalData.NMC_Floor1 = 0
+			domoticz.log('NMC_Floor1 set to zero')
+		elseif (device.name == Lamp_spoelb_keuken.name and Lamp_spoelb_keuken.state == 'Off') then
+			domoticz.globalData.MC_Floor1 = 0		  
+			domoticz.log('MC_Floor1 set to zero')
+		end		
 	end
 }
