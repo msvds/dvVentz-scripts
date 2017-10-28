@@ -15,11 +15,11 @@ return {
 		local schemerlamp_deur = domoticz.devices(97)		
 		local lamp_hal_boven = domoticz.devices(151)
 		local lamp_voordeur = domoticz.devices(33)
-		schemerlamp_deur.switchOn().forSec(1).repeatAfterSec(1, 2)		
+		schemerlamp_deur.switchOn().forSec(1).repeatAfterSec(2, 1)		
 		--lamp_spoelb_keuken.switchOn().forSec(1).repeatAfterSec(1, 3)		
-		lamp_boven_tv.switchOn().forSec(1).repeatAfterSec(1, 2)		
-		schemerlamp_bank.switchOn().forSec(1).repeatAfterSec(1, 2)				
-		lamp_hal_boven.switchOn().forSec(1).repeatAfterSec(1, 2)
+		lamp_boven_tv.switchOn().forSec(1).repeatAfterSec(2, 1)		
+		schemerlamp_bank.switchOn().forSec(1).repeatAfterSec(2, 1)				
+		lamp_hal_boven.switchOn().forSec(1).repeatAfterSec(2, 1)
 		domoticz.notify('De deurbel gaat',"de deurbel gaat, doe open!",domoticz.PRIORITY_LOW)		
 		if (IsDark == 'On') then
 			if (lamp_voordeur.state == 'Off') then
