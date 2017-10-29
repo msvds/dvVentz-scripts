@@ -1,58 +1,43 @@
 -- Switch off when timeout is reached
 
 return {
-	active = false, -- set to false to disable this script
+	active = true, -- set to false to disable this script
 	on = {
-		timer = {'every 1 minutes'}
+		timer = {'every 10 minutes'}
 	},
 	execute = function(domoticz, device)
-		local NM_timeout_floor1 = 30
-		local NM_timeout_floor2 = 10
-		local Open_timeout = 10
+		local Open_timeout_floor1 = 10
+		local Open_timeout_floor2 = 10
 		local Time = require('Time')
-		local MediaCenter = domoticz.devices(11)
-		local Televisie = domoticz.devices(7)
-		local Televisie_lage_resolutie = domoticz.devices(9)
-		local lampen_woonkamer = domoticz.groups(1)
 		local lamp_hal_boven = domoticz.devices(151)
-		local dimmer_bed_martijn = domoticz.devices(149)		
-		local dimmer_bed_suzanne = domoticz.devices(150)
-		local Schemerlamp_deur = domoticz.devices(97)
-		local Lamp_spoelb_keuken = domoticz.devices(36)	
-		local IsDark = domoticz.devices(78)
-		local SomeoneHome = domoticz.devices(96)
+		local schemerlamp_deur = domoticz.devices(97)
+		local lamp_spoelb_keuken = domoticz.devices(36)
+		local schemerlamp_bank = domoticz.devices(16)
+		local lamp_boven_tv = domoticz.devices(13)
+		local temperature_bijkeuken = domoticz.devices(110)
+		local temperature_woonk = domoticz.devices(20)
 		debug = true
-		--domoticz.log('domoticz.globalData.NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2)
-		--domoticz.log('NM_timeout_floor2 = ' ..NM_timeout_floor2)
-		--domoticz.log('lamp_hal_boven.state = ' ..lamp_hal_boven.state)
-		--Do something when no movement timeout is reached
-		if (domoticz.globalData.NMC_Floor1 > NM_timeout_floor1) then
-			if (MediaCenter.state == 'Off' and Televisie.state == 'Off' and Televisie_lage_resolutie.state == 'Off') then
-				if (lampen_woonkamer.state == 'On') then
-					lampen_woonkamer.switchOff()
-					domoticz.log('No movement floor1 timeout is reached -> lampen woonkamer uit gezet', domoticz.LOG_INFO)
-				elseif (Schemerlamp_deur.state == 'On') then
-					Schemerlamp_deur.switchOff()
-					domoticz.log('No movement floor1 timeout is reached -> Schemerlamp deur uit gezet', domoticz.LOG_INFO)
-				elseif (Lamp_spoelb_keuken.state == 'On') then
-					Lamp_spoelb_keuken.switchOff()
-					domoticz.log('No movement floor1 timeout is reached -> lamp spoelbak keuken uit gezet', domoticz.LOG_INFO)
-				end
+		if (temperature_woonk.temperature - temperature_bijkeuken > 7) then
+			if (domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1) then			
+				domoticz.log('Deur bijkeuken te lang open terwijl het koud is in de bijkeuken. Graag deur sluiten', domoticz.LOG_INFO)
+				schemerlamp_deur.switchOn().forSec(3).repeatAfterSec(5, 3)		
+				lamp_spoelb_keuken.switchOn().forSec(3).repeatAfterSec(5, 3)		
+				lamp_boven_tv.switchOn().forSec(3).repeatAfterSec(5, 3)	
+				schemerlamp_bank.switchOn().forSec(3).repeatAfterSec(5, 3)				
+				lamp_hal_boven.switchOn().forSec(1).repeatAfterSec(5, 3)
+				domoticz.globalData.OpenC_Deurbijkeuken = 0
 			end
-		end		
-		if (domoticz.globalData.NMC_Floor2 > NM_timeout_floor2) then
-			if (lamp_hal_boven.state == 'On') then
-				lamp_hal_boven.switchOff()
-				domoticz.log('No movement floor2 timeout is reached -> lamp hal boven uitgezet')
+		end
+		if (domoticz.time.months = 5 or domoticz.time.months = 6 or domoticz.time.months = 7 or domoticz.time.months = 8 or domoticz.time.months = 8) then
+			if (domoticz.globalData.OpenC_Slaapkdeur > Open_timeout_floor2 and domoticz.globalData.Counters_time_message == message_time) then
+				domoticz.log('Deur slaapkamer open', domoticz.LOG_INFO)
+				schemerlamp_deur.switchOn().forSec(5).repeatAfterSec(5,5)		
+				lamp_spoelb_keuken.switchOn().forSec(5).repeatAfterSec(5,5)		
+				lamp_boven_tv.switchOn().forSec(5).repeatAfterSec(5,5)	
+				schemerlamp_bank.switchOn().forSec(5).repeatAfterSec(5,5)				
+				lamp_hal_boven.switchOn().forSec(5).repeatAfterSec(5,5)
+				domoticz.globalData.OpenC_Slaapkdeur = 0
 			end
-			if (dimmer_bed_martijn.state == 'On' ) then
-				dimmer_bed_martijn.switchOff()
-				domoticz.log('No movement floor2 timeout is reached -> dimmer martijn slaapkamer uitgezet')
-			end
-			if (dimmer_bed_suzanne.state == 'On') then
-				dimmer_bed_suzanne.switchOff()
-				domoticz.log('No movement floor2 timeout is reached -> dimmer suzanne slaapkamer uitgezet')
-			end
-		end		
+		end
 	end
 }
