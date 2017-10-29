@@ -144,6 +144,7 @@ return {
 		NMC_Overall  = { initial = 0 },
 		OpenC_Overall  = { initial = 0 },
 		ClosedC_Overall  = { initial = 0 },
-		Counters_time_message  = { initial = 0 }
+		Counters_time_message  = { initial = 0 },
+		Opendoors_time_message  = { initial = 0 }
 	}
 }
