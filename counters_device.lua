@@ -13,7 +13,8 @@ return {
 		local Voordeur = domoticz.devices(107)
 		local BalkondeurNienke = domoticz.devices(116)
 		local Slaapkdeur = domoticz.devices(153)
-		local Dakraamzolder = domoticz.devices(85)		
+		local Dakraamzolder = domoticz.devices(85)
+		local Deurbijkeuken = domoticz.devices(235)
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
@@ -82,6 +83,15 @@ return {
 			domoticz.globalData.OpenC_Slaapkdeur = 0
 			domoticz.globalData.OpenC_Floor2 = 0
 			domoticz.log('OpenC_Slaapkdeur and OpenC_Floor2 set to zero')
+		end
+		if (device.name == Deurbijkeuken.name and Deurbijkeuken.state == 'Open') then
+			domoticz.globalData.ClosedC_Deurbijkeuken = 0
+			domoticz.globalData.ClosedC_Floor1  = 0
+			domoticz.log('ClosedC_Deurbijkeuken and ClosedC_Floor2 set to zero')
+		elseif (device.name == Deurbijkeuken.name and Deurbijkeuken.state == 'Closed') then
+			domoticz.globalData.OpenC_Deurbijkeuken = 0
+			domoticz.globalData.OpenC_Floor1 = 0
+			domoticz.log('OpenC_Deurbijkeuken and OpenC_Floor2 set to zero')
 		end
 		if (device.name == Dakraamzolder.name and Dakraamzolder.state == 'Open') then
 			domoticz.globalData.ClosedC_Dakraamzolder = 0
