@@ -28,7 +28,7 @@ return {
 				domoticz.globalData.OpenC_Deurbijkeuken = 0
 			end
 		end
-		if (domoticz.time.months = 5 or domoticz.time.months = 6 or domoticz.time.months = 7 or domoticz.time.months = 8 or domoticz.time.months = 8) then
+		if (domoticz.time.months == 5 or domoticz.time.months == 6 or domoticz.time.months == 7 or domoticz.time.months == 8 or domoticz.time.months == 9) then
 			if (domoticz.globalData.OpenC_Slaapkdeur > Open_timeout_floor2 and domoticz.globalData.Counters_time_message == message_time) then
 				domoticz.log('Deur slaapkamer open', domoticz.LOG_INFO)
 				schemerlamp_deur.switchOn().forSec(5).repeatAfterSec(5,5)		
