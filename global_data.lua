@@ -120,6 +120,8 @@ return {
 		ClosedC_Slaapkdeur = { initial = 0 },
 		OpenC_Dakraamzolder = { initial = 0 },
 		ClosedC_Dakraamzolder = { initial = 0 },
+		OpenC_Deurbijkeuken = { initial = 0 },
+		ClosedC_Deurbijkeuken = { initial = 0 },
 		MC_PIR_woonk  = { initial = 0 },
 		NMC_PIR_woonk  = { initial = 0 },
 		MC_PIR_kamerLars  = { initial = 0 },
