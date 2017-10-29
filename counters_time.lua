@@ -13,6 +13,7 @@ return {
 		local Voordeur = domoticz.devices(107)
 		local BalkondeurNienke = domoticz.devices(116)
 		local Slaapkdeur = domoticz.devices(153)
+		local Deurbijkeuken = domoticz.devices(235)
 		local Dakraamzolder = domoticz.devices(85)
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
@@ -87,6 +88,17 @@ return {
 		end
 		if (domoticz.globalData.ClosedC_BalkondeurNienke ~= 0 and domoticz.globalData.Counters_time_message == message_time) then
 			domoticz.log('domoticz.globalData.ClosedC_BalkondeurNienke: ' ..domoticz.globalData.ClosedC_BalkondeurNienke)
+		end
+		
+		OpenC_Deurbijkeuken  = domoticz.helpers.Counter(domoticz, domoticz.devices(235), tonumber(domoticz.globalData.OpenC_Deurbijkeuken),'Open')
+		domoticz.globalData.OpenC_Deurbijkeuken = OpenC_Deurbijkeuken
+		ClosedC_Deurbijkeuken  = domoticz.helpers.Counter(domoticz, domoticz.devices(235), tonumber(domoticz.globalData.ClosedC_Deurbijkeuken),'Closed')
+		domoticz.globalData.ClosedC_Deurbijkeuken = ClosedC_Deurbijkeuken
+		if (domoticz.globalData.OpenC_Deurbijkeuken ~= 0 and domoticz.globalData.Counters_time_message == message_time) then
+			domoticz.log('domoticz.globalData.OpenC_Deurbijkeuken: ' ..domoticz.globalData.OpenC_Deurbijkeuken)
+		end
+		if (domoticz.globalData.ClosedC_Deurbijkeuken ~= 0 and domoticz.globalData.Counters_time_message == message_time) then
+			domoticz.log('domoticz.globalData.ClosedC_Deurbijkeuken: ' ..domoticz.globalData.ClosedC_Deurbijkeuken)
 		end
 		
 		OpenC_Slaapkdeur = domoticz.helpers.Counter(domoticz, domoticz.devices(153), tonumber(domoticz.globalData.OpenC_Slaapkdeur),'Open')
