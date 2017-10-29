@@ -8,7 +8,6 @@ return {
 	execute = function(domoticz, device)
 		local NM_timeout_floor1 = 30
 		local NM_timeout_floor2 = 10
-		local Open_timeout = 10
 		local Time = require('Time')
 		local MediaCenter = domoticz.devices(11)
 		local Televisie = domoticz.devices(7)
