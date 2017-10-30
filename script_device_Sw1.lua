@@ -29,7 +29,8 @@ return {
 			lamp_bank.switchOff()
 			schemerlamp_bank.switchOff()
 			schemerlamp_deur.switchOff()
-            harmony_poweroff.switchOn()
+            		harmony_poweroff.switchOn()
+			domoticz.helpers.changeToonScene(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,currentSetpoint)
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 			domoticz.log('Lights turned off and Harmony turned off')
 		elseif (device.state == 'Double Click') then
