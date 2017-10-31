@@ -17,7 +17,7 @@ return {
 		local temperature_bijkeuken = domoticz.devices(110)
 		local temperature_woonk = domoticz.devices(20)
 		debug = true
-		if (temperature_woonk.temperature - temperature_bijkeuken > 7) then
+		if (temperature_woonk.temperature - temperature_bijkeuken.temperature > 7) then
 			if (domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1) then			
 				domoticz.log('Deur bijkeuken te lang open terwijl het koud is in de bijkeuken. Graag deur sluiten', domoticz.LOG_INFO)
 				schemerlamp_deur.switchOn().forSec(3).repeatAfterSec(5, 3)		
