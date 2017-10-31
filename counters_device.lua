@@ -170,6 +170,18 @@ return {
 		elseif (device.name == Lamp_spoelb_keuken.name and Lamp_spoelb_keuken.state == 'Off') then
 			domoticz.globalData.MC_Floor1 = 0		  
 			domoticz.log('MC_Floor1 set to zero')
-		end		
+		end
+		if (domoticz.globalData.OpenC_Floor1 == 0 or domoticz.globalData.OpenC_Floor2 == 0 or domoticz.globalData.OpenC_Floor3 == 0) then
+			domoticz.globalData.OpenC_Overall = 0
+		end
+		if (domoticz.globalData.ClosedC_Floor1 == 0 and domoticz.globalData.ClosedC_Floor2 == 0 and domoticz.globalData.ClosedC_Floor3 == 0) then
+			domoticz.globalData.ClosedC_Overall = 0
+		end
+		if (domoticz.globalData.MC_Floor1 == 0 or domoticz.globalData.MC_Floor2 == 0) then
+			domoticz.globalData.MC_Overall = 0
+		end
+		if (domoticz.globalData.NMC_Floor1 == 0 and domoticz.globalData.NMC_Floor2 == 0) then
+			domoticz.globalData.NMC_Overall = 0
+		end
 	end
 }
