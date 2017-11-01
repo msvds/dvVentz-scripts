@@ -17,8 +17,12 @@ return {
 		local temperature_bijkeuken = domoticz.devices(110)
 		local temperature_woonk = domoticz.devices(20)
 		debug = true
-		if debug == true then domoticz.log('temperature_woonk.temperature = ' ..temperature_woonk.temperature)
-		if debug == true then domoticz.log('temperature_bijkeuken.temperature = ' ..temperature_bijkeuken.temperature)
+		if debug == true then 
+			domoticz.log('temperature_woonk.temperature = ' ..temperature_woonk.temperature)
+			domoticz.log('temperature_bijkeuken.temperature = ' ..temperature_bijkeuken.temperature)
+			domoticz.log('domoticz.globalData.OpenC_Deurbijkeuken = ' ..domoticz.globalData.OpenC_Deurbijkeuken)
+			domoticz.log('Open_timeout_floor1 = ' ..Open_timeout_floor1)
+		end
 		if (temperature_woonk.temperature - temperature_bijkeuken.temperature > 7) then
 			if (domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1) then			
 				domoticz.log('Deur bijkeuken te lang open terwijl het koud is in de bijkeuken. Graag deur sluiten', domoticz.LOG_INFO)
