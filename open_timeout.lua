@@ -28,7 +28,7 @@ return {
 		end
 		if ((temperature_woonk.temperature - temperature_bijkeuken.temperature > 7) or (test == true and test_switch.state == 'On'))  then
 			if ((domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1) or (test == true and test_switch.state == 'On')) then			
-				domoticz.notify('Deur bijkeuken te lang open terwijl het koud is in de bijkeuken. Graag deur sluiten', domoticz.LOG_INFO)
+				domoticz.notify('Deur bijkeuken open voor ' ..domoticz.globalData.OpenC_Deurbijkeuken .. ' minuten terwijl het koud is in de bijkeuken (' ..temperature_bijkeuken.temperature ..'). Graag deur sluiten', domoticz.LOG_INFO)
 				schemerlamp_deur.switchOn().forSec(3).repeatAfterSec(5, 3)		
 				lamp_spoelb_keuken.switchOn().forSec(3).repeatAfterSec(5, 3)		
 				lamp_boven_tv.switchOn().forSec(3).repeatAfterSec(5, 3)	
@@ -39,7 +39,7 @@ return {
 		end
 		if ((domoticz.time.months == 5 or domoticz.time.months == 6 or domoticz.time.months == 7 or domoticz.time.months == 8 or domoticz.time.months == 9) or (test == true and test_switch.state == 'On')) then
 			if ((domoticz.globalData.OpenC_Slaapkdeur > Open_timeout_floor2 and domoticz.globalData.Counters_time_message == message_time) or (test == true and test_switch.state == 'On')) then
-				domoticz.notify('Deur slaapkamer open', domoticz.LOG_INFO)
+				domoticz.notify('Deur slaapkamer open voor ' ..domoticz.globalData.OpenC_Slaapkdeur .. ' minuten.', domoticz.LOG_INFO)
 				schemerlamp_deur.switchOn().forSec(5).repeatAfterSec(5,5)		
 				lamp_spoelb_keuken.switchOn().forSec(5).repeatAfterSec(5,5)		
 				lamp_boven_tv.switchOn().forSec(5).repeatAfterSec(5,5)	
