@@ -1,12 +1,13 @@
 -- Switch off when timeout is reached
 
 return {
-	active = true, -- set to false to disable this script
+	active = false, -- set to false to disable this script
 	on = {
 		timer = {'every 10 minutes'},
 		devices = {91},
 	},
 	execute = function(domoticz, device)
+		local temp_diff = 7
 		test = false
 		local test_switch = domoticz.devices(91)
 		local Open_timeout_floor1 = 10
@@ -34,8 +35,8 @@ return {
 			domoticz.log('domoticz.globalData.OpenC_Deurbijkeuken = ' ..domoticz.globalData.OpenC_Deurbijkeuken)
 			domoticz.log('Open_timeout_floor1 = ' ..Open_timeout_floor1)
 		end
-		if ((temperature_woonk.temperature - temperature_bijkeuken.temperature > 7) or (test == true and test_switch.state == 'On'))  then
-			if ((domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1 and domoticz.globalData.Open_timeout_message_interval > message_interval) or (test == true and test_switch.state == 'On')) then			
+		if ((temperature_woonk.temperature - temperature_bijkeuken.temperature > temp_diff) or (test == true and test_switch.state == 'On'))  then
+			if ((domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1 and domoticz.globalData.Open_timeout_message_interval > message_interval and Status_selector == '40') or (test == true and test_switch.state == 'On')) then			
 				domoticz.notify('Bijkeukendeur open','Deur bijkeuken open voor ' ..domoticz.globalData.OpenC_Deurbijkeuken .. ' minuten terwijl het koud is in de bijkeuken (' ..domoticz.round(temperature_bijkeuken.temperature,1) ..' graden). Graag deur sluiten.', domoticz.LOG_INFO)
 				schemerlamp_deur.switchOn().forSec(3).repeatAfterSec(5, 3)		
 				lamp_spoelb_keuken.switchOn().forSec(3).repeatAfterSec(5, 3)		
@@ -71,7 +72,7 @@ return {
 			end
 		end
 		if ((domoticz.time.months == 5 or domoticz.time.months == 6 or domoticz.time.months == 7 or domoticz.time.months == 8 or domoticz.time.months == 9) or (test == true and test_switch.state == 'On')) then
-			if ((domoticz.globalData.OpenC_Slaapkdeur > Open_timeout_floor2 and domoticz.globalData.Open_timeout_message_interval > message_interval) or (test == true and test_switch.state == 'On')) then
+			if ((domoticz.globalData.OpenC_Slaapkdeur > Open_timeout_floor2 and domoticz.globalData.Open_timeout_message_interval > message_interval and Status_selector == '40') or (test == true and test_switch.state == 'On')) then
 				domoticz.notify('Deur slaapkamer open voor ' ..domoticz.globalData.OpenC_Slaapkdeur .. ' minuten.', domoticz.LOG_INFO)
 				schemerlamp_deur.switchOn().forSec(5).repeatAfterSec(5,5)		
 				lamp_spoelb_keuken.switchOn().forSec(5).repeatAfterSec(5,5)		
