@@ -3,9 +3,8 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		timer = {'every 10 minutes'}
-		devices = {91
-		},
+		timer = {'every 10 minutes'},
+		devices = {91},
 	},
 	execute = function(domoticz, device)
 		test = true
