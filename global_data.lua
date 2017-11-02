@@ -144,6 +144,7 @@ return {
 		NMC_Overall  = { initial = 0 },
 		OpenC_Overall  = { initial = 0 },
 		ClosedC_Overall  = { initial = 0 },
-		Counters_time_message  = { initial = 0 }
+		Counters_time_message  = { initial = 0 },		
+		Open_timeout_message_interval  = { initial = 0 }
 	}
 }
