@@ -1,13 +1,13 @@
 -- Switch off when timeout is reached
 
 return {
-	active = false, -- set to false to disable this script
+	active = true, -- set to false to disable this script
 	on = {
 		timer = {'every 10 minutes'},
 		devices = {91},
 	},
 	execute = function(domoticz, device)
-		test = true
+		test = false
 		local test_switch = domoticz.devices(91)
 		local Open_timeout_floor1 = 10
 		local Open_timeout_floor2 = 10
