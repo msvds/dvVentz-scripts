@@ -19,6 +19,11 @@ return {
 		local lamp_boven_tv = domoticz.devices(13)
 		local temperature_bijkeuken = domoticz.devices(110)
 		local temperature_woonk = domoticz.devices(20)
+		start_state_schemerlamp_deur = schemerlamp_deur.state
+		start_state_lamp_spoelb_keuken = lamp_spoelb_keuken.state
+		start_state_lamp_boven_tv = lamp_boven_tv.state
+		start_state_schemerlamp_bank = schemerlamp_bank.state
+		start_state_lamp_hal_boven = lamp_hal_boven.state
 		debug = true
 		if debug == true then 
 			domoticz.log('temperature_woonk.temperature = ' ..temperature_woonk.temperature)
@@ -34,6 +39,31 @@ return {
 				lamp_boven_tv.switchOn().forSec(3).repeatAfterSec(5, 3)	
 				schemerlamp_bank.switchOn().forSec(3).repeatAfterSec(5, 3)				
 				lamp_hal_boven.switchOn().forSec(1).repeatAfterSec(5, 3)
+				if start_state_schemerlamp_deur == 'On' then
+					schemerlamp_deur.switchOn()
+				else
+					schemerlamp_deur.switchOff()
+				end
+				if start_state_lamp_spoelb_keuken == 'On' then
+					lamp_spoelb_keuken.switchOn()
+				else
+					lamp_spoelb_keuken.switchOff()
+				end
+				if start_state_lamp_boven_tv == 'On' then
+					lamp_boven_tv.switchOn()
+				else
+					lamp_boven_tv.switchOff()
+				end
+				if start_state_schemerlamp_bank == 'On' then
+					schemerlamp_bank.switchOn()
+				else
+					schemerlamp_bank.switchOff()
+				end
+				if start_state_lamp_hal_boven == 'On' then
+					lamp_hal_boven.switchOn()
+				else
+					lamp_hal_boven.switchOff()
+				end
 				domoticz.globalData.OpenC_Deurbijkeuken = 0
 			end
 		end
@@ -45,6 +75,31 @@ return {
 				lamp_boven_tv.switchOn().forSec(5).repeatAfterSec(5,5)	
 				schemerlamp_bank.switchOn().forSec(5).repeatAfterSec(5,5)				
 				lamp_hal_boven.switchOn().forSec(5).repeatAfterSec(5,5)
+				if start_state_schemerlamp_deur == 'On' then
+					schemerlamp_deur.switchOn()
+				else
+					schemerlamp_deur.switchOff()
+				end
+				if start_state_lamp_spoelb_keuken == 'On' then
+					lamp_spoelb_keuken.switchOn()
+				else
+					lamp_spoelb_keuken.switchOff()
+				end
+				if start_state_lamp_boven_tv == 'On' then
+					lamp_boven_tv.switchOn()
+				else
+					lamp_boven_tv.switchOff()
+				end
+				if start_state_schemerlamp_bank == 'On' then
+					schemerlamp_bank.switchOn()
+				else
+					schemerlamp_bank.switchOff()
+				end
+				if start_state_lamp_hal_boven == 'On' then
+					lamp_hal_boven.switchOn()
+				else
+					lamp_hal_boven.switchOff()
+				end
 				domoticz.globalData.OpenC_Slaapkdeur = 0
 			end
 		end
