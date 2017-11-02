@@ -101,6 +101,39 @@ return {
 				end
 			end
 			return 0
+		end,
+		sendnotification = function(not_title,not_text,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven)
+			domoticz.notify(not_title,not_text, domoticz.LOG_INFO)
+			schemerlamp_deur.switchOn().forSec(3).repeatAfterSec(5, 3)		
+			lamp_spoelb_keuken.switchOn().forSec(3).repeatAfterSec(5, 3)		
+			lamp_boven_tv.switchOn().forSec(3).repeatAfterSec(5, 3)	
+			schemerlamp_bank.switchOn().forSec(3).repeatAfterSec(5, 3)				
+			lamp_hal_boven.switchOn().forSec(1).repeatAfterSec(5, 3)
+			if start_state_schemerlamp_deur == 'On' then
+				schemerlamp_deur.switchOn().afterSec(30)
+			else
+				schemerlamp_deur.switchOff().afterSec(30)
+			end
+			if start_state_lamp_spoelb_keuken == 'On' then
+				lamp_spoelb_keuken.switchOn().afterSec(30)
+			else
+				lamp_spoelb_keuken.switchOff().afterSec(30)
+			end
+			if start_state_lamp_boven_tv == 'On' then
+				lamp_boven_tv.switchOn().afterSec(30)
+			else
+				lamp_boven_tv.switchOff().afterSec(30)
+			end
+			if start_state_schemerlamp_bank == 'On' then
+				schemerlamp_bank.switchOn().afterSec(30)
+			else
+				schemerlamp_bank.switchOff().afterSec(30)
+			end
+			if start_state_lamp_hal_boven == 'On' then
+				lamp_hal_boven.switchOn().afterSec(30)
+			else
+				lamp_hal_boven.switchOff().afterSec(30)
+			end
 		end
     	},
 	data = {
