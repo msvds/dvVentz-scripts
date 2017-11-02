@@ -6,7 +6,7 @@ return {
 		timer = {'every 10 minutes'}
 	},
 	execute = function(domoticz, device)
-		test = false
+		test = true
 		local test_switch = domoticz.devices(91)
 		local Open_timeout_floor1 = 10
 		local Open_timeout_floor2 = 10
