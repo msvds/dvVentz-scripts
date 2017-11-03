@@ -4,7 +4,7 @@
 return {
 	active = true,
 	on = {
-		devices = {25,81,83,107,116,153,85,23,66,119,149,150,1,151,97,36},
+		devices = {25,81,83,107,116,153,85,235,80,23,66,119,149,150,1,151,97,36},
 	},
 	execute = function(domoticz,device)
 		local Eetkamerdeur = domoticz.devices(25)
@@ -15,7 +15,7 @@ return {
 		local Slaapkdeur = domoticz.devices(153)
 		local Dakraamzolder = domoticz.devices(85)
 		local Deurbijkeuken = domoticz.devices(235)
-		-------------------------->local Deurgarage = domoticz.devices()
+		local Deurgarage = domoticz.devices(80)
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
