@@ -17,6 +17,7 @@ return {
 		local schemerlamp_bank = domoticz.devices(16)
 		local lamp_boven_tv = domoticz.devices(13)
 		local lamp_voordeur = domoticz.devices(33)
+		local IsDark = domoticz.devices(78)
 		debug = false			
 		sendnotification('De deurbel gaat,'Er staat iemand voor de deur, misschien open doen?',schemerlamp_deur.state,lamp_spoelb_keuken.state,lamp_boven_tv.state,schemerlamp_bank.state,lamp_hal_boven.state,1,2,1)
 		if (IsDark == 'On') then
