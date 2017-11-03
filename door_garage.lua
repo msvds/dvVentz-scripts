@@ -20,7 +20,7 @@ return {
 		local lamp_spoelb_keuken = domoticz.devices(36)
 		local schemerlamp_bank = domoticz.devices(16)
 		local lamp_boven_tv = domoticz.devices(13)
-		local Deurgarage = domoticz.devices(80)
+		local Deurgarage = domoticz.devices(105)
 		debug = false
 		if (Deurgarage.state == 'Open' and door.lastUpdate.minutesAgo > 30) then
 			if ((domoticz.globalData.OpenC_Deurgarage > Open_timeout_outside and domoticz.globalData.door_garage_message_interval > message_interval) or (test == true and test_switch.state == 'On')) then
