@@ -15,7 +15,7 @@ return {
 		local Slaapkdeur = domoticz.devices(153)
 		local Dakraamzolder = domoticz.devices(85)
 		local Deurbijkeuken = domoticz.devices(235)
-		local Deurgarage = domoticz.devices(80)
+		local Deurgarage = domoticz.devices(105)
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
