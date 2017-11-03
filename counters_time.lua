@@ -126,10 +126,10 @@ return {
 
 		OpenC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices(105), tonumber(domoticz.globalData.OpenC_Deurgarage),'Open')
 		domoticz.globalData.OpenC_Deurgarage = OpenC_Deurgarage
-		CloseC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices(105), tonumber(domoticz.globalData.CloseC_Deurgarage),'Closed')
-		domoticz.globalData.CloseC_Deurgarage = CloseC_Deurgarage
-		if (domoticz.globalData.CloseC_Deurgarage ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.CloseC_Deurgarage: ' ..domoticz.globalData.CloseC_Deurgarage)
+		ClosedC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices(105), tonumber(domoticz.globalData.ClosedC_Deurgarage),'Closed')
+		domoticz.globalData.ClosedC_Deurgarage = ClosedC_Deurgarage
+		if (domoticz.globalData.ClosedC_Deurgarage ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
+			domoticz.log('domoticz.globalData.ClosedC_Deurgarage: ' ..domoticz.globalData.ClosedC_Deurgarage)
 		end
 		if (domoticz.globalData.OpenC_Deurgarage ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
 			domoticz.log('domoticz.globalData.OpenC_Deurgarage: ' ..domoticz.globalData.OpenC_Deurgarage)
