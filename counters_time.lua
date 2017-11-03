@@ -121,8 +121,18 @@ return {
 		end
 		if (domoticz.globalData.OpenC_Dakraamzolder ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
 			domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
-		end
-		
+		end		
+		-----------------------> mod garage idx
+		--OpenC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.OpenC_Deurgarage),'Open')
+		--domoticz.globalData.OpenC_Deurgarage = OpenC_Deurgarage
+		--CloseC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices(85), tonumber(domoticz.globalData.CloseC_Deurgarage),'Closed')
+		--domoticz.globalData.CloseC_Deurgarage = CloseC_Deurgarage
+		--if (domoticz.globalData.CloseC_Deurgarage ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
+		--	domoticz.log('domoticz.globalData.CloseC_Deurgarage: ' ..domoticz.globalData.CloseC_Deurgarage)
+		--end
+		--if (domoticz.globalData.OpenC_Deurgarage ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
+		--	domoticz.log('domoticz.globalData.OpenC_Deurgarage: ' ..domoticz.globalData.OpenC_Deurgarage)
+		--end		
 		MC_PIR_woonk = domoticz.helpers.Counter(domoticz, domoticz.devices(23), tonumber(domoticz.globalData.MC_PIR_woonk),'On')
 		domoticz.globalData.MC_PIR_woonk = MC_PIR_woonk
 		NMC_PIR_woonk = domoticz.helpers.Counter(domoticz, domoticz.devices(23), tonumber(domoticz.globalData.NMC_PIR_woonk),'Off')
