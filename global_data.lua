@@ -175,6 +175,8 @@ return {
 		ClosedC_Floor2  = { initial = 0 },
 		OpenC_Floor3  = { initial = 0 },
 		ClosedC_Floor3  = { initial = 0 },
+		OpenC_Outside  = { initial = 0 },
+		ClosedC_Outside  = { initial = 0 },
 		MC_Overall  = { initial = 0 },
 		NMC_Overall  = { initial = 0 },
 		OpenC_Overall  = { initial = 0 },
