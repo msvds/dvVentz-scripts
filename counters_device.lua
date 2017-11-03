@@ -181,10 +181,10 @@ return {
 			domoticz.globalData.MC_Floor1 = 0		  
 			domoticz.log('MC_Floor1 set to zero')
 		end
-		if (domoticz.globalData.OpenC_Floor1 == 0 or domoticz.globalData.OpenC_Floor2 == 0 or domoticz.globalData.OpenC_Floor3 == 0) then
+		if (domoticz.globalData.OpenC_Floor1 == 0 or domoticz.globalData.OpenC_Floor2 == 0 or domoticz.globalData.OpenC_Floor3 == 0 or domoticz.globalData.OpenC_Outside == 0) then
 			domoticz.globalData.OpenC_Overall = 0
 		end
-		if (domoticz.globalData.ClosedC_Floor1 == 0 and domoticz.globalData.ClosedC_Floor2 == 0 and domoticz.globalData.ClosedC_Floor3 == 0) then
+		if (domoticz.globalData.ClosedC_Floor1 == 0 and domoticz.globalData.ClosedC_Floor2 == 0 and domoticz.globalData.ClosedC_Floor3 == 0 nd domoticz.globalData.ClosedC_Outside == 0) then
 			domoticz.globalData.ClosedC_Overall = 0
 		end
 		if (domoticz.globalData.MC_Floor1 == 0 or domoticz.globalData.MC_Floor2 == 0) then
