@@ -124,9 +124,9 @@ return {
 			domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
 		end		
 
-		OpenC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices(80), tonumber(domoticz.globalData.OpenC_Deurgarage),'Open')
+		OpenC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices(105), tonumber(domoticz.globalData.OpenC_Deurgarage),'Open')
 		domoticz.globalData.OpenC_Deurgarage = OpenC_Deurgarage
-		CloseC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices(80), tonumber(domoticz.globalData.CloseC_Deurgarage),'Closed')
+		CloseC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices(105), tonumber(domoticz.globalData.CloseC_Deurgarage),'Closed')
 		domoticz.globalData.CloseC_Deurgarage = CloseC_Deurgarage
 		if (domoticz.globalData.CloseC_Deurgarage ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
 			domoticz.log('domoticz.globalData.CloseC_Deurgarage: ' ..domoticz.globalData.CloseC_Deurgarage)
