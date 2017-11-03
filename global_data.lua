@@ -155,6 +155,8 @@ return {
 		ClosedC_Dakraamzolder = { initial = 0 },
 		OpenC_Deurbijkeuken = { initial = 0 },
 		ClosedC_Deurbijkeuken = { initial = 0 },
+		OpenC_Deurgarage = { initial = 0 },
+		ClosedC_Deurgarage = { initial = 0 },
 		MC_PIR_woonk  = { initial = 0 },
 		NMC_PIR_woonk  = { initial = 0 },
 		MC_PIR_kamerLars  = { initial = 0 },
@@ -178,6 +180,8 @@ return {
 		OpenC_Overall  = { initial = 0 },
 		ClosedC_Overall  = { initial = 0 },
 		Counters_time_message_interval  = { initial = 0 },		
-		Open_timeout_message_interval  = { initial = 0 }
+		door_garage_message_interval  = { initial = 0 },		
+		door_bedroom_message_interval  = { initial = 0 },		
+		door_bijkeuken_message_interval  = { initial = 0 }
 	}
 }
