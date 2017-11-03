@@ -15,6 +15,7 @@ return {
 		local Slaapkdeur = domoticz.devices(153)
 		local Dakraamzolder = domoticz.devices(85)
 		local Deurbijkeuken = domoticz.devices(235)
+		-------------------------->local Deurgarage = domoticz.devices()
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
@@ -101,7 +102,16 @@ return {
 			domoticz.globalData.OpenC_Dakraamzolder = 0
 			domoticz.globalData.OpenC_Floor3 = 0
 			domoticz.log('OpenC_Dakraamzolder and OpenC_Floor3 set to zero')
-		end
+		end		
+		if (device.name == Deurgarage.name and Deurgarage.state == 'Open') then
+			domoticz.globalData.ClosedC_Deurgarage = 0
+			domoticz.globalData.ClosedC_Outside = 0
+			domoticz.log('ClosedC_Deurgarage and ClosedC_Outside set to zero')
+		elseif (device.name == Deurgarage.name and Deurgarage.state == 'Closed') then
+			domoticz.globalData.OpenC_Deurgarage = 0
+			domoticz.globalData.OpenC_Outside = 0
+			domoticz.log('OpenC_Deurgarage and OpenC_Outside set to zero')
+		end		
 		if (device.name == PIR_woonk.name and PIR_woonk.state == 'On') then
 			domoticz.globalData.NMC_PIR_woonk = 0
 			domoticz.globalData.NMC_Floor1  = 0	
