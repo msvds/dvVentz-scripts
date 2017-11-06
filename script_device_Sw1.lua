@@ -46,25 +46,26 @@ return {
 			schemerlamp_bank.switchOff()
 			schemerlamp_deur.switchOff()
             		harmony_poweroff.switchOn()
+			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,currentSetpoint)
 			--change toon
-			local ToonScenesSensorName  = 'Toon Temperature' -- Sensor showing current program
-			local ToonThermostatSensorName = 'Toon Thermostat' 
-			local ToonIP = '192.168.178.183'
-			local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
+			--local ToonScenesSensorName  = 'Toon Temperature' -- Sensor showing current program
+			--local ToonThermostatSensorName = 'Toon Thermostat' 
+			--local ToonIP = '192.168.178.183'
+			--local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
 
-			local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', ToonIP)))
-			local ThermostatInfo = handle:read('*all')
-			handle:close()
+			--local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', ToonIP)))
+			--local ThermostatInfo = handle:read('*all')
+			--handle:close()
 
-			local jsonThermostatInfo = json:decode(ThermostatInfo)
+			--local jsonThermostatInfo = json:decode(ThermostatInfo)
 
-			if jsonThermostatInfo ~= nil then
-				local currentSetpoint = tonumber(jsonThermostatInfo.currentSetpoint) / 100
-				local currentTemperature = tonumber(jsonThermostatInfo.currentTemp) / 100
-				local currentProgramState = tonumber(jsonThermostatInfo.programState)
-				local currentActiveState = tonumber(jsonThermostatInfo.activeState)
-				domoticz.helpers.changeToonScene(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,currentSetpoint)
-			end
+			--if jsonThermostatInfo ~= nil then
+			--	local currentSetpoint = tonumber(jsonThermostatInfo.currentSetpoint) / 100
+			--	local currentTemperature = tonumber(jsonThermostatInfo.currentTemp) / 100
+			--	local currentProgramState = tonumber(jsonThermostatInfo.programState)
+			--	local currentActiveState = tonumber(jsonThermostatInfo.activeState)
+			--	domoticz.helpers.changeToonScene(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,currentSetpoint)
+			--end
 			--end change toon
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 			domoticz.log('Lights turned off and Harmony turned off')
