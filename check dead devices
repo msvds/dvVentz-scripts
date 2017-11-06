@@ -10,7 +10,7 @@ local devicesToCheck = {
 	{ ['idx'] = 23 , ['threshold'] = 30 },
 	{ ['idx'] = 66 , ['threshold'] = 30 },
 	{ ['idx'] = 119 , ['threshold'] = 30 },
-	{ ['idx'] = 81 , ['threshold'] = 30 },
+	{ ['idx'] = 91 , ['threshold'] = 30 }
 }
 return {
 	active = true,
