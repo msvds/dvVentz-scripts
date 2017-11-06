@@ -1,8 +1,17 @@
 local devicesToCheck = {
+	{ ['idx'] = 25 , ['threshold'] = 30 },
+	{ ['idx'] = 81 , ['threshold'] = 30 },
+	{ ['idx'] = 83 , ['threshold'] = 30 },
+	{ ['idx'] = 107 , ['threshold'] = 30 },
 	{ ['idx'] = 116 , ['threshold'] = 30 },
-	{ ['idx'] = 83 , ['threshold'] = 30 }
+	{ ['idx'] = 153 , ['threshold'] = 30 },
+	{ ['idx'] = 85 , ['threshold'] = 30 },
+	{ ['idx'] = 105 , ['threshold'] = 30 },
+	{ ['idx'] = 23 , ['threshold'] = 30 },
+	{ ['idx'] = 66 , ['threshold'] = 30 },
+	{ ['idx'] = 119 , ['threshold'] = 30 },
+	{ ['idx'] = 81 , ['threshold'] = 30 },
 }
-
 return {
 	active = true,
 	on = {
