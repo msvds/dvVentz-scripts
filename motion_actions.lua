@@ -19,6 +19,7 @@ return {
 		local PIR_woonk = domoticz.devices(23)		
 		local PIR_kamerLars = domoticz.devices(66)
 		local PIR_halboven = domoticz.devices(119)
+		local PIR_garage = domoticz.devices(251)
 		local lampen_woonkamer = domoticz.groups(1)
 		local buitenlampen = domoticz.groups(2)
 		local lamp_hal_boven = domoticz.devices(151)
@@ -103,7 +104,24 @@ return {
 				end
 			end
 		else
-			if debug then domoticz.log('No action because it is not dark', domoticz.LOG_DEBUG) end
+			if (domoticz.time.matchesRule('at 0:30-06:00') and PIR_woonk.state == 'On') then
+				-- woonkamer aan nachts
+				-- between 00:30 and 6:00
+				lampen_woonkamer.switchOn().forSec(1).repeatAfterSec(1, 150)
+				lampen_woonkamer.switchOn().afterSec(300)
+				buitenlampen.switchOn().forSec(1).repeatAfterSec(1, 150)
+				buitenlampen.switchOn().afterSec(300)
+				domoticz.notify('Beweging woonkamer terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
+			end
+			if (domoticz.time.matchesRule('at 0:30-06:00') and PIR_garage.state == 'On') then
+				-- garage aan nachts
+				-- between 00:30 and 6:00			
+				lampen_woonkamer.switchOn().forSec(1).repeatAfterSec(1, 150)
+				lampen_woonkamer.switchOn().afterSec(300)
+				buitenlampen.switchOn().forSec(1).repeatAfterSec(1, 150)
+				buitenlampen.switchOn().afterSec(300)
+				domoticz.notify('Beweging garage terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
+			end
 		end
 	end
 }
