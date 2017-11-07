@@ -15,8 +15,8 @@ return {
 		local schemerlamp_deur = domoticz.devices(97)
 		local harmony_poweroff = domoticz.devices(6)
 		local radio = domoticz.devices(8)
-		local dakraamslaapkamer = domoticz.devices[81]
-		local dakraamzolderachter = domoticz.devices[85]
+		local dakraamslaapkamer = domoticz.devices(81)
+		local dakraamzolderachter = domoticz.devices(85)
 		local Eetkamerdeur = domoticz.devices(25)
 		local Balkondeurslaapk = domoticz.devices(83)
 		local Voordeur = domoticz.devices(107)
