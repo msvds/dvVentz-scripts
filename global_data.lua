@@ -126,6 +126,12 @@ return {
 			return 0
 		end,
 		sendnotification = function(domoticz,not_title,not_text,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
+			local lamp_hal_boven = domoticz.devices(151)
+			local schemerlamp_deur = domoticz.devices(97)
+			local lamp_spoelb_keuken = domoticz.devices(36)
+			local schemerlamp_bank = domoticz.devices(16)
+			local lamp_boven_tv = domoticz.devices(13)
+			local Deurgarage = domoticz.devices(105)
 			domoticz.notify(not_title,not_text, domoticz.LOG_INFO)
 			schemerlamp_deur.switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
 			lamp_spoelb_keuken.switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
