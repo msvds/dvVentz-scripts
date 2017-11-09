@@ -41,7 +41,8 @@ return {
 			schemerlamp_deur.switchOn()
 			domoticz.log('Lights turned on')
 		elseif (device.state == 'Click') then
-			Status_selector.setState = 'Sleep' 
+			Status_selector.setState = 'Sleep'
+			domoticz.log(Status_selector.state)
 			lamp_boven_tv.switchOff()
 			lamp_spoelb_keuken.switchOff()
 			lamp_bank.switchOff()
