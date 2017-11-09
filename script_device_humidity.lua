@@ -49,7 +49,7 @@ return {
 			hum_string_woonk = "redelijk"
 		end
 		
-		local message
+		local message = ''
 
 		if (hum_woonk.humidity > 55) then
 			if (hum_buiten.humidity < hum_woonk.humidity) then
