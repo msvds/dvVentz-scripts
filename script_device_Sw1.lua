@@ -30,7 +30,7 @@ return {
 		--local Televisie_lage_resolutie = domoticz.devices(9)
 		local Status_selector = domoticz.devices(90)
 		domoticz.log(Status_selector.state)
-		Status_selector.setState = '30'
+		Status_selector.switchSelector = '30'
 		domoticz.log(Status_selector.state)
 		if (device.state == 'Long Click') then
 			Status_selector = '40' --Home
