@@ -30,7 +30,7 @@ return {
 		--local Televisie_lage_resolutie = domoticz.devices(9)
 		local Status_selector = domoticz.devices(90)
 		domoticz.log(Status_selector.state)
-		Status_selector.state = 'Sleep'
+		Status_selector.setState = 'Sleep'
 		domoticz.log(Status_selector.state)
 		if (device.state == 'Long Click') then
 			Status_selector = '40' --Home
@@ -41,7 +41,7 @@ return {
 			schemerlamp_deur.switchOn()
 			domoticz.log('Lights turned on')
 		elseif (device.state == 'Click') then
-			Status_selector.state = 'Sleep' 
+			Status_selector.setState = 'Sleep' 
 			lamp_boven_tv.switchOff()
 			lamp_spoelb_keuken.switchOff()
 			lamp_bank.switchOff()
