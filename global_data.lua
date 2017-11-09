@@ -62,7 +62,7 @@ return {
 				if debug then domoticz.log('Huidige programma Toon veranderd naar '.. newState .. ' ' ..reason) end
 			end
 		end,
-		changeToonSceneComplete =function(domoticz,s,reason,sendmessage,currentSetpoint)
+		changeToonSceneComplete =function(domoticz,s,reason,sendmessage)
 			domoticz.log('Huidige setpoint is '.. currentSetpoint)
 			--change toon
 			local ToonScenesSensorName  = 'Toon Temperature' -- Sensor showing current program
