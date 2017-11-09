@@ -41,14 +41,15 @@ _C.ALARM_ZONES = {
 	-- Start configuration of the first alarm zone
 	{
 		name='My Home',
-		armingModeTextDevID=550,
-		statusTextDevID=554,
+		armingModeTextDevID=259,
+		statusTextDevID=260,
 		entryDelay=15,
-		exitDelay=20,
-		alertDevices={'Siren', 'Garden Lights'},
+		exitDelay=60,
+		alertDevices={'Xiaomi Gateway Alarm Ringtone'},
 		sensors = {
-			['Entrance Door'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
-			['Another Door'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
+			['Eetkamerdeur'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
+			['Balkondeur slaapkamer'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
+			['Balkondeur Nienke'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
 		},
 		armAwayToggleBtn='Toggle Z1 Arm Away',
 		armHomeToggleBtn='Toggle Z1 Arm Home',
