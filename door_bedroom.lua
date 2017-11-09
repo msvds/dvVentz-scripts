@@ -26,7 +26,7 @@ return {
 			domoticz.log('Open_timeout_floor2 = ' ..Open_timeout_floor2)
 		end		
 		if ((domoticz.time.months == 5 or domoticz.time.months == 6 or domoticz.time.months == 7 or domoticz.time.months == 8 or domoticz.time.months == 9) or (test == true and test_switch.state == 'On')) then
-			if ((domoticz.globalData.OpenC_Slaapkdeur > Open_timeout_floor2 and domoticz.globalData.door_bedroom_message_interval > message_interval and Status_selector == '40') or (test == true and test_switch.state == 'On')) then
+			if ((domoticz.globalData.OpenC_Slaapkdeur > Open_timeout_floor2 and domoticz.globalData.door_bedroom_message_interval > message_interval and Status_selector.state == 'Home') or (test == true and test_switch.state == 'On')) then
 				domoticz.helpers.sendnotification(domoticz,'Slaapkamerdeur open','Deur slaapkamer open voor ' ..domoticz.globalData.OpenC_Slaapkdeur .. ' minuten.', schemerlamp_deur.state,lamp_spoelb_keuken.state,lamp_boven_tv.state,schemerlamp_bank.state,lamp_hal_boven.state,3,5,5)
 				domoticz.globalData.OpenC_Slaapkdeur = 0
 			end
