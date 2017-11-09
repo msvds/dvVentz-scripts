@@ -11,8 +11,7 @@ return {
 		local testswitch = domoticz.devices(91)
 		local Status_selector = domoticz.devices(90)
 		domoticz.log(Status_selector.state)
-		Status_selector.switchSelector(30)
-		domoticz.log(Status_selector.state)
+		Status_selector.switchSelector(10)
 		--local dimmer_bed_martijn = domoticz.devices(149)		
 		--local dimmer_bed_suzanne = domoticz.devices(150)
 		--if (domoticz.time.matchesRule('at 16:00-00:30')) then --and Slaapkdeur.state == 'Open'
