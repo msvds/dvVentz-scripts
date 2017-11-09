@@ -10,7 +10,7 @@ return {
 	execute = function(domoticz, device)
 		local hum_plant1 = domoticz.devices(67)
 		local hum_plant2 = domoticz.devices(101)
-    	local message
+    		local message = ''
 		
 		-- add new data
 		domoticz.data.plant1.add(hum_plant1.percentage)
