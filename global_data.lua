@@ -63,7 +63,7 @@ return {
 			end
 		end,
 		changeToonSceneComplete =function(domoticz,s,reason,sendmessage)
-			domoticz.log('Huidige setpoint is '.. currentSetpoint)
+			--domoticz.log('Huidige setpoint is '.. currentSetpoint)
 			--change toon
 			local ToonScenesSensorName  = 'Toon Temperature' -- Sensor showing current program
 			local ToonThermostatSensorName = 'Toon Thermostat' 
