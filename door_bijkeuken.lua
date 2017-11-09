@@ -31,7 +31,7 @@ return {
 		end
 		if ((temperature_woonk.temperature - temperature_bijkeuken.temperature > temp_diff) or (testing_on == true and test_switch.state == 'On'))  then
 			if ((domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1 and domoticz.globalData.door_bijkeuken_message_interval > message_interval and Status_selector == '40') or (testing_on == true and test_switch.state == 'On')) then			
-				domoticz.helpers.sendnotification('Bijkeukendeur open','Deur bijkeuken open voor ' ..domoticz.globalData.OpenC_Deurbijkeuken .. ' minuten terwijl het koud is in de bijkeuken (' ..domoticz.round(temperature_bijkeuken.temperature,1) ..' graden). Graag deur sluiten.',schemerlamp_deur.state,lamp_spoelb_keuken.state,lamp_boven_tv.state,schemerlamp_bank.state,lamp_hal_boven.state,3,3,5)
+				domoticz.helpers.sendnotification(domoticz,'Bijkeukendeur open','Deur bijkeuken open voor ' ..domoticz.globalData.OpenC_Deurbijkeuken .. ' minuten terwijl het koud is in de bijkeuken (' ..domoticz.round(temperature_bijkeuken.temperature,1) ..' graden). Graag deur sluiten.',schemerlamp_deur.state,lamp_spoelb_keuken.state,lamp_boven_tv.state,schemerlamp_bank.state,lamp_hal_boven.state,3,3,5)
 				domoticz.globalData.OpenC_Deurbijkeuken = 0
 			end
 		end
