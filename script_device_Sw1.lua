@@ -46,7 +46,7 @@ return {
 			schemerlamp_bank.switchOff()
 			schemerlamp_deur.switchOff()
             		--harmony_poweroff.switchOn()
-			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,currentSetpoint)
+			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
 			--change toon
 			--local ToonScenesSensorName  = 'Toon Temperature' -- Sensor showing current program
 			--local ToonThermostatSensorName = 'Toon Thermostat' 
