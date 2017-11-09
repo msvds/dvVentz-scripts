@@ -34,7 +34,7 @@ return {
 		--domoticz.log(Status_selector.state)
 		if (device.state == 'Long Click') then
 			--Status_selector.setState = 'Home' --Home
-			Status_selector.switchSelector(40)
+			Status_selector.switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			lamp_boven_tv.switchOn()
 			lamp_spoelb_keuken.switchOn()
 			lamp_bank.switchOn()
@@ -42,7 +42,7 @@ return {
 			schemerlamp_deur.switchOn()
 			domoticz.log('Lights turned on')
 		elseif (device.state == 'Click') then
-			Status_selector.switchSelector(30)
+			Status_selector.switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			--Status_selector.setState = 'Sleep'
 			--domoticz.log(Status_selector.state)
 			lamp_boven_tv.switchOff()
@@ -76,6 +76,7 @@ return {
 		elseif (device.state == 'Double Click') then
 			--check everything is it's ready to departure
 			--check if windows are closed
+			Status_selector.switchSelector(10) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			if (dakraamslaapkamer.state == 'Open') then
 			   domoticz.notify('Dakraam slaapkamer is open',domoticz.PRIORITY_HIGH)
 			elseif (dakraamzolderachter.state == 'Open') then
