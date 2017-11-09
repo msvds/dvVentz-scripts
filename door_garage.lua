@@ -22,7 +22,7 @@ return {
 		local lamp_boven_tv = domoticz.devices(13)
 		local Deurgarage = domoticz.devices(105)
 		debug = false
-		if (Deurgarage.state == 'Open' and door.lastUpdate.minutesAgo > 30) then
+		if (Deurgarage.state == 'Open' and Deurgarage.lastUpdate.minutesAgo > 30) then
 			if ((domoticz.globalData.OpenC_Deurgarage > Open_timeout_outside and domoticz.globalData.door_garage_message_interval > message_interval) or (test == true and test_switch.state == 'On')) then
 				domoticz.helpers.sendnotification(domoticz,'Garage deur alarm','De garage deur is voor meer dan 30 minuten open!',schemerlamp_deur.state,lamp_spoelb_keuken.state,lamp_boven_tv.state,schemerlamp_bank.state,lamp_hal_boven.state,3,3,5)
 				domoticz.globalData.OpenC_Deurgarage = 0
