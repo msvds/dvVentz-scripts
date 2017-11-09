@@ -25,9 +25,9 @@ return {
 		local lamp_hal_boven = domoticz.devices(151)
 		local dimmer_bed_martijn = domoticz.devices(149)		
 		local dimmer_bed_suzanne = domoticz.devices(150)
-		local MediaCenter = domoticz.devices(11)
-		local Televisie = domoticz.devices(7)
-		local Televisie_lage_resolutie = domoticz.devices(9)
+		--local MediaCenter = domoticz.devices(11)
+		--local Televisie = domoticz.devices(7)
+		--local Televisie_lage_resolutie = domoticz.devices(9)
 		local Status_selector = domoticz.devices(90)
 		domoticz.log(device.state)
 		if (device.state == 'Long Click') then
@@ -111,16 +111,16 @@ return {
 			   domoticz.notify('dimmer bed martijn staat aan',domoticz.PRIORITY_HIGH)
 			elseif (dimmer_bed_suzanne.state == 'On') then
 			   domoticz.notify('dimmer bed suzanne staat aan',domoticz.PRIORITY_HIGH)
-			elseif (Schemerlamp_deur.state == 'On') then
+			elseif (schemerlamp_deur.state == 'On') then
 			   domoticz.notify('Schemerlamp deur staat aan',domoticz.PRIORITY_HIGH)
-			elseif (Lamp_spoelb_keuken.state == 'On') then
+			elseif (lamp_spoelb_keuken.state == 'On') then
 			   domoticz.notify('Lamp spoelbak keuken staat aan',domoticz.PRIORITY_HIGH)
-			elseif (MediaCenter.state == 'On') then
-			   domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
-			elseif (Televisie.state == 'On') then
-			   domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
-			elseif (Televisie_lage_resolutie.state == 'On') then
-			   domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (MediaCenter.state == 'On') then
+			   --domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (Televisie.state == 'On') then
+			   --domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (Televisie_lage_resolutie.state == 'On') then
+			   --domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
 			end 
 		end
 	end
