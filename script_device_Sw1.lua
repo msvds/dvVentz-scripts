@@ -45,7 +45,7 @@ return {
 			lamp_bank.switchOff()
 			schemerlamp_bank.switchOff()
 			schemerlamp_deur.switchOff()
-            		harmony_poweroff.switchOn()
+            		--harmony_poweroff.switchOn()
 			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,currentSetpoint)
 			--change toon
 			--local ToonScenesSensorName  = 'Toon Temperature' -- Sensor showing current program
@@ -81,12 +81,12 @@ return {
 			   domoticz.notify('Voordeur slaapkamer is open',domoticz.PRIORITY_HIGH)
 			elseif (BalkondeurNienke.state == 'Open') then
 			   domoticz.notify('Balkondeur Nienke is open',domoticz.PRIORITY_HIGH)
-			elseif (MediaCenter.state == 'On') then
-			   domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
-			elseif (Televisie.state == 'On') then
-			   domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
-			elseif (Televisie_lage_resolutie.state == 'On') then
-			   domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (MediaCenter.state == 'On') then
+			  -- domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (Televisie.state == 'On') then
+			  -- domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (Televisie_lage_resolutie.state == 'On') then
+			  -- domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
 			end 
 		elseif (device.state == 'Double Click') then
 			--check everything is it's ready to departure
