@@ -29,7 +29,9 @@ return {
 		--local Televisie = domoticz.devices(7)
 		--local Televisie_lage_resolutie = domoticz.devices(9)
 		local Status_selector = domoticz.devices(90)
-		domoticz.log(device.state)
+		domoticz.log(Status_selector.state)
+		Status_selector.state = 'Sleep'
+		domoticz.log(Status_selector.state)
 		if (device.state == 'Long Click') then
 			Status_selector = '40' --Home
 			lamp_boven_tv.switchOn()
