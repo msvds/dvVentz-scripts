@@ -125,7 +125,7 @@ return {
 			end
 			return 0
 		end,
-		sendnotification = function(not_title,not_text,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
+		sendnotification = function(domoticz,not_title,not_text,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
 			domoticz.notify(not_title,not_text, domoticz.LOG_INFO)
 			schemerlamp_deur.switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
 			lamp_spoelb_keuken.switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
