@@ -33,7 +33,8 @@ return {
 		--Status_selector.switchSelector(30)
 		--domoticz.log(Status_selector.state)
 		if (device.state == 'Long Click') then
-			Status_selector.setState = 'Home' --Home
+			--Status_selector.setState = 'Home' --Home
+			Status_selector.switchSelector(40)
 			lamp_boven_tv.switchOn()
 			lamp_spoelb_keuken.switchOn()
 			lamp_bank.switchOn()
@@ -41,7 +42,8 @@ return {
 			schemerlamp_deur.switchOn()
 			domoticz.log('Lights turned on')
 		elseif (device.state == 'Click') then
-			Status_selector.setState = 'Sleep'
+			Status_selector.switchSelector(30)
+			--Status_selector.setState = 'Sleep'
 			--domoticz.log(Status_selector.state)
 			lamp_boven_tv.switchOff()
 			lamp_spoelb_keuken.switchOff()
