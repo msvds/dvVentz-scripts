@@ -22,7 +22,7 @@ return {
 		local lamp_boven_tv = domoticz.devices(13)
 		local temperature_bijkeuken = domoticz.devices(110)
 		local temperature_woonk = domoticz.devices(20)
-		debug = false
+		debug = true
 		if debug == true then 
 			domoticz.log('temperature_woonk.temperature = ' ..temperature_woonk.temperature)
 			domoticz.log('temperature_bijkeuken.temperature = ' ..temperature_bijkeuken.temperature)
