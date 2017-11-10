@@ -40,7 +40,7 @@ return {
 				end
 			end
 		end,
-		changeToonScene =function(domoticz,s,reason,sendmessage,currentSetpoint)
+		changeToonScene =function(domoticz,s,reason,sendmessage,currentSetpoint,currentActiveState)
 			domoticz.log('Huidige setpoint is '.. currentSetpoint)
 			local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
 			local newState 
@@ -83,7 +83,7 @@ return {
 				local currentTemperature = tonumber(jsonThermostatInfo.currentTemp) / 100
 				local currentProgramState = tonumber(jsonThermostatInfo.programState)
 				local currentActiveState = tonumber(jsonThermostatInfo.activeState)
-				domoticz.helpers.changeToonScene(domoticz,s,reason,sendmessage,currentSetpoint)
+				domoticz.helpers.changeToonScene(domoticz,s,reason,sendmessage,currentSetpoint,currentActiveState)
 			end
 			--end change toon
 		end,
