@@ -51,12 +51,14 @@ return {
 			elseif currentActiveState == 3 then currentActiveState = '10' -- Away
 			end
 			SetScene = s
+			domoticz.log('s = '.. s)
 			if s == '10' then newState = 'Away' end
 			if s == '20' then newState = 'Sleep' end
 			if s == '30' then newState = 'Home' end
 			if s == '40' then newState = 'Comfort' end
 			if s == '50' then newState = 'Manual' end
-				
+			domoticz.log('newState = '.. newState)
+			domoticz.log('currentActiveState = '.. currentActiveState)
 			if currentActiveState ~= SetScene then
 				commandArray[1] = {['UpdateDevice'] = string.format('%s|1|%s', otherdevices_idx['Toon Thermostat'], s)}
 				if debug then domoticz.log('Huidige programma Toon veranderd naar '.. newState .. ' ' ..reason) end
