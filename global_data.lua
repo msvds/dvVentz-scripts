@@ -51,6 +51,7 @@ return {
 			elseif currentActiveState == 3 then currentActiveState = '10' -- Away
 			end
 			SetScene = s
+			domoticz.log('currentActiveState = '.. currentActiveState)
 			domoticz.log('s = '.. s)
 			if s == '10' then newState = 'Away' end
 			if s == '20' then newState = 'Sleep' end
