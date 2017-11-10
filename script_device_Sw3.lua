@@ -7,6 +7,8 @@ return {
 	},
 
 	execute = function(domoticz, device)
-			domoticz.helpers.gotosleep(domoticz)
+		domoticz.helpers.initdevices(domoticz)
+		domoticz.log(Status_selector.state)
+		domoticz.helpers.gotosleep(domoticz)
 	end
 }
