@@ -125,7 +125,7 @@ return {
 			end
 			return 0
 		end,
-		initdevices = function(domoticz)
+		gotosleep = function(domoticz)
 			local Status_selector = domoticz.devices(90)
 			domoticz.log(Status_selector.state)
 			local lamp_boven_tv = domoticz.devices(13)
@@ -148,9 +148,7 @@ return {
 			--local MediaCenter = domoticz.devices(11)
 			--local Televisie = domoticz.devices(7)
 			--local Televisie_lage_resolutie = domoticz.devices(9)
-			local Status_selector = domoticz.devices(90)
-		end,
-		gotosleep = function(domoticz)			
+			local Status_selector = domoticz.devices(90)		
 			domoticz.helpers.initdevices(domoticz)
 			Status_selector.switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			lamp_boven_tv.switchOff()
