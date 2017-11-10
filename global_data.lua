@@ -149,7 +149,6 @@ return {
 			--local Televisie = domoticz.devices(7)
 			--local Televisie_lage_resolutie = domoticz.devices(9)
 			local Status_selector = domoticz.devices(90)		
-			domoticz.helpers.initdevices(domoticz)
 			Status_selector.switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			lamp_boven_tv.switchOff()
 			lamp_spoelb_keuken.switchOff()
