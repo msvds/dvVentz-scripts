@@ -167,7 +167,7 @@ return {
 			elseif (Balkondeurslaapk.state == 'Open') then
 			   domoticz.notify('Balkondeur slaapkamer is open',domoticz.PRIORITY_HIGH)
 			elseif (Voordeur.state == 'Open') then
-			   domoticz.notify('Voordeur slaapkamer is open',domoticz.PRIORITY_HIGH)
+			   domoticz.notify('Voordeur is open',domoticz.PRIORITY_HIGH)
 			elseif (BalkondeurNienke.state == 'Open') then
 			   domoticz.notify('Balkondeur Nienke is open',domoticz.PRIORITY_HIGH)
 			--elseif (MediaCenter.state == 'On') then
