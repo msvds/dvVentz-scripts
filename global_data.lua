@@ -127,6 +127,7 @@ return {
 		end,
 		initdevices = function(domoticz)
 			local Status_selector = domoticz.devices(90)
+			domoticz.log(Status_selector.state)
 			local lamp_boven_tv = domoticz.devices(13)
 			local lamp_spoelb_keuken = domoticz.devices(36)
 			local lamp_bank = domoticz.devices(15)
