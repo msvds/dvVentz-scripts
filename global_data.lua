@@ -125,6 +125,61 @@ return {
 			end
 			return 0
 		end,
+		initdevices = function(domoticz)
+			local Status_selector = domoticz.devices(90)
+			local lamp_boven_tv = domoticz.devices(13)
+			local lamp_spoelb_keuken = domoticz.devices(36)
+			local lamp_bank = domoticz.devices(15)
+			local schemerlamp_bank = domoticz.devices(16)
+			local schemerlamp_deur = domoticz.devices(97)
+			--local harmony_poweroff = domoticz.devices(6)
+			--local radio = domoticz.devices(8)
+			local dakraamslaapkamer = domoticz.devices(81)
+			local dakraamzolderachter = domoticz.devices(85)
+			local Eetkamerdeur = domoticz.devices(25)
+			local Balkondeurslaapk = domoticz.devices(83)
+			local Voordeur = domoticz.devices(107)
+			local BalkondeurNienke = domoticz.devices(116)
+			local lampen_woonkamer = domoticz.groups(1)
+			local lamp_hal_boven = domoticz.devices(151)
+			local dimmer_bed_martijn = domoticz.devices(149)		
+			local dimmer_bed_suzanne = domoticz.devices(150)
+			--local MediaCenter = domoticz.devices(11)
+			--local Televisie = domoticz.devices(7)
+			--local Televisie_lage_resolutie = domoticz.devices(9)
+			local Status_selector = domoticz.devices(90)
+		end,
+		gotosleep = function(domoticz)			
+			domoticz.helpers.initdevices(domoticz)
+			Status_selector.switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
+			lamp_boven_tv.switchOff()
+			lamp_spoelb_keuken.switchOff()
+			lamp_bank.switchOff()
+			schemerlamp_bank.switchOff()
+			schemerlamp_deur.switchOff()
+			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
+			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
+			domoticz.log('Lights turned off and Harmony turned off')
+			if (dakraamslaapkamer.state == 'Open') then
+			   domoticz.notify('Dakraam slaapkamer is open',domoticz.PRIORITY_HIGH)
+			elseif (dakraamzolderachter.state == 'Open') then
+			   domoticz.notify('Dakraam zolder achter is open',domoticz.PRIORITY_HIGH)				
+			elseif (Eetkamerdeur.state == 'Open') then
+			   domoticz.notify('Eetkamerdeur is open',domoticz.PRIORITY_HIGH)
+			elseif (Balkondeurslaapk.state == 'Open') then
+			   domoticz.notify('Balkondeur slaapkamer is open',domoticz.PRIORITY_HIGH)
+			elseif (Voordeur.state == 'Open') then
+			   domoticz.notify('Voordeur slaapkamer is open',domoticz.PRIORITY_HIGH)
+			elseif (BalkondeurNienke.state == 'Open') then
+			   domoticz.notify('Balkondeur Nienke is open',domoticz.PRIORITY_HIGH)
+			--elseif (MediaCenter.state == 'On') then
+			  -- domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (Televisie.state == 'On') then
+			  -- domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (Televisie_lage_resolutie.state == 'On') then
+			  -- domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
+			end 
+		end,
 		sendnotification = function(domoticz,not_title,not_text,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
 			local lamp_hal_boven = domoticz.devices(151)
 			local schemerlamp_deur = domoticz.devices(97)
