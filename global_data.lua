@@ -62,7 +62,7 @@ return {
 			domoticz.log('currentActiveState = '.. currentActiveState)
 			if currentActiveState ~= SetScene then
 				commandArray[1] = {['UpdateDevice'] = string.format('%s|1|%s', otherdevices_idx['Toon Thermostat'], s)}
-				if debug then domoticz.log('Huidige programma Toon veranderd naar '.. newState .. ' ' ..reason) end
+				domoticz.log('Huidige programma Toon veranderd naar '.. newState .. ' ' ..reason)
 			end
 		end,
 		changeToonSceneComplete =function(domoticz,s,reason,sendmessage)
