@@ -9,32 +9,23 @@ return {
 	execute = function(domoticz, device)
 		local temp_diff = 7
 		testing_on = false
-		local test_switch = domoticz.devices(91)
 		local Open_timeout_floor1 = 10
 		message_interval = 60
-		local Status_selector = domoticz.devices(90)
 		domoticz.globalData.door_bijkeuken_message_interval = domoticz.globalData.door_bijkeuken_message_interval + 1  
 		local Time = require('Time')
-		local lamp_hal_boven = domoticz.devices(151)
-		local schemerlamp_deur = domoticz.devices(97)
-		local lamp_spoelb_keuken = domoticz.devices(36)
-		local schemerlamp_bank = domoticz.devices(16)
-		local lamp_boven_tv = domoticz.devices(13)
-		local temperature_bijkeuken = domoticz.devices(110)
-		local temperature_woonk = domoticz.devices(20)
 		debug = true
 		if debug == true then 
-			domoticz.log('temperature_woonk.temperature = ' ..temperature_woonk.temperature)
-			domoticz.log('temperature_bijkeuken.temperature = ' ..temperature_bijkeuken.temperature)
+			domoticz.log('domoticz.devices('Temperatuur woonkamer').temperature = ' ..domoticz.devices('Temperatuur woonkamer').temperature)
+			domoticz.log('domoticz.devices('Temperatuur Bijkeuken').temperature = ' ..domoticz.devices('Temperatuur Bijkeuken').temperature)
 			domoticz.log('domoticz.globalData.OpenC_Deurbijkeuken = ' ..domoticz.globalData.OpenC_Deurbijkeuken)
 			domoticz.log('Open_timeout_floor1 = ' ..Open_timeout_floor1)
 		end
-		if ((temperature_woonk.temperature - temperature_bijkeuken.temperature > temp_diff) or (testing_on == true and test_switch.state == 'On'))  then
+		if ((domoticz.devices('Temperatuur woonkamer').temperature - domoticz.devices('Temperatuur Bijkeuken').temperature > temp_diff) or (testing_on == true and domoticz.devices('Test Switch').state == 'On'))  then
 			--domoticz.log('temp_diff = ' ..temp_diff)
-			--domoticz.log('Status_selector.state = ' ..Status_selector.state)
-			if ((domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1 and domoticz.globalData.door_bijkeuken_message_interval > message_interval and Status_selector.state == 'Home') or (testing_on == true and test_switch.state == 'On')) then			
-			--if ((domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1 and domoticz.globalData.door_bijkeuken_message_interval > message_interval) or (testing_on == true and test_switch.state == 'On')) then	
-				domoticz.helpers.sendnotification(domoticz,'Bijkeukendeur open','Deur bijkeuken open voor ' ..domoticz.globalData.OpenC_Deurbijkeuken .. ' minuten terwijl het koud is in de bijkeuken (' ..domoticz.round(temperature_bijkeuken.temperature,1) ..' graden). Graag deur sluiten.',schemerlamp_deur.state,lamp_spoelb_keuken.state,lamp_boven_tv.state,schemerlamp_bank.state,lamp_hal_boven.state,3,3,5)
+			--domoticz.log('domoticz.devices('Status').state = ' ..domoticz.devices('Status').state)
+			if ((domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1 and domoticz.globalData.door_bijkeuken_message_interval > message_interval and domoticz.devices('Status').state == 'Home') or (testing_on == true and domoticz.devices('Test Switch').state == 'On')) then			
+			--if ((domoticz.globalData.OpenC_Deurbijkeuken > Open_timeout_floor1 and domoticz.globalData.door_bijkeuken_message_interval > message_interval) or (testing_on == true and domoticz.devices('Test Switch').state == 'On')) then	
+				domoticz.helpers.sendnotification(domoticz,'Bijkeukendeur open','Deur bijkeuken open voor ' ..domoticz.globalData.OpenC_Deurbijkeuken .. ' minuten terwijl het koud is in de bijkeuken (' ..domoticz.round(domoticz.devices('Temperatuur Bijkeuken').temperature,1) ..' graden). Graag deur sluiten.',domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,3,3,5)
 				domoticz.globalData.OpenC_Deurbijkeuken = 0
 			end
 		end
