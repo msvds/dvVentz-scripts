@@ -8,7 +8,9 @@ return {
 	execute = function(domoticz, device)
 		debug = true
 		local currentSetpoint = domoticz.helpers.currentSetpoint(domoticz)
-		domoticz.log('B Huidige setpoint is '.. currentSetpoint)
+		domoticz.log('Huidige setpoint is '.. currentSetpoint)
+		local currentTemperature = domoticz.helpers.currentTemperature(domoticz)
+		domoticz.log('Huidige temp is '.. currentTemperature)
 		--domoticz.log('Testswitch', domoticz.LOG_INFO)
 		--local testswitch = domoticz.devices(91)
 		--local Status_selector = domoticz.devices(90)
