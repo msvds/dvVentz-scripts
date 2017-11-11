@@ -7,7 +7,7 @@ return {
 	},
 	execute = function(domoticz, device)
 		debug = true
-		local currentSetpoint = domoticz.helpers.getcurrentSetpoint(domoticz)
+		local currentSetpoint = domoticz.helpers.currentSetpoint(domoticz)
 		domoticz.log('B Huidige setpoint is '.. currentSetpoint)
 		--domoticz.log('Testswitch', domoticz.LOG_INFO)
 		--local testswitch = domoticz.devices(91)
