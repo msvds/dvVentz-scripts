@@ -65,6 +65,18 @@ return {
 				domoticz.log('Huidige programma Toon veranderd naar '.. newState .. ' ' ..reason)
 			end
 		end,
+		getcurrentSetpoint =function(domoticz)
+			local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
+			local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', '192.168.178.183')))
+			local ThermostatInfo = handle:read('*all')
+			handle:close()
+			local jsonThermostatInfo = json:decode(ThermostatInfo)
+			if jsonThermostatInfo ~= nil then
+				local currentSetpoint = tonumber(jsonThermostatInfo.currentSetpoint) / 100
+				domoticz.log('A Huidige setpoint is '.. currentSetpoint) 
+			end
+			return currentSetpoint
+		end,		
 		changeToonSceneComplete =function(domoticz,s,reason,sendmessage)
 			--domoticz.log('Huidige setpoint is '.. currentSetpoint)
 			--change toon
