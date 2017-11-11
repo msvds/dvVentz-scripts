@@ -17,7 +17,7 @@ return {
 		if debug == true then 
 			domoticz.log('domoticz.devices(Temperatuur woonkamer).temperature = ' ..domoticz.devices('Temperatuur woonkamer').temperature)
 			domoticz.log('domoticz.devices(Temperatuur Bijkeuken).temperature = ' ..domoticz.devices('Temperatuur Bijkeuken').temperature)
-			if (domoticz.globalData.OpenC_Deurbijkeuken ~= nil) 
+			if (domoticz.globalData.OpenC_Deurbijkeuken ~= nil) then
 				domoticz.log('domoticz.globalData.OpenC_Deurbijkeuken = ' ..domoticz.globalData.OpenC_Deurbijkeuken)
 			end
 			domoticz.log('Open_timeout_floor1 = ' ..Open_timeout_floor1)
