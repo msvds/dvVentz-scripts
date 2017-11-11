@@ -108,6 +108,10 @@ return {
 			DeviceName = device.name
 			--acc = tonumber(domoticz.globalData.OpenC_domoticz.devices('Zolderdakraam achter'))
 			acc = count
+			if (acc == nil) then
+				domoticz.log('DeviceName = ' ..device.name)
+				domoticz.log('count = ' ..count)
+			end
 			local count = domoticz.devices().reduce(function(acc, device)
 			    if (device.name == DeviceName) then
 					if (device.state == statestring) then					
