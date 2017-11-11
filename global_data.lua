@@ -143,7 +143,6 @@ return {
 			domoticz.devices('Lamp boven TV').switchOff()
 			domoticz.devices('Lamp spoelb keuken').switchOff()
 			domoticz.devices('Lamp bank').switchOff()
-			schemerdomoticz.devices('Lamp bank').switchOff()
 			domoticz.devices('Schemerlamp deur').switchOff()
 			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
