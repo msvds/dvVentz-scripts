@@ -110,7 +110,7 @@ return {
 			acc = count
 			if (acc == nil) then
 				domoticz.log('DeviceName = ' ..device.name)
-				domoticz.log('count = ' ..count)
+				acc = 0
 			end
 			local count = domoticz.devices().reduce(function(acc, device)
 			    if (device.name == DeviceName) then
