@@ -84,6 +84,7 @@ return {
 			local jsonThermostatInfo = json:decode(ThermostatInfo)
 			if jsonThermostatInfo ~= nil then
 				local currentTemperature = tonumber(jsonThermostatInfo.currentTemp) / 100
+				domoticz.log('Huidige temp is '.. currentTemperature)
 			end
 			return currentTemperature
 		end,
