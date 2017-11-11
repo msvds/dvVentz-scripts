@@ -181,6 +181,13 @@ return {
 			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
 			domoticz.devices('Lamp bank').switchOff().checkFirst()
 			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
+			domoticz.devices('Lamp hal boven').switchOff().checkFirst()
+			if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
+				domoticz.devices('Dimmer bed Martijn').switchOff()
+			end
+			if (domoticz.devices('Dimmer bed Suzanne') == 'On' ) then
+				domoticz.devices('Dimmer bed Suzanne').switchOff()
+			end
 			domoticz.log('Lights turned off')
 			--os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 		end,
