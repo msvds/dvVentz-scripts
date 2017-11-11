@@ -103,10 +103,10 @@ return {
 			return no_motion_minutes
 		end,
 		Counter = function(domoticz,device,count,statestring)
-			--domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
+			--domoticz.log('domoticz.globalData.OpenC_domoticz.devices('Zolderdakraam achter'): ' ..domoticz.globalData.OpenC_domoticz.devices('Zolderdakraam achter'))
 			--DeviceName = domoticz.devices(85).name
 			DeviceName = device.name
-			--acc = tonumber(domoticz.globalData.OpenC_Dakraamzolder)
+			--acc = tonumber(domoticz.globalData.OpenC_domoticz.devices('Zolderdakraam achter'))
 			acc = count
 			local count = domoticz.devices().reduce(function(acc, device)
 			    if (device.name == DeviceName) then
@@ -129,49 +129,32 @@ return {
 			return 0
 		end,
 		gotosleep = function(domoticz)
-			local Status_selector = domoticz.devices(90)
-			domoticz.log(Status_selector.state)
-			local lamp_boven_tv = domoticz.devices(13)
-			local lamp_spoelb_keuken = domoticz.devices(36)
-			local lamp_bank = domoticz.devices(15)
-			local schemerlamp_bank = domoticz.devices(16)
-			local schemerlamp_deur = domoticz.devices(97)
+			domoticz.log(domoticz.devices('Status').state)
 			--local harmony_poweroff = domoticz.devices(6)
 			--local radio = domoticz.devices(8)
-			local dakraamslaapkamer = domoticz.devices(81)
-			local dakraamzolderachter = domoticz.devices(85)
-			local Eetkamerdeur = domoticz.devices(25)
-			local Balkondeurslaapk = domoticz.devices(83)
-			local Voordeur = domoticz.devices(107)
-			local BalkondeurNienke = domoticz.devices(116)
-			local lampen_woonkamer = domoticz.groups(1)
-			local lamp_hal_boven = domoticz.devices(151)
-			local dimmer_bed_martijn = domoticz.devices(149)		
-			local dimmer_bed_suzanne = domoticz.devices(150)
 			--local MediaCenter = domoticz.devices(11)
 			--local Televisie = domoticz.devices(7)
-			--local Televisie_lage_resolutie = domoticz.devices(9)
-			local Status_selector = domoticz.devices(90)		
-			Status_selector.switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			lamp_boven_tv.switchOff()
-			lamp_spoelb_keuken.switchOff()
-			lamp_bank.switchOff()
-			schemerlamp_bank.switchOff()
-			schemerlamp_deur.switchOff()
+			--local Televisie_lage_resolutie = domoticz.devices(9)		
+			domoticz.devices('Status').switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
+			domoticz.devices('Lamp boven TV').switchOff()
+			domoticz.devices('Lamp spoelb keuken').switchOff()
+			domoticz.devices('Lamp bank').switchOff()
+			schemerdomoticz.devices('Lamp bank').switchOff()
+			domoticz.devices('Schemerlamp deur').switchOff()
 			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 			domoticz.log('Lights turned off and Harmony turned off')
-			if (dakraamslaapkamer.state == 'Open') then
+			if (domoticz.devices('Dakraam slaapkamer')amer.state == 'Open') then
 			   domoticz.notify('Dakraam slaapkamer is open',domoticz.PRIORITY_HIGH)
-			elseif (dakraamzolderachter.state == 'Open') then
+			elseif (domoticz.devices('Zolderdakraam achter')achter.state == 'Open') then
 			   domoticz.notify('Dakraam zolder achter is open',domoticz.PRIORITY_HIGH)				
-			elseif (Eetkamerdeur.state == 'Open') then
-			   domoticz.notify('Eetkamerdeur is open',domoticz.PRIORITY_HIGH)
-			elseif (Balkondeurslaapk.state == 'Open') then
+			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
+			   domoticz.notify('domoticz.devices('Eetkamerdeur') is open',domoticz.PRIORITY_HIGH)
+			elseif (domoticz.devices('Balkondeur slaapkamer').state == 'Open') then
 			   domoticz.notify('Balkondeur slaapkamer is open',domoticz.PRIORITY_HIGH)
-			elseif (Voordeur.state == 'Open') then
-			   domoticz.notify('Voordeur is open',domoticz.PRIORITY_HIGH)
-			elseif (BalkondeurNienke.state == 'Open') then
+			elseif (domoticz.devices('Front door').state == 'Open') then
+			   domoticz.notify('domoticz.devices('Front door') is open',domoticz.PRIORITY_HIGH)
+			elseif (domoticz.devices('Balkondeur Nienke').state == 'Open') then
 			   domoticz.notify('Balkondeur Nienke is open',domoticz.PRIORITY_HIGH)
 			--elseif (MediaCenter.state == 'On') then
 			  -- domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
@@ -181,71 +164,65 @@ return {
 			  -- domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
 			end 
 		end,
-		sendnotification = function(domoticz,not_title,not_text,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
-			local lamp_hal_boven = domoticz.devices(151)
-			local schemerlamp_deur = domoticz.devices(97)
-			local lamp_spoelb_keuken = domoticz.devices(36)
-			local schemerlamp_bank = domoticz.devices(16)
-			local lamp_boven_tv = domoticz.devices(13)
-			local Deurgarage = domoticz.devices(105)
+		sendnotification = function(domoticz,not_title,not_text,start_state_domoticz.devices('Schemerlamp deur'),start_state_domoticz.devices('Lamp spoelb keuken'),start_state_domoticz.devices('Lamp boven TV'),start_state_schemerdomoticz.devices('Lamp bank'),start_state_domoticz.devices('Lamp hal boven'),duration,repetition,repetitiondelay)
 			domoticz.notify(not_title,not_text, domoticz.LOG_INFO)
-			schemerlamp_deur.switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
-			lamp_spoelb_keuken.switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
-			lamp_boven_tv.switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
-			schemerlamp_bank.switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)			
-			lamp_hal_boven.switchOn().forSec(1).repeatAfterSec(repetitiondelay, repetition)
-			if start_state_schemerlamp_deur == 'On' then
-				schemerlamp_deur.switchOn().afterSec(30)
+			domoticz.devices('Schemerlamp deur').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
+			domoticz.devices('Lamp spoelb keuken').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
+			domoticz.devices('Lamp boven TV').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
+			schemerdomoticz.devices('Lamp bank').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)			
+			domoticz.devices('Lamp hal boven').switchOn().forSec(1).repeatAfterSec(repetitiondelay, repetition)
+			if start_state_domoticz.devices('Schemerlamp deur') == 'On' then
+				domoticz.devices('Schemerlamp deur').switchOn().afterSec(30)
 			else
-				schemerlamp_deur.switchOff().afterSec(30)
+				domoticz.devices('Schemerlamp deur').switchOff().afterSec(30)
 			end
-			if start_state_lamp_spoelb_keuken == 'On' then
-				lamp_spoelb_keuken.switchOn().afterSec(30)
+			if start_state_domoticz.devices('Lamp spoelb keuken') == 'On' then
+				domoticz.devices('Lamp spoelb keuken').switchOn().afterSec(30)
 			else
-				lamp_spoelb_keuken.switchOff().afterSec(30)
+				domoticz.devices('Lamp spoelb keuken').switchOff().afterSec(30)
 			end
-			if start_state_lamp_boven_tv == 'On' then
-				lamp_boven_tv.switchOn().afterSec(30)
+			if start_state_domoticz.devices('Lamp boven TV') == 'On' then
+				domoticz.devices('Lamp boven TV').switchOn().afterSec(30)
 			else
-				lamp_boven_tv.switchOff().afterSec(30)
+				domoticz.devices('Lamp boven TV').switchOff().afterSec(30)
 			end
-			if start_state_schemerlamp_bank == 'On' then
-				schemerlamp_bank.switchOn().afterSec(30)
+			if start_state_schemerdomoticz.devices('Lamp bank') == 'On' then
+				schemerdomoticz.devices('Lamp bank').switchOn().afterSec(30)
 			else
-				schemerlamp_bank.switchOff().afterSec(30)
+				schemerdomoticz.devices('Lamp bank').switchOff().afterSec(30)
 			end
-			if start_state_lamp_hal_boven == 'On' then
-				lamp_hal_boven.switchOn().afterSec(30)
+			if start_state_domoticz.devices('Lamp hal boven') == 'On' then
+				domoticz.devices('Lamp hal boven').switchOn().afterSec(30)
 			else
-				lamp_hal_boven.switchOff().afterSec(30)
+				domoticz.devices('Lamp hal boven').switchOff().afterSec(30)
 			end
 		end
     	},
 	data = {
-		OpenC_Eetkamerdeur = { initial = 0 },
-		ClosedC_Eetkamerdeur = { initial = 0 },
-		OpenC_Dakraamslaapk = { initial = 0 },
-		ClosedC_Dakraamslaapk = { initial = 0 },
-		OpenC_Balkondeurslaapk = { initial = 0 },
-		ClosedC_Balkondeurslaapk = { initial = 0 },
-		OpenC_Voordeur = { initial = 0 },
-		ClosedC_Voordeur = { initial = 0 },
-		OpenC_BalkondeurNienke = { initial = 0 },
-		ClosedC_BalkondeurNienke = { initial = 0 },
-		OpenC_Slaapkdeur = { initial = 0 },
-		ClosedC_Slaapkdeur = { initial = 0 },
-		OpenC_Dakraamzolder = { initial = 0 },
-		ClosedC_Dakraamzolder = { initial = 0 },
-		OpenC_Deurbijkeuken = { initial = 0 },
-		ClosedC_Deurbijkeuken = { initial = 0 },
-		OpenC_Deurgarage = { initial = 0 },
-		ClosedC_Deurgarage = { initial = 0 },
-		MC_PIR_woonk  = { initial = 0 },
-		NMC_PIR_woonk  = { initial = 0 },
-		MC_PIR_kamerLars  = { initial = 0 },
-		NMC_PIR_kamerLars  = { initial = 0 },
-		MC_PIR_halboven  = { initial = 0 },
-		NMC_PIR_halboven  = { initial = 0 },
+		OpenC_domoticz.devices('Eetkamerdeur') = { initial = 0 },
+		ClosedC_domoticz.devices('Eetkamerdeur') = { initial = 0 },
+		OpenC_domoticz.devices('Dakraam slaapkamer') = { initial = 0 },
+		ClosedC_domoticz.devices('Dakraam slaapkamer') = { initial = 0 },
+		OpenC_domoticz.devices('Balkondeur slaapkamer') = { initial = 0 },
+		ClosedC_domoticz.devices('Balkondeur slaapkamer') = { initial = 0 },
+		OpenC_domoticz.devices('Front door') = { initial = 0 },
+		ClosedC_domoticz.devices('Front door') = { initial = 0 },
+		OpenC_domoticz.devices('Balkondeur Nienke') = { initial = 0 },
+		ClosedC_domoticz.devices('Balkondeur Nienke') = { initial = 0 },
+		OpenC_domoticz.devices('Slaapkamerdeur') = { initial = 0 },
+		ClosedC_domoticz.devices('Slaapkamerdeur') = { initial = 0 },
+		OpenC_domoticz.devices('Zolderdakraam achter') = { initial = 0 },
+		ClosedC_domoticz.devices('Zolderdakraam achter') = { initial = 0 },
+		OpenC_domoticz.devices('Deur bijkeuken') = { initial = 0 },
+		ClosedC_domoticz.devices('Deur bijkeuken') = { initial = 0 },
+		OpenC_domoticz.devices('Garage deur') = { initial = 0 },
+		ClosedC_domoticz.devices('Garage deur') = { initial = 0 },
+		MC_domoticz.devices('Beweging woonkamer')	  = { initial = 0 },
+		NMC_domoticz.devices('Beweging woonkamer')	  = { initial = 0 },
+		MC_domoticz.devices('Beweging kamer Lars')  = { initial = 0 },
+		NMC_domoticz.devices('Beweging kamer Lars')  = { initial = 0 },
+		MC_domoticz.devices('Beweging hal boven')  = { initial = 0 },
+		NMC_domoticz.devices('Beweging hal boven')  = { initial = 0 },
 		MC_PIR_garage  = { initial = 0 },
 		NMC_PIR_garage  = { initial = 0 },		
 		MC_PIR_naasthuis  = { initial = 0 },
