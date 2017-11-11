@@ -176,6 +176,35 @@ return {
 			end
 			return 0
 		end,
+		switch_all_lights_off = function(domoticz)
+			domoticz.devices('Lamp boven TV').switchOff().checkFirst()
+			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
+			domoticz.devices('Lamp bank').switchOff().checkFirst()
+			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
+			domoticz.log('Lights turned off')
+			--os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
+		end,
+		check_doors_and_windows = function(domoticz)
+			if (domoticz.devices('Dakraam slaapkamer').state == 'Open') then
+			   domoticz.notify('Dakraam slaapkamer is open',domoticz.PRIORITY_HIGH)
+			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
+			   domoticz.notify('Dakraam zolder achter is open',domoticz.PRIORITY_HIGH)				
+			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
+			   domoticz.notify('De eetkamerdeur is open',domoticz.PRIORITY_HIGH)
+			elseif (domoticz.devices('Balkondeur slaapkamer').state == 'Open') then
+			   domoticz.notify('Balkondeur slaapkamer is open',domoticz.PRIORITY_HIGH)
+			elseif (domoticz.devices('Front door').state == 'Open') then
+			   domoticz.notify('De voordeur is open',domoticz.PRIORITY_HIGH)
+			elseif (domoticz.devices('Balkondeur Nienke').state == 'Open') then
+			   domoticz.notify('Balkondeur Nienke is open',domoticz.PRIORITY_HIGH)
+			--elseif (MediaCenter.state == 'On') then
+			  -- domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (Televisie.state == 'On') then
+			  -- domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
+			--elseif (Televisie_lage_resolutie.state == 'On') then
+			  -- domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
+			end 
+		end,
 		gotosleep = function(domoticz)
 			domoticz.log(domoticz.devices('Status').state)
 			--local harmony_poweroff = domoticz.devices(6)
@@ -188,7 +217,7 @@ return {
 			domoticz.devices('Lamp spoelb keuken').switchOff()
 			domoticz.devices('Lamp bank').switchOff()
 			domoticz.devices('Schemerlamp deur').switchOff()
-			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
+			--domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 			domoticz.log('Lights turned off and Harmony turned off')
 			if (domoticz.devices('Dakraam slaapkamer').state == 'Open') then
