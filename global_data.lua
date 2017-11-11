@@ -73,10 +73,64 @@ return {
 			local jsonThermostatInfo = json:decode(ThermostatInfo)
 			if jsonThermostatInfo ~= nil then
 				currentSetpoint = tonumber(jsonThermostatInfo.currentSetpoint) / 100
-				domoticz.log('A Huidige setpoint is '.. currentSetpoint) 
 			end
 			return currentSetpoint
+		end,
+		currentTemperature =function(domoticz)
+			local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
+			local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', '192.168.178.183')))
+			local ThermostatInfo = handle:read('*all')
+			handle:close()
+			local jsonThermostatInfo = json:decode(ThermostatInfo)
+			if jsonThermostatInfo ~= nil then
+				local currentTemperature = tonumber(jsonThermostatInfo.currentTemp) / 100
+			end
+			return currentTemperature
+		end,
+		currentProgramState =function(domoticz)
+			local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
+			local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', '192.168.178.183')))
+			local ThermostatInfo = handle:read('*all')
+			handle:close()
+			local jsonThermostatInfo = json:decode(ThermostatInfo)
+			if jsonThermostatInfo ~= nil then
+				local currentProgramState = tonumber(jsonThermostatInfo.programState)
+			end
+			return currentProgramState
+		end,
+		currentActiveState =function(domoticz)
+			local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
+			local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', '192.168.178.183')))
+			local ThermostatInfo = handle:read('*all')
+			handle:close()
+			local jsonThermostatInfo = json:decode(ThermostatInfo)
+			if jsonThermostatInfo ~= nil then
+				local currentActiveState = tonumber(jsonThermostatInfo.activeState)
+			end
+			return currentActiveState
+		end,
+		currentNextTime =function(domoticz)
+			local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
+			local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', '192.168.178.183')))
+			local ThermostatInfo = handle:read('*all')
+			handle:close()
+			local jsonThermostatInfo = json:decode(ThermostatInfo)
+			if jsonThermostatInfo ~= nil then
+				local currentNextTime = jsonThermostatInfo.nextTime
+			end
+			return currentNextTime
 		end,		
+		currentNextSetPoint =function(domoticz)
+			local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
+			local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', '192.168.178.183')))
+			local ThermostatInfo = handle:read('*all')
+			handle:close()
+			local jsonThermostatInfo = json:decode(ThermostatInfo)
+			if jsonThermostatInfo ~= nil then
+				local currentNextSetPoint = tonumber(jsonThermostatInfo.nextSetpoint) / 100
+			end
+			return currentNextSetPoint
+		end,
 		changeToonSceneComplete =function(domoticz,s,reason,sendmessage)
 			--domoticz.log('Huidige setpoint is '.. currentSetpoint)
 			--change toon
