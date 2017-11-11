@@ -149,11 +149,11 @@ return {
 			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
 			   domoticz.notify('Dakraam zolder achter is open',domoticz.PRIORITY_HIGH)				
 			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
-			   domoticz.notify('domoticz.devices('Eetkamerdeur') is open',domoticz.PRIORITY_HIGH)
+			   domoticz.notify(Eetkamerdeur is open',domoticz.PRIORITY_HIGH)
 			elseif (domoticz.devices('Balkondeur slaapkamer').state == 'Open') then
 			   domoticz.notify('Balkondeur slaapkamer is open',domoticz.PRIORITY_HIGH)
 			elseif (domoticz.devices('Front door').state == 'Open') then
-			   domoticz.notify('domoticz.devices('Front door') is open',domoticz.PRIORITY_HIGH)
+			   domoticz.notify('De voordeur is open',domoticz.PRIORITY_HIGH)
 			elseif (domoticz.devices('Balkondeur Nienke').state == 'Open') then
 			   domoticz.notify('Balkondeur Nienke is open',domoticz.PRIORITY_HIGH)
 			--elseif (MediaCenter.state == 'On') then
