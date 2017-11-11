@@ -204,7 +204,7 @@ return {
 		OpenCDakraamslaapk = { initial = 0 },
 		ClosedCDakraamslaapk = { initial = 0 },
 		OpenCBalkondeurslaapk = { initial = 0 },
-		ClosedCBalkondeurslaapk) = { initial = 0 },
+		ClosedCBalkondeurslaapk = { initial = 0 },
 		OpenCVoordeur = { initial = 0 },
 		ClosedCVoordeur = { initial = 0 },
 		OpenCBalkondeurNienke = { initial = 0 },
