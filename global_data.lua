@@ -149,7 +149,7 @@ return {
 			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
 			   domoticz.notify('Dakraam zolder achter is open',domoticz.PRIORITY_HIGH)				
 			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
-			   domoticz.notify(Eetkamerdeur is open',domoticz.PRIORITY_HIGH)
+			   domoticz.notify('De eetkamerdeur is open',domoticz.PRIORITY_HIGH)
 			elseif (domoticz.devices('Balkondeur slaapkamer').state == 'Open') then
 			   domoticz.notify('Balkondeur slaapkamer is open',domoticz.PRIORITY_HIGH)
 			elseif (domoticz.devices('Front door').state == 'Open') then
