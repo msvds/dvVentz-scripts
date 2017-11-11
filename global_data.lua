@@ -144,7 +144,7 @@ return {
 			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 			domoticz.log('Lights turned off and Harmony turned off')
-			if (domoticz.devices('Dakraam slaapkamer')amer.state == 'Open') then
+			if (domoticz.devices('Dakraam slaapkamer').state == 'Open') then
 			   domoticz.notify('Dakraam slaapkamer is open',domoticz.PRIORITY_HIGH)
 			elseif (domoticz.devices('Zolderdakraam achter')achter.state == 'Open') then
 			   domoticz.notify('Dakraam zolder achter is open',domoticz.PRIORITY_HIGH)				
