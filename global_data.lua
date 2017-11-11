@@ -132,29 +132,6 @@ return {
 			end
 			return currentNextSetPoint
 		end,
-		changeToonSceneComplete =function(domoticz,s,reason,sendmessage)
-			--domoticz.log('Huidige setpoint is '.. currentSetpoint)
-			--change toon
-			local ToonScenesSensorName  = 'Toon Temperature' -- Sensor showing current program
-			local ToonThermostatSensorName = 'Toon Thermostat' 
-			local ToonIP = '192.168.178.183'
-			local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux (LEDE)
-
-			local handle = assert(io.popen(string.format('curl -m 5 http://%s/happ_thermstat?action=getThermostatInfo', ToonIP)))
-			local ThermostatInfo = handle:read('*all')
-			handle:close()
-
-			local jsonThermostatInfo = json:decode(ThermostatInfo)
-
-			if jsonThermostatInfo ~= nil then
-				local currentSetpoint = tonumber(jsonThermostatInfo.currentSetpoint) / 100
-				local currentTemperature = tonumber(jsonThermostatInfo.currentTemp) / 100
-				local currentProgramState = tonumber(jsonThermostatInfo.programState)
-				local currentActiveState = tonumber(jsonThermostatInfo.activeState)
-				domoticz.helpers.changeToonScene(domoticz,s,reason,sendmessage,currentSetpoint,currentActiveState)
-			end
-			--end change toon
-		end,
 		MotionCounter =function(domoticz,MotionCounterVar)
 			if device.state == "On" then
 				motion_minutes = tonumber(MotionCounterVar) + 1
