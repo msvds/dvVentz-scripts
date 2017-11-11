@@ -146,7 +146,7 @@ return {
 			domoticz.log('Lights turned off and Harmony turned off')
 			if (domoticz.devices('Dakraam slaapkamer').state == 'Open') then
 			   domoticz.notify('Dakraam slaapkamer is open',domoticz.PRIORITY_HIGH)
-			elseif (domoticz.devices('Zolderdakraam achter')achter.state == 'Open') then
+			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
 			   domoticz.notify('Dakraam zolder achter is open',domoticz.PRIORITY_HIGH)				
 			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
 			   domoticz.notify('domoticz.devices('Eetkamerdeur') is open',domoticz.PRIORITY_HIGH)
