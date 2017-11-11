@@ -10,7 +10,7 @@ return {
 		local currentSetpoint = domoticz.helpers.currentSetpoint(domoticz)
 		domoticz.log('Huidige setpoint is '.. currentSetpoint)
 		local currentTemperature = domoticz.helpers.currentTemperature(domoticz)
-		domoticz.log('Huidige temp is '.. currentTemperature)		
+		--domoticz.log('Huidige temp is '.. currentTemperature)		
 		local currentProgramState = domoticz.helpers.currentProgramState(domoticz)
 		domoticz.log('Huidige prog is '.. currentProgramState)		
 		local currentActiveState = domoticz.helpers.currentActiveState(domoticz)
