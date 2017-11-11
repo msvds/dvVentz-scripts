@@ -51,7 +51,8 @@ return {
 			schemerlamp_bank.switchOff()
 			schemerlamp_deur.switchOff()
             		--harmony_poweroff.switchOn()
-			domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
+			local currentSetpoint = domoticz.helpers.currentSetpoint(domoticz)
+			domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,currentSetpoint)
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 			domoticz.log('Lights turned off and Harmony turned off')
 			if (dakraamslaapkamer.state == 'Open') then
