@@ -24,6 +24,7 @@ return {
 		domoticz.globalData.Counters_time_message_interval = domoticz.globalData.Counters_time_message_interval + 1  
 		
 		OpenC_Eetkamerdeur = domoticz.helpers.Counter(domoticz, domoticz.devices('Eetkamerdeur'), tonumber(domoticz.globalData.OpenC_Eetkamerdeur),'Open')
+		domoticz.log('OpenC_Eetkamerdeur: ' ..OpenC_Eetkamerdeur)
 		domoticz.globalData.OpenC_Eetkamerdeur = OpenC_Eetkamerdeur
 		ClosedC_Eetkamerdeur = domoticz.helpers.Counter(domoticz, domoticz.devices('Eetkamerdeur'), tonumber(domoticz.globalData.ClosedC_Eetkamerdeur),'Closed')
 		domoticz.globalData.ClosedC_Eetkamerdeur = ClosedC_Eetkamerdeur
