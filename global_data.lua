@@ -83,7 +83,7 @@ return {
 			handle:close()
 			local jsonThermostatInfo = json:decode(ThermostatInfo)
 			if jsonThermostatInfo ~= nil then
-				local currentTemperature = tonumber(jsonThermostatInfo.currentTemp) / 100
+				currentTemperature = tonumber(jsonThermostatInfo.currentTemp) / 100
 				domoticz.log('Huidige temp is '.. currentTemperature)
 			end
 			return currentTemperature
@@ -95,7 +95,7 @@ return {
 			handle:close()
 			local jsonThermostatInfo = json:decode(ThermostatInfo)
 			if jsonThermostatInfo ~= nil then
-				local currentProgramState = tonumber(jsonThermostatInfo.programState)
+				currentProgramState = tonumber(jsonThermostatInfo.programState)
 			end
 			return currentProgramState
 		end,
@@ -106,7 +106,7 @@ return {
 			handle:close()
 			local jsonThermostatInfo = json:decode(ThermostatInfo)
 			if jsonThermostatInfo ~= nil then
-				local currentActiveState = tonumber(jsonThermostatInfo.activeState)
+				currentActiveState = tonumber(jsonThermostatInfo.activeState)
 			end
 			return currentActiveState
 		end,
@@ -117,7 +117,7 @@ return {
 			handle:close()
 			local jsonThermostatInfo = json:decode(ThermostatInfo)
 			if jsonThermostatInfo ~= nil then
-				local currentNextTime = jsonThermostatInfo.nextTime
+				currentNextTime = jsonThermostatInfo.nextTime
 			end
 			return currentNextTime
 		end,		
@@ -128,7 +128,7 @@ return {
 			handle:close()
 			local jsonThermostatInfo = json:decode(ThermostatInfo)
 			if jsonThermostatInfo ~= nil then
-				local currentNextSetPoint = tonumber(jsonThermostatInfo.nextSetpoint) / 100
+				currentNextSetPoint = tonumber(jsonThermostatInfo.nextSetpoint) / 100
 			end
 			return currentNextSetPoint
 		end,
