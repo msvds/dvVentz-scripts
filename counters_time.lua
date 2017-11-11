@@ -6,19 +6,6 @@ return {
 		timer = {'every minute'}
 	},
 	execute = function(domoticz)
-		--domoticz.log('counters_time.lua executed')
-		local Eetkamerdeur = domoticz.devices('Eetkamerdeur')
-		local Dakraamslaapk = domoticz.devices('Dakraam slaapkamer')
-		local Balkondeurslaapk = domoticz.devices('Balkondeur slaapkamer')
-		local Voordeur = domoticz.devices('Front door')
-		local BalkondeurNienke = domoticz.devices('Balkondeur Nienke')
-		local Slaapkdeur = domoticz.devices('Slaapkamerdeur')
-		local Deurbijkeuken = domoticz.devices('Deur bijkeuken')
-		local Deurgarage = domoticz.devices('Garage deur')
-		local Dakraamzolder = domoticz.devices('Zolderdakraam achter')
-		local PIR_woonk = domoticz.devices('Beweging woonkamer')		
-		local PIR_kamerLars = domoticz.devices('Beweging kamer Lars')
-		local PIR_halboven = domoticz.devices('Beweging hal boven')
 		-- OpenC increases if 1 door on a floor is open
 		-- ClosedC increases only if all doors on a floor are closed
 		local OpenC_Floor1 = 0
