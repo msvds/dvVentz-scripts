@@ -75,7 +75,7 @@ return {
 					end
 				end
 			end			
-			if (Garagedeur.state == 'Open') then
+			if (domoticz.devices('Garage deur').state == 'Open') then
 				-- buitenlampen aan donker + garage deur open
 				if (domoticz.groups('Buitenlampen').state == 'Off') then
 					domoticz.groups('Buitenlampen').switchOn()
