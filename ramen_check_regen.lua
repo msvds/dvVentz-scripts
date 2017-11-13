@@ -5,13 +5,11 @@ return {
 		['timer'] = 'every minute',
 	},
 	execute = function(domoticz)
-		local dakraamslaapkamer = domoticz.devices[81]
-		local dakraamzolderachter = domoticz.devices[85]		
 		local RainExpectedLevels = domoticz.devices[93]
 		if (RainExpectedLevels.state ~= 'Droog') then
-			if (dakraamslaapkamer.state == 'Open') then
+			if (domoticz.devices('Dakraam slaapkamer').state == 'Open') then
 			   domoticz.notify('Dakraam open bij regen','Het dakraam in de slaapkamer staat open en het gaat regenen',domoticz.PRIORITY_HIGH)
-			elseif (dakraamzolderachter.state == 'Open') then
+			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
 			   domoticz.notify('Dakraam open bij regen','Het dakraam op zolder achter staat open en het gaat regenen',domoticz.PRIORITY_HIGH)
 			end 
 		end
