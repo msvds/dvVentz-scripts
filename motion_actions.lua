@@ -68,7 +68,7 @@ return {
 			end
 			if (SomeoneHome.state == 'Off') then
 				-- woonkamer aan donker + deur open
-				if (domoticz.devices('Eetkamerdeur').state == 'Open' or Voordeur.state == 'Open') then
+				if (domoticz.devices('Eetkamerdeur').state == 'Open' or domoticz.devices('Front door').state == 'Open') then
 					if (domoticz.groups('Lampen woonkamer').state == 'Off') then
 						domoticz.groups('Lampen woonkamer').switchOn()
 						domoticz.log('Eetkamerdeur of voordeur open terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
