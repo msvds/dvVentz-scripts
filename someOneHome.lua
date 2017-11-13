@@ -15,6 +15,9 @@ return {
 		domoticz.log('domoticz.globalData.MC_Overall = ' ..domoticz.globalData.MC_Overall)
 		domoticz.log('domoticz.globalData.NMC_Overall = ' ..domoticz.globalData.NMC_Overall)
 		domoticz.log('domoticz.globalData.OpenC_Overall = ' ..domoticz.globalData.OpenC_Overall)
+		domoticz.log(domoticz.devices('SomeoneHome').state)
+		domoticz.log(domoticz.devices('Suzanne smartphone').state)		
+		domoticz.log(domoticz.devices('Martijn smartphone').state)
 		if (domoticz.devices('SomeoneHome').state == 'Off' and (domoticz.devices('Suzanne smartphone').state == 'On' or domoticz.devices('Martijn smartphone').state == 'On') or domoticz.globalData.MC_Overall > movement_delay or domoticz.globalData.OpenC_Overall > open_delay) then
 			domoticz.log('SomeoneHome switchOn')
 			domoticz.devices('SomeoneHome').switchOn()
