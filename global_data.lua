@@ -152,7 +152,6 @@ return {
 			DeviceName = device.name
 			--acc = tonumber(domoticz.globalData.OpenC_domoticz.devices('Zolderdakraam achter'))
 			acc = count
-			return count
 			if (acc == nil) then
 				domoticz.log('Count = nil for deviceName = ' ..device.name)
 				acc = 1
@@ -173,6 +172,7 @@ return {
 				    return acc
 				end, 0)
 			end
+			if (count == nil) then count = 1 end
 			return count
 		end,
 		getdevname4idx = function(deviceIDX)
