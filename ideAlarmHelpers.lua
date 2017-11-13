@@ -88,9 +88,9 @@ _C.helpers = {
 		-- Buy a Fibaro Wall Plug 2 and configure it to display red when off, green when on
 		-- You can then use it as in alarm arming mode indicator!
 		if armingMode == domoticz.SECURITY_DISARMED then 
-			domoticz.devices('Alarm Status Indicator').switchOff() -- Green light on
+			domoticz.devices('Xiaomi RGB Gateway').switchOff() -- Green light on
 		else
-			domoticz.devices('Alarm Status Indicator').switchOn() -- Red light on
+			domoticz.devices('Xiaomi RGB Gateway').switchOn() -- Red light on
 		end
 	end,
 
