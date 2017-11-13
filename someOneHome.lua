@@ -1,9 +1,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		on = {
-			timer = {'every minute'}
-		},
+		timer = {'every 1 minutes'}
 		--devices = {
 		--	'Suzanne smartphone',
 		--	'Martijn smartphone'
