@@ -1,10 +1,13 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		devices = {
-			'Suzanne smartphone',
-			'Martijn smartphone'
+		on = {
+			timer = {'every minute'}
 		},
+		--devices = {
+		--	'Suzanne smartphone',
+		--	'Martijn smartphone'
+		--},
 	},
 
 	execute = function(domoticz, device)
