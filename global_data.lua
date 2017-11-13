@@ -169,7 +169,7 @@ return {
 							acc = 0
 						end
 				    else
-						acc = ""					
+						acc = 0					
 					end
 				    return acc
 				end, acc)
