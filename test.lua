@@ -6,15 +6,16 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
-		debug = true
-		local currentSetpoint = domoticz.helpers.currentSetpoint(domoticz)
-		domoticz.log('Huidige setpoint is '.. currentSetpoint)
-		local currentTemperature = domoticz.helpers.currentTemperature(domoticz)
-		domoticz.log('Huidige temp is '.. currentTemperature)		
-		local currentProgramState = domoticz.helpers.currentProgramState(domoticz)
-		domoticz.log('Huidige prog is '.. currentProgramState)		
-		local currentActiveState = domoticz.helpers.currentActiveState(domoticz)
-		domoticz.log('Huidige active state is '.. currentActiveState)
+		domoticz.devices('Xiaomi Gateway Alarm Ringtone').switchOn()
+		--debug = true
+		--local currentSetpoint = domoticz.helpers.currentSetpoint(domoticz)
+		--domoticz.log('Huidige setpoint is '.. currentSetpoint)
+		--local currentTemperature = domoticz.helpers.currentTemperature(domoticz)
+		--domoticz.log('Huidige temp is '.. currentTemperature)		
+		--local currentProgramState = domoticz.helpers.currentProgramState(domoticz)
+		--domoticz.log('Huidige prog is '.. currentProgramState)		
+		--local currentActiveState = domoticz.helpers.currentActiveState(domoticz)
+		--domoticz.log('Huidige active state is '.. currentActiveState)
 		--domoticz.log('Testswitch', domoticz.LOG_INFO)
 		--local testswitch = domoticz.devices(91)
 		--local Status_selector = domoticz.devices(90)
