@@ -5,7 +5,7 @@ return {
 	active = true, -- set to false to disable this script
 	on = {
 		timer = {'every 10 minutes'},
-		devices = {'Test Switch'},
+		--devices = {'Test Switch'},
 	},
 	execute = function(domoticz, device)
 		testing_on = false
