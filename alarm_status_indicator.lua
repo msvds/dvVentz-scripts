@@ -1,8 +1,6 @@
 local alarm = require "ideAlarmModule"
-
 return {
-	active = true,
-	},
+	active = true, -- set to false to disable this script
 	on = {
 		devices = {
 			alarm.zones('My Home').armingModeTextDevID
