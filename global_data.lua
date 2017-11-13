@@ -170,9 +170,11 @@ return {
 						end				
 					end
 				    return acc
-				end, 0)
+				end, acc)
 			end
-			if (count == nil) then count = 1 end
+			if (count == nil) then 
+				count = 1 
+			end
 			return count
 		end,
 		getdevname4idx = function(deviceIDX)
