@@ -1,6 +1,5 @@
 return {
-	active = true,
-	},
+	active = true, -- set to false to disable this script
 	on = {
 		devices = {
 			'SomeoneHome',
