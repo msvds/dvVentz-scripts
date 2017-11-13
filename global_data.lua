@@ -158,6 +158,9 @@ return {
 			else
 				domoticz.log(device.name)
 				domoticz.log(acc)
+				domoticz.log(DeviceName)
+				domoticz.log(statestring)
+				domoticz.log(device.state)
 				local count = domoticz.devices().reduce(function(acc, device)
 				    if (device.name == DeviceName) then
 						if (device.state == statestring) then					
@@ -165,7 +168,9 @@ return {
 						else
 							acc = 0
 						end
-				    end
+				    else
+						acc = ""					
+					end
 				    return acc
 				end, acc)
 			end
