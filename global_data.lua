@@ -167,12 +167,10 @@ return {
 							acc = acc + 1
 						else
 							acc = 0
-						end
-				    else
-						acc = 0					
+						end				
 					end
 				    return acc
-				end, acc)
+				end, 0)
 			end
 			return count
 		end,
