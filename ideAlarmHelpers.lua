@@ -28,11 +28,11 @@ _C.helpers = {
 		-- In this example we turn on the kitchen lights if the zones name
 		-- is 'My Home' but we could also let Domoticz speak a message or something.
 
-		--local trippedSensors = alarmZone.trippedSensors(domoticz, 1) -- Can be used if we need to. 
+		local trippedSensors = alarmZone.trippedSensors(domoticz, 1) -- Can be used if we need to. 
 
 		if alarmZone.name == 'My Home' then
 			-- Let's do something here
-			domoticz.devices('Kitchen Lights').switchOn()
+			domoticz.helpers.sendnotification(domoticz,'Alarm gaat af!','Het alarm gaat af doordat sensor ' ..trippedSensors ' is getriggerd' , domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,3,5,5)
 		end
 	end,
 
