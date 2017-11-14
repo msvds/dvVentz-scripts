@@ -90,7 +90,8 @@ return {
 				message = message ..'De vochtigheid in de bijkeuken begint hoog te worden, namelijk ' ..tonumber(hum_bijkeuken.humidity) .. '. Buiten is de vochtigheid hoger, namelijk ' ..tonumber(hum_buiten.humidity) ..' dus een raampje open zetten helpt helaas niet. De gemiddelde vochtigheid in de bijkeuken de afgelopen 24 uur was ' ..tonumber(average_humidities_bijkeuken) ..'.\r'  
 			end
 		end
-		domoticz.notify('Vochtigheid',message,domoticz.PRIORITY_LOW)
-		
+		if (string.len(message) > 5) then
+			domoticz.notify('Vochtigheid',message,domoticz.PRIORITY_LOW)
+		end
 	end
 }
