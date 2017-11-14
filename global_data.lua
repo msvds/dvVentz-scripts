@@ -154,27 +154,18 @@ return {
 			acc = count
 			if (acc == nil) then
 				domoticz.log('Count = nil for deviceName = ' ..device.name)
-				acc = 1
-			else
-				--domoticz.log(device.name)
-				--domoticz.log(acc)
-				--domoticz.log(DeviceName)
-				--domoticz.log(statestring)
-				--domoticz.log(device.state)
-				local count = domoticz.devices().reduce(function(acc, device)
-				    if (device.name == DeviceName) then
-						if (device.state == statestring) then					
-							acc = acc + 1
-						else
-							acc = 0
-						end				
+				acc = 0
+			end
+			local count = domoticz.devices().reduce(function(acc, device)
+			    if (device.name == DeviceName) then
+					if (device.state == statestring) then					
+						acc = acc + 1
+					else
+						acc = 0
 					end
-				    return acc
-				end, acc)
-			end
-			if (count == nil) then 
-				count = 1 
-			end
+			    end
+			    return acc
+			end, acc)
 			return count
 		end,
 		getdevname4idx = function(deviceIDX)
