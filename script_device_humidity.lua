@@ -2,7 +2,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		timer = {'every 6 hours'}
+		timer = {'every 2 hours'}
 	},
 	data = {
         	woonk = { history = true, maxItems = 12 },
@@ -12,6 +12,8 @@ return {
 		buiten = { history = true, maxItems = 12 }
         },
 	execute = function(domoticz, device)
+		message_interval = 1440
+		domoticz.globalData.humidity_message_interval = domoticz.globalData.humidity_message_interval + 120
 		local hum_woonk = domoticz.devices(21)
 		local hum_k_lars = domoticz.devices(63)
 		local hum_badk = domoticz.devices(114) 
@@ -90,7 +92,7 @@ return {
 				message = message ..'De vochtigheid in de bijkeuken begint hoog te worden, namelijk ' ..tonumber(hum_bijkeuken.humidity) .. '. Buiten is de vochtigheid hoger, namelijk ' ..tonumber(hum_buiten.humidity) ..' dus een raampje open zetten helpt helaas niet. De gemiddelde vochtigheid in de bijkeuken de afgelopen 24 uur was ' ..tonumber(average_humidities_bijkeuken) ..'.\r'  
 			end
 		end
-		if (string.len(message) > 5) then
+		if (string.len(message) > 5 and domoticz.globalData.humidity_message_interval > message_interval) then
 			domoticz.notify('Vochtigheid',message,domoticz.PRIORITY_LOW)
 		end
 	end
