@@ -11,5 +11,6 @@ return {
 		domoticz.helpers.switch_all_lights_off(domoticz)
 		domoticz.helpers.check_doors_and_windows(domoticz)
 		domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,currentSetpoint)
+		alarm.zones('My Home').armZone(domoticz, domoticz.SECURITY_ARMEDHOME) -- This will  the zone "My Home" to "Armed Home" after the default exit delay
 	end
 }
