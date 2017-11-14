@@ -331,6 +331,7 @@ return {
 		Counters_time_message_interval  = { initial = 0 },		
 		door_garage_message_interval  = { initial = 0 },		
 		door_bedroom_message_interval  = { initial = 0 },		
-		door_bijkeuken_message_interval  = { initial = 0 }
+		door_bijkeuken_message_interval  = { initial = 0 },
+		humidity_message_interval  = { initial = 0 }
 	}
 }
