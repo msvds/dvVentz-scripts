@@ -252,7 +252,7 @@ return {
 			domoticz.devices('Schemerlamp deur').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
 			domoticz.devices('Lamp spoelb keuken').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
 			domoticz.devices('Lamp boven TV').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
-			schemerdomoticz.devices('Lamp bank').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)			
+			domoticz.devices('Lamp bank').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)			
 			domoticz.devices('Lamp hal boven').switchOn().forSec(1).repeatAfterSec(repetitiondelay, repetition)
 			if start_state_schemerlamp_deur == 'On' then
 				domoticz.devices('Schemerlamp deur').switchOn().afterSec(30)
