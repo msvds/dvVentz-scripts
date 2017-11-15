@@ -204,6 +204,10 @@ return {
 			   domoticz.notify('De voordeur is open',domoticz.PRIORITY_HIGH)
 			elseif (domoticz.devices('Balkondeur Nienke').state == 'Open') then
 			   domoticz.notify('Balkondeur Nienke is open',domoticz.PRIORITY_HIGH)
+			elseif (domoticz.devices('Zitkamerdeur').state == 'Open') then
+			   domoticz.notify('Zitkamerdeur is open',domoticz.PRIORITY_HIGH)
+			elseif (domoticz.devices('Zitkamerdeur').lastUpdate.hoursAgo < 20) then
+			   domoticz.notify('Zitkamerdeur is vandaag open geweest, even checken of hij op slot is',domoticz.PRIORITY_HIGH)
 			--elseif (MediaCenter.state == 'On') then
 			  -- domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
 			--elseif (Televisie.state == 'On') then
