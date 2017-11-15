@@ -6,7 +6,7 @@ return {
 		}
 	},
 
-	execute = function(domoticz, _,)
+	execute = function(domoticz, _)
 		local alarm = require "ideAlarmModule"
 
 		if (domoticz.devices('SomeoneHome').state == 'On' 
