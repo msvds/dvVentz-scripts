@@ -18,7 +18,7 @@ return {
 					domoticz.groups('Lampen woonkamer').switchOn()
 					domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
 				end
-			elseif (domoticz.time.matchesRule('at 06:00-09:00') and domoticz.devices('Beweging woonkamer').state == 'On') then
+			elseif (domoticz.time.matchesRule('at 06:00-09:00') and domoticz.devices('Beweging woonkamer').state == 'On' and domoticz.devices('Sw1').lastUpdate.minutesAgo > 30) then
 				-- woonkamer ochtends + donker
 				if (domoticz.devices('Schemerlamp deur').state == 'Off') then
 					domoticz.devices('Schemerlamp deur').switchOn()
