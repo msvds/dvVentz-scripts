@@ -15,7 +15,7 @@ return {
 			if alarm.zones('My Home').armingMode(domoticz) ~= nil then domoticz.log(alarm.zones('My Home').armingMode(domoticz)) end
 			if domoticz.SECURITY_DISARMED ~= nil then domoticz.log(domoticz.SECURITY_DISARMED) end
 			if domoticz.time.hours ~= nil then domoticz.log(domoticz.time.hours) end
-			if (alarm.zones('My Home').armingMode(domoticz) ~= domoticz.SECURITY_DISARMED and domoticz.time.matchesRule('at 6:00-23:00') then
+			if (alarm.zones('My Home').armingMode(domoticz) ~= domoticz.SECURITY_DISARMED and domoticz.time.matchesRule('at 6:00-23:00')) then
 				alarm.zones('My Home').disArmZone(domoticz)
 			end
 			--alarm.zones('My Home').disArmZone(domoticz) -- This will disarm the zone "My Home"
