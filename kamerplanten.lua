@@ -8,7 +8,7 @@ return {
 		plant2 = { history = true, maxItems = 28 }
         },
 	execute = function(domoticz, device)
-	
+		local message = ''
 		-- add new data
 		domoticz.data.plant1.add(domoticz.devices('plant moisture 1').percentage)
 		domoticz.data.plant2.add(domoticz.devices('plant moisture 2').percentage)
