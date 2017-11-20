@@ -90,7 +90,7 @@ _C.helpers = {
 		if armingMode == domoticz.SECURITY_DISARMED then 
 			domoticz.devices('Xiaomi RGB Gateway').switchOff() -- Green light on
 		else
-			domoticz.devices('Xiaomi RGB Gateway').switchOn() -- Red light on
+			--domoticz.devices('Xiaomi RGB Gateway').switchOn() -- Red light on
 		end
 	end,
 
