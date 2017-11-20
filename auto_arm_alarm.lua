@@ -12,6 +12,9 @@ return {
 		local alarm = require "ideAlarmModule"
 		local Time = require('Time')
 		if (device.name == 'SomeoneHome' and device.state == 'On') then
+			if alarm.zones('My Home').armingMode(domoticz) ~= nil then domoticz.log(alarm.zones('My Home').armingMode(domoticz)) end
+			if domoticz.SECURITY_DISARMED ~= nil then domoticz.log(domoticz.SECURITY_DISARMED) end
+			if domoticz.time.hours ~= nil then domoticz.log(domoticz.time.hours) end
 			if (alarm.zones('My Home').armingMode(domoticz) ~= domoticz.SECURITY_DISARMED and domoticz.time.hours >= 6 and domoticz.time.hours <= 23) then
 				alarm.zones('My Home').disArmZone(domoticz)
 			end
