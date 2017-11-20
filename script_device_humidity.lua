@@ -53,7 +53,7 @@ return {
 		
 		local message = ''
 
-		if (hum_woonk.humidity > 55) then
+		if (hum_woonk.humidity > 65) then
 			if (hum_buiten.humidity < hum_woonk.humidity) then
 				message = message ..'De vochtigheid in de woonkamer begint ' ..hum_string_woonk .. ' hoog te worden, namelijk ' ..tonumber(hum_woonk.humidity) .. '. Buiten is de vochtigheid lager, namelijk ' ..tonumber(hum_buiten.humidity) ..' dus een raampje open zetten kan helpen. De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was ' ..tonumber(average_humidities_woonk)  ..'.\r'	
 			--TODO Need to adapt intervals at the end of next line
