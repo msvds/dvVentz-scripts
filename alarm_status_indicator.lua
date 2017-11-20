@@ -14,7 +14,7 @@ return {
 				domoticz.devices('Xiaomi RGB Gateway').switchOff() -- light off
 				domoticz.log('SECURITY DISARMED')
 			else
-				domoticz.devices('Xiaomi RGB Gateway').switchOn() -- Red light on
+				--domoticz.devices('Xiaomi RGB Gateway').switchOn() -- Red light on
 				domoticz.log('SECURITY ARMED')
 			end
 		end
