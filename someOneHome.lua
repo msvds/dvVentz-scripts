@@ -17,7 +17,7 @@ return {
 			domoticz.log('SomeoneHome switchOn')
 			domoticz.devices('SomeoneHome').switchOn()
 		--elseif (domoticz.devices('SomeoneHome').state == 'On' and (domoticz.devices('Suzanne smartphone').state == 'Off' and domoticz.devices('Martijn smartphone').state == 'Off') and domoticz.globalData.NMC_Overall > nomovement_delay) then
-		elseif (domoticz.devices('SomeoneHome').state == 'On' and (domoticz.devices('Life360 - Suzanne Presence').state == 'Off' and domoticz.devices(Life360 - Martijn Presence').state == 'Off')) then
+		elseif (domoticz.devices('SomeoneHome').state == 'On' and (domoticz.devices('Life360 - Suzanne Presence').state == 'Off' and domoticz.devices('Life360 - Martijn Presence').state == 'Off')) then
 			domoticz.log('SomeoneHome switchOff')
 			domoticz.devices('SomeoneHome').switchOff()
 		end
