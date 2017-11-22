@@ -41,7 +41,7 @@ return {
 				if currentActiveState ~=  3 then
 					if debug then domoticz.log('script_time_thermostaat: De buiten temperatuur is ' ..temp_buiten.temperature .. ' graden') end
 					--changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
-					--domoticz.helpers.changeSetPoint(domoticz,'12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
+					--domoticz.helpers.changeSetPoint(domoticz,'12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint,currentActiveState)
 					domoticz.helpers.changeToonScene(domoticz,'10',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint)
 				end
 			end
@@ -49,7 +49,7 @@ return {
 			if (domoticz.globalData.NMC_Overall > NM_timeout) then
 				if currentActiveState ~=  3 then
 					if debug then domoticz.log('thermostaat.lua: domoticz.globalData.NMC_Overall: ' ..domoticz.globalData.NMC_Overall) end
-					--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true,currentSetpoint)
+					--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true,currentSetpoint,currentActiveState)
 					domoticz.helpers.changeToonScene(domoticz,'10','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',false,currentSetpoint)
 				end
 			end
@@ -57,12 +57,12 @@ return {
 			if (domoticz.globalData.OpenC_Floor1 > Open_timeout) then
 				if currentActiveState ~=  3 then
 					if debug then domoticz.log('thermostaat.lua: domoticz.globalData.OpenC_Floor1: ' ..domoticz.globalData.OpenC_Floor1) end
-					--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true,currentSetpoint)
+					--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true,currentSetpoint,currentActiveState)
 					domoticz.helpers.changeToonScene(domoticz,'10','omdat de floor1 open timout van ' ..Open_timeout .. ' bereikt is',false,currentSetpoint)
 				end
 			end			
-			else
-				domoticz.log('jsonThermostatInfo = nil, nothing done')
+		else
+			domoticz.log('jsonThermostatInfo = nil, nothing done')
 		end
 	end
 }
