@@ -9,6 +9,7 @@ return {
 	execute = function(domoticz, device)
 		local alarm = require "ideAlarmModule"
 		if device.state == 'Click' then
+			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			for i=1, alarm.qtyAlarmZones() do
 				alarm.zones(i).disArmZone(domoticz)
 			end
