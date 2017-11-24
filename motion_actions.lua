@@ -35,9 +35,8 @@ return {
 			if (domoticz.devices('Sw3').lastUpdate.minutesAgo > 2) then
 				-- hal aan donker
 				-- vertraging zodat als Sw3 is ingedrukt, niet meteen de lamp in de hal weer aangaat omdat de bewegingsensor nog op On staat
-					domoticz.devices('Lamp hal boven').switchOn().checkFirst()
-					domoticz.log('Beweging hal boven terwijl het donker is, lamp hal boven aangezet', domoticz.LOG_INFO)
-				end
+				domoticz.devices('Lamp hal boven').switchOn().checkFirst()
+				domoticz.log('Beweging hal boven terwijl het donker is, lamp hal boven aangezet', domoticz.LOG_INFO)
 			end
 			if (device.name == domoticz.devices('Slaapkamerdeur').name and domoticz.time.matchesRule('at 17:00-21:30') and domoticz.devices('Slaapkamerdeur').state == 'Open') then
 				-- dimmers slaapkamer aan donker tot 0:30
