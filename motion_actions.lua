@@ -32,10 +32,10 @@ return {
 				-- woonkamer nachts + donker
 				domoticz.log('Beweging nachts in de woonkamer!')			
 			end
-			if (domoticz.devices('Beweging hal boven').state == 'On') then
+			if (domoticz.devices('Sw3').lastUpdate.minutesAgo > 2) then
 				-- hal aan donker
-				if (domoticz.devices('Lamp hal boven').state == 'Off') then
-					domoticz.devices('Lamp hal boven').switchOn()
+				-- vertraging zodat als Sw3 is ingedrukt, niet meteen de lamp in de hal weer aangaat omdat de bewegingsensor nog op On staat
+					domoticz.devices('Lamp hal boven').switchOn().checkFirst()
 					domoticz.log('Beweging hal boven terwijl het donker is, lamp hal boven aangezet', domoticz.LOG_INFO)
 				end
 			end
