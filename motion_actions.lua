@@ -14,20 +14,15 @@ return {
 			if (domoticz.time.matchesRule('at 16:00-01:00') and domoticz.devices('Beweging woonkamer').state == 'On') then
 				-- woonkamer aan avonds + donker
 				-- between 16:00 and 1:00 then next day
-				if (domoticz.groups('Lampen woonkamer').state == 'Off') then
-					domoticz.groups('Lampen woonkamer').switchOn()
-					domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
-				end
+				domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
+				domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
+
 			elseif (domoticz.time.matchesRule('at 06:00-09:00') and domoticz.devices('Beweging woonkamer').state == 'On' and domoticz.devices('Sw1').lastUpdate.minutesAgo > 30) then
 				-- woonkamer ochtends + donker
-				if (domoticz.devices('Schemerlamp deur').state == 'Off') then
-					domoticz.devices('Schemerlamp deur').switchOn()
-					domoticz.log('Beweging woonkamer ochtends terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO)
-				end
-				if (domoticz.devices('Lamp spoelb keuken').state == 'Off') then
-					domoticz.devices('Lamp spoelb keuken').switchOn()
-					domoticz.log('Beweging woonkamer ochtends terwijl het donker is, lamp spoelbak keuken aangezet', domoticz.LOG_INFO)
-				end
+				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
+				domoticz.log('Beweging woonkamer ochtends terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO)
+				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+				domoticz.log('Beweging woonkamer ochtends terwijl het donker is, lamp spoelbak keuken aangezet', domoticz.LOG_INFO)
 			elseif (domoticz.time.matchesRule('at 01:00-06:00') and domoticz.devices('Beweging woonkamer').state == 'On') then
 				-- woonkamer nachts + donker
 				domoticz.log('Beweging nachts in de woonkamer!')			
@@ -68,18 +63,14 @@ return {
 			if (SomeoneHome.state == 'Off') then
 				-- woonkamer aan donker + deur open
 				if (domoticz.devices('Eetkamerdeur').state == 'Open' or domoticz.devices('Front door').state == 'Open') then
-					if (domoticz.groups('Lampen woonkamer').state == 'Off') then
-						domoticz.groups('Lampen woonkamer').switchOn()
-						domoticz.log('Eetkamerdeur of voordeur open terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
-					end
+					domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
+					domoticz.log('Eetkamerdeur of voordeur open terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
 				end
 			end			
 			if (domoticz.devices('Garage deur').state == 'Open') then
 				-- buitenlampen aan donker + garage deur open
-				if (domoticz.groups('Buitenlampen').state == 'Off') then
-					domoticz.groups('Buitenlampen').switchOn()
-					domoticz.log('Garagedeur open terwijl het donker is, buitenlampen aangezet', domoticz.LOG_INFO)
-				end
+				domoticz.groups('Buitenlampen').switchOn().checkFirst()
+				domoticz.log('Garagedeur open terwijl het donker is, buitenlampen aangezet', domoticz.LOG_INFO)
 			end
 		else
 			if (domoticz.time.matchesRule('at 0:30-06:00') and domoticz.devices('Beweging woonkamer').state == 'On') then
