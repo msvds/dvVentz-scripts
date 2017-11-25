@@ -1,7 +1,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		devices = {23,302
+		devices = {'Beweging woonkamer 1','Beweging woonkamer 2'
 		}
 	},
 	execute = function(domoticz, device)
