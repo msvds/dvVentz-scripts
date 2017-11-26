@@ -94,10 +94,10 @@ return {
 		end
 		
 		if (domoticz.devices('Temperatuur Bijkeuken').temperature < 5) then
-			domoticz.notify('Koud!'," De temperatuur in de bijkeuken wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur Bijkeuken')),domoticz.PRIORITY_LOW)  
+			domoticz.notify('Koud!'," De temperatuur in de bijkeuken wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur Bijkeuken').temperature),domoticz.PRIORITY_LOW)  
 		end
 		if (domoticz.devices('Temperatuur garage').temperature < 5) then
-			domoticz.notify('Koud!'," De temperatuur in de garage wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur garage')),domoticz.PRIORITY_LOW)  
+			domoticz.notify('Koud!'," De temperatuur in de garage wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur garage').temperature),domoticz.PRIORITY_LOW)  
 		end
 		
 	end
