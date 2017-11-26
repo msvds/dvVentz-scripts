@@ -10,7 +10,8 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
-		domoticz.devices('Xiaomi Gateway Alarm Ringtone').switchOn()
+		domoticz.devices('Gashaard').SwitchOff()
+		--domoticz.devices('Xiaomi Gateway Alarm Ringtone').switchOn()
 		--debug = true
 		--local currentSetpoint = domoticz.helpers.currentSetpoint(domoticz)
 		--domoticz.log('Huidige setpoint is '.. currentSetpoint)
