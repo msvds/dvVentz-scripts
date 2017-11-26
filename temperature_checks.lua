@@ -100,5 +100,12 @@ return {
 			domoticz.notify('Koud!'," De temperatuur in de garage wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur garage').temperature),domoticz.PRIORITY_LOW)  
 		end
 		
+		if (domoticz.devices('Temperatuur woonkamer').temperature > 25) then			
+			domoticz.devices('Gashaard').setState('Run Down')
+			domoticz.notify('Gashaard uitgezet'," De gashaard is uitgezet omdat het warmer is dan 25 graden in de woonkamer',domoticz.PRIORITY_LOW)  
+		
+		end
+		
+		
 	end
 }
