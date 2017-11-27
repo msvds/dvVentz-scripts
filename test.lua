@@ -11,7 +11,7 @@ return {
 	},
 	execute = function(domoticz, device)
 		--domoticz.devices('Xiaomi Gateway Doorbell').level == 10
-		domoticz.devices('Xiaomi Gateway Volume').level == 10
+		--domoticz.devices('Xiaomi Gateway Volume').level == 10
 		domoticz.devices('Xiaomi Gateway Doorbell').switchOn()
 		--domoticz.log(domoticz.devices('Gashaard').state)
 		--domoticz.devices('Gashaard').setState('Run Down')		
