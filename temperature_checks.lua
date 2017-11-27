@@ -102,7 +102,7 @@ return {
 		
 		if (domoticz.devices('Temperatuur woonkamer').temperature > 25) then			
 			domoticz.devices('Gashaard').setState('Run Down')
-			domoticz.notify('Gashaard uitgezet'," De gashaard is uitgezet omdat het warmer is dan 25 graden in de woonkamer',domoticz.PRIORITY_LOW)  
+			domoticz.notify('Gashaard uitgezet','De gashaard is uitgezet omdat het warmer is dan 25 graden in de woonkamer',domoticz.PRIORITY_LOW)  
 		
 		end
 		
