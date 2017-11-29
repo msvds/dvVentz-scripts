@@ -2,7 +2,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		timer = {'every 2 hours'}
+		timer = {'every 6 hours'}
 	},
 	data = {
         	woonk = { history = true, maxItems = 12 },
@@ -13,7 +13,7 @@ return {
         },
 	execute = function(domoticz, device)
 		message_interval = 1440
-		domoticz.globalData.humidity_message_interval = domoticz.globalData.humidity_message_interval + 120
+		domoticz.globalData.humidity_message_interval = domoticz.globalData.humidity_message_interval + 360
 		local hum_woonk = domoticz.devices(21)
 		local hum_k_lars = domoticz.devices(63)
 		local hum_badk = domoticz.devices(114) 
@@ -94,6 +94,7 @@ return {
 		end
 		if (string.len(message) > 5 and domoticz.globalData.humidity_message_interval > message_interval) then
 			domoticz.notify('Vochtigheid',message,domoticz.PRIORITY_LOW)
+			domoticz.globalData.humidity_message_interval = 0
 		end
 	end
 }
