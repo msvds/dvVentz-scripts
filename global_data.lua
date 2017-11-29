@@ -181,6 +181,7 @@ return {
 			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
 			domoticz.devices('Lamp bank').switchOff().checkFirst()
 			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
+			domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
 			domoticz.devices('Lamp hal boven').switchOff().checkFirst()
 			--if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
 				domoticz.devices('Dimmer bed Martijn').switchOff()
