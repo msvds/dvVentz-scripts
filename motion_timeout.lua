@@ -12,8 +12,6 @@ return {
 		--local MediaCenter = domoticz.devices(11)
 		--local Televisie = domoticz.devices(7)
 		--local Televisie_lage_resolutie = domoticz.devices(9)
-		local IsDark = domoticz.devices(78)
-		local SomeoneHome = domoticz.devices(96)
 		debug = true
 		--domoticz.log('domoticz.globalData.NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2)
 		--domoticz.log('NM_timeout_floor2 = ' ..NM_timeout_floor2)
