@@ -2,7 +2,7 @@ return {
 	active = true,
 	on = {
 		['timer'] = {
-			'at 23:00 on fri'
+			--'at 23:00 on fri'
 		}
 	},
 	execute = function(domoticz, device)
