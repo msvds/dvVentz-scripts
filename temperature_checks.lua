@@ -5,12 +5,14 @@ return {
 		timer = {'every 2 hours'}
 	},
 	data = {
-		woonk = { history = true, maxItems = 12 },
+        woonk = { history = true, maxItems = 12 },
 		k_lars = { history = true, maxItems = 12 },
-		badk = { history = true, maxItems = 12 },		
+		k_nienke = { history = true, maxItems = 12 },
+		badk = { history = true, maxItems = 12 },
 		bijkeuken = { history = true, maxItems = 12 },
 		buiten = { history = true, maxItems = 12 },
-		garage = { history = true, maxItems = 12 }
+		garage = { history = true, maxItems = 12 },
+		zolder = { history = true, maxItems = 12 }
         },
 	execute = function(domoticz, device)     	
 		message_interval = 480
@@ -19,17 +21,21 @@ return {
 		-- add new data
 		domoticz.data.woonk.add(domoticz.devices('Temperatuur woonkamer').temperature)
 		domoticz.data.k_lars.add(domoticz.devices('Temperatuur Kamer Lars').temperature)
+		domoticz.data.k_nienke.add(domoticz.devices('Temperatuur Kamer Nienke').temperature)
 		domoticz.data.badk.add(domoticz.devices('Temperatuur Badkamer').temperature)
-		domoticz.data.buiten.add(domoticz.devices('Temperatuur Buiten').temperature)		
+		domoticz.data.buiten.add(domoticz.devices('Temperatuur Buiten').temperature)
 		domoticz.data.bijkeuken.add(domoticz.devices('Temperatuur Bijkeuken').temperature)
 		domoticz.data.garage.add(domoticz.devices('Temperatuur garage').temperature)
+		domoticz.data.zolder.add(domoticz.devices('Temperatuur zolder').temperature)
 		
 		domoticz.log('average_temperatures_woonk = ' ..domoticz.data.woonk.avg())
 		domoticz.log('average_temperatures_k_lars = ' ..domoticz.data.k_lars.avg())
+		domoticz.log('average_temperatures_k_nienke = ' ..domoticz.data.k_nienke.avg())
 		domoticz.log('average_temperatures_badk = ' ..domoticz.data.badk.avg())
 		domoticz.log('average_temperatures_buiten = ' ..domoticz.data.buiten.avg())
 		domoticz.log('average_temperatures_bijkeuken = ' ..domoticz.data.bijkeuken.avg())
 		domoticz.log('average_temperatures_garage = ' ..domoticz.data.garage.avg())
+		domoticz.log('average_temperatures_zolder = ' ..domoticz.data.zolder.avg())
 		
 		--domoticz.log("De temperatuur in de woonkamer is " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(round(domoticz.data.woonk.avg(),1)) .. ".")
 		--domoticz.log("De temperatuur in de kamer van Lars is " ..tonumber(domoticz.devices('Temperatuur Kamer Lars').temperature) .. ". De gemiddelde temperatuur in de kamer van Lars de afgelopen 24 uur was " ..tonumber(round(domoticz.data.k_lars.avg(),1)) .. ".")
