@@ -3,28 +3,13 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		devices = {129,197
-			--,91
+		devices = {'Smoke Detector Zolder','Smoke Detector Keuken'
+			--,'Test Switch'
 		},
 	},
 	execute = function(domoticz, device)
-		local smoke_alarm_zolder = domoticz.devices(129)
-		local smoke_alarm_keuken = domoticz.devices(197)
-		local lamp_boven_tv = domoticz.devices(13)
-		local lamp_spoelb_keuken = domoticz.devices(36)
-		local lamp_bank = domoticz.devices(15)
-		local schemerlamp_bank = domoticz.devices(16)
-		local schemerlamp_deur = domoticz.devices(97)		
-		local lamp_hal_boven = domoticz.devices(151)
 		if (device.state == 'On') then
-			--domoticz.devices(27).state == 'Accident tone'
-			lamp_boven_tv.switchOn().forSec(1).repeatAfterSec(1, 180)
-			lamp_spoelb_keuken.switchOn().forSec(1).repeatAfterSec(1, 180)
-			lamp_bank.switchOn().forSec(1).repeatAfterSec(1, 180)
-			schemerlamp_bank.switchOn().forSec(1).repeatAfterSec(1, 180)			
-			schemerlamp_deur.switchOn().forSec(1).repeatAfterSec(1, 180)
-			lamp_hal_boven.switchOn().forSec(1).repeatAfterSec(1, 180)			
-			domoticz.notify('Brand!', "Een rookmelder gaat af" ,domoticz.PRIORITY_HIGH,domoticz.SOUND_SIREN)
+			domoticz.helpers.sendnotification(domoticz,'Brand!','Een rookmelder gaat af',domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,1,180,1)
 			if (device.name == 'Smoke Detector Zolder') then 
 				domoticz.notify('Brand!', "De rookmelder in de hal boven gaat af" ,domoticz.PRIORITY_HIGH) 
 			end
