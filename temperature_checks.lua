@@ -13,7 +13,9 @@ return {
 		garage = { history = true, maxItems = 12 }
         },
 	execute = function(domoticz, device)     	
-		
+		message_interval = 480
+		domoticz.globalData.temperature_message_interval = domoticz.globalData.temperature_message_interval + 120
+		local message = ''
 		-- add new data
 		domoticz.data.woonk.add(domoticz.devices('Temperatuur woonkamer').temperature)
 		domoticz.data.k_lars.add(domoticz.devices('Temperatuur Kamer Lars').temperature)
@@ -49,63 +51,66 @@ return {
 
 		if (domoticz.devices('Temperatuur woonkamer').temperature > 24) then
 			if (domoticz.devices('Temperatuur Buiten').temperature < domoticz.devices('Temperatuur woonkamer').temperature) then
-				domoticz.notify('Hoge temperatuur binnen',"De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus deuren en ramen open zetten kan helpen. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) ..".",domoticz.PRIORITY_LOW)  
+				message = message .."De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus deuren en ramen open zetten kan helpen. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) .."."
 				--TODO Need to adapt intervals at the end of next line
 				domoticz.helpers.message("De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus een raampje open zetten kan helpen.", 100,90)	
 			elseif (domoticz.devices('Temperatuur Buiten').temperature > domoticz.devices('Temperatuur woonkamer').temperature) then
-				domoticz.notify('Hoge temperatuur binnen',"De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur hoger, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus deuren en ramen open zetten helpt helaas niet. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) ..".",domoticz.PRIORITY_LOW)  
+				message = message .."De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur hoger, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus deuren en ramen open zetten helpt helaas niet. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) .."." 
 			end
 		end
 
 		if (domoticz.devices('Temperatuur woonkamer').temperature - domoticz.data.woonk.avg() > 2) then
-			domoticz.notify('Grote temperatuur stijging woonkamer'," De temperatuur stijgt snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature - domoticz.data.woonk.avg()),domoticz.PRIORITY_LOW)  
+			message = message .." De temperatuur stijgt snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature - domoticz.data.woonk.avg()) 
 		end
 		if (domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg() > 2) then
-			domoticz.notify('Grote temperatuur stijging kamer Lars'," De temperatuur stijgt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg()),domoticz.PRIORITY_LOW)  
+			message = message .."De temperatuur stijgt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg())
 		end
 		if (domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg() > 2) then
-			domoticz.notify('Grote temperatuur stijging badkamer'," De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg()),domoticz.PRIORITY_LOW)  
+			message = message .."De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg()) 
 		end
 		if (domoticz.devices('Temperatuur Buiten').temperature - domoticz.data.buiten.avg() > 5) then
-			domoticz.notify('Grote temperatuur stijging buiten'," De temperatuur stijgt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature - domoticz.data.buiten.avg()),domoticz.PRIORITY_LOW)  
+			message = message .."De temperatuur stijgt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature - domoticz.data.buiten.avg())
 		end
 		if (domoticz.devices('Temperatuur woonkamer').temperature - domoticz.data.woonk.avg() < -2) then
-			domoticz.notify('Grote temperatuur daling woonkamer'," De temperatuur daalt snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.woonk.avg() - domoticz.devices('Temperatuur woonkamer').temperature),domoticz.PRIORITY_LOW)  
+			message = message .."De temperatuur daalt snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.woonk.avg() - domoticz.devices('Temperatuur woonkamer').temperature)  
 		end
 		if (domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg() < -2) then
-			domoticz.notify('Grote temperatuur daling kamer Lars'," De temperatuur daalt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.k_lars.avg() - domoticz.devices('Temperatuur Kamer Lars').temperature),domoticz.PRIORITY_LOW)  
+			message = message .."De temperatuur daalt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.k_lars.avg() - domoticz.devices('Temperatuur Kamer Lars').temperature) 
 		end
 		if (domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg() < -2) then
-			domoticz.notify('Grote temperatuur daling badkamer'," De temperatuur daalt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.badk.avg() - domoticz.devices('Temperatuur Badkamer').temperature),domoticz.PRIORITY_LOW)  
+			message = message .."De temperatuur daalt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.badk.avg() - domoticz.devices('Temperatuur Badkamer').temperature) 
 		end
 		if (domoticz.devices('Temperatuur Buiten').temperature - domoticz.data.buiten.avg() < -5) then
-			domoticz.notify('Grote temperatuur daling buiten'," De temperatuur daalt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.buiten.avg()-domoticz.devices('Temperatuur Buiten').temperature),domoticz.PRIORITY_LOW)  
+			message = message .." De temperatuur daalt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.buiten.avg()-domoticz.devices('Temperatuur Buiten').temperature)  
 		end
 		
 		
 		if (domoticz.devices('Temperatuur woonkamer').temperature - domoticz.data.woonk.avg() > 20) then
-			domoticz.notify('Brand! Extreem grote temperatuur stijging woonkamer'," De temperatuur stijgt extreem snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature - domoticz.data.woonk.avg()),domoticz.PRIORITY_HIGH)  
+			message = message .."De temperatuur stijgt extreem snel in de woonkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature - domoticz.data.woonk.avg())
 		end
 		if (domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg() > 20) then
-			domoticz.notify('Brand! Extreem grote temperatuur stijging kamer Lars'," De temperatuur stijgt extreem snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg()),domoticz.PRIORITY_HIGH)  
+			message = message .."De temperatuur stijgt extreem snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg()) 
 		end
 		if (domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg() > 20) then
-			domoticz.notify('Brand! Extreem grote temperatuur stijging badkamer'," De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg()),domoticz.PRIORITY_HIGH)  
+			message = message .."De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg())
 		end
 		
 		if (domoticz.devices('Temperatuur Bijkeuken').temperature < 5) then
-			domoticz.notify('Koud!'," De temperatuur in de bijkeuken wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur Bijkeuken').temperature),domoticz.PRIORITY_LOW)  
+			message = message .."De temperatuur in de bijkeuken wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur Bijkeuken').temperature)
 		end
 		if (domoticz.devices('Temperatuur garage').temperature < 5) then
-			domoticz.notify('Koud!'," De temperatuur in de garage wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur garage').temperature),domoticz.PRIORITY_LOW)  
+			message = message .."De temperatuur in de garage wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur garage').temperature)
 		end
 		
 		if (domoticz.devices('Temperatuur woonkamer').temperature > 25) then			
 			domoticz.devices('Gashaard').setState('Run Down')
-			domoticz.notify('Gashaard uitgezet','De gashaard is uitgezet omdat het warmer is dan 25 graden in de woonkamer',domoticz.PRIORITY_LOW)  
+			message = message ..'De gashaard is uitgezet omdat het warmer is dan 25 graden in de woonkamer' 
 		
 		end
-		
+		if (string.len(message) > 5 and domoticz.globalData.temperature_message_interval > message_interval) then
+			domoticz.notify('Temperatuur waarschuwing',message,domoticz.PRIORITY_LOW)
+			domoticz.globalData.temperature_message_interval = 0
+		end
 		
 	end
 }
