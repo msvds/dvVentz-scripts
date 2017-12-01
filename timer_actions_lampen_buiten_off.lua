@@ -7,12 +7,9 @@ return {
 	},
 	execute = function(domoticz, device)
 		local Time = require('Time')
-		local lampen_buiten = domoticz.groups(2)
 
 		-- woonkamer bij zonsondergang
-		if (lampen_buiten.state == 'On') then
-			lampen_buiten.switchOff()
-			domoticz.log('lampen buiten uitgezet ivm zonsopgang en nacht')
-		end
+		domoticz.groups('Buitenlampen').switchOff().checkFirst()
+		domoticz.log('lampen buiten uitgezet ivm zonsopgang en nacht')
 	end
 }
