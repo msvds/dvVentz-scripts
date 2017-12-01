@@ -4,7 +4,7 @@ return {
 	active = true, -- set to false to disable this script
 	on = {
 		devices = {'Voordeurbel'
-		--,91
+		--,'Test Switch'
 		}
 	},
 	execute = function(domoticz, device)
