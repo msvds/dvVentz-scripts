@@ -6,7 +6,7 @@ return {
 	},
 	on = {
 		devices = {
-			91
+			'Test Switch'
 		},
 	},
 	execute = function(domoticz, device)
