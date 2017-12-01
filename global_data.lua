@@ -337,6 +337,7 @@ return {
 		door_garage_message_interval  = { initial = 0 },		
 		door_bedroom_message_interval  = { initial = 0 },		
 		door_bijkeuken_message_interval  = { initial = 0 },
-		humidity_message_interval  = { initial = 0 }
+		humidity_message_interval  = { initial = 0 },
+		temperature_message_interval = { initial = 0 }
 	}
 }
