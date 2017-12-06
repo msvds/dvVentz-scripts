@@ -82,7 +82,7 @@ _C.helpers = {
 		-- The arming mode for a zone has changed. We might want to be informed about that.
 		local zoneName = alarmZone.name
 		local armingMode = alarmZone.armingMode(domoticz)
-		domoticz.notify('Arming mode change',
+		--domoticz.notify('Arming mode change',
 			'The new arming mode for ' .. zoneName .. ' is ' .. armingMode,
 			domoticz.PRIORITY_LOW)
 		-- Buy a Fibaro Wall Plug 2 and configure it to display red when off, green when on
