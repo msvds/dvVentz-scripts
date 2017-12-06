@@ -176,6 +176,34 @@ return {
 			end
 			return 0
 		end,
+		switch_lights_off = function(domoticz,area)
+			if (area == 'Inside') then
+				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
+				domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
+				domoticz.devices('Lamp bank').switchOff().checkFirst()
+				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
+				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
+				domoticz.devices('Lamp hal boven').switchOff().checkFirst()
+				domoticz.devices('Dimmer bed Martijn').switchOff()
+				domoticz.devices('Dimmer bed Suzanne').switchOff()
+				domoticz.log('All lights inside turned off')
+			end
+			if (area == 'Floor1') then
+				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
+				domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
+				domoticz.devices('Lamp bank').switchOff().checkFirst()
+				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
+				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
+				domoticz.log('Lights floor1 turned off')
+			end
+			if (area == 'Floor2') then
+				domoticz.devices('Lamp hal boven').switchOff().checkFirst()
+				domoticz.devices('Dimmer bed Martijn').switchOff()
+				domoticz.devices('Dimmer bed Suzanne').switchOff()
+				domoticz.log('Lights floor2 turned off')
+			end
+			--os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
+		end,
 		switch_all_lights_off = function(domoticz)
 			domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
