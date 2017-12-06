@@ -270,7 +270,7 @@ return {
 			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
 			    message = message ..'Dakraam zolder achter is open, '			
 			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
-			    message = message ..'De eetkamerdeur is open', '
+			    message = message ..'De eetkamerdeur is open, '
 			elseif (domoticz.devices('Balkondeur slaapkamer').state == 'Open') then
 			    message = message ..'Balkondeur slaapkamer is open, '
 			elseif (domoticz.devices('Front door').state == 'Open') then
