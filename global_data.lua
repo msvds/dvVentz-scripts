@@ -193,31 +193,36 @@ return {
 			--os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 		end,
 		check_doors_and_windows = function(domoticz)
+			local message = ''
 			if (domoticz.devices('Dakraam slaapkamer').state == 'Open') then
-			   domoticz.notify('Dakraam slaapkamer is open',domoticz.PRIORITY_HIGH)
+			   message = message ..'Dakraam slaapkamer is open, '
 			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
-			   domoticz.notify('Dakraam zolder achter is open',domoticz.PRIORITY_HIGH)				
+			   message = message ..'Dakraam zolder achter is open, '			
 			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
-			   domoticz.notify('De eetkamerdeur is open',domoticz.PRIORITY_HIGH)
+			   message = message ..'De eetkamerdeur is open, '
 			elseif (domoticz.devices('Balkondeur slaapkamer').state == 'Open') then
-			   domoticz.notify('Balkondeur slaapkamer is open',domoticz.PRIORITY_HIGH)
+			   message = message ..'Balkondeur slaapkamer is open, '
 			elseif (domoticz.devices('Front door').state == 'Open') then
-			   domoticz.notify('De voordeur is open',domoticz.PRIORITY_HIGH)
+			   message = message ..'De voordeur is open', '
 			elseif (domoticz.devices('Balkondeur Nienke').state == 'Open') then
-			   domoticz.notify('Balkondeur Nienke is open',domoticz.PRIORITY_HIGH)
+			   message = message ..'Balkondeur Nienke is open, '
 			elseif (domoticz.devices('Zitkamerdeur').state == 'Open') then
-			   domoticz.notify('Zitkamerdeur is open',domoticz.PRIORITY_HIGH)
+			   message = message ..'Zitkamerdeur is open, '
 			elseif (domoticz.devices('Zitkamerdeur').lastUpdate.hoursAgo < 20) then
-			   domoticz.notify('Zitkamerdeur is vandaag open geweest, even checken of hij op slot is',domoticz.PRIORITY_HIGH)
+			   message = message ..'Zitkamerdeur is vandaag open geweest, even checken of hij op slot is, '
 			--elseif (MediaCenter.state == 'On') then
 			  -- domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
 			--elseif (Televisie.state == 'On') then
 			  -- domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
 			--elseif (Televisie_lage_resolutie.state == 'On') then
 			  -- domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
-			end 
+			end
+			if (message) then
+				domoticz.notify('Door and windows check', message, domoticz.PRIORITY_HIGH)
+			end
 		end,
 		gotosleep = function(domoticz)
+			local message = ''
 			domoticz.log(domoticz.devices('Status').state)
 			--local harmony_poweroff = domoticz.devices(6)
 			--local radio = domoticz.devices(8)
@@ -233,24 +238,27 @@ return {
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 			domoticz.log('Lights turned off and Harmony turned off')
 			if (domoticz.devices('Dakraam slaapkamer').state == 'Open') then
-			   domoticz.notify('Dakraam slaapkamer is open',domoticz.PRIORITY_HIGH)
+			    message = message ..'Dakraam slaapkamer is open, '
 			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
-			   domoticz.notify('Dakraam zolder achter is open',domoticz.PRIORITY_HIGH)				
+			    message = message ..'Dakraam zolder achter is open, '			
 			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
-			   domoticz.notify('De eetkamerdeur is open',domoticz.PRIORITY_HIGH)
+			    message = message ..'De eetkamerdeur is open', '
 			elseif (domoticz.devices('Balkondeur slaapkamer').state == 'Open') then
-			   domoticz.notify('Balkondeur slaapkamer is open',domoticz.PRIORITY_HIGH)
+			    message = message ..'Balkondeur slaapkamer is open, '
 			elseif (domoticz.devices('Front door').state == 'Open') then
-			   domoticz.notify('De voordeur is open',domoticz.PRIORITY_HIGH)
+			    message = message ..'De voordeur is open, '
 			elseif (domoticz.devices('Balkondeur Nienke').state == 'Open') then
-			   domoticz.notify('Balkondeur Nienke is open',domoticz.PRIORITY_HIGH)
+			   message = message ..'Balkondeur Nienke is open, '
 			--elseif (MediaCenter.state == 'On') then
 			  -- domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
 			--elseif (Televisie.state == 'On') then
 			  -- domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
 			--elseif (Televisie_lage_resolutie.state == 'On') then
 			  -- domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
-			end 
+			end
+				if (message) then
+					domoticz.notify('Goto sleep', message, domoticz.PRIORITY_HIGH)
+				end
 		end,
 		sendnotification = function(domoticz,not_title,not_text,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
 			domoticz.notify(not_title,not_text, domoticz.LOG_INFO)
