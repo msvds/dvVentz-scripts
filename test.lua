@@ -10,8 +10,8 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
-		domoticz.devices('Bathroom-Rad').updatePercentage(10)
-		domoticz.devices('Bathroom-Stat').updateSetPoint(20)
+		domoticz.devices('Bathroom-Rad').updatePercentage(100)
+		domoticz.devices('Bathroom-Stat').updateSetPoint(19)
 		--domoticz.devices('Xiaomi Gateway Doorbell').level == 10
 		--domoticz.devices('Xiaomi Gateway Volume').level == 10
 		--domoticz.devices('Xiaomi Gateway Doorbell').switchOn()
