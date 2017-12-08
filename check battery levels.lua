@@ -27,7 +27,7 @@ return {
 
 		end)
 
-		if (message) then
+		if (string.len(message) > 5) then
 			domoticz.notify('Low battery warning', message, domoticz.PRIORITY_NORMAL)
 			domoticz.log('Low battery warning: ' .. message, domoticz.LOG_ERROR)
 		end
