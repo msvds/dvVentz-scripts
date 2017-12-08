@@ -53,7 +53,7 @@ return {
 			message = message .. 'De plant in de badkamer drinkt redelijk weinig, klopt het dat het winter of herfst is?, '
 		end
 		
-		if (message) then
+		if (string.len(message) > 5) then
 			domoticz.notify('Planten update', message, domoticz.PRIORITY_LOW)
 		end		
 	end
