@@ -65,7 +65,7 @@ return {
 			if (SomeoneHome.state == 'Off') then
 				-- woonkamer aan donker + deur open
 				if (domoticz.devices('Eetkamerdeur').state == 'Open' or domoticz.devices('Front door').state == 'Open') then
-					if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('Eetkamerdeur of voordeur open terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO) end
+					if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('Eetkamerdeur of voordeur open bij thuiskomst terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO) end
 					domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
 					end
 			end			
@@ -75,24 +75,29 @@ return {
 				domoticz.groups('Buitenlampen').switchOn().checkFirst()
 				
 			end
-		else
-			if (domoticz.time.matchesRule('at 0:30-06:00') and domoticz.devices('Beweging woonkamer').state == 'On') then
-				-- woonkamer aan nachts
-				-- between 00:30 and 6:00
-				domoticz.groups('Lampen woonkamer').switchOn().forSec(1).repeatAfterSec(1, 150)
-				domoticz.groups('Lampen woonkamer').switchOn().afterSec(300)
-				domoticz.groups('Buitenlampen').switchOn().forSec(1).repeatAfterSec(1, 150)
-				domoticz.groups('Buitenlampen').switchOn().afterSec(300)
-				domoticz.notify('Beweging woonkamer terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
-			end
-			if (domoticz.time.matchesRule('at 0:30-06:00') and domoticz.devices('Beweging garage').state == 'On') then
-				-- garage aan nachts
-				-- between 00:30 and 6:00			
-				domoticz.groups('Lampen woonkamer').switchOn().forSec(1).repeatAfterSec(1, 150)
-				domoticz.groups('Lampen woonkamer').switchOn().afterSec(300)
-				domoticz.groups('Buitenlampen').switchOn().forSec(1).repeatAfterSec(1, 150)
-				domoticz.groups('Buitenlampen').switchOn().afterSec(300)
-				domoticz.notify('Beweging garage terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
+		end
+		if (domoticz.time.matchesRule('at 0:30-06:00') and domoticz.devices('Beweging woonkamer').state == 'On') then
+			-- woonkamer aan nachts
+			-- between 00:30 and 6:00
+			domoticz.groups('Lampen woonkamer').switchOn().forSec(1).repeatAfterSec(1, 150)
+			domoticz.groups('Lampen woonkamer').switchOn().afterSec(300)
+			domoticz.groups('Buitenlampen').switchOn().forSec(1).repeatAfterSec(1, 150)
+			domoticz.groups('Buitenlampen').switchOn().afterSec(300)
+			domoticz.notify('Beweging woonkamer terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
+		end
+		if (domoticz.time.matchesRule('at 0:30-06:00') and domoticz.devices('Beweging garage').state == 'On') then
+			-- garage aan nachts
+			-- between 00:30 and 6:00			
+			domoticz.groups('Lampen woonkamer').switchOn().forSec(1).repeatAfterSec(1, 150)
+			domoticz.groups('Lampen woonkamer').switchOn().afterSec(300)
+			domoticz.groups('Buitenlampen').switchOn().forSec(1).repeatAfterSec(1, 150)
+			domoticz.groups('Buitenlampen').switchOn().afterSec(300)
+			domoticz.notify('Beweging garage terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
+		end
+		if (domoticz.devices('Beweging kamer Lars').state == 'On') then
+			domoticz.log('MC_PIR_kamerLars = ' ..domoticz.globalData.MC_PIR_kamerLars)
+			if (domoticz.globalData.MC_PIR_kamerLars > 5) then
+				domoticz.devices('Roomlars-Stat').updateSetPoint(21)
 			end
 		end
 	end
