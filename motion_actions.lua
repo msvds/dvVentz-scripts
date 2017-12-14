@@ -22,7 +22,7 @@ return {
 				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 				if (domoticz.devices('Schemerlamp deur').state == 'Off') then domoticz.log('Beweging woonkamer ochtends terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO) end
 				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
-				if (domoticz.devices('amp spoelb keuken').state == 'Off') then domoticz.log('Beweging woonkamer ochtends terwijl het donker is, lamp spoelbak keuken aangezet', domoticz.LOG_INFO) end
+				if (domoticz.devices('Lamp spoelb keuken').state == 'Off') then domoticz.log('Beweging woonkamer ochtends terwijl het donker is, lamp spoelbak keuken aangezet', domoticz.LOG_INFO) end
 			elseif (domoticz.time.matchesRule('at 01:00-06:00') and domoticz.devices('Beweging woonkamer').state == 'On') then
 				-- woonkamer nachts + donker
 				domoticz.log('Beweging nachts in de woonkamer!')			
