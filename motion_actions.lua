@@ -83,7 +83,7 @@ return {
 			domoticz.groups('Lampen woonkamer').switchOn().afterSec(300)
 			domoticz.groups('Buitenlampen').switchOn().forSec(1).repeatAfterSec(1, 150)
 			domoticz.groups('Buitenlampen').switchOn().afterSec(300)
-			domoticz.notify('Beweging woonkamer terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
+			--domoticz.notify('Beweging woonkamer terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
 		end
 		if (domoticz.time.matchesRule('at 0:30-06:00') and domoticz.devices('Beweging garage').state == 'On') then
 			-- garage aan nachts
@@ -92,7 +92,7 @@ return {
 			domoticz.groups('Lampen woonkamer').switchOn().afterSec(300)
 			domoticz.groups('Buitenlampen').switchOn().forSec(1).repeatAfterSec(1, 150)
 			domoticz.groups('Buitenlampen').switchOn().afterSec(300)
-			domoticz.notify('Beweging garage terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
+			--domoticz.notify('Beweging garage terwijl het donker is, inbreker?', domoticz.PRIORITY_HIGH)
 		end
 		if (domoticz.devices('Beweging kamer Lars').state == 'On') then
 			domoticz.log('MC_PIR_kamerLars = ' ..domoticz.globalData.MC_PIR_kamerLars)
