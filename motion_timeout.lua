@@ -8,6 +8,7 @@ return {
 	execute = function(domoticz, device)
 		local NM_timeout_floor1 = 30
 		local NM_timeout_floor2 = 10
+		local NM_timeout_kamerLars = 30
 		local Time = require('Time')
 		--local MediaCenter = domoticz.devices(11)
 		--local Televisie = domoticz.devices(7)
@@ -45,6 +46,11 @@ return {
 				domoticz.devices('Dimmer bed Suzanne').switchOff()
 				domoticz.log('No movement floor2 timeout is reached -> dimmer suzanne slaapkamer uitgezet')
 			end
-		end		
+		end
+		if (domoticz.globalData.NMC_PIR_kamerLars > NM_timeout_kamerLars) then
+			if (domoticz.devices('Roomlars-Stat').SetPoint == '21') then
+				domoticz.devices('Roomlars-Stat').updateSetPoint(15)
+				domoticz.log('No movement kamer Lars timeout is reached -> verwarming Lars naar 15 graden gezet')
+			end
 	end
 }
