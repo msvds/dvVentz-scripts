@@ -96,7 +96,7 @@ return {
 		end
 		if (domoticz.devices('Beweging kamer Lars').state == 'On') then
 			domoticz.log('MC_PIR_kamerLars = ' ..domoticz.globalData.MC_PIR_kamerLars)
-			if (domoticz.globalData.MC_PIR_kamerLars > 5) then
+			if (domoticz.globalData.MC_PIR_kamerLars > 5 and domoticz.devices('Temperatuur Kamer Lars').temperature <= 19) then
 				domoticz.devices('Roomlars-Stat').updateSetPoint(21)
 			end
 		end
