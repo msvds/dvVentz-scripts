@@ -113,7 +113,7 @@ return {
 			message = message ..'De gashaard is uitgezet omdat het warmer is dan 25 graden in de woonkamer' 
 		
 		end
-		if (string.len(message) > 5 and domoticz.globalData.temperature_message_interval > message_interval) then
+		if (string.len(message) > 5 and domoticz.globalData.temperature_message_interval > message_interval and domoticz.devices('Notifications').level == 20) then
 			domoticz.notify('Temperatuur waarschuwing',message,domoticz.PRIORITY_LOW)
 			domoticz.globalData.temperature_message_interval = 0
 		end
