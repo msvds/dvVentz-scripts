@@ -284,12 +284,14 @@ return {
 			--elseif (Televisie_lage_resolutie.state == 'On') then
 			  -- domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
 			end
-			if (string.len(message) > 5) then
+			if (string.len(message) > 5 and domoticz.devices('Notifications').level ~= 0) then
 				domoticz.notify('Goto sleep', message, domoticz.PRIORITY_HIGH)
 			end
 		end,
 		sendnotification = function(domoticz,not_title,not_text,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
-			domoticz.notify(not_title,not_text, domoticz.LOG_INFO)
+			if (domoticz.devices('Notifications').level == 20) then
+				domoticz.notify(not_title,not_text, domoticz.LOG_INFO)
+			end
 			domoticz.devices('Schemerlamp deur').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
 			domoticz.devices('Lamp spoelb keuken').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
 			domoticz.devices('Lamp boven TV').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
