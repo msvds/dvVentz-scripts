@@ -76,7 +76,7 @@ return {
 		end
 		
 		if (domoticz.devices('Vochtigheid Woonkamer').humidity - domoticz.data.woonk.avg() > 8) then
-			domoticz.notify('Grote stijging in vochtigheid woonkamer','De vochtigheid stijgt snel in de woonkamer, namelijk het verschil in vochtigheid met het gemiddelde van de afgelopen 24 uur is ' ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity - domoticz.data.woonk.avg()) ..'. Misschien moet de afzuigkap aan?',domoticz.PRIORITY_LOW)  
+			message = message ..'De vochtigheid stijgt snel in de woonkamer, namelijk het verschil in vochtigheid met het gemiddelde van de afgelopen 24 uur is ' ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity - domoticz.data.woonk.avg()) ..'. Misschien moet de afzuigkap aan?'  
 		end
 		
 		if (domoticz.devices('Vochtigheid Bijkeuken').humidity > 65) then
@@ -88,7 +88,7 @@ return {
 				message = message ..'De vochtigheid in de bijkeuken begint hoog te worden, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Bijkeuken').humidity) .. '. Buiten is de vochtigheid hoger, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) ..' dus een raampje open zetten helpt helaas niet. De gemiddelde vochtigheid in de bijkeuken de afgelopen 24 uur was ' ..tonumber(domoticz.data.bijkeuken.avg()) ..'.\r'  
 			end
 		end
-		if (string.len(message) > 5 and domoticz.globalData.humidity_message_interval > message_interval) then
+		if (string.len(message) > 5 and domoticz.globalData.humidity_message_interval > message_interval and domoticz.devices('Notifications').level == 20) then
 			domoticz.notify('Vochtigheid',message,domoticz.PRIORITY_LOW)
 			domoticz.globalData.humidity_message_interval = 0
 		end
