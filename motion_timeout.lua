@@ -52,5 +52,6 @@ return {
 				domoticz.devices('Roomlars-Stat').updateSetPoint(15)
 				domoticz.log('No movement kamer Lars timeout is reached -> verwarming Lars naar 15 graden gezet')
 			end
+		end
 	end
 }
