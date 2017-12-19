@@ -39,9 +39,11 @@ _C.helpers = {
 	alarmZoneError = function(domoticz, alarmZone)
 		-- An error occurred for an alarm zone. Maybe a door was open when we tried to
 		-- arm the zone. Anyway we should do something about it.
-		domoticz.notify('Alarm Zone Error!',
-			'There was an error for the alarm zone ' .. alarmZone.name,
-			domoticz.PRIORITY_HIGH)
+		if (domoticz.devices('Notifications').level ~= 0) then
+			domoticz.notify('Alarm Zone Error!',
+				'There was an error for the alarm zone ' .. alarmZone.name,
+				domoticz.PRIORITY_HIGH)
+		end
 	end,
 
 	alarmZoneArmingWithTrippedSensors = function(domoticz, alarmZone, armingMode)
@@ -57,9 +59,11 @@ _C.helpers = {
 		end
 		if msg ~= '' then
 			msg = 'Open sections in '..alarmZone.name..'. '..msg
-			domoticz.notify('Open sections when arming',
-				msg .. alarmZone.name,
-				domoticz.PRIORITY_HIGH)
+			if (domoticz.devices('Notifications').level ~= 0) then
+				domoticz.notify('Open sections when arming',
+					msg .. alarmZone.name,
+					domoticz.PRIORITY_HIGH)
+			end
 		end
 	end,
 
