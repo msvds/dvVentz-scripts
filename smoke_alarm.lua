@@ -10,10 +10,10 @@ return {
 	execute = function(domoticz, device)
 		if (device.state == 'On') then
 			domoticz.helpers.sendnotification(domoticz,'Brand!','Een rookmelder gaat af',domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,1,180,1)
-			if (device.name == 'Smoke Detector Zolder' and domoticz.devices('Notifications').level <> 0) then 
+			if (device.name == 'Smoke Detector Zolder' and domoticz.devices('Notifications').level ~= 0) then 
 				domoticz.notify('Brand!', "De rookmelder in de hal boven gaat af" ,domoticz.PRIORITY_HIGH) 
 			end
-			if (device.name == 'Smoke Detector Keuken' and domoticz.devices('Notifications').level <> 0) then 
+			if (device.name == 'Smoke Detector Keuken' and domoticz.devices('Notifications').level ~= 0) then 
 				domoticz.notify('Brand!', "De rookmelder in de keuken boven gaat af" ,domoticz.PRIORITY_HIGH) 
 			end
 			if (device.name == 'Test Switch') then 
