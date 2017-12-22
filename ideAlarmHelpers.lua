@@ -32,7 +32,8 @@ _C.helpers = {
 
 		if alarmZone.name == 'My Home' then
 			-- Let's do something here
-			domoticz.helpers.sendnotification(domoticz,'Alarm gaat af!','Het alarm gaat af doordat sensor ' ..trippedSensors ' is getriggerd' , domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,3,5,5)
+			domoticz.helpers.sendnotification(domoticz,'Alarm gaat af!','Het alarm gaat af doordat sensor ' ..trippedSensors ' is getriggerd')
+			domoticz.helpers.flash_lights(domoticz,domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,3,5,5)
 		end
 	end,
 
