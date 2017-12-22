@@ -30,6 +30,7 @@ return {
 		if (string.len(message) > 5 and domoticz.devices('Notifications').level == 20) then
 			domoticz.notify('Low battery warning', message, domoticz.PRIORITY_NORMAL)
 			domoticz.log('Low battery warning: ' .. message, domoticz.LOG_ERROR)
+			domoticz.devices('Notification').updateText(message)
 		end
 	end
 }
