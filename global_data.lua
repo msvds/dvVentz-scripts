@@ -294,38 +294,37 @@ return {
 			end
 		end,
 		flash_lights = function(domoticz,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
-			if (domoticz.devices('Notifications').level == 20) then
-				domoticz.notify(not_title,not_text, domoticz.LOG_INFO)
-			end
-			domoticz.devices('Schemerlamp deur').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
-			domoticz.devices('Lamp spoelb keuken').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
-			domoticz.devices('Lamp boven TV').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
-			domoticz.devices('Lamp bank').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)			
-			domoticz.devices('Lamp hal boven').switchOn().forSec(1).repeatAfterSec(repetitiondelay, repetition)
-			if start_state_schemerlamp_deur == 'On' then
-				domoticz.devices('Schemerlamp deur').switchOn().afterSec(30)
-			else
-				domoticz.devices('Schemerlamp deur').switchOff().afterSec(30)
-			end
-			if start_state_lamp_spoelb_keuken == 'On' then
-				domoticz.devices('Lamp spoelb keuken').switchOn().afterSec(30)
-			else
-				domoticz.devices('Lamp spoelb keuken').switchOff().afterSec(30)
-			end
-			if start_state_domoticz.devices('Lamp boven TV') == 'On' then
-				domoticz.devices('Lamp boven TV').switchOn().afterSec(30)
-			else
-				domoticz.devices('Lamp boven TV').switchOff().afterSec(30)
-			end
-			if start_state_schemerstart_state_schemerlamp_bank == 'On' then
-				schemerdomoticz.devices('Lamp bank').switchOn().afterSec(30)
-			else
-				schemerdomoticz.devices('Lamp bank').switchOff().afterSec(30)
-			end
-			if start_state_start_state_lamp_hal_boven == 'On' then
-				domoticz.devices('Lamp hal boven').switchOn().afterSec(30)
-			else
-				domoticz.devices('Lamp hal boven').switchOff().afterSec(30)
+			if (domoticz.devices('Flash lights').state == 'On') then
+				domoticz.devices('Schemerlamp deur').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
+				domoticz.devices('Lamp spoelb keuken').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
+				domoticz.devices('Lamp boven TV').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
+				domoticz.devices('Lamp bank').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)			
+				domoticz.devices('Lamp hal boven').switchOn().forSec(1).repeatAfterSec(repetitiondelay, repetition)
+				if start_state_schemerlamp_deur == 'On' then
+					domoticz.devices('Schemerlamp deur').switchOn().afterSec(30)
+				else
+					domoticz.devices('Schemerlamp deur').switchOff().afterSec(30)
+				end
+				if start_state_lamp_spoelb_keuken == 'On' then
+					domoticz.devices('Lamp spoelb keuken').switchOn().afterSec(30)
+				else
+					domoticz.devices('Lamp spoelb keuken').switchOff().afterSec(30)
+				end
+				if start_state_domoticz.devices('Lamp boven TV') == 'On' then
+					domoticz.devices('Lamp boven TV').switchOn().afterSec(30)
+				else
+					domoticz.devices('Lamp boven TV').switchOff().afterSec(30)
+				end
+				if start_state_schemerstart_state_schemerlamp_bank == 'On' then
+					schemerdomoticz.devices('Lamp bank').switchOn().afterSec(30)
+				else
+					schemerdomoticz.devices('Lamp bank').switchOff().afterSec(30)
+				end
+				if start_state_start_state_lamp_hal_boven == 'On' then
+					domoticz.devices('Lamp hal boven').switchOn().afterSec(30)
+				else
+					domoticz.devices('Lamp hal boven').switchOff().afterSec(30)
+				end
 			end
 		end
     	},
