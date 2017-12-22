@@ -48,9 +48,9 @@ return {
 			end
 		end
 		if (domoticz.globalData.NMC_PIR_kamerLars > NM_timeout_kamerLars) then
-			if (domoticz.devices('Roomlars-Stat').SetPoint ~= '15') then
-				domoticz.devices('Roomlars-Stat').updateSetPoint(15)
-				domoticz.log('No movement kamer Lars timeout is reached -> verwarming Lars naar 15 graden gezet')
+			if (domoticz.devices('Roomlars-Stat').SetPoint ~= '10') then
+				domoticz.devices('Roomlars-Stat').updateSetPoint(10)
+				domoticz.log('No movement kamer Lars timeout is reached -> verwarming Lars naar 10 graden gezet')
 			end
 		end
 	end
