@@ -20,7 +20,7 @@ return {
 		--domoticz.helpers.changeToonScene(domoticz,'30','gewoon omdat',false,currentSetpoint,currentActiveState)
 		--domoticz.helpers.changeToonScene(domoticz,'40','gewoon omdat',false,currentSetpoint,currentActiveState)
 		--domoticz.helpers.changeToonScene(domoticz,'50','gewoon omdat',false,currentSetpoint,currentActiveState)
-		domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gashaard aangezet is',false,domoticz.helpers.currentSetpoint(domoticz))
+		domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gashaard aangezet is',false,currentSetpoint)
 		domoticz.helpers.changeSetPoint(domoticz,'12','omdat de gashaard aangezet is',false,domoticz.helpers.currentSetpoint(domoticz))
 		--domoticz.log('Huidige setpoint is '.. currentSetpoint)
 		--domoticz.log('Huidige ActiveState is '.. currentActiveState)
