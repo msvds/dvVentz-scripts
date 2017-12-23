@@ -55,7 +55,7 @@ return {
 		
 		if (string.len(message) > 5 and domoticz.devices('Notifications').level == 20) then
 			domoticz.notify('Planten update', message, domoticz.PRIORITY_LOW)
-			domoticz.devices('Notification').updateText(message)
+			--domoticz.devices('Notification').updateText(message)
 		end		
 	end
 }
