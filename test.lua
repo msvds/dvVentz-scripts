@@ -10,8 +10,17 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
+		
+		currentSetpoint = domoticz.helpers.currentSetpoint(domoticz)
+		currentActiveState = domoticz.helpers.currentActiveState(domoticz)
+		domoticz.log('Huidige setpoint is '.. currentSetpoint)
+		domoticz.log('Huidige setpoint is '.. currentActiveState)
+		domoticz.helpers.changeToonScene(domoticz,'10','gewoon omdat',false,currentSetpoint,currentActiveState)
+		domoticz.log('Huidige setpoint is '.. currentSetpoint)
+		domoticz.log('Huidige setpoint is '.. currentActiveState)
+		--domoticz.helpers.changeToonScene(domoticz,'10','gewoon omdat',false,domoticz.helpers.currentSetpoint(domoticz),domoticz.helpers.currentActiveState(domoticz))
 		--domoticz.devices('Bathroom-Rad').updatePercentage(100)
-		domoticz.devices('Bathroom-Stat').updateSetPoint(19)
+		--domoticz.devices('Bathroom-Stat').updateSetPoint(19)
 		--domoticz.devices('Xiaomi Gateway Doorbell').level == 10
 		--domoticz.devices('Xiaomi Gateway Volume').level == 10
 		--domoticz.devices('Xiaomi Gateway Doorbell').switchOn()
