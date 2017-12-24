@@ -98,6 +98,9 @@ return {
 			domoticz.log('MC_PIR_kamerLars = ' ..domoticz.globalData.MC_PIR_kamerLars)
 			if (domoticz.globalData.MC_PIR_kamerLars > 10 and domoticz.devices('Temperatuur Kamer Lars').temperature <= 19) then
 				domoticz.devices('Roomlars-Stat').updateSetPoint(21)
+				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
+				domoticz.devices('Toon Scenes').switchSelector(40)
+				domoticz.log('Toon Scenes gezet op Comfort (40) omdat ddoor beweging in kamer Lars de verwarming daar is aangedaan')
 			end
 		end
 	end
