@@ -11,7 +11,7 @@ return {
         local ToonAutoProgramSensorName = domoticz.variables('UV_ToonAutoProgramSensorName').value -- Sensor showing current auto program status
         local ToonProgramInformationSensorName = domoticz.variables('UV_ToonProgramInformationSensorName').value -- Sensor showing displaying program information status
         local ToonIP = domoticz.variables('UV_ToonIP').value
-        local DomoticzIP = domoticz.variables('UV_DomoticzIP').value
+        local DomoticzIP = '192.168.178.2'
     
         -- Handle json
         --local json = assert(loadfile "C:\\Program Files (x86)\\Domoticz\\scripts\\lua\\json.lua")()  -- For Windows
