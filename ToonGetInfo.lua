@@ -7,7 +7,7 @@ return {
 	execute = function(domoticz)
         local ToonThermostatSensorName = domoticz.variables('UV_ToonThermostatSensorName').value -- Sensor showing current setpoint
         local ToonTemperatureSensorName = domoticz.variables('UV_ToonTemperatureSensorName').value -- Sensor showing current room temperature
-        local ToonScenesSensorName  = domoticz.variables('UV_ToonScenesSensorName').value -- Sensor showing current program
+        local ToonScenesSensorName  = domoticz.variables('UV_ScenesSensorName').value -- Sensor showing current program
         local ToonAutoProgramSensorName = domoticz.variables('UV_ToonAutoProgramSensorName').value -- Sensor showing current auto program status
         local ToonProgramInformationSensorName = domoticz.variables('UV_ToonProgramInformationSensorName').value -- Sensor showing displaying program information status
         local ToonIP = domoticz.variables('UV_ToonIP').value
