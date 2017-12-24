@@ -14,7 +14,7 @@ return {
 		--domoticz.log('Huidige currentSetpoint is '.. currentSetpoint)
 		--domoticz.log('Verander currentSetpoint naar 10')
 		--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-		domoticz.devices('Toon Scenes').switchSelector(20)
+		domoticz.devices('Toon Scenes').switchSelector(30)
 		--domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gashaard aangezet is',false,domoticz.helpers.currentSetpoint(domoticz))
 		--domoticz.log('Nieuwe currentSetpoint is '.. currentSetpoint)
 		--domoticz.log('Huidige setpoint is '.. currentSetpoint)
