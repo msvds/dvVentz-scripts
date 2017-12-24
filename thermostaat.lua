@@ -42,7 +42,10 @@ return {
 					if debug then domoticz.log('script_time_thermostaat: De buiten temperatuur is ' ..temp_buiten.temperature .. ' graden') end
 					--changeSetPoint('12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false)
 					--domoticz.helpers.changeSetPoint(domoticz,'12',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint,currentActiveState)
-					domoticz.helpers.changeToonScene(domoticz,'10',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint,currentActiveState)
+					--domoticz.helpers.changeToonScene(domoticz,'10',' omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden',false,currentSetpoint,currentActiveState)
+					--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
+					domoticz.devices('Toon Scenes').switchSelector(10)
+					domoticz.log('Toon Scenes gezet op Away (10) omdat het buiten warmer is dan ' ..Temperature_limit .. ' graden')
 				end
 			end
 			--Do something when no movement timeout is reached
@@ -50,7 +53,10 @@ return {
 				if currentActiveState ~=  3 then
 					if debug then domoticz.log('thermostaat.lua: domoticz.globalData.NMC_Overall: ' ..domoticz.globalData.NMC_Overall) end
 					--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',true,currentSetpoint,currentActiveState)
-					domoticz.helpers.changeToonScene(domoticz,'10','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',false,currentSetpoint,currentActiveState)
+					--domoticz.helpers.changeToonScene(domoticz,'10','omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is',false,currentSetpoint,currentActiveState)
+					--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
+					domoticz.devices('Toon Scenes').switchSelector(10)
+					domoticz.log('Toon Scenes gezet op Away (10) omdat de total no movement timout van ' ..NM_timeout .. ' bereikt is')
 				end
 			end
 			--Do something when open doors timeout is reached
@@ -58,7 +64,10 @@ return {
 				if currentActiveState ~=  3 then
 					if debug then domoticz.log('thermostaat.lua: domoticz.globalData.OpenC_Floor1: ' ..domoticz.globalData.OpenC_Floor1) end
 					--domoticz.helpers.changeSetPoint(domoticz,'12','omdat de total open timout van ' ..Open_timeout .. ' bereikt is',true,currentSetpoint,currentActiveState)
-					domoticz.helpers.changeToonScene(domoticz,'10','omdat de floor1 open timout van ' ..Open_timeout .. ' bereikt is',false,currentSetpoint,currentActiveState)
+					--domoticz.helpers.changeToonScene(domoticz,'10','omdat de floor1 open timout van ' ..Open_timeout .. ' bereikt is',false,currentSetpoint,currentActiveState)
+					--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
+					domoticz.devices('Toon Scenes').switchSelector(10)
+					domoticz.log('Toon Scenes gezet op Away (10) omdat de floor1 open timout van ' ..Open_timeout .. ' bereikt is')
 				end
 			end			
 		else
