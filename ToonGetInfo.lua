@@ -15,7 +15,7 @@ return {
     
         -- Handle json
         --local json = assert(loadfile "C:\\Program Files (x86)\\Domoticz\\scripts\\lua\\json.lua")()  -- For Windows
-        local json = assert(loadfile "/home/maes/domoticz/scripts/lua/JSON.lua")()  -- For Linux
+        local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux
         
         local handle = assert(io.popen(string.format('curl http://%s/happ_thermstat?action=getThermostatInfo', ToonIP)))
             local ThermostatInfo = handle:read('*all')
