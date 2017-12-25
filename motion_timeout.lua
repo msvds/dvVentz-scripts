@@ -52,8 +52,8 @@ return {
 				domoticz.devices('Roomlars-Stat').updateSetPoint(10)
 				domoticz.log('No movement kamer Lars timeout is reached -> verwarming Lars naar 10 graden gezet')
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-				domoticz.devices('Toon Scenes').switchSelector(30)
-				domoticz.log('Toon Scenes teruggezet op Home (30) door beweging timeout in kamer Lars de verwarming daar is uitgezet')
+				--domoticz.devices('Toon Scenes').switchSelector(30)
+				--domoticz.log('Toon Scenes teruggezet op Home (30) door beweging timeout in kamer Lars de verwarming daar is uitgezet')
 			end
 		end
 	end
