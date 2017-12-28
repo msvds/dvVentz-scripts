@@ -116,7 +116,7 @@ return {
 		if (string.len(message) > 5 and domoticz.globalData.temperature_message_interval > message_interval and domoticz.devices('Notifications').level == 20) then
 			domoticz.notify('Temperatuur waarschuwing',message,domoticz.PRIORITY_LOW)
 			domoticz.globalData.temperature_message_interval = 0
-			--domoticz.devices('Notification').updateText(message)
+			domoticz.devices('Status Notifications').updateText(message).silent()
 		end
 		
 	end
