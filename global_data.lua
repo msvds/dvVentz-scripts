@@ -247,6 +247,7 @@ return {
 			end
 			if (string.len(message) > 5) then
 				domoticz.notify('Door and windows check', message, domoticz.PRIORITY_HIGH)
+				domoticz.devices('Status Notifications').updateText(message).silent()
 			end
 		end,
 		gotosleep = function(domoticz)
@@ -286,13 +287,13 @@ return {
 			end
 			if (string.len(message) > 5 and domoticz.devices('Notifications').level ~= 0) then
 				domoticz.notify('Goto sleep', message, domoticz.PRIORITY_HIGH)
-				--domoticz.devices('Notification').updateText(message)
+				domoticz.devices('Status Notifications').updateText(message).silent()
 			end
 		end,
 		sendnotification = function(domoticz,not_title,not_text)
 			if (domoticz.devices('Notifications').level == 20) then
 				domoticz.notify(not_title,not_text, domoticz.LOG_INFO)
-				--domoticz.devices('Notification').updateText(not_text)
+				domoticz.devices('Status Notifications').updateText(not_text).silent()
 			end
 		end,
 		flash_lights = function(domoticz,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
