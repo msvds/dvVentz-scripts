@@ -47,6 +47,7 @@ return {
 		lastSeenGentleBreeze = { history = true, maxItems = 1 }
 	},
 	execute = function(domoticz, device, triggerInfo)
+		domoticz.log('Wind', LOG_LEVEL)
 		local LOG_LEVEL = domoticz.LOG_DEBUG -- Script default log level. You may change this.
 		if (triggerInfo.type == domoticz.EVENT_TYPE_TIMER) then
 			-- Timer event occurred
