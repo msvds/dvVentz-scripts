@@ -46,7 +46,7 @@ return {
 		lastSeenModerateBreeze = { history = true, maxItems = 1 },
 		lastSeenGentleBreeze = { history = true, maxItems = 1 }
 	},
-	execute = function(domoticz, windDevice, triggerInfo)
+	execute = function(domoticz, device, triggerInfo)
 		local LOG_LEVEL = domoticz.LOG_DEBUG -- Script default log level. You may change this.
 		if (triggerInfo.type == domoticz.EVENT_TYPE_TIMER) then
 			-- Timer event occurred
@@ -106,12 +106,12 @@ return {
 			end
 		else
 			-- Device event occurred
-			local sWindDirectionDegrees = tonumber(windDevice.rawData[1])
-			local sWindDirection = windDevice.rawData[2]
-			local sWindSpeed = tonumber(windDevice.rawData[3]) * 0.1
-			local sWindGust = tonumber(windDevice.rawData[4]) * 0.1
-			local sWindTemperature = tonumber(windDevice.rawData[5])
-			local sWindChill = tonumber(windDevice.rawData[6])
+			local sWindDirectionDegrees = tonumber(device.rawData[1])
+			local sWindDirection = device.rawData[2]
+			local sWindSpeed = tonumber(device.rawData[3]) * 0.1
+			local sWindGust = tonumber(device.rawData[4]) * 0.1
+			local sWindTemperature = tonumber(device.rawData[5])
+			local sWindChill = tonumber(device.rawData[6])
 
 			domoticz.log('______________________________________________________________________________________', LOG_LEVEL)
 			domoticz.log('Windmeter: Winddirection (in degrees) is: '..sWindDirectionDegrees, LOG_LEVEL)
