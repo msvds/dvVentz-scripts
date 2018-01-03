@@ -5,7 +5,6 @@ Version 1.0.2
 local WIND_DATA_MAX_AGE = 30
 local ALERT_SENSOR = 'Wind Alert'
 local WIND_DEVICE = 'Wind'
-
 local WIND_HURRICANE_TEXT = 'Orkaan. Meer dan 32,7 m/s'
 local WIND_VIOLENT_STORM_TEXT = 'Zware storm. 28,5–32,6 m/s'
 local WIND_STORM_TEXT = 'Storm. 24,5–28,4 m/s'
@@ -31,8 +30,8 @@ local WIND_GENTLE_BREEZE_LEVEL = 3.4
 return {
 	active = true,
 	on = {
-		WIND_DEVICE,
-		['timer'] = 'every minute'
+		timer = {'every minute'},
+		devices = {'Wind'},
 	},
 	data = {
 		lastSeenHurricane = { history = true, maxItems = 1 },
