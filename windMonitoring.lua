@@ -48,6 +48,8 @@ return {
 	execute = function(domoticz, device, triggerInfo)
 		domoticz.log('Wind', LOG_LEVEL)
 		local LOG_LEVEL = domoticz.LOG_DEBUG -- Script default log level. You may change this.
+		domoticz.log('triggerInfo.type ' ..triggerInfo.type, LOG_LEVEL)
+		domoticz.log('domoticz.EVENT_TYPE_TIMER ' ..domoticz.EVENT_TYPE_TIMER, LOG_LEVEL)
 		if (triggerInfo.type == domoticz.EVENT_TYPE_TIMER) then
 			-- Timer event occurred
 
@@ -68,6 +70,7 @@ return {
 			local alertLevel = domoticz.ALERTLEVEL_GREY
 			local alertText = WIND_CALM_TO_LIGHT_BREEZE_TEXT
 			local alertSensor = domoticz.devices('Wind Alert')
+			domoticz.log('domoticz.data[lastSeenHurricane].getLatest().time.minutesAgo' ..domoticz.data['lastSeenHurricane'].getLatest().time.minutesAgo, LOG_LEVEL)
 			if (domoticz.data['lastSeenHurricane'].getLatest().time.minutesAgo < WIND_DATA_MAX_AGE) then
 				alertLevel = domoticz.ALERTLEVEL_RED
 				alertText = WIND_HURRICANE_TEXT
@@ -112,7 +115,7 @@ return {
 			local sWindGust = tonumber(device.rawData[4]) * 0.1
 			local sWindTemperature = tonumber(device.rawData[5])
 			local sWindChill = tonumber(device.rawData[6])
-
+			
 			domoticz.log('______________________________________________________________________________________', LOG_LEVEL)
 			domoticz.log('Windmeter: Winddirection (in degrees) is: '..sWindDirectionDegrees, LOG_LEVEL)
 			domoticz.log('Windmeter: Winddirection is: '..sWindDirection, LOG_LEVEL)
