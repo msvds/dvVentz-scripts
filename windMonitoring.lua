@@ -3,8 +3,8 @@ windMonitoring.lua by BakSeeDaa
 Version 1.0.2
 --]]
 local WIND_DATA_MAX_AGE = 30
-local ALERT_SENSOR = 'Wind Alert'
-local WIND_DEVICE = 'Wind'
+--local ALERT_SENSOR = 'Wind Alert'
+--local WIND_DEVICE = 'Wind Klundert'
 local WIND_HURRICANE_TEXT = 'Orkaan. Meer dan 32,7 m/s'
 local WIND_VIOLENT_STORM_TEXT = 'Zware storm. 28,5–32,6 m/s'
 local WIND_STORM_TEXT = 'Storm. 24,5–28,4 m/s'
@@ -31,7 +31,7 @@ return {
 	active = true,
 	on = {
 		timer = {'every minute'},
-		devices = {'Wind'},
+		devices = {'Wind Klundert'},
 	},
 	data = {
 		lastSeenHurricane = { history = true, maxItems = 1 },
