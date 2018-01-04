@@ -67,7 +67,7 @@ return {
 			-- Update the Wind Alert virtual sensor
 			local alertLevel = domoticz.ALERTLEVEL_GREY
 			local alertText = WIND_CALM_TO_LIGHT_BREEZE_TEXT
-			local alertSensor = domoticz.devices[ALERT_SENSOR]
+			local alertSensor = domoticz.devices('Wind Alert')
 			if (domoticz.data['lastSeenHurricane'].getLatest().time.minutesAgo < WIND_DATA_MAX_AGE) then
 				alertLevel = domoticz.ALERTLEVEL_RED
 				alertText = WIND_HURRICANE_TEXT
