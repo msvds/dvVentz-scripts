@@ -28,6 +28,9 @@ return {
         end
         
         local currentSetpoint = tonumber(jsonThermostatInfo.currentSetpoint) / 100
+	if currentSetpoint == nil then
+            return
+        end
         local currentTemperature = tonumber(jsonThermostatInfo.currentTemp) / 100
         local currentProgramState = tonumber(jsonThermostatInfo.programState)
             if currentProgramState == 0 then currentProgramState = 10 -- No
