@@ -10,7 +10,7 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
-		domoticz.devices('White Temp Yeelight').level == 20 
+		domoticz.devices('White Temp Yeelight').dimTo(20)
 		domoticz.devices('Yeelight lamp bank').switchOn().checkFirst()
 		--domoticz.log('Huidige currentSetpoint is '.. currentSetpoint)
 		--domoticz.log('Verander currentSetpoint naar 10')
