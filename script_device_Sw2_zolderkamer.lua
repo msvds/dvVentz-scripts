@@ -2,7 +2,7 @@ return {
 	active = true, -- set to false to disable this script
 	on = {
 		devices = {
-			'Sw2' -- Switch chill kamer
+			'Sw2_chillkamer' -- Switch chill kamer
 		},
 	},
 
