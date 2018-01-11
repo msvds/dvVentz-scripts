@@ -15,6 +15,9 @@ return {
 				-- woonkamer aan avonds + donker
 				-- between 16:00 and 1:00 then next day
 				domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
+				domoticz.devices('White Temp Yeelight bank').dimTo(20)
+				domoticz.devices('Yeelight Dimmer bank').dimTo(50)
+				domoticz.devices('Yeelight bank').switchOn().checkFirst()
 				if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO) end
 
 			elseif (domoticz.time.matchesRule('at 06:00-09:00') and domoticz.devices('Beweging woonkamer').state == 'On' and domoticz.devices('Sw1_woonkamerdeur').lastUpdate.minutesAgo > 30  and IsDark.state == 'On') then
