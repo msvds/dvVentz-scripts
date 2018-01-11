@@ -12,6 +12,7 @@ return {
 	execute = function(domoticz, device)
 		domoticz.devices('White Temp Yeelight bank').dimTo(20)
 		domoticz.devices('Yeelight Dimmer bank').dimTo(50)
+		domoticz.devices('Yeelight bank').switchOn()
 		--domoticz.log('Huidige currentSetpoint is '.. currentSetpoint)
 		--domoticz.log('Verander currentSetpoint naar 10')
 		--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
