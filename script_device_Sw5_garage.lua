@@ -2,7 +2,7 @@ return {
 	active = true, -- set to false to disable this script
 	on = {
 		devices = {
-			'Sw5' -- Switch garage
+			'Sw5_garage' -- Switch garage
 		},
 	},
 
