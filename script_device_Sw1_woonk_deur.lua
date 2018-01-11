@@ -2,7 +2,7 @@ return {
 	active = true, -- set to false to disable this script
 	on = {
 		devices = {
-			'Sw1' -- Switch naast woonkamerdeur
+			'Sw1_woonkamerdeur' -- Switch naast woonkamerdeur
 		},
 	},
 
