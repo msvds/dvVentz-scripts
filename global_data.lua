@@ -180,7 +180,7 @@ return {
 			if (area == 'Inside') then
 				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 				domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
-				domoticz.devices('Lamp bank').switchOff().checkFirst()
+				domoticz.devices('Yeelight bank').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
 				domoticz.devices('Lamp hal boven').switchOff().checkFirst()
@@ -191,7 +191,7 @@ return {
 			if (area == 'Floor1') then
 				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 				domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
-				domoticz.devices('Lamp bank').switchOff().checkFirst()
+				domoticz.devices('Yeelight bank').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
 				domoticz.log('Lights floor1 turned off')
@@ -207,7 +207,7 @@ return {
 		switch_all_lights_off = function(domoticz)
 			domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
-			domoticz.devices('Lamp bank').switchOff().checkFirst()
+			domoticz.devices('Yeelight bank').switchOff().checkFirst()
 			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 			domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
 			domoticz.devices('Lamp hal boven').switchOff().checkFirst()
@@ -261,7 +261,7 @@ return {
 			domoticz.devices('Status').switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			domoticz.devices('Lamp boven TV').switchOff()
 			domoticz.devices('Lamp spoelb keuken').switchOff()
-			domoticz.devices('Lamp bank').switchOff()
+			domoticz.devices('Yeelight bank').switchOff()
 			domoticz.devices('Schemerlamp deur').switchOff()
 			--domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
@@ -301,7 +301,7 @@ return {
 				domoticz.devices('Schemerlamp deur').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
 				domoticz.devices('Lamp spoelb keuken').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
 				domoticz.devices('Lamp boven TV').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
-				domoticz.devices('Lamp bank').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)			
+				domoticz.devices('Yeelight bank').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)			
 				domoticz.devices('Lamp hal boven').switchOn().forSec(1).repeatAfterSec(repetitiondelay, repetition)
 				if start_state_schemerlamp_deur == 'On' then
 					domoticz.devices('Schemerlamp deur').switchOn().afterSec(30)
@@ -319,9 +319,9 @@ return {
 					domoticz.devices('Lamp boven TV').switchOff().afterSec(30)
 				end
 				if start_state_schemerstart_state_schemerlamp_bank == 'On' then
-					schemerdomoticz.devices('Lamp bank').switchOn().afterSec(30)
+					schemerdomoticz.devices('Yeelight bank').switchOn().afterSec(30)
 				else
-					schemerdomoticz.devices('Lamp bank').switchOff().afterSec(30)
+					schemerdomoticz.devices('Yeelight bank').switchOff().afterSec(30)
 				end
 				if start_state_start_state_lamp_hal_boven == 'On' then
 					domoticz.devices('Lamp hal boven').switchOn().afterSec(30)
