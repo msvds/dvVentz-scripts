@@ -11,10 +11,12 @@ return {
 		-- Handle the Alarm Status Indicator
 		if (device.id == alarm.zones('My Home').armingModeTextDevID) then
 			if device.state == domoticz.SECURITY_DISARMED then 
-				domoticz.devices('Xiaomi RGB Gateway').switchOff() -- light off
+				domoticz.devices('Xiaomi RGB Gateway eetkamer').switchOff() -- light off
+				domoticz.devices('Xiaomi RGB Gateway eetkamer').switchOff() -- light off
 				domoticz.log('SECURITY DISARMED')
 			else
-				--domoticz.devices('Xiaomi RGB Gateway').switchOn() -- Red light on
+				--domoticz.devices('Xiaomi RGB Gateway eetkamer').switchOn() -- Red light on
+				--domoticz.devices('Xiaomi RGB Gateway hal boven').switchOn() -- Red light on
 				domoticz.log('SECURITY ARMED')
 			end
 		end
