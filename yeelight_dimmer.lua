@@ -1,9 +1,5 @@
 return {
 	active = true,
-	logging = {
-		level = domoticz.LOG_INFO,
-		marker = "TEST"
-	},
 	on = {
 		devices = {
 			'Yeelight Dimmer bank'
