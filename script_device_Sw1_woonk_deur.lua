@@ -15,13 +15,15 @@ return {
 				alarm.zones(i).disArmZone(domoticz)
 			end
 			-- Lampen aanzetten
-			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			domoticz.devices('Lamp boven TV').switchOn().checkFirst()
-			domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
-			domoticz.devices('Yeelight bank').switchOn().checkFirst()
-			domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
-			domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
-			domoticz.log('Lights turned on')
+			if IsDark.state == 'On' then
+				domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
+				domoticz.devices('Lamp boven TV').switchOn().checkFirst()
+				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+				domoticz.devices('Yeelight bank').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
+				domoticz.log('Lights turned on')
+			end
 		elseif device.state == 'Click' then
 			-- Alles uit bij gaan slapen (sleep)
 			domoticz.devices('Status').switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
