@@ -20,18 +20,12 @@ return {
 		--Do something when no movement timeout is reached
 		if (domoticz.globalData.NMC_Floor1 > NM_timeout_floor1) then
 			--if (domoticz.devices('Sony TV').state == 'Off') then
-			--if (MediaCenter.state == 'Off') then	
-				if (domoticz.groups('Lampen woonkamer').state == 'On') then
-					domoticz.groups('Lampen woonkamer').switchOff()
-					domoticz.log('No movement floor1 timeout is reached -> lampen woonkamer uit gezet', domoticz.LOG_INFO)
-				elseif (domoticz.devices('Schemerlamp deur').state == 'On') then
-					domoticz.devices('Schemerlamp deur').switchOff()
-					domoticz.log('No movement floor1 timeout is reached -> Schemerlamp deur uit gezet', domoticz.LOG_INFO)
-				elseif (domoticz.devices('Lamp spoelb keuken').state == 'On') then
-					domoticz.devices('Lamp spoelb keuken').switchOff()
-					domoticz.log('No movement floor1 timeout is reached -> lamp spoelbak keuken uit gezet', domoticz.LOG_INFO)
-				end
-			--end
+			--if (MediaCenter.state == 'Off') then		
+			if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('No movement floor1 timeout is reached -> lampen woonkamer uit gezet', domoticz.LOG_INFO) end
+			domoticz.groups('Lampen woonkamer').switchOff().checkFirst()
+			domoticz.devices('Yeelight bank').switchOff).checkFirst()
+			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
+			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
 		end		
 		if (domoticz.globalData.NMC_Floor2 > NM_timeout_floor2) then
 			if (domoticz.devices('Lamp hal boven').state == 'On') then
