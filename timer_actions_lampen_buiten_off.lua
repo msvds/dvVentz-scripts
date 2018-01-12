@@ -3,7 +3,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		timer = {'at 00:10'}
+		timer = {'at 00:10','at 06:10'}
 	},
 	execute = function(domoticz, device)
 		local Time = require('Time')
