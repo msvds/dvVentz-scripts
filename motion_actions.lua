@@ -14,27 +14,27 @@ return {
 			if (domoticz.time.matchesRule('between sunset and 01:00') and domoticz.devices('Beweging woonkamer').state == 'On' and IsDark.state == 'On') then
 				-- woonkamer aan avonds + donker
 				-- between 16:00 and 1:00 then next day
+				if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO) end
 				domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
 				domoticz.devices('White Temp Yeelight bank').dimTo(20)
 				domoticz.devices('Yeelight Dimmer bank').dimTo(50)
-				domoticz.devices('Yeelight bank').switchOn().checkFirst()
-				if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO) end
+				domoticz.devices('Yeelight bank').switchOn().checkFirst()				
 			elseif (domoticz.time.matchesRule('between 15 minutes before sunset and sunset') and domoticz.devices('Beweging woonkamer').state == 'On'  and IsDark.state == 'On') then
 				-- woonkamer aan avonds + bijna donker
-				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 				if (domoticz.devices('Schemerlamp deur').state == 'Off') then domoticz.log('Beweging woonkamer avonds terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO) end
-				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 				if (domoticz.devices('Lamp spoelb keuken').state == 'Off') then domoticz.log('Beweging woonkamer avonds terwijl het donker is, lamp spoelbak keuken aangezet', domoticz.LOG_INFO) end
+				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()				
 			elseif (domoticz.time.matchesRule('between 06:00 and sunrise') and domoticz.devices('Beweging woonkamer').state == 'On' and domoticz.devices('Sw1_woonkamerdeur').lastUpdate.minutesAgo > 30  and IsDark.state == 'On') then
 				-- woonkamer ochtends + donker
-				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 				if (domoticz.devices('Schemerlamp deur').state == 'Off') then domoticz.log('Beweging woonkamer ochtends terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO) end
-				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 				if (domoticz.devices('Lamp spoelb keuken').state == 'Off') then domoticz.log('Beweging woonkamer ochtends terwijl het donker is, lamp spoelbak keuken aangezet', domoticz.LOG_INFO) end
+				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()				
 			elseif (domoticz.time.matchesRule('at 01:00-06:00') and domoticz.devices('Beweging woonkamer').state == 'On'  and IsDark.state == 'On') then
 				-- woonkamer nachts + donker
-				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 				if (domoticz.devices('Schemerlamp deur').state == 'Off') then domoticz.log('Beweging woonkamer snachts terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO) end
+				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()				
 				domoticz.log('Beweging nachts in de woonkamer!')			
 			end
 			if (domoticz.devices('Beweging hal boven').state == 'On' and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 2 and IsDark.state == 'On') then
