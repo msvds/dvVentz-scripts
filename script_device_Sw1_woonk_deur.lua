@@ -14,10 +14,18 @@ return {
 			for i=1, alarm.qtyAlarmZones() do
 				alarm.zones(i).disArmZone(domoticz)
 			end
+			-- Lampen aanzetten
+			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
+			domoticz.devices('Lamp boven TV').switchOn().checkFirst()
+			domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+			domoticz.devices('Yeelight bank').switchOn().checkFirst()
+			domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
+			domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
+			domoticz.log('Lights turned on')
 		elseif device.state == 'Click' then
 			-- Alles uit bij gaan slapen (sleep)
 			domoticz.devices('Status').switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			domoticz.helpers.switch_all_lights_off(domoticz)
+			domoticz.helpers.switch_lights_off(domoticz,'Floor1')
 			domoticz.helpers.check_doors_and_windows(domoticz)
 			--domoticz.log('Huidige setpoint is '.. domoticz.helpers.currentSetpoint(domoticz))
 			--domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,domoticz.helpers.currentSetpoint(domoticz))
