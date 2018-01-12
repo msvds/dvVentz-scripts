@@ -1,7 +1,7 @@
 -- Timer action
 
 return {
-	active = true, -- set to false to disable this script
+	active = false, -- set to false to disable this script
 	on = {
 		timer = {'at sunset'}
 	},
