@@ -14,6 +14,12 @@ return {
 			for i=1, alarm.qtyAlarmZones() do
 				alarm.zones(i).disArmZone(domoticz)
 			end
+			-- Lampen aanzetten
+			if IsDark.state == 'On' then
+				domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
+				domoticz.groups('Buitenlampen').switchOn().checkFirst()
+				domoticz.log('Outside Lights turned on')
+			end
 		elseif device.state == 'Click' then
 			-- Alles uit en beveiliging aanzetten bij gaan weggaan (away)
 			domoticz.devices('Status').switchSelector(10) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
