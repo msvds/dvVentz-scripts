@@ -56,7 +56,7 @@ return {
 					--domoticz.devices('Dimmer bed Suzanne').switchOn()
 					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet', domoticz.LOG_INFO)
 				end
-			elseif (device.name == domoticz.devices('Slaapkamerdeur').name and domoticz.time.matchesRule('at 21:30-0:30') and domoticz.devices('Slaapkamerdeur').state == 'Open' domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
+			elseif (device.name == domoticz.devices('Slaapkamerdeur').name and domoticz.time.matchesRule('at 21:30-0:30') and domoticz.devices('Slaapkamerdeur').state == 'Open' and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
 				-- dimmers slaapkamer aan donker tot 0:30
 				-- between 21:30 and 00:30 then next day
 				if (domoticz.devices('Dimmer bed Martijn').state == 'Off') then
