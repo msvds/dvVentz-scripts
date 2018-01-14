@@ -1,5 +1,5 @@
 return {
-	active = false,
+	active = true,
 	logging = {
 		level = domoticz.LOG_INFO,
 		marker = "TEST"
