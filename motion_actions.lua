@@ -74,7 +74,6 @@ return {
 			if (domoticz.devices('Eetkamerdeur').state == 'Open' or domoticz.devices('Front door').state == 'Open') then
 				if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('Eetkamerdeur of voordeur open bij thuiskomst terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO) end
 				domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
-				domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
 				domoticz.devices('White Temp Yeelight bank').dimTo(20)
 				domoticz.devices('Yeelight Dimmer bank').dimTo(50)
 				domoticz.devices('Yeelight bank').switchOn().checkFirst()
