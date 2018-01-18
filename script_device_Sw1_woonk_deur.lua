@@ -19,6 +19,7 @@ return {
 				domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 				domoticz.devices('Lamp boven TV').switchOn().checkFirst()
 				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+				domoticz.devices('Lamp ster').switchOn().checkFirst()
 				domoticz.devices('Yeelight bank').switchOn().checkFirst()
 				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
 				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
@@ -40,6 +41,7 @@ return {
 			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			domoticz.devices('Lamp boven TV').switchOn().checkFirst()
 			domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+			domoticz.devices('Lamp ster').switchOn().checkFirst()
 			domoticz.devices('Yeelight bank').switchOn().checkFirst()
 			domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
 			domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
