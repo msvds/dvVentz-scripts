@@ -180,6 +180,7 @@ return {
 			if (area == 'Inside') then
 				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 				domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
+				domoticz.devices('Lamp ster').switchOff().checkFirst()
 				domoticz.devices('Yeelight bank').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
@@ -191,6 +192,7 @@ return {
 			if (area == 'Floor1') then
 				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 				domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
+				domoticz.devices('Lamp ster').switchOff().checkFirst()
 				domoticz.devices('Yeelight bank').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
@@ -207,6 +209,7 @@ return {
 		switch_all_lights_off = function(domoticz)
 			domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
+			domoticz.devices('Lamp ster').switchOff().checkFirst()
 			domoticz.devices('Yeelight bank').switchOff().checkFirst()
 			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 			domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
@@ -261,6 +264,7 @@ return {
 			domoticz.devices('Status').switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			domoticz.devices('Lamp boven TV').switchOff()
 			domoticz.devices('Lamp spoelb keuken').switchOff()
+			domoticz.devices('Lamp ster').switchOff()
 			domoticz.devices('Yeelight bank').switchOff()
 			domoticz.devices('Schemerlamp deur').switchOff()
 			--domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
