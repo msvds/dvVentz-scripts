@@ -12,7 +12,8 @@ return {
 		domoticz.log('Schemerlamp deur uitgezet ivm zonsopgang', domoticz.LOG_INFO)
 		domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
 		domoticz.log('Lamp spoelbak keuken uitgezet ivm zonsopgang', domoticz.LOG_INFO)
-		domoticz.devices('Yeelight bank').switchOff().checkFirst()
+		domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()
+		domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
 		domoticz.devices('Lamp ster').switchOff().checkFirst()
 		domoticz.log('Lamp ster uitgezet ivm zonsopgang', domoticz.LOG_INFO)
 		
