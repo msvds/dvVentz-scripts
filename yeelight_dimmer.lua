@@ -2,20 +2,20 @@ return {
 	active = true,
 	on = {
 		devices = {
-			'Yeelight Dimmer bank'
+			'Yeelight Dimmer eetkamer'
 		},
 	},
 	execute = function(domoticz, device)
 		local IP = '192.168.178.36';
 		local PORT = '55443'
-		if(domoticz.devices('White Temp Yeelight bank').state=='Off') then 
+		if(domoticz.devices('White Temp Yeelight eetkamer').state=='Off') then 
 			DomValue = 0;
 			runcommandoff = "sudo echo -ne '{\"id\":1,\"method\":\"set_power\", \"params\":[\"off\", \"smooth\", 500]}\\r\\n' | nc -w1 " ..IP.." " ..PORT.."";;
 			os.execute(runcommandoff);
 		else
-			TempValue = otherdevices_svalues['White Temp Yeelight bank'];   
+			TempValue = otherdevices_svalues['White Temp Yeelight eetkamer'];   
 			CalcValue = ((TempValue-1) * 48)+1700;
-			DomValue = otherdevices_svalues['Yeelight Dimmer bank']; 
+			DomValue = otherdevices_svalues['Yeelight Dimmer eetkamer']; 
 		end
 		if CalcValue==nil then CalcValue=0 end
 
