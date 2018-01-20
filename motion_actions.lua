@@ -16,9 +16,12 @@ return {
 				-- between 16:00 and 1:00 then next day
 				if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO) end
 				domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
-				domoticz.devices('White Temp Yeelight bank').dimTo(20)
-				domoticz.devices('Yeelight Dimmer bank').dimTo(50)
-				domoticz.devices('Yeelight bank').switchOn().checkFirst()				
+				domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
+				domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(50)
+				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()
+				domoticz.devices('White Temp Yeelight eetkamer 2').dimTo(20)
+				domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(50)
+				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst()
 			elseif (domoticz.time.matchesRule('between 15 minutes before sunset and sunset') and domoticz.devices('Beweging woonkamer').state == 'On' and domoticz.devices('Sw1_woonkamerdeur').lastUpdate.minutesAgo > 3 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and domoticz.devices('Sw4_eetkamerdeur').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
 				-- woonkamer aan avonds + bijna donker
 				if (domoticz.devices('Schemerlamp deur').state == 'Off') then domoticz.log('Beweging woonkamer avonds terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO) end
