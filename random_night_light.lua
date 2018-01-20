@@ -21,9 +21,11 @@ return {
 				domoticz.devices('Schemerlamp bank').switchOn().withinMin(25).forMin(4)
 				domoticz.log('Schemerlamp bank aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
 			end
-			if (domoticz.devices('Yeelight bank').state == 'Off') then
-				domoticz.devices('White Temp Yeelight bank').dimTo(20)
-				domoticz.devices('Yeelight bank').switchOn().withinMin(24).forMin(5)
+			if (domoticz.devices('Yeelight eetkamer 1').state == 'Off') then
+				domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
+				domoticz.devices('Yeelight eetkamer 1').switchOn().withinMin(24).forMin(5)
+				domoticz.devices('White Temp Yeelight eetkamer 2').dimTo(20)
+				domoticz.devices('Yeelight eetkamer 2').switchOn().withinMin(24).forMin(5)
 				domoticz.log('Lamp bank aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
 			end
 			
