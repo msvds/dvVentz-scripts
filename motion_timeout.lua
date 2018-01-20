@@ -23,7 +23,8 @@ return {
 			--if (MediaCenter.state == 'Off') then		
 			if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('No movement floor1 timeout is reached -> lampen woonkamer uit gezet', domoticz.LOG_INFO) end
 			domoticz.groups('Lampen woonkamer').switchOff().checkFirst()
-			domoticz.devices('Yeelight bank').switchOff().checkFirst()
+			domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()
+			domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
 			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
 		end		
