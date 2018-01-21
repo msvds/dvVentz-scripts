@@ -14,7 +14,7 @@ return {
 			--domoticz.devices('Xiaomi Gateway Doorbell eetkamer').switchSelector(10)
 			local sceneCmd = 'curl -s -i -H "Accept: application/json" "http://192.168.178.37:9898/json.htm?type=command&param=setcolbrightnessvalue&idx=54&hue=236&brightness=1&iswhite=false"'
 			os.execute(sceneCmd)
-
+			domoticz.log(sceneCmd)
 			--domoticz.devices('White Temp Yeelight bank').dimTo(20)
 			--domoticz.devices('Yeelight Dimmer bank').dimTo(50)
 			--domoticz.devices('Yeelight bank').switchOn()
