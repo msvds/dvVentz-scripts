@@ -13,12 +13,16 @@ _C.helpers = {
 
 	alarmZoneNormal = function(domoticz, alarmZone)
 		-- Normal is good isn't it? We don't have to do anything here.. We could but..
+		domoticz.devices('Xiaomi Gateway Alarm Clock eetkamer').switchSelector(0)
+		domoticz.devices('Xiaomi Gateway Alarm Clock hal boven').switchSelector(0)
 	end,
 
 	alarmZoneArming = function(domoticz, alarmZone)
 		-- You can define something to happen here.
 		-- This function will be called when arming and waiting for the exit delay.
 		-- If the exit delay is 0 seconds, this function will not be called.
+		domoticz.devices('Xiaomi Gateway Alarm Clock eetkamer').switchSelector(60)
+		domoticz.devices('Xiaomi Gateway Alarm Clock hal boven').switchSelector(60)
 	end,
 
 	alarmZoneTripped = function(domoticz, alarmZone)
@@ -32,8 +36,8 @@ _C.helpers = {
 
 		if alarmZone.name == 'My Home' then
 			-- Let's do something here
-			domoticz.helpers.sendnotification(domoticz,'Alarm gaat af!','Het alarm gaat af doordat sensor ' ..trippedSensors ' is getriggerd')
-			domoticz.helpers.flash_lights(domoticz,domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,3,5,5)
+			domoticz.devices('Xiaomi Gateway Alarm Clock eetkamer').switchSelector(100)
+			domoticz.devices('Xiaomi Gateway Alarm Clock hal boven').switchSelector(100)
 		end
 	end,
 
@@ -76,8 +80,13 @@ _C.helpers = {
 		end
 
 		if not testMode then
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(30)
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(30)
 			domoticz.notify('Alarm Zone Alert!',
 				msg, domoticz.PRIORITY_HIGH)
+			domoticz.helpers.sendnotification(domoticz,'Alarm gaat af!','Het alarm gaat af doordat sensor ' ..trippedSensors ' is getriggerd')
+			domoticz.helpers.flash_lights(domoticz,domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,3,5,5)
+		
 		else
 			domoticz.log('(TESTMODE IS ACTIVE) '..msg, domoticz.LOG_INFO)
 		end
