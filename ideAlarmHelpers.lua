@@ -80,8 +80,8 @@ _C.helpers = {
 		end
 
 		if not testMode then
-			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(30)
-			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(30)
+			--domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(30)
+			--domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(30)
 			domoticz.notify('Alarm Zone Alert!',
 				msg, domoticz.PRIORITY_HIGH)
 			domoticz.helpers.sendnotification(domoticz,'Alarm gaat af!','Het alarm gaat af doordat sensor ' ..trippedSensors ' is getriggerd')
