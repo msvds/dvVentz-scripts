@@ -11,10 +11,10 @@ return {
 	},
 	execute = function(domoticz, device)
 		if domoticz.devices('Test Switch').state == 'Off' then
-
-			domoticz.devices('Gateway light eetkamer').switchSelector(20)
 			domoticz.devices('Gateway light eetkamer').switchOff
-			domoticz.devices('Gateway light eetkamer').switchSelector(20)
+			domoticz.devices('Gateway light eetkamer').switchSelector(30)
+			domoticz.devices('Gateway light eetkamer').switchOff
+			domoticz.devices('Gateway light eetkamer').switchSelector(30)
 			domoticz.devices('Gateway light eetkamer').switchOff
 			--domoticz.devices('Xiaomi Gateway Doorbell eetkamer').switchSelector(10)
 			-- set to pink
