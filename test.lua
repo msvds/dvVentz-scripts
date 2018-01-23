@@ -13,7 +13,7 @@ return {
 		if domoticz.devices('Test Switch').state == 'Off' then
 			--domoticz.devices('Xiaomi Gateway Doorbell eetkamer').switchSelector(10)
 			-- set to pink
-			local sceneCmd = 'curl -s -i -H "Accept: application/json" "http://msvds:venefTWI@msvds.duckdns.org:8080/json.htm?type=command&param=setcolbrightnessvalue&idx=413&hex=ff00ff&brightness=100&iswhite=false'"
+			local sceneCmd = 'curl -s -i -H "Accept: application/json" "http://msvds:venefTWI@msvds.duckdns.org:8080/json.htm?type=command&param=setcolbrightnessvalue&idx=413&hex=ff00ff&brightness=100&iswhite=false"'
 			os.execute(sceneCmd)
 			domoticz.log(sceneCmd)
 			--domoticz.devices('White Temp Yeelight bank').dimTo(20)
