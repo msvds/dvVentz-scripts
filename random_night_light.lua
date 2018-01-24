@@ -17,6 +17,10 @@ return {
 				domoticz.devices('Lamp boven TV').switchOn().withinMin(26).forMin(3)
 				domoticz.log('Lamp boven TV aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
 			end
+			if (domoticz.devices('Grote lamp naast bank').state == 'Off') then
+				domoticz.devices('Grote lamp naast bank').switchOn().withinMin(25).forMin(4)
+				domoticz.log('Grote lamp naast bank aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
+			end
 			if (domoticz.devices('Schemerlamp bank').state == 'Off') then
 				domoticz.devices('Schemerlamp bank').switchOn().withinMin(25).forMin(4)
 				domoticz.log('Schemerlamp bank aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
