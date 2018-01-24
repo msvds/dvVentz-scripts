@@ -23,6 +23,8 @@ _C.helpers = {
 		-- If the exit delay is 0 seconds, this function will not be called.
 		domoticz.devices('Xiaomi Gateway Alarm Clock eetkamer').switchSelector(60)
 		domoticz.devices('Xiaomi Gateway Alarm Clock hal boven').switchSelector(60)
+		domoticz.devices('Gateway light eetkamer').switchSelector(20)--blue
+		domoticz.devices('Gateway light hal boven').switchSelector(20)--blue
 	end,
 
 	alarmZoneTripped = function(domoticz, alarmZone)
@@ -38,6 +40,8 @@ _C.helpers = {
 			-- Let's do something here
 			domoticz.devices('Xiaomi Gateway Alarm Clock eetkamer').switchSelector(100)
 			domoticz.devices('Xiaomi Gateway Alarm Clock hal boven').switchSelector(100)
+			domoticz.devices('Gateway light eetkamer').switchSelector(50)--yellow
+			domoticz.devices('Gateway light hal boven').switchSelector(50)--yellow
 		end
 	end,
 
@@ -48,6 +52,8 @@ _C.helpers = {
 			domoticz.notify('Alarm Zone Error!',
 				'There was an error for the alarm zone ' .. alarmZone.name,
 				domoticz.PRIORITY_HIGH)
+			domoticz.devices('Gateway light eetkamer').switchSelector(60)--cyan
+			domoticz.devices('Gateway light hal boven').switchSelector(60)--cyan
 		end
 	end,
 
@@ -82,6 +88,8 @@ _C.helpers = {
 		if not testMode then
 			--domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(30)
 			--domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(30)
+			domoticz.devices('Gateway light eetkamer').switchSelector(30)--pink
+			domoticz.devices('Gateway light hal boven').switchSelector(30)--pink
 			domoticz.notify('Alarm Zone Alert!',
 				msg, domoticz.PRIORITY_HIGH)
 			domoticz.helpers.sendnotification(domoticz,'Alarm gaat af!','Het alarm gaat af doordat sensor ' ..trippedSensors ' is getriggerd')
@@ -129,9 +137,9 @@ _C.helpers = {
 		for _, alarmZone in ipairs(alarmZones) do
 			if alarmZone.name == 'My House' then
 				if (alarmZone.openSensorCount > 0) then
-					domoticz.devices('Big Red Lamp').switchOn()
+					--domoticz.devices('Big Red Lamp').switchOn()
 				elseif (alarmZone.openSensorCount == 0) then
-					domoticz.devices('Big Red Lamp').switchOff()
+					--domoticz.devices('Big Red Lamp').switchOff()
 				end
 			end
 		end
