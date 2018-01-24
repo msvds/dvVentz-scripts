@@ -179,6 +179,8 @@ return {
 		switch_lights_off = function(domoticz,area)
 			if (area == 'Inside') then
 				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
+				domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
+				domoticz.devices('Lamp speelkamer').switchOff().checkFirst()		
 				domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
 				domoticz.devices('Lamp ster').switchOff().checkFirst()
 				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()
@@ -192,6 +194,8 @@ return {
 			end
 			if (area == 'Floor1') then
 				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
+				domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
+				domoticz.devices('Lamp speelkamer').switchOff().checkFirst()
 				domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
 				domoticz.devices('Lamp ster').switchOff().checkFirst()
 				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()				
@@ -210,6 +214,8 @@ return {
 		end,
 		switch_all_lights_off = function(domoticz)
 			domoticz.devices('Lamp boven TV').switchOff().checkFirst()
+			domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
+			domoticz.devices('Lamp speelkamer').switchOff().checkFirst()
 			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
 			domoticz.devices('Lamp ster').switchOff().checkFirst()
 			domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()				
@@ -266,6 +272,8 @@ return {
 			--local Televisie_lage_resolutie = domoticz.devices(9)		
 			domoticz.devices('Status').switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			domoticz.devices('Lamp boven TV').switchOff()
+			domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
+			domoticz.devices('Lamp speelkamer').switchOff().checkFirst()
 			domoticz.devices('Lamp spoelb keuken').switchOff()
 			domoticz.devices('Lamp ster').switchOff()
 			domoticz.devices('Yeelight bank').switchOff()
@@ -305,7 +313,10 @@ return {
 		end,
 		flash_lights = function(domoticz,start_state_schemerlamp_deur,start_state_lamp_spoelb_keuken,start_state_lamp_boven_tv,start_state_schemerlamp_bank,start_state_lamp_hal_boven,duration,repetition,repetitiondelay)
 			if (domoticz.devices('Flash lights').state == 'On') then
-				domoticz.devices('Schemerlamp deur').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
+				domoticz.devices('Schemerlamp deur').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
+				--domoticz.devices('Grote lamp naast bank').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
+				--domoticz.devices('Lamp speelkamer').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
+				--domoticz.devices('Lamp ster').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
 				domoticz.devices('Lamp spoelb keuken').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)		
 				domoticz.devices('Lamp boven TV').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)
 				domoticz.devices('Yeelight bank').switchOn().forSec(duration).repeatAfterSec(repetitiondelay, repetition)			
