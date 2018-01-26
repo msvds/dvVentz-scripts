@@ -33,7 +33,13 @@ return {
 				if (domoticz.devices('Schemerlamp deur').state == 'Off') then domoticz.log('Beweging woonkamer ochtends terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO) end
 				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 				if (domoticz.devices('Lamp spoelb keuken').state == 'Off') then domoticz.log('Beweging woonkamer ochtends terwijl het donker is, lamp spoelbak keuken aangezet', domoticz.LOG_INFO) end
-				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()				
+				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+				domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
+				domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(50)
+				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()
+				domoticz.devices('White Temp Yeelight eetkamer 2').dimTo(20)
+				domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(50)
+				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst()
 			elseif (domoticz.time.matchesRule('at 01:00-06:00') and domoticz.devices('Beweging woonkamer').state == 'On'  and IsDark.state == 'On') then
 				-- woonkamer nachts + donker
 				if (domoticz.devices('Schemerlamp deur').state == 'Off') then domoticz.log('Beweging woonkamer snachts terwijl het donker is, schemerlamp deur aangezet', domoticz.LOG_INFO) end
