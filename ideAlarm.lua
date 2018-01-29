@@ -1,8 +1,6 @@
 --[[
 ideAlarm.lua
-
 Please read: https://github.com/allan-gam/ideAlarm/wiki
-
 Do not change anything in this file.
 --]]
 
@@ -28,8 +26,8 @@ return {
 		timer = alarm.timerTriggers()
 	},
 	data = data,
-	execute = function(domoticz, device, triggerInfo)
-		domoticz.log('Triggered by '..((device) and 'device: '..device.name..', device state is: '..device.state or 'Domoticz Security'), domoticz.LOG_DEBUG)
-		alarm.execute(domoticz, device, triggerInfo)
+	execute = function(domoticz, item)
+		domoticz.log('Triggered by '..(item.isDevice and ('device: '..item.name..', device state is: '..item.state)  or (item.isTimer and ('timer: '..item.trigger)  or (item.isSecurity and 'Domoticz Security' or 'unknown'))), domoticz.LOG_INFO)
+		alarm.execute(domoticz, item)
 	end
 }
