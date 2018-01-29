@@ -13,7 +13,7 @@ return {
 			runcommandoff = "sudo echo -ne '{\"id\":1,\"method\":\"set_power\", \"params\":[\"off\", \"smooth\", 500]}\\r\\n' | nc -w1 " ..IP.." " ..PORT.."";;
 			os.execute(runcommandoff);
 		else
-			TempValue = otherdevices_svalues['White Temp Yeelight eetkamer 2' ];   
+			TempValue = otherdevices_svalues['White Temp Yeelight eetkamer 2'];   
 			CalcValue = ((TempValue-1) * 48)+1700;
 			DomValue = otherdevices_svalues['Yeelight Dimmer eetkamer 2']; 
 		end
