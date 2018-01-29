@@ -23,7 +23,7 @@ Copyright (C) 2017  BakSeeDaa
 local config = require "ideAlarmConfig"
 local custom = require "ideAlarmHelpers"
 
-local scriptVersion = '2.1.1'
+local scriptVersion = '2.4.0'
 local ideAlarm = {}
 
 -- Possible Zone statuses
@@ -47,27 +47,9 @@ ideAlarm.SENSOR_CLASS_A = SENSOR_CLASS_A
 local SENSOR_CLASS_B = 'b' -- Sensor active in arming mode "Armed Away" only.
 ideAlarm.SENSOR_CLASS_B = SENSOR_CLASS_B
 
--- BELOW ARE 2 TEMPORARY FUNCTIONS THAT WILL BE OBSOLETE WHEN/IF DZVENTS WILL SUPPORT afterSec(seconds) for text devices.
-local function jsonAPI(domoticz, apiCall, delay)
-	delay = delay or 0
-	local url = domoticz.settings['Domoticz url']..'/json.htm?'..apiCall
-	if delay == 0 then
-		domoticz.openURL(url)
-	else
-		os.execute('(sleep '..delay..';curl -s "'..url..'" > /dev/null)&')
-	end
+local function isActive(sensor)
+	if sensor.switchType == 'Door Lock' then return (not sensor.active) else return sensor.active end
 end
-
--- We need this function because there is no delay option for updateText!
-local function setTextDevice(domoticz, idx, sValue, delay)
-	delay = delay or 0
-	if delay == 0 then
-		domoticz.devices(idx).updateText(sValue)
-	else
-		jsonAPI(domoticz, 'type=command&param=udevice&idx='..idx.."&nvalue=0&svalue="..domoticz.urlEncode(sValue), delay)
-	end
-end
--- END TEMPORARY FUNCTIONS
 
 local function callIfDefined(f)
 	return function(...)
@@ -146,7 +128,7 @@ local function initAlarmZones()
 			for sensorName, sensorConfig in pairs(alarmZone.sensors) do
 				local sensor = domoticz.devices(sensorName)
 				if ((mins > 0 and sensor.lastUpdate.minutesAgo <= mins)
-				or (mins == 0 and sensor.active)) then
+				or (mins == 0 and isActive(sensor))) then
 					local includeSensor = (type(sensorConfig.enabled) == 'function') and sensorConfig.enabled(domoticz) or sensorConfig.enabled
 					if includeSensor and isArming then includeSensor = sensorConfig.armWarn end
 					if includeSensor then
@@ -178,13 +160,14 @@ local function initAlarmZones()
 			and (newStatus ~= ZS_ERROR)
 			and (newStatus ~= ZS_TRIPPED)
 			and (newStatus ~= ZS_TIMED_OUT) then
-				domoticz.log('An attempt has been made to set an invalid zone status for zone: '
+				domoticz.log('An attempt has been made to set an invalid status for zone: '
 								..alarmZone.name, domoticz.LOG_ERROR)
 				newStatus = ZS_ERROR
 				delay = 0
-			end 
+			end
+
 			if alarmZone.status(domoticz) ~= newStatus then
-				setTextDevice(domoticz, alarmZone.statusTextDevID, newStatus, delay) -- This will trigger this script again
+				domoticz.devices(alarmZone.statusTextDevID).updateText(newStatus).afterSec(delay)
 				domoticz.log(alarmZone.name..' new status: '..newStatus
 					..(delay>0 and ' with a delay of '..delay..' seconds' or ' immediately'), domoticz.LOG_INFO)
 			end
@@ -241,7 +224,7 @@ local function initAlarmZones()
 				end
 				domoticz.log('Arming zone '..alarmZone.name..
 					' to '..armingMode..(delay>0 and ' with a delay of '..delay..' seconds' or ' immediately'), domoticz.LOG_INFO)
-				setTextDevice(domoticz, alarmZone.armingModeTextDevID, armingMode, delay)
+				domoticz.devices(alarmZone.armingModeTextDevID).updateText(armingMode).afterSec(delay)
 			end
 		end
 
@@ -397,6 +380,8 @@ local function onArmingModeChange(domoticz, device)
 		-- Deal with arming mode changes
 		-- E.g. the text device text for arming mode has changed
 		if (device.id == alarmZone.armingModeTextDevID) then
+			domoticz.devices(alarmZone.statusTextDevID).cancelQueuedCommands()
+			domoticz.log(alarmZone.name..' cancelled queued commands if any', domoticz.LOG_INFO)
 			alarmZone._updateZoneStatus(domoticz, ZS_NORMAL) -- Always set to normal when arming mode changes
 			callIfDefined('alarmArmingModeChanged')(domoticz, alarmZone)
 
@@ -442,19 +427,19 @@ local function onSensorChange(domoticz, device)
 					domoticz.log(sensorName..' in zone '..alarmZone.name..' was tripped', domoticz.LOG_INFO)
 					local alarmStatus = domoticz.devices(alarmZone.statusTextDevID).state
 					if  alarmStatus ~= ZS_TRIPPED and alarmStatus ~= ZS_TIMED_OUT and alarmStatus ~= ZS_ALERT then
-						if (alarmZone.entryDelay > 0) then
-							alarmZone._updateZoneStatus(domoticz, ZS_TRIPPED) -- Skip ZS_TRIPPED status if 0 secs entry delay 
+						if (alarmZone.entryDelay > 0) then  -- Skip ZS_TRIPPED status if 0 secs entry delay
+							alarmZone._updateZoneStatus(domoticz, ZS_TRIPPED)
 						end
 						alarmZone._updateZoneStatus(domoticz, ZS_TIMED_OUT, alarmZone.entryDelay) 
 					end
-	  		end
-	  		break -- Let this sensor trigger only once in this zone
-  		end
+				end
+				break -- Let this sensor trigger only once in this zone
+			end
 		end
 	end
 end
 
-local function onSecurityChange(domoticz, triggerInfo)
+local function onSecurityChange(domoticz, item)
 	-- Domoticz built in Security state has changed, shall we sync the new arming mode to any zone?
 
 	local zonesToSyncCheck = 0
@@ -466,7 +451,7 @@ local function onSecurityChange(domoticz, triggerInfo)
 				domoticz.log('Configuration file error. Only a single zone can be set up to synchronize with the Domoticz\'s security panel.', domoticz.LOG_ERROR)
 				return
 			end
-			local newArmingMode = triggerInfo.trigger
+			local newArmingMode = item.trigger
 			if alarmZone.armingMode(domoticz) ~= newArmingMode then
 				domoticz.log('The Domoticz built in Security\'s arming mode changed to '..newArmingMode, domoticz.LOG_INFO)
 				domoticz.log('Syncing the new arming mode to zone '..alarmZone.name, domoticz.LOG_INFO)
@@ -494,7 +479,7 @@ local function countOpenSensors(domoticz)
 			local sensor = domoticz.devices(sensorName)
 			if sensor then
 				local includeSensor = (type(sensorConfig.enabled) == 'function') and sensorConfig.enabled(domoticz) or sensorConfig.enabled
-				if includeSensor and sensorConfig.nag and sensor.active then
+				if includeSensor and sensorConfig.nag and isActive(sensor) then
 					openSensorCount = openSensorCount + 1
 				end
 			end
@@ -506,18 +491,18 @@ end
 
 --- Nags periodically about open sensors 
 -- @param domoticz The Domoticz object
--- @param triggerInfo The triggerInfo object
+-- @param item
 -- @return Nil
-local function nagCheck(domoticz, device, triggerInfo)
+local function nagCheck(domoticz, item)
 	-- You just came here to nag about open doors, didn't you?
 	local nagEventData = domoticz.data.nagEvent
 	local nagEventItem = nagEventData.getLatest()
 	if not nagEventItem then
-		nagEventData.add('dzVents rocks!')
+		nagEventData.add('dzVents rocks!1')
 		nagEventItem = nagEventData.getLatest()
 	end
 
-	if not device then
+	if item.isTimer then
 		-- Triggered by a timer  event
 		-- First check if we have nagged recently.
 		local lastNagMinutesAgo = nagEventItem.time.minutesAgo
@@ -540,7 +525,7 @@ local function nagCheck(domoticz, device, triggerInfo)
 				end
 				local minutesAgo = sensor.lastUpdate.minutesAgo
 				if includeSensor and sensorConfig.nag
-				and sensor.active
+				and isActive(sensor)
 				and minutesAgo >= sensorConfig.nagTimeoutMins then
 					-- This sensor is worth nagging about
 					table.insert(nagSensors, sensor)
@@ -550,9 +535,9 @@ local function nagCheck(domoticz, device, triggerInfo)
 		end
 		table.insert(zonesNagSensors, nagSensors)
 	end
-
+	
 	-- Exit if triggered by device and not all sections in all zones are closed/off 
-	if totalSensors > 0 and device then return end
+	if totalSensors > 0 and item.isDevice then return end
 
 	local hasNagged = false
 	for i, nagSensors in ipairs(zonesNagSensors) do
@@ -565,65 +550,56 @@ local function nagCheck(domoticz, device, triggerInfo)
 	end
 
 	if hasNagged then
-		nagEventData.add('dzVents rocks!') -- Reset
+		nagEventData.add('dzVents krocks!2') -- Reset
 	end
 end
 
-local function onTimerTrigger(domoticz, triggerInfo)
-	nagCheck(domoticz, nil, triggerInfo)
-end
+function ideAlarm.execute(domoticz, item)
 
-function ideAlarm.execute(domoticz, device, triggerInfo)
-
-	local triggerType
+	local devTriggerSpecific
 
 	-- What caused this script to trigger?
-	if triggerInfo.type == domoticz.EVENT_TYPE_DEVICE then
+	if item.isDevice then
 		for _, alarmZone in ipairs(alarmZones) do
-			if device.deviceSubType == 'Text' then
-				if device.id == alarmZone.statusTextDevID then
-					triggerType = 'status' -- Alarm Zone Status change
+			if item.deviceSubType == 'Text' then
+				if item.id == alarmZone.statusTextDevID then
+					devTriggerSpecific = 'status' -- Alarm Zone Status change
 					break
-				elseif device.id == alarmZone.armingModeTextDevID then
-					triggerType = 'armingMode' -- Alarm Zone Arming Mode change
+				elseif item.id == alarmZone.armingModeTextDevID then
+					devTriggerSpecific = 'armingMode' -- Alarm Zone Arming Mode change
 					break
 				end
-			elseif device.active and (device.name == alarmZone.armAwayToggleBtn or device.name == alarmZone.armHomeToggleBtn) then
-				triggerType = 'toggleSwitch'
+			elseif item.active and (item.name == alarmZone.armAwayToggleBtn or item.name == alarmZone.armHomeToggleBtn) then
+				devTriggerSpecific = 'toggleSwitch'
 				break
 			end
 		end
-		triggerType = triggerType or 'sensor'
-	elseif triggerInfo.type == domoticz.EVENT_TYPE_TIMER then
-		triggerType = 'timer'
-	elseif triggerInfo.type == domoticz.EVENT_TYPE_SECURITY then
-		triggerType = 'security'
+		devTriggerSpecific = devTriggerSpecific or 'sensor'
 	end
 
-	domoticz.log('triggerType '.. triggerType, domoticz.LOG_INFO)
-
-	if triggerType == 'toggleSwitch' then
-		onToggleButton(domoticz, device)
-		return
-	elseif triggerType == 'status' then
-		onStatusChange(domoticz, device)
-		return
-	elseif triggerType == 'armingMode' then
-		onArmingModeChange(domoticz, device)
-		return
-	elseif triggerType == 'sensor' then
-		device.active = device.switchType ~= 'Door Lock' and device.active or device.state == 'Unlocked' and true or false -- Ugly hack!
-		if device.active then
-			onSensorChange(domoticz, device) -- Only Open or On states are of interest
-		else
-			nagCheck(domoticz, device) -- Only Closed or Off states are of interest
+	if item.isDevice then
+		if devTriggerSpecific == 'toggleSwitch' then
+			onToggleButton(domoticz, item)
+			return
+		elseif devTriggerSpecific == 'status' then
+			onStatusChange(domoticz, item)
+			return
+		elseif devTriggerSpecific == 'armingMode' then
+			onArmingModeChange(domoticz, item)
+			return
+		elseif devTriggerSpecific == 'sensor' then
+			if isActive(item) then
+				onSensorChange(domoticz, item) -- Only Open or On states are of interest
+			else
+				nagCheck(domoticz, item) -- Only Closed or Off states are of interest
+			end
+			countOpenSensors(domoticz)
+			return
 		end
-		countOpenSensors(domoticz)
-		return
-	elseif triggerType == 'security' then
-		onSecurityChange(domoticz, triggerInfo)
-	elseif triggerType == 'timer' then
-		onTimerTrigger(domoticz, triggerInfo)
+	elseif item.isSecurity then
+		onSecurityChange(domoticz, item)
+	elseif item.isTimer then
+		nagCheck(domoticz, item)
 	end
 
 end
@@ -654,7 +630,7 @@ function ideAlarm.statusAll(domoticz)
 			end
 			statusTxt = statusTxt..sensor.name
 				..(isEnabled and ': Enabled,' or ': Disabled,')
-				..(sensor.active and ' Tripped' or ' Not tripped')..'\n'
+				..(isActive(sensor) and ' Tripped' or ' Not tripped')..'\n'
 		end
 		statusTxt = statusTxt..'\n'
 	end
