@@ -13,9 +13,9 @@ return {
 			runcommandoff = "sudo echo -ne '{\"id\":1,\"method\":\"set_power\", \"params\":[\"off\", \"smooth\", 500]}\\r\\n' | nc -w1 " ..IP.." " ..PORT.."";;
 			os.execute(runcommandoff);
 		else
-			TempValue = otherdevices_svalues['White Temp Yeelight eetkamer 2'];   
+			TempValue = domoticz.devices('White Temp Yeelight eetkamer 2').level
 			CalcValue = ((TempValue-1) * 48)+1700;
-			DomValue = otherdevices_svalues['Yeelight Dimmer eetkamer 2']; 
+			DomValue = domoticz.devices('Yeelight Dimmer eetkamer 2').level
 		end
 		if CalcValue==nil then CalcValue=0 end
 
