@@ -13,8 +13,7 @@ return {
 			runcommandoff = "sudo echo -ne '{\"id\":1,\"method\":\"set_power\", \"params\":[\"off\", \"smooth\", 500]}\\r\\n' | nc -w1 " ..IP.." " ..PORT.."";;
 			os.execute(runcommandoff);
 		else
-			DomValue = otherdevices_svalues['White Temp Yeelight eetkamer 2'];   
-			CalcValue = ((DomValue-1) * 48)+1700;
+			DomValue = domoticz.devices('White Temp Yeelight eetkamer 2').level 
 		end
 		if CalcValue==nil then CalcValue=0 end
 		runcommand = " sudo echo -ne '{\"id\":1, \"method\":\"set_scene\",\"params\":[\"ct\"," .. CalcValue .. ", 75]}\\r\\n' | nc -w1 " ..IP.." " ..PORT.."";
