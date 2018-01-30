@@ -68,11 +68,11 @@ _C.helpers = {
 			if msg ~= '' then msg = msg..' and ' end
 			msg = msg..sensor.name
 		end
-		if msg ~= '' then
+		if (msg ~= '' and msg ~= 'Eetkamerdeur' then
 			msg = 'Open sections in '..alarmZone.name..'. '..msg
 			if (domoticz.devices('Notifications').level ~= 0) then
 				domoticz.notify('Open sections when arming',
-					msg .. alarmZone.name,
+					msg ..' ' ..alarmZone.name,
 					domoticz.PRIORITY_HIGH)
 			end
 		end
