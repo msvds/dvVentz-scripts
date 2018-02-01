@@ -43,8 +43,8 @@ _C.ALARM_ZONES = {
 		name='My Home',
 		armingModeTextDevID=259,
 		statusTextDevID=260,
-		entryDelay=60,
-		exitDelay=60,
+		entryDelay=180,
+		exitDelay=120,
 		alertDevices={},--{'Xiaomi RGB Gateway','Schemerlamp deur'},--{'Xiaomi Gateway Alarm Ringtone'},
 		sensors = {
 			['Eetkamerdeur'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
@@ -64,6 +64,18 @@ _C.ALARM_ZONES = {
 		syncWithDomoSec = true, -- Only a single zone is allowed to sync with Domoticz's built in Security Panel
 	},
 	-- End configuration of the first alarm zone
+
+	--armingModeTextDevID: (Required) The Domoticz virtual text device idx that You created for this zone. Holds the zones arming mode.
+	--statusTextDevID: (Required) The Domoticz virtual text device idx that You created for this zone. Holds the zones event status.
+	--entryDelay: (Required) Entry delay in seconds. Valid range: 0-999. Default setting: 15.
+	--exitDelay: (Required) Exit delay in seconds. Valid range: 0-999. Default setting: 60.
+	--alertDevices: (Elements are Optional) A Lua table containing the named Domoticz devices that shall be automatically switched on during an alert situation. Typically you put your siren devices names here but it can actually be any kind of Domoticz devices that can be switched "On" and "Off". If you have no alert devices or you'd like to control them using custom logic you should supply an empty table {}
+	--sensors: See Sensors in the configuration file.
+	--armAwayToggleBtn: (Required) Switch device to toggle alarm status between Disarmed and Armed away.
+	--armHomeToggleBtn: (Required) Switch device to toggle alarm status between Disarmed and Armed home.
+	--mainZone: (Required) Set this to true if this is your main zone. Otherwise set this to false. (The main will be the default zone). You don't need to have a main zone but if you define one, it's important that you define only a single zone as your main zone.
+	--canArmWithTrippedSensors: (Required) Set this to true if you want to be able to arm this zone even if sensors are tripped when arming. If set to false, arming attempts with tripped sensors won't be possible and will cause an error.
+	--syncWithDomoSec: (Required) Set this to true if you'd like to synchronize arming mode changes with Domoticz's built in Security Panel. Synchronization is bi-directional. Only a single zone is allowed to sync with Domoticz's built in Security Panel.
 }
 
 return _C
