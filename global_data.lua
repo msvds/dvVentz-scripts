@@ -190,6 +190,7 @@ return {
 				domoticz.devices('Lamp hal boven').switchOff().checkFirst()
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 				domoticz.devices('Dimmer bed Suzanne').switchOff()
+				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
 				domoticz.log('All lights inside turned off')
 			end
 			if (area == 'Floor1') then
@@ -208,6 +209,7 @@ return {
 				domoticz.devices('Lamp hal boven').switchOff().checkFirst()
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 				domoticz.devices('Dimmer bed Suzanne').switchOff()
+				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
 				domoticz.log('Lights floor2 turned off')
 			end
 			--os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
@@ -223,6 +225,7 @@ return {
 			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 			domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
 			domoticz.devices('Lamp hal boven').switchOff().checkFirst()
+			domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
 			--if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 			--end
