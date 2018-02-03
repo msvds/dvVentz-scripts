@@ -31,7 +31,7 @@ return {
 		if (domoticz.globalData.NMC_Floor2 > NM_timeout_floor2) then
 			if (domoticz.devices('Lamp hal boven').state == 'On') then
 				domoticz.devices('Lamp hal boven').switchOff()
-				domoticz.devices('Yeelight Slaapkamer').switchOff().checkFirst()				
+				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()				
 				domoticz.log('No movement floor2 timeout is reached -> lamp hal boven uitgezet')
 			end
 			if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
