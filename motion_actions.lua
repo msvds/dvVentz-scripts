@@ -14,7 +14,7 @@ return {
 			if (domoticz.time.matchesRule('between sunset and 01:00') and domoticz.devices('Beweging woonkamer').state == 'On' and domoticz.devices('Sw1_woonkamerdeur').lastUpdate.minutesAgo > 3 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and domoticz.devices('Sw4_eetkamerdeur').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
 				-- woonkamer aan avonds + donker
 				-- between 16:00 and 1:00 then next day
-				if ((domoticz.groups('Lampen woonkamer').lastUpdate.minutesAgo > 5 and domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO) end
+				if (domoticz.groups('Lampen woonkamer').lastUpdate.minutesAgo > 5 and domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('Beweging woonkamer terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO) end
 				domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
 				if (domoticz.devices('Yeelight eetkamer 1').state == 'Off' and domoticz.devices('Yeelight eetkamer 1').lastUpdate.minutesAgo > 5 ) then
 					domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
