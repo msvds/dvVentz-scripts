@@ -14,29 +14,20 @@ return {
 				domoticz.log('Lamp spoelbak keuken aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
 			end
 			if (domoticz.devices('Lamp boven TV').state == 'Off') then
-				domoticz.devices('Lamp boven TV').switchOn().withinMin(26).forMin(3)
+				domoticz.devices('Lamp boven TV').switchOn().withinMin(27).forMin(2)
 				domoticz.log('Lamp boven TV aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
 			end
 			if (domoticz.devices('Grote lamp naast bank').state == 'Off') then
-				domoticz.devices('Grote lamp naast bank').switchOn().withinMin(25).forMin(4)
+				domoticz.devices('Grote lamp naast bank').switchOn().withinMin(27).forMin(2)
 				domoticz.log('Grote lamp naast bank aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
-			end
-			if (domoticz.devices('Schemerlamp bank').state == 'Off') then
-				domoticz.devices('Schemerlamp bank').switchOn().withinMin(25).forMin(4)
-				domoticz.log('Schemerlamp bank aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
 			end
 			if (domoticz.devices('Yeelight eetkamer 1').state == 'Off') then
 				domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
-				domoticz.devices('Yeelight eetkamer 1').switchOn().withinMin(24).forMin(5)
-				domoticz.devices('White Temp Yeelight eetkamer 2').dimTo(20)
-				domoticz.devices('Yeelight eetkamer 2').switchOn().withinMin(24).forMin(5)
+				domoticz.devices('Yeelight eetkamer 1').switchOn().withinMin(27).forMin(2)
 				domoticz.log('Lamp bank aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
-			end
-			
-			
-			
+			end	
 			if (domoticz.devices('Schemerlamp deur').state == 'Off') then
-				domoticz.devices('Schemerlamp deur').switchOn().withinMin(23).forMin(6)
+				domoticz.devices('Schemerlamp deur').switchOn().withinMin(27).forMin(2)
 				domoticz.log('Schemerlamp deur aangezet met random timer ivm inbraakpreventie', domoticz.LOG_INFO)
 			end
 		end
