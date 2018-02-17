@@ -3,7 +3,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		devices = {'Smoke Detector Zolder','Smoke Detector Keuken'
+		devices = {'Smoke Detector Zolder','Smoke Detector Keuken','Smoke Detector Garage'
 			--,'Test Switch'
 		},
 	},
@@ -16,6 +16,9 @@ return {
 			end
 			if (device.name == 'Smoke Detector Keuken' and domoticz.devices('Notifications').level ~= 0) then 
 				domoticz.notify('Brand!', "De rookmelder in de keuken boven gaat af" ,domoticz.PRIORITY_HIGH) 
+			end
+			if (device.name == 'Smoke Detector Garage' and domoticz.devices('Notifications').level ~= 0) then 
+				domoticz.notify('Brand!', "De rookmelder in de garage gaat af" ,domoticz.PRIORITY_HIGH) 
 			end
 			if (device.name == 'Test Switch') then 
 				domoticz.notify('Brand alarm test!', "Dit was een test, niks aan de hand" ,domoticz.PRIORITY_HIGH) 
