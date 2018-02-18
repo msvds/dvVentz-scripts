@@ -25,7 +25,7 @@ for i, device in pairs(HUMIDITY_SENSORS) do
 end
 
 return {
-	active = false,
+	active = true,
 	logging = {
 		--level = domoticz.LOG_DEBUG, -- Select one of LOG_DEBUG, LOG_INFO, LOG_ERROR, LOG_FORCE to override system log level
 		marker = "bathRoom"
