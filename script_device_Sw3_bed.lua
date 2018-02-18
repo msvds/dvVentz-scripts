@@ -15,6 +15,11 @@ return {
 				alarm.zones(i).disArmZone(domoticz)
 			end
 			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
+			-- Gateway status resetten
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(0)
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
+			domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
+			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
 			if IsDark.state == 'On' then
 				if (domoticz.devices('Dimmer bed Martijn').state == 'Off') then
 					domoticz.devices('Dimmer bed Martijn').dimTo(20)
