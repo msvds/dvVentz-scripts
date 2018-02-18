@@ -5,10 +5,10 @@ Version 1.3.1
 	relative rises in humidity in a short period.
 --]]
 
-local FAN_DEVICE = 'Nibe F750 Force Fan' -- Fan device
-local FORCE_FAN_DEVICE = 'Flatulence Button' -- (Optional)
+local FAN_DEVICE = 'Centrale Afzuiging Boost' -- Fan device
+local FORCE_FAN_DEVICE = 'Sw6_badkamer' -- (Optional)
 local FORCE_FAN_TIME = 10 -- Minutes to force the fan when button pushed
-local HUMIDITY_SENSORS =  {'Badrum 1 C+RH', 'Badrum 2 C+RH'}
+local HUMIDITY_SENSORS =  {'Vochtigheid Badkamer'}
 local FAN_DELTA_TRIGGER = 3 -- % Rise in humidity that will trigger the fan
 local FAN_MAX_TIME = 24 -- Maximum minutes that the fan can be on in case we never reach the target humidity
 local TARGET_OFFSET = 2 -- Fan goes off if target + offset is reached
