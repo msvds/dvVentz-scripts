@@ -57,7 +57,7 @@ return {
         
 
         -- Update the temperature sensor to current room temperature
-        if domoticz.round(domoticz.devices(ToonTemperatureSensorName).temperature, 1) ~= domoticz.round(currentTemperature, 1) then 
+        if domoticz.utils.round(domoticz.devices(ToonTemperatureSensorName).temperature, 1) ~= domoticz.utils.round(currentTemperature, 1) then 
             domoticz.log('Updating the temperature sensor to new value: ' ..currentTemperature)
             domoticz.devices(ToonTemperatureSensorName).updateTemperature(currentTemperature)
         end
