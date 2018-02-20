@@ -4,6 +4,7 @@ return {
 		timer = {'every 1 minutes'}
 	},
 	execute = function(domoticz, device)
+		local Time = require('Time')
 		if (domoticz.time.matchesRule('at 16:32-21:33 on mon,tue,wed')) then
 			if domoticz.devices('SomeoneHome').state == 'On' then
 				domoticz.devices('Roomlars-Stat').updateSetPoint(10)
