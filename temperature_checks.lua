@@ -101,11 +101,15 @@ return {
 			message = message .."De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg())
 		end
 		
-		if (domoticz.devices('Temperatuur Bijkeuken').temperature < 1) then
-			message = message .."De temperatuur in de bijkeuken wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur Bijkeuken').temperature)
+		if (domoticz.devices('Temperatuur Bijkeuken').temperature < 0) then
+			message = message .."De temperatuur in de bijkeuken wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur Bijkeuken').temperature) ..". Let op bevriezing van de waterleiding!"
 		end
-		if (domoticz.devices('Temperatuur garage').temperature < 1) then
-			message = message .."De temperatuur in de garage wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur garage').temperature)
+		if (domoticz.devices('Temperatuur garage').temperature < 0) then
+			message = message .."De temperatuur in de garage wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur garage').temperature) ..". Let op bevriezing van de waterleiding!"
+		end
+		
+		if (domoticz.devices('Temperatuur Buiten').temperature < -8) then
+			message = message .."De temperatuur buiten is erg laag, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) ..". Let op bevriezing van de waterleiding!"
 		end
 		
 		--if (domoticz.devices('Temperatuur woonkamer').temperature > 25) then			
