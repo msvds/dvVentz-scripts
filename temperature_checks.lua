@@ -101,18 +101,18 @@ return {
 			message = message .."De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg())
 		end
 		
-		if (domoticz.devices('Temperatuur Bijkeuken').temperature < 5) then
+		if (domoticz.devices('Temperatuur Bijkeuken').temperature < 1) then
 			message = message .."De temperatuur in de bijkeuken wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur Bijkeuken').temperature)
 		end
-		if (domoticz.devices('Temperatuur garage').temperature < 5) then
+		if (domoticz.devices('Temperatuur garage').temperature < 1) then
 			message = message .."De temperatuur in de garage wordt laag, namelijk " ..tonumber(domoticz.devices('Temperatuur garage').temperature)
 		end
 		
-		if (domoticz.devices('Temperatuur woonkamer').temperature > 25) then			
-			domoticz.devices('Gashaard').setState('Run Down')
-			message = message ..'De gashaard is uitgezet omdat het warmer is dan 25 graden in de woonkamer' 
+		--if (domoticz.devices('Temperatuur woonkamer').temperature > 25) then			
+			--domoticz.devices('Gashaard').setState('Run Down')
+			--message = message ..'De gashaard is uitgezet omdat het warmer is dan 25 graden in de woonkamer' 
 		
-		end
+		--end
 		if (string.len(message) > 5 and domoticz.globalData.temperature_message_interval > message_interval and domoticz.devices('Notifications').level == 20) then
 			domoticz.notify('Temperatuur waarschuwing',message,domoticz.PRIORITY_LOW)
 			domoticz.globalData.temperature_message_interval = 0
