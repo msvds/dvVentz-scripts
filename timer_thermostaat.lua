@@ -5,6 +5,8 @@ return {
 	},
 	execute = function(domoticz, device)
 		local Time = require('Time')
+		domoticz.log('Toon timer programma')
+		domoticz.log(domoticz.devices('SomeoneHome').state)		
 		if (domoticz.time.matchesRule('at 7:30-7:35 on mon,tue,wed,thu,fri') and domoticz.devices('SomeoneHome').state == 'On') then				
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			domoticz.devices('Toon Scenes').switchSelector(30)
