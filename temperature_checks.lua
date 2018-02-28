@@ -22,7 +22,7 @@ return {
 		domoticz.data.woonk.add(domoticz.devices('Temperatuur woonkamer').temperature)
 		domoticz.data.k_lars.add(domoticz.devices('Temperatuur Kamer Lars').temperature)
 		domoticz.data.k_nienke.add(domoticz.devices('Temperatuur Kamer Nienke').temperature)
-		domoticz.data.badk.add(domoticz.devices('Temperatuur Badkamer').temperature)
+		domoticz.data.badk.add(domoticz.devices('Temperatuur Badkamer Bad').temperature)
 		domoticz.data.buiten.add(domoticz.devices('Temperatuur Buiten').temperature)
 		domoticz.data.bijkeuken.add(domoticz.devices('Temperatuur Bijkeuken').temperature)
 		domoticz.data.garage.add(domoticz.devices('Temperatuur garage').temperature)
@@ -39,7 +39,7 @@ return {
 		
 		--domoticz.log("De temperatuur in de woonkamer is " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(round(domoticz.data.woonk.avg(),1)) .. ".")
 		--domoticz.log("De temperatuur in de kamer van Lars is " ..tonumber(domoticz.devices('Temperatuur Kamer Lars').temperature) .. ". De gemiddelde temperatuur in de kamer van Lars de afgelopen 24 uur was " ..tonumber(round(domoticz.data.k_lars.avg(),1)) .. ".")
-		--domoticz.log("De temperatuur in de badkamer is " ..tonumber(domoticz.devices('Temperatuur Badkamer').temperature) .. ". De gemiddelde temperatuur in de badkamer de afgelopen 24 uur was " ..tonumber(round(domoticz.data.badk.avg(),1)) .. ".")
+		--domoticz.log("De temperatuur in de badkamer is " ..tonumber(domoticz.devices('Temperatuur Badkamer Bad').temperature) .. ". De gemiddelde temperatuur in de badkamer de afgelopen 24 uur was " ..tonumber(round(domoticz.data.badk.avg(),1)) .. ".")
 		--domoticz.log("De temperatuur buiten is " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .. ". De gemiddelde temperatuur buiten de afgelopen 24 uur was " ..tonumber(round(domoticz.data.buiten.avg(),1)) .. ".")
 		--domoticz.log("De temperatuur in de bijkeuken is " ..tonumber(domoticz.devices('Temperatuur Bijkeuken').temperature) .. ". De gemiddelde temperatuur in de bijkeuken de afgelopen 24 uur was " ..tonumber(round(domoticz.data.bijkeuken.avg(),1)) .. ".")
 		--domoticz.log("De temperatuur in de garage is " ..tonumber(domoticz.devices('Temperatuur garage').temperature) .. ". De gemiddelde temperatuur in de garage de afgelopen 24 uur was " ..tonumber(round(domoticz.data.garage.avg(),1)) .. ".")
@@ -71,8 +71,8 @@ return {
 		if (domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg() > 2) then
 			message = message .."De temperatuur stijgt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg())
 		end
-		if (domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg() > 2) then
-			message = message .."De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg()) 
+		if (domoticz.devices('Temperatuur Badkamer Bad').temperature - domoticz.data.badk.avg() > 2) then
+			message = message .."De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer Bad').temperature - domoticz.data.badk.avg()) 
 		end
 		if (domoticz.devices('Temperatuur Buiten').temperature - domoticz.data.buiten.avg() > 5) then
 			message = message .."De temperatuur stijgt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature - domoticz.data.buiten.avg())
