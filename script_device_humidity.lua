@@ -22,7 +22,7 @@ return {
 		domoticz.data.woonk.add(domoticz.devices('Vochtigheid Woonkamer').humidity)
 		domoticz.data.k_lars.add(domoticz.devices('Vochtigheid Kamer Lars').humidity)
 		domoticz.data.k_nienke.add(domoticz.devices('Vochtigheid Kamer Nienke').humidity)
-		domoticz.data.badk.add(domoticz.devices('Vochtigheid Badkamer').humidity)
+		domoticz.data.badk.add(domoticz.devices('Vochtigheid Badkamer Bad').humidity)
 		domoticz.data.buiten.add(domoticz.devices('Vochtigheid Buiten').humidity)
 		domoticz.data.bijkeuken.add(domoticz.devices('Vochtigheid Bijkeuken').humidity)
 		domoticz.data.garage.add(domoticz.devices('Vochtigheid garage').humidity)
@@ -32,7 +32,7 @@ return {
 		
 		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 72 uur was " ..tonumber(domoticz.data.woonk.avg()) .. ".")
 		domoticz.log("De vochtigheid in de kamer van Lars is " ..tonumber(domoticz.devices('Vochtigheid Kamer Lars').humidity) .. ". De gemiddelde vochtigheid in de kamer van Lars de afgelopen 72 uur was " ..tonumber(domoticz.data.k_lars.avg()) .. ".")
-		domoticz.log("De vochtigheid in de badkamer is " ..tonumber(domoticz.devices('Vochtigheid Badkamer').humidity) .. ". De gemiddelde vochtigheid in de badkamer de afgelopen 72 uur was " ..tonumber(domoticz.data.badk.avg()) .. ".")
+		domoticz.log("De vochtigheid in de badkamer is " ..tonumber(domoticz.devices('Vochtigheid Badkamer Bad').humidity) .. ". De gemiddelde vochtigheid in de badkamer de afgelopen 72 uur was " ..tonumber(domoticz.data.badk.avg()) .. ".")
 		domoticz.log("De vochtigheid buiten is " ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) .. ". De gemiddelde vochtigheid buiten de afgelopen 72 uur was " ..tonumber(domoticz.data.buiten.avg()) .. ".")
 		domoticz.log("De vochtigheid in de bijkeuken is " ..tonumber(domoticz.devices('Vochtigheid Bijkeuken').humidity) .. ". De gemiddelde vochtigheid in de bijkeuken de afgelopen 72 uur was " ..tonumber(domoticz.data.bijkeuken.avg()) .. ".")
 		
