@@ -8,7 +8,7 @@ Version 1.3.1
 local FAN_DEVICE = 'Centrale Afzuiging Boost' -- Fan device
 local FORCE_FAN_DEVICE = 'Sw6_badkamer' -- (Optional)
 local FORCE_FAN_TIME = 15 -- Minutes to force the fan when button pushed
-local HUMIDITY_SENSORS =  {'Vochtigheid Badkamer'}
+local HUMIDITY_SENSORS =  {'Vochtigheid Badkamer Bad','Vochtigheid Badkamer Douche'}
 local FAN_DELTA_TRIGGER = 3 -- % Rise in humidity that will trigger the fan
 local FAN_MAX_TIME = 60 -- Maximum minutes that the fan can be on in case we never reach the target humidity
 local TARGET_OFFSET = 2 -- Fan goes off if target + offset is reached
