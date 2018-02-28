@@ -10,11 +10,11 @@ return {
 		debug = false	
 		local Time = require('Time')
 		if debug == true then domoticz.log('IsDark.state = ' ..IsDark.state) end
-		domoticz.groups('Lampen woonkamer').switchOff().checkFirst().afterMin(5)
+		domoticz.groups('Lampen woonkamer').switchOff().checkFirst().afterMin(10)
 		domoticz.log('lampen woonkamer uitgezet ivm zonsopgang')
-		domoticz.devices('Schemerlamp deur').switchOff().checkFirst().afterMin(5)
+		domoticz.devices('Schemerlamp deur').switchOff().checkFirst().afterMin(10)
 		domoticz.log('Schemerlamp deur uitgezet ivm zonsopgang', domoticz.LOG_INFO)
-		domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst().afterMin(5)
+		domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst().afterMin(10)
 		domoticz.log('Lamp spoelbak keuken uitgezet ivm zonsopgang', domoticz.LOG_INFO)
 	end
 }
