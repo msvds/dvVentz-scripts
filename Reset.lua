@@ -24,6 +24,7 @@ return {
 		--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 		domoticz.devices('Toon Scenes').switchSelector(30)
 		domoticz.log('Thermostaat op Home gezet')
+		local alarm = require "ideAlarmModule"
 		alarm.zones('My Home').disArmZone(domoticz)
 		domoticz.log('Alarm uitgezet')
 		-- Gateway status resetten
