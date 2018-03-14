@@ -7,7 +7,7 @@ return {
 	},
 	execute = function(domoticz, device)
 		local NM_timeout_floor1 = 30
-		local NM_timeout_floor2 = 10
+		local NM_timeout_floor2 = 20
 		local NM_timeout_kamerLars = 30
 		local Time = require('Time')
 		--local MediaCenter = domoticz.devices(11)
