@@ -12,7 +12,7 @@ return {
 			if (domoticz.devices('Dimmer bed Martijn').state == 'Off') then
 				domoticz.devices('Dimmer bed Martijn').dimTo(20)
 				domoticz.log('Switch 1 ingedrukt, Nachtlampje Martijn aangezet', domoticz.LOG_INFO)
-			elseif domoticz.devices('Dimmer bed Martijn').state == 'On then	
+			elseif domoticz.devices('Dimmer bed Martijn').state == 'On' then	
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 				domoticz.log('Switch 1 ingedrukt, Nachtlampje Martijn uitgezet', domoticz.LOG_INFO)
 			end
