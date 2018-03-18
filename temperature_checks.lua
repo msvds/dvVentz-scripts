@@ -83,8 +83,8 @@ return {
 		if (domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg() < -2) then
 			message = message .."De temperatuur daalt snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.k_lars.avg() - domoticz.devices('Temperatuur Kamer Lars').temperature) 
 		end
-		if (domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg() < -2) then
-			message = message .."De temperatuur daalt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.badk.avg() - domoticz.devices('Temperatuur Badkamer').temperature) 
+		if (domoticz.devices('Temperatuur Badkamer Bad').temperature - domoticz.data.badk.avg() < -2) then
+			message = message .."De temperatuur daalt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.badk.avg() - domoticz.devices('Temperatuur Badkamer Bad').temperature) 
 		end
 		if (domoticz.devices('Temperatuur Buiten').temperature - domoticz.data.buiten.avg() < -5) then
 			message = message .." De temperatuur daalt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.data.buiten.avg()-domoticz.devices('Temperatuur Buiten').temperature)  
@@ -97,8 +97,8 @@ return {
 		if (domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg() > 20) then
 			message = message .."De temperatuur stijgt extreem snel in de kamer van Lars, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Kamer Lars').temperature - domoticz.data.k_lars.avg()) 
 		end
-		if (domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg() > 20) then
-			message = message .."De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer').temperature - domoticz.data.badk.avg())
+		if (domoticz.devices('Temperatuur Badkamer Bad').temperature - domoticz.data.badk.avg() > 20) then
+			message = message .."De temperatuur stijgt extreem snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer Bad').temperature - domoticz.data.badk.avg())
 		end
 		
 		if (domoticz.devices('Temperatuur Bijkeuken').temperature < 0) then
