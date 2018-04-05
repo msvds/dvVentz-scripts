@@ -206,7 +206,7 @@ return {
 				domoticz.log('Lights floor1 turned off')
 			end
 			if (area == 'Floor2') then
-				domoticz.devices('Lampen hal boven').switchOff().checkFirst()
+				domoticz.devices('Lamp hal boven').switchOff().checkFirst()
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 				domoticz.devices('Dimmer bed Suzanne').switchOff()
 				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
