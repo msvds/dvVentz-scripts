@@ -54,10 +54,10 @@ return {
 				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()				
 				domoticz.log('Beweging nachts in de woonkamer!')			
 			end
-			if (domoticz.devices('Beweging hal boven').state == 'On' and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 2 and IsDark.state == 'On') then
+			if (domoticz.devices('Beweging hal boven').state == 'On' and domoticz.devices('Lamp hal boven').lastUpdate.minutesAgo > 5 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 5 and IsDark.state == 'On') then
 					-- hal aan donker
 					-- vertraging zodat als Sw3_bed is ingedrukt, niet meteen de lamp in de hal weer aangaat omdat de bewegingsensor nog op On staat
-					if (domoticz.devices('Lamp hal boven').lastUpdate.minutesAgo > 5 and domoticz.devices('Lamp hal boven').state == 'Off') then domoticz.log('Beweging hal boven terwijl het donker is, lamp hal boven aangezet', domoticz.LOG_INFO) end
+					if (domoticz.devices('Lamp hal boven').lastUpdate.minutesAgo > 5 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 5 and domoticz.devices('Lamp hal boven').state == 'Off') then domoticz.log('Beweging hal boven terwijl het donker is, lamp hal boven aangezet', domoticz.LOG_INFO) end
 					domoticz.devices('Lamp hal boven').switchOn().checkFirst()
 			end
 			if (device.name == domoticz.devices('Slaapkamerdeur').name and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and domoticz.time.matchesRule('at 17:00-21:30') and domoticz.devices('Slaapkamerdeur').state == 'Open' and IsDark.state == 'On') then
