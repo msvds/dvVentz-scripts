@@ -191,6 +191,8 @@ return {
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 				domoticz.devices('Dimmer bed Suzanne').switchOff()
 				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
 				domoticz.log('All lights inside turned off')
 			end
 			if (area == 'Floor1') then
@@ -203,6 +205,7 @@ return {
 				domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
 				domoticz.log('Lights floor1 turned off')
 			end
 			if (area == 'Floor2') then
@@ -210,6 +213,7 @@ return {
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 				domoticz.devices('Dimmer bed Suzanne').switchOff()
 				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst()
 				domoticz.log('Lights floor2 turned off')
 			end
 			if (area == 'Floor3') then
