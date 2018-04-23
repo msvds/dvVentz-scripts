@@ -3,7 +3,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		devices = {'Smoke Detector Zolder','Smoke Detector Keuken','Smoke Detector Garage'
+		devices = {'Smoke Detector Zolder','Smoke Detector Keuken','Smoke Detector Garage','Smoke Detector Zolder Top'
 			--,'Test Switch'
 		},
 	},
@@ -27,6 +27,13 @@ return {
 			end
 			if (device.name == 'Smoke Detector Garage' and domoticz.devices('Notifications').level ~= 0) then 
 				domoticz.notify('Brand!', "De rookmelder in de garage gaat af" ,domoticz.PRIORITY_HIGH)
+				domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(30)
+				domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(30)
+				domoticz.devices('Gateway light eetkamer').switchSelector(10)--red
+				domoticz.devices('Gateway light hal boven').switchSelector(10)--red
+			end			
+			if (device.name == 'Smoke Detector Zolder Top' and domoticz.devices('Notifications').level ~= 0) then 
+				domoticz.notify('Brand!', "De rookmelder op de zolder gaat af" ,domoticz.PRIORITY_HIGH)
 				domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(30)
 				domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(30)
 				domoticz.devices('Gateway light eetkamer').switchSelector(10)--red
