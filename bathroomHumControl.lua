@@ -10,8 +10,8 @@ local FORCE_FAN_DEVICE = 'Sw6_badkamer' -- (Optional)
 local FORCE_FAN_TIME = 15 -- Minutes to force the fan when button pushed
 local HUMIDITY_SENSORS =  {'Vochtigheid Badkamer Bad','Vochtigheid Badkamer Douche'}
 local FAN_DELTA_TRIGGER = 3 -- % Rise in humidity that will trigger the fan
-local FAN_MAX_TIME = 60 -- Maximum minutes that the fan can be on in case we never reach the target humidity
-local TARGET_OFFSET = 2 -- Fan goes off if target + offset is reached
+local FAN_MAX_TIME = 90 -- Maximum minutes that the fan can be on in case we never reach the target humidity;default = 60
+local TARGET_OFFSET = 3 -- Fan goes off if target + offset is reached;default = 2
 local TEST_MODE_HUMIDITY_READING = 0 -- Set to a value between 1 and 100. Set to 0 to disable test mode
 local READING_SAMPLES = 15
 
