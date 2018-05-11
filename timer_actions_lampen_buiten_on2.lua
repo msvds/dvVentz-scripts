@@ -7,6 +7,7 @@ return {
 	},
 	execute = function(domoticz, device)
 		local Time = require('Time')
+		local IsDark = domoticz.devices(78)
 
 		-- woonkamer bij zonsondergang
 		if IsDark.state == 'On' then
