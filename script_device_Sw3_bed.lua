@@ -9,31 +9,9 @@ return {
 	execute = function(domoticz, device)
 		local alarm = require "ideAlarmModule"
 		if device.state == 'Double Click' then
-			-- Beveiliging uitzetten (thuis)
-			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			for i=1, alarm.qtyAlarmZones() do
-				alarm.zones(i).disArmZone(domoticz)
-			end
-			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			-- Gateway status resetten
-			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(0)
-			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
-			domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
-			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
 			if IsDark.state == 'On' then
-				if (domoticz.devices('Dimmer bed Martijn').state == 'Off') then
-					domoticz.devices('Dimmer bed Martijn').dimTo(20)
-					--domoticz.devices('Dimmer bed Martijn').switchOn()
-					--domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Martijn aangezet', domoticz.LOG_INFO)
-				end
-				if (domoticz.devices('Dimmer bed Suzanne').state == 'Off') then
-					domoticz.devices('Dimmer bed Suzanne').dimTo(20)
-					--domoticz.devices('Dimmer bed Suzanne').switchOn()
-					--domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet', domoticz.LOG_INFO)
-				end
-				domoticz.devices('Lamp hal boven').switchOn().checkFirst()
 				domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
-				domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
+				domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(20)
 				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
 				domoticz.log('Lights turned on')
 			end
