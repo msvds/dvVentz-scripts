@@ -9,7 +9,7 @@ return {
 		local Time = require('Time')
 
 		-- woonkamer bij zonsondergang
-		if (domoticz.devices('IsDonker (virt)').state == 'Off') then
+		if (domoticz.devices('IsDonker (virt)').state == 'On') then
 			domoticz.groups('Buitenlampen').switchOn().checkFirst()
 			domoticz.log('lampen buiten aangezet ivm zonsondergang en ochtends')
 		
