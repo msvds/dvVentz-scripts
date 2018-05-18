@@ -9,7 +9,7 @@ return {
 	execute = function(domoticz, device)
 		local alarm = require "ideAlarmModule"
 		if device.state == 'Double Click' then
-			domoticz.devices('Yeelight slaapkamer').switchSelector(30)
+			domoticz.devices('Yeelight light slaapkamer').switchSelector(10)
 		elseif device.state == 'Click' then
 			-- Alles uit en beveiliging aanzetten bij gaan slapen (sleep)
 			domoticz.devices('Status').switchSelector(30) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
