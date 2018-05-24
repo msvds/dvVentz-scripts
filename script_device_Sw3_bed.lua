@@ -11,17 +11,17 @@ return {
 		if device.state == 'Double Click' then
 			if domoticz.devices('Yeelight slaapkamer').state == "Off" then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(10)
-			elseif domoticz.devices('Yeelight light slaapkamer').state == '10' then
+			elseif domoticz.devices('Yeelight light slaapkamer').level == 10 then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(20)
-			elseif domoticz.devices('Yeelight light slaapkamer').state == '20' then
+			elseif domoticz.devices('Yeelight light slaapkamer').level == 20 then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(30)
-			elseif domoticz.devices('Yeelight light slaapkamer').state == '30' then
+			elseif domoticz.devices('Yeelight light slaapkamer').level == 30' then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(40)
-			elseif domoticz.devices('Yeelight light slaapkamer').state == '40' then
+			elseif domoticz.devices('Yeelight light slaapkamer').level == 40 then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(50)
-			elseif domoticz.devices('Yeelight light slaapkamer').state == '50' then
+			elseif domoticz.devices('Yeelight light slaapkamer').level == 50 then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(60)
-			elseif domoticz.devices('Yeelight light slaapkamer').state == '60' then
+			elseif domoticz.devices('Yeelight light slaapkamer').level == 60 then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(70)				
 			end
 		elseif device.state == 'Click' then
