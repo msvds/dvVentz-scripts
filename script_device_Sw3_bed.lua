@@ -15,7 +15,7 @@ return {
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(20)
 			elseif domoticz.devices('Yeelight light slaapkamer').level == 20 then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(30)
-			elseif domoticz.devices('Yeelight light slaapkamer').level == 30' then
+			elseif domoticz.devices('Yeelight light slaapkamer').level == 30 then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(40)
 			elseif domoticz.devices('Yeelight light slaapkamer').level == 40 then
 				domoticz.devices('Yeelight light slaapkamer').switchSelector(50)
