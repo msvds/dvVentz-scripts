@@ -81,17 +81,17 @@ return {
 			elseif (device.name == domoticz.devices('Slaapkamerdeur').name and domoticz.time.matchesRule('at 21:30-0:30') and domoticz.devices('Slaapkamerdeur').state == 'Open' and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
 				-- dimmers slaapkamer aan donker tot 0:30
 				-- between 21:30 and 00:30 then next day
-				if (domoticz.devices('Yeelight slaapkamer').state == 'Off' and domoticz.devices('Yeelight slaapkamer').state == 'Off') then
+				if (domoticz.devices('Yeelight slaapkamer').state == 'Off' and domoticz.devices('Yeelight slaapkamer').lastUpdate.minutesAgo > 10) then
 					domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
 					domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
 					domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
 				end
-				if (domoticz.devices('Dimmer bed Martijn').state == 'Off' and domoticz.devices('Dimmer bed Martijn').state == 'Off') then
+				if (domoticz.devices('Dimmer bed Martijn').state == 'Off' and domoticz.devices('Dimmer bed Martijn').lastUpdate.minutesAgo > 10) then
 					domoticz.devices('Dimmer bed Martijn').dimTo(10)
 					--domoticz.devices('Dimmer bed Martijn').switchOn()
 					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Martijn aangezet', domoticz.LOG_INFO)
 				end
-				if (domoticz.devices('Dimmer bed Suzanne').state == 'Off' and domoticz.devices('Dimmer bed Suzanne').state == 'Off') then
+				if (domoticz.devices('Dimmer bed Suzanne').state == 'Off' and domoticz.devices('Dimmer bed Suzanne').lastUpdate.minutesAgo > 10) then
 					domoticz.devices('Dimmer bed Suzanne').dimTo(10)
 					--domoticz.devices('Dimmer bed Suzanne').switchOn()
 					domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet', domoticz.LOG_INFO)
