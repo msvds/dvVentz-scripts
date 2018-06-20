@@ -13,7 +13,7 @@ return {
 		message_interval = 60
 		domoticz.globalData.door_bedroom_message_interval = domoticz.globalData.door_bedroom_message_interval + 1  
 		local Time = require('Time')
-		debug = false
+		debug = true
 		if debug == true then 
 			domoticz.log('domoticz.globalData.OpenC_Slaapkdeur = ' ..domoticz.globalData.OpenC_Slaapkdeur)
 			domoticz.log('Open_timeout_floor2 = ' ..Open_timeout_floor2)
