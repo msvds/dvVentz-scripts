@@ -1,7 +1,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		timer = {'every 1 days'}
+		timer = {'every 1 hours'}
 	},
 	data = {
 		plant1 = { history = true, maxItems = 7 },
@@ -9,14 +9,22 @@ return {
         },
 	execute = function(domoticz, device)
 		local message = ''
+		
 		-- add new data
 		domoticz.data.plant1.add(domoticz.devices('plant moisture 1').percentage)
 		domoticz.data.plant2.add(domoticz.devices('plant moisture 2').percentage)
 
 		-- average over 7 items each 24 hours (1 week)
 		local average_humidities_plant1  = domoticz.data.plant1.avg()
-		local average_humidities_plant2  = domoticz.data.plant2.avg()    
-    
+		local average_humidities_plant2  = domoticz.data.plant2.avg()
+		
+		debug = true
+		if debug == true then 
+			domoticz.log('start kamerplanten.lua')
+			domoticz.log('average_humidities_plant1 = ' ..average_humidities_plant1)
+			domoticz.log('average_humidities_plant2 = ' ..average_humidities_plant2)
+		end
+		
 		if (domoticz.devices('plant moisture 1').percentage < 25) then				
         	message = message .. 'De plant in de hal boven begint heel erg droog te worden (<25%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
 		elseif (domoticz.devices('plant moisture 1').percentage < 35) then				
