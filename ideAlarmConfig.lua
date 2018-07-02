@@ -27,7 +27,7 @@ _C.NAG_INTERVAL_MINUTES = 6
 -- Number of seconds which after the alert devices will be turned off
 -- automatically even if an active alert situation still exists.
 -- 0 = Disable automatic turning off alert devices.   
-_C.ALARM_ALERT_MAX_SECONDS = 15
+_C.ALARM_ALERT_MAX_SECONDS = 30
 
 --	Uncomment 3 lines below to override the default logging level
 --	_C.loggingLevel = function(domoticz)
@@ -53,7 +53,7 @@ _C.ALARM_ZONES = {
 			['Garage deur'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
 			--['Beweging woonkamer 2'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
 			['Deur garage tuinkant'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
-			['Beweging naast huis'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
+			--['Beweging naast huis'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
 			['Beweging garage'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
 			['Front door'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
 		},
