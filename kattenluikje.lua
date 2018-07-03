@@ -9,7 +9,7 @@ return {
    },
 	execute = function(domoticz, device)
 		local Time = require('Time')
-		if (domoticz.time.matchesRule('at 9:59-10:01') then
+		if (domoticz.time.matchesRule('at 9:59-10:01')) then
 			if (domoticz.data.counter = 0) then
 				domoticz.helpers.sendnotification(domoticz,'Kattenluikje','De laatste tijd is het kattenluikje niet gebruikt, check even of alles goed werkt')
 				domoticz.log('De laatste tijd is het kattenluikje niet gebruikt, check even of alles goed werkt')
