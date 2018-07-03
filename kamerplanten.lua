@@ -1,11 +1,11 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		timer = {'every 1 hours'}
+		timer = {'every 4 hours'}
 	},
 	data = {
-		plant1 = { history = true, maxItems = 7 },
-		plant2 = { history = true, maxItems = 7 }
+		plant1 = { history = true, maxItems = 42 },
+		plant2 = { history = true, maxItems = 42 }
         },
 	execute = function(domoticz, device)
 		local message = ''
@@ -14,7 +14,7 @@ return {
 		domoticz.data.plant1.add(domoticz.devices('plant moisture 1').percentage)
 		domoticz.data.plant2.add(domoticz.devices('plant moisture 2').percentage)
 
-		-- average over 7 items each 24 hours (1 week)
+		-- average over 42 items each 4 hours (1 week)
 		local average_humidities_plant1  = domoticz.data.plant1.avg()
 		local average_humidities_plant2  = domoticz.data.plant2.avg()
 		
