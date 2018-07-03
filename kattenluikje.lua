@@ -1,7 +1,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		devices = {'Kattenluikje'}
+		devices = {'Kattenluikje'},
 		timer = {'at 10:00'}
 	},
 	data = {
