@@ -44,22 +44,22 @@ return {
 		elseif (domoticz.devices('plant moisture 2').percentage < 20) then				
 			message = message .. 'De plant in de badkamer begint een beetje droog te worden (<20%), namelijk ' ..tonumber(domoticz.devices('plant moisture 2').percentage) .. '), '
 		end
+		
+		--if (average_humidities_plant1 - domoticz.devices('plant moisture 1').percentage > 6) then
+		--	message = message .. 'De plant in de hal boven drinkt veel, klopt het dat het zomer is?, '
+		--elseif (average_humidities_plant1 - domoticz.devices('plant moisture 1').percentage > 4) then
+		--	message = message .. 'De plant in de hal boven drinkt redelijk veel, klopt het dat het lente is?, '
+		--elseif (average_humidities_plant1 - domoticz.devices('plant moisture 1').percentage < 4) then
+		--	message = message .. 'De plant in de hal boven drinkt redelijk weinig, klopt het dat het winter of herfst is?, '
+		--end
 
-		if (average_humidities_plant1 - domoticz.devices('plant moisture 1').percentage > 6) then
-			message = message .. 'De plant in de hal boven drinkt veel, klopt het dat het zomer is?, '
-		elseif (average_humidities_plant1 - domoticz.devices('plant moisture 1').percentage > 4) then
-			message = message .. 'De plant in de hal boven drinkt redelijk veel, klopt het dat het lente is?, '
-		elseif (average_humidities_plant1 - domoticz.devices('plant moisture 1').percentage < 4) then
-			message = message .. 'De plant in de hal boven drinkt redelijk weinig, klopt het dat het winter of herfst is?, '
-		end
-
-		if (average_humidities_plant2 - domoticz.devices('plant moisture 2').percentage > 4) then
-			message = message .. 'De plant in de badkamer drinkt veel, klopt het dat het zomer is?, '
-		elseif (average_humidities_plant2 - domoticz.devices('plant moisture 2').percentage > 2) then
-			message = message .. 'De plant in de badkamer drinkt redelijk veel, klopt het dat het lente is?, '
-		elseif (average_humidities_plant2 - domoticz.devices('plant moisture 2').percentage < 2) then
-			message = message .. 'De plant in de badkamer drinkt redelijk weinig, klopt het dat het winter of herfst is?, '
-		end
+		--if (average_humidities_plant2 - domoticz.devices('plant moisture 2').percentage > 4) then
+		--	message = message .. 'De plant in de badkamer drinkt veel, klopt het dat het zomer is?, '
+		--elseif (average_humidities_plant2 - domoticz.devices('plant moisture 2').percentage > 2) then
+		--	message = message .. 'De plant in de badkamer drinkt redelijk veel, klopt het dat het lente is?, '
+		--elseif (average_humidities_plant2 - domoticz.devices('plant moisture 2').percentage < 2) then
+		--	message = message .. 'De plant in de badkamer drinkt redelijk weinig, klopt het dat het winter of herfst is?, '
+		--end
 		
 		domoticz.devices('Status Notifications').updateText(message).silent()
 		if (string.len(message) > 5 and domoticz.devices('Notifications').level == 20) then
