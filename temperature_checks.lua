@@ -2,22 +2,25 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		timer = {'every 2 hours'}
+		timer = {'every 15 minutes'}
 	},
 	data = {
-        woonk = { history = true, maxItems = 12 },
-		k_lars = { history = true, maxItems = 12 },
-		k_nienke = { history = true, maxItems = 12 },
-		badk = { history = true, maxItems = 12 },
-		bijkeuken = { history = true, maxItems = 12 },
-		buiten = { history = true, maxItems = 12 },
-		garage = { history = true, maxItems = 12 },
-		zolder = { history = true, maxItems = 12 }
+        woonk = { history = true, maxItems = 96 },
+		k_lars = { history = true, maxItems = 96 },
+		k_nienke = { history = true, maxItems = 96 },
+		badk = { history = true, maxItems = 96 },
+		bijkeuken = { history = true, maxItems = 96 },
+		buiten = { history = true, maxItems = 96 },
+		garage = { history = true, maxItems = 96 },
+		zolder = { history = true, maxItems = 96 }
         },
 	execute = function(domoticz, device)     	
-		message_interval = 480
-		domoticz.globalData.temperature_message_interval = domoticz.globalData.temperature_message_interval + 120
+		message_interval = 96
+		message_interval2 = 8
+		domoticz.globalData.temperature_message_interval = domoticz.globalData.temperature_message_interval + 1
+		domoticz.globalData.temperature_message_interval2 = domoticz.globalData.temperature_message_interval2 + 1
 		local message = ''
+		local message2 = ''
 		-- add new data
 		domoticz.data.woonk.add(domoticz.devices('Temperatuur woonkamer').temperature)
 		domoticz.data.k_lars.add(domoticz.devices('Temperatuur Kamer Lars').temperature)
@@ -57,11 +60,10 @@ return {
 
 		if (domoticz.devices('Temperatuur woonkamer').temperature > 24) then
 			if (domoticz.devices('Temperatuur Buiten').temperature < domoticz.devices('Temperatuur woonkamer').temperature) then
-				message = message .."De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus deuren en ramen open zetten kan helpen. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) .."."
-				--TODO Need to adapt intervals at the end of next line
-				domoticz.helpers.message("De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus een raampje open zetten kan helpen.", 100,90)	
+				message2 = message2 .."De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus deuren en ramen open zetten kan helpen. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) .."."
+				--domoticz.helpers.message("De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus een raampje open zetten kan helpen.", 100,90)	
 			elseif (domoticz.devices('Temperatuur Buiten').temperature > domoticz.devices('Temperatuur woonkamer').temperature) then
-				message = message .."De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur hoger, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus deuren en ramen open zetten helpt helaas niet. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) .."." 
+				--message = message .."De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur hoger, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus deuren en ramen open zetten helpt helaas niet. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) .."." 
 			end
 		end
 
@@ -117,11 +119,16 @@ return {
 			--message = message ..'De gashaard is uitgezet omdat het warmer is dan 25 graden in de woonkamer' 
 		
 		--end
+		
 		if (string.len(message) > 5 and domoticz.globalData.temperature_message_interval > message_interval and domoticz.devices('Notifications').level == 20) then
 			domoticz.notify('Temperatuur waarschuwing',message,domoticz.PRIORITY_LOW)
 			domoticz.globalData.temperature_message_interval = 0
 			domoticz.devices('Status Notifications').updateText(message).silent()
 		end
-		
+		if (string.len(message2) > 5 and domoticz.globalData.temperature_message_interval2 > message_interval2 and domoticz.devices('Notifications').level == 20) then
+			domoticz.notify('Temperatuur waarschuwing',message2,domoticz.PRIORITY_LOW)
+			domoticz.globalData.temperature_message_interval2 = 0
+			domoticz.devices('Status Notifications').updateText(message2).silent()
+		end
 	end
 }
