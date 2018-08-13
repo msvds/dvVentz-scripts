@@ -58,7 +58,7 @@ return {
 			temperature_string_woonk = "redelijk"
 		end
 
-		if (domoticz.devices('Temperatuur woonkamer').temperature > 24) then
+		if (domoticz.devices('Temperatuur woonkamer').temperature > 25) then
 			if (domoticz.devices('Temperatuur Buiten').temperature < domoticz.devices('Temperatuur woonkamer').temperature) then
 				message2 = message2 .."De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus deuren en ramen open zetten kan helpen. De gemiddelde temperatuur in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) .."."
 				--domoticz.helpers.message("De temperatuur in de woonkamer begint " ..temperature_string_woonk .. " hoog te worden, namelijk " ..tonumber(domoticz.devices('Temperatuur woonkamer').temperature) .. ". Buiten is de temperatuur lager, namelijk " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature) .." dus een raampje open zetten kan helpen.", 100,90)	
