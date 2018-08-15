@@ -193,7 +193,8 @@ return {
 				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
 				domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst()
 				domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
-				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()				
+				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()
 				domoticz.log('All lights inside turned off')
 			end
 			if (area == 'Floor1') then
@@ -207,7 +208,8 @@ return {
 				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
 				domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
-				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()				
+				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()
 				domoticz.log('Lights floor1 turned off')
 			end
 			if (area == 'Floor2') then
@@ -239,6 +241,7 @@ return {
 			domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst()
 			domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
 			domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
+			domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()
 			--if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 			--end
@@ -301,6 +304,7 @@ return {
 			domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst()
 			domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
 			domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
+			domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()
 			--if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 			--end
