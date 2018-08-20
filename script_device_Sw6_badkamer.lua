@@ -20,9 +20,15 @@ return {
 			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
 			if IsDark.state == 'On' then
 				domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-				domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
-				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
+				domoticz.devices('Lamp boven TV').switchOn().checkFirst()
+				domoticz.devices('Grote lamp naast bank').switchOn().checkFirst()
+				domoticz.devices('Lamp speelkamer').switchOn().checkFirst()
 				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+				domoticz.devices('Lamp ster').switchOn().checkFirst()
+				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()
+				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 				domoticz.log('Lights turned on')
 			end
 		elseif device.state == 'Click' then
@@ -39,9 +45,15 @@ return {
 		elseif (device.state == 'Long Click') then
 			-- Lampen aanzetten
 			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
-			domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
+			domoticz.devices('Lamp boven TV').switchOn().checkFirst()
+			domoticz.devices('Grote lamp naast bank').switchOn().checkFirst()
+			domoticz.devices('Lamp speelkamer').switchOn().checkFirst()
 			domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+			domoticz.devices('Lamp ster').switchOn().checkFirst()
+			domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()
+			domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst()
+			domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
+			domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 			domoticz.log('Lights turned on')
 		end		
 	end
