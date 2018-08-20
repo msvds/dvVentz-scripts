@@ -16,6 +16,11 @@ return {
 		domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst().afterMin(10)
 		domoticz.devices('Lamp ster').switchOff().checkFirst().afterMin(10)
 		domoticz.log('Lamp ster uitgezet ivm zonsopgang', domoticz.LOG_INFO)
-		
+		-- Gateway status resetten
+		domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(0)
+		domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
+		domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
+		domoticz.devices('Gateway light hal boven').switchSelector(0)--off
+		domoticz.log('Gateway status gereset')
 	end
 }
