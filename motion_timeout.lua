@@ -27,6 +27,10 @@ return {
 			domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
 			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
+			-- Gateway status resetten
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(0)
+			domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
+			domoticz.log('Gateway status gereset')
 		end		
 		if (domoticz.globalData.NMC_Floor2 > NM_timeout_floor2) then
 			if (domoticz.devices('Lamp hal boven').state == 'On') then
@@ -42,6 +46,10 @@ return {
 				domoticz.devices('Dimmer bed Suzanne').switchOff()
 				domoticz.log('No movement floor2 timeout is reached -> dimmer suzanne slaapkamer uitgezet')
 			end
+			-- Gateway status resetten
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
+			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
+			domoticz.log('Gateway status gereset')
 		end
 		if (domoticz.globalData.NMC_PIR_kamerLars > NM_timeout_kamerLars) then
 			if (domoticz.devices('Roomlars-Stat').SetPoint ~= '10') then
