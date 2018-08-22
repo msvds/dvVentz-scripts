@@ -195,7 +195,7 @@ return {
 				domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
 				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()				
 				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()				
-				domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst()
+				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst()
 				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst().afterSec(2)
 				domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst().afterSec(2)
 				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst().afterSec(2)
@@ -205,7 +205,7 @@ return {
 				domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst().afterSec(2)
 				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst().afterSec(2)				
 				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst().afterSec(2)			
-				domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
+				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
 				domoticz.log('All lights inside turned off')
 			end
 			if (area == 'Floor1') then
@@ -221,13 +221,13 @@ return {
 				domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
 				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
 				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()
-				domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst()
+				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst()
 				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst().afterSec(2)
 				domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst().afterSec(2)
 				domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst().afterSec(2)
 				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst().afterSec(2)				
 				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst().afterSec(2)			
-				domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
+				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
 				domoticz.log('Lights floor1 turned off')
 			end
 			if (area == 'Floor2') then
@@ -264,7 +264,7 @@ return {
 			domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
 			domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
 			domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()
-			domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst()
+			--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst()
 			--if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 			--end
@@ -281,7 +281,7 @@ return {
 			domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst().afterSec(2)
 			domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst().afterSec(2)				
 			domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst().afterSec(2)			
-			domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
+			--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
 			domoticz.log('Lights turned off')
 			--os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 		end,
@@ -338,6 +338,7 @@ return {
 			domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
 			domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
 			domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()
+			--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst()
 			--if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 			--end
@@ -354,7 +355,7 @@ return {
 			domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst().afterSec(2)
 			domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst().afterSec(2)				
 			domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst().afterSec(2)			
-			domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
+			--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
 			--domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
 			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 			domoticz.log('Lights turned off and Harmony turned off')
