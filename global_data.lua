@@ -176,7 +176,7 @@ return {
 			end
 			return 0
 		end,
-		switch_lights_off = function(domoticz,area,onoff)
+		switch_lights = function(domoticz,area,onoff)
 			--areas:
 			--Inside
 			----Floor1
