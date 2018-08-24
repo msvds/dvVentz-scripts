@@ -241,7 +241,7 @@ return {
 				domoticz.log('Lights outside turned off')
 			end
 			
-			if (area == 'Woonkamer' area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+			if (area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
 				domoticz.devices('Lamp boven TV').switchOn().checkFirst()
 				domoticz.devices('Grote lamp naast bank').switchOn().checkFirst()
 				domoticz.devices('Lamp speelkamer').switchOn().checkFirst()
