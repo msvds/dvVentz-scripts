@@ -297,12 +297,6 @@ return {
 			   message = message ..'Zitkamerdeur is open, '
 			elseif (domoticz.devices('Zitkamerdeur').lastUpdate.hoursAgo < 20) then
 			   message = message ..'Zitkamerdeur is vandaag open geweest, even checken of hij op slot is, '
-			--elseif (MediaCenter.state == 'On') then
-			  -- domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
-			--elseif (Televisie.state == 'On') then
-			  -- domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
-			--elseif (Televisie_lage_resolutie.state == 'On') then
-			  -- domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
 			end
 			if (string.len(message) > 5) then
 				domoticz.notify('Door and windows check', message, domoticz.PRIORITY_HIGH)
@@ -316,66 +310,9 @@ return {
 			--local radio = domoticz.devices(8)
 			--local MediaCenter = domoticz.devices(11)
 			--local Televisie = domoticz.devices(7)
-			--local Televisie_lage_resolutie = domoticz.devices(9)		
-			domoticz.devices('Lamp boven TV').switchOff().checkFirst()
-			domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
-			domoticz.devices('Lamp speelkamer').switchOff().checkFirst()
-			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
-			domoticz.devices('Lamp ster').switchOff().checkFirst()
-			domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()				
-			domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
-			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
-			domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
-			domoticz.devices('Lamp hal boven').switchOff().checkFirst()
-			domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
-			domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst()
-			domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
-			domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
-			domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()
-			--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst()
-			--if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
-				domoticz.devices('Dimmer bed Martijn').switchOff()
-			--end
-			--if (domoticz.devices('Dimmer bed Suzanne') == 'On' ) then
-				domoticz.devices('Dimmer bed Suzanne').switchOff()
-			--end
-			domoticz.devices('Lampen zolder').switchOff().checkFirst()
-			domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst().afterSec(2)
-			domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst().afterSec(2)
-			domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst().afterSec(2)
-			domoticz.devices('Dimmer bed Martijn').switchOff().checkFirst().afterSec(2)
-			domoticz.devices('Dimmer bed Suzanne').switchOff().checkFirst().afterSec(2)
-			domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst().afterSec(2)
-			domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst().afterSec(2)
-			domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst().afterSec(2)				
-			domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst().afterSec(2)			
-			--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
-			--domoticz.helpers.changeToonSceneComplete(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false)
-			os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
-			domoticz.log('Lights turned off and Harmony turned off')
-			if (domoticz.devices('Dakraam slaapkamer').state == 'Open') then
-			    message = message ..'Dakraam slaapkamer is open, '
-			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
-			    message = message ..'Dakraam zolder achter is open, '			
-			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
-			    message = message ..'De eetkamerdeur is open, '
-			elseif (domoticz.devices('Balkondeur slaapkamer').state == 'Open') then
-			    message = message ..'Balkondeur slaapkamer is open, '
-			elseif (domoticz.devices('Front door').state == 'Open') then
-			    message = message ..'De voordeur is open, '
-			elseif (domoticz.devices('Balkondeur Nienke').state == 'Open') then
-			   message = message ..'Balkondeur Nienke is open, '
-			--elseif (MediaCenter.state == 'On') then
-			  -- domoticz.notify('MediaCenter staat aan',domoticz.PRIORITY_HIGH)
-			--elseif (Televisie.state == 'On') then
-			  -- domoticz.notify('Televisie staat aan',domoticz.PRIORITY_HIGH)
-			--elseif (Televisie_lage_resolutie.state == 'On') then
-			  -- domoticz.notify('Televisie lage resolutie staat aan',domoticz.PRIORITY_HIGH)
-			end
-			if (string.len(message) > 5 and domoticz.devices('Notifications').level ~= 0) then
-				domoticz.notify('Goto sleep', message, domoticz.PRIORITY_HIGH)
-				domoticz.devices('Status Notifications').updateText(message).silent()
-			end
+			--local Televisie_lage_resolutie = domoticz.devices(9)
+			domoticz.helpers.switch_lights(domoticz,'Inside','Off')
+			domoticz.helpers.check_doors_and_windows(domoticz)
 		end,
 		sendnotification = function(domoticz,not_title,not_text)
 			if (domoticz.devices('Notifications').level == 20) then
