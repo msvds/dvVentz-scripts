@@ -176,7 +176,7 @@ return {
 			end
 			return 0
 		end,
-		switch_lights_off = function(domoticz,area)
+		switch_lights_off = function(domoticz,area,onoff)
 			--areas:
 			--Inside
 			----Floor1
@@ -184,7 +184,7 @@ return {
 			----Floor3
 			--Outside
 			--All=Inside+Outside
-			if (area == 'Floor1' or area == 'Inside' or area == 'All') then
+			if (area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 				domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
 				domoticz.devices('Lamp speelkamer').switchOff().checkFirst()
@@ -206,7 +206,7 @@ return {
 				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
 				domoticz.log('Lights floor1 turned off')
 			end
-			if (area == 'Floor2' or area == 'Inside' or area == 'All') then
+			if (area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Lamp hal boven').switchOff().checkFirst()
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 				domoticz.devices('Dimmer bed Suzanne').switchOff()
@@ -218,9 +218,17 @@ return {
 				domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst().afterSec(2)
 				domoticz.log('Lights floor2 turned off')
 			end
-			if (area == 'Floor3' or area == 'Inside' or area == 'All') then
+			if (area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Lampen zolder').switchOff().checkFirst()
+				domoticz.devices('Lampen logeerkamer').switchOff().checkFirst()
 				domoticz.log('Lights floor3 turned off')
+			end
+			if (area == 'Outside' or area == 'All') and (onoff == 'Off') then
+				domoticz.devices('Voordeurlamp').switchOff().checkFirst()
+				domoticz.devices('Lamp Speelhuisje').switchOff().checkFirst()
+				domoticz.devices('Lamp Garagedeur').switchOff().checkFirst()
+				domoticz.devices('Buiten Zijkant').switchOff().checkFirst()
+				domoticz.log('Lights outside turned off')
 			end
 			--os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 		end,
