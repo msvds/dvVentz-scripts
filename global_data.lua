@@ -230,6 +230,53 @@ return {
 				domoticz.devices('Buiten Zijkant').switchOff().checkFirst()
 				domoticz.log('Lights outside turned off')
 			end
+			
+			if (area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Lamp boven TV').switchOn().checkFirst()
+				domoticz.devices('Grote lamp naast bank').switchOn().checkFirst()
+				domoticz.devices('Lamp speelkamer').switchOn().checkFirst()
+				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+				domoticz.devices('Lamp ster').switchOn().checkFirst()
+				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()				
+				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
+				domoticz.devices('Single Wall Switch Spiegel Hal').switchOn().checkFirst()
+				domoticz.devices('Single Wall Switch Speelkamer').switchOn().checkFirst()
+				domoticz.devices('Single Wall Switch Lampen Keuken').switchOn().checkFirst()
+				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOn().checkFirst()
+				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst().afterSec(2)
+				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst().afterSec(2)
+				domoticz.devices('Single Wall Switch Spiegel Hal').switchOn().checkFirst().afterSec(2)
+				domoticz.devices('Single Wall Switch Speelkamer').switchOn().checkFirst().afterSec(2)				
+				domoticz.devices('Single Wall Switch Lampen Keuken').switchOn().checkFirst().afterSec(2)			
+				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOn().checkFirst().afterSec(2)
+				domoticz.log('Lights floor1 turned On')
+			end
+			if (area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Lamp hal boven').switchOn().checkFirst()
+				domoticz.devices('Dimmer bed Martijn').switchOn()
+				domoticz.devices('Dimmer bed Suzanne').switchOn()
+				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
+				domoticz.devices('Single Wall Switch Lamp Lars').switchOn().checkFirst()
+				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst().afterSec(2)
+				domoticz.devices('Dimmer bed Martijn').switchOn().checkFirst().afterSec(2)
+				domoticz.devices('Dimmer bed Suzanne').switchOn().checkFirst().afterSec(2)
+				domoticz.devices('Single Wall Switch Lamp Lars').switchOn().checkFirst().afterSec(2)
+				domoticz.log('Lights floor2 turned On')
+			end
+			if (area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Lampen zolder').switchOn().checkFirst()
+				domoticz.devices('Lampen logeerkamer').switchOn().checkFirst()
+				domoticz.log('Lights floor3 turned On')
+			end
+			if (area == 'Outside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Voordeurlamp').switchOn().checkFirst()
+				domoticz.devices('Lamp Speelhuisje').switchOn().checkFirst()
+				domoticz.devices('Lamp Garagedeur').switchOn().checkFirst()
+				domoticz.devices('Buiten Zijkant').switchOn().checkFirst()
+				domoticz.log('Lights outside turned On')
+			end
 			--os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 		end,
 		check_doors_and_windows = function(domoticz)
