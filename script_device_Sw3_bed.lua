@@ -36,6 +36,9 @@ return {
 				elseif domoticz.devices('Yeelight light slaapkamer').level == 60 then
 					domoticz.devices('Yeelight light slaapkamer').switchSelector(70)				
 				end
+				domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
+				domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
+				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
 			end
 		elseif device.state == 'Click' then
 			-- Alles uit en beveiliging aanzetten bij gaan slapen (sleep)
