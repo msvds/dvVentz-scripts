@@ -15,8 +15,8 @@ return {
 		local Time = require('Time')
 		debug = true
 		if debug == true then 
-			domoticz.log('domoticz.devices(Temperatuur woonkamer).temperature = ' ..domoticz.devices('Temperatuur woonkamer').temperature)
-			domoticz.log('domoticz.devices(Temperatuur Bijkeuken).temperature = ' ..domoticz.devices('Temperatuur Bijkeuken').temperature)
+			domoticz.log('domoticz.devices(Temperatuur woonkamer).temperature = ' ..domoticz.devices('Temperatuur woonkamer').temperature,domoticz.LOG_INFO)
+			domoticz.log('domoticz.devices(Temperatuur Bijkeuken).temperature = ' ..domoticz.devices('Temperatuur Bijkeuken').temperature,domoticz.LOG_INFO)
 			if (domoticz.globalData.OpenC_Deurbijkeuken ~= nil) then
 				domoticz.log('domoticz.globalData.OpenC_Deurbijkeuken = ' ..domoticz.globalData.OpenC_Deurbijkeuken)
 			end
