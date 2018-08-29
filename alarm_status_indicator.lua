@@ -15,15 +15,15 @@ return {
 				domoticz.devices('Gateway light hal boven').switchSelector(0)
 				domoticz.devices('Xiaomi RGB Gateway eetkamer').switchOff() -- light off
 				domoticz.devices('Xiaomi RGB Gateway hal boven').switchOff() -- light off
-				domoticz.log('SECURITY DISARMED')
+				domoticz.log('SECURITY DISARMED',domoticz.LOG_INFO)
 			elseif device.state == domoticz.domoticz.SECURITY_ARMEDAWAY then 
 				domoticz.devices('Gateway light eetkamer').switchSelector(10)
 				domoticz.devices('Gateway light hal boven').switchSelector(10)
-				domoticz.log('SECURITY ARMED AWAY')
+				domoticz.log('SECURITY ARMED AWAY',domoticz.LOG_INFO)
 			elseif device.state == domoticz.domoticz.SECURITY_ARMEDHOME then 
 				domoticz.devices('Gateway light eetkamer').switchSelector(70)
 				domoticz.devices('Gateway light hal boven').switchSelector(70)
-				domoticz.log('SECURITY ARMED HOME')
+				domoticz.log('SECURITY ARMED HOME',domoticz.LOG_INFO)
 			end
 		end
 
