@@ -34,14 +34,14 @@ return {
 			if currentSetpoint ~= SetPoint then
 				ToonCommand = string.format('http://%s/happ_thermstat?action=setSetpoint&Setpoint=%s', '192.168.178.6', SetPoint*100)
 				commandArray['OpenURL'] = ToonCommand
-				if debug then domoticz.log('Toon setpoint gezet naar '.. SetPoint .. ' ' .. reason) end
+				if debug then domoticz.log('Toon setpoint gezet naar '.. SetPoint .. ' ' .. reason,domoticz.LOG_INFO) end
 				if sendmessage == true then
 					message('Toon setpoint gezet naar '.. SetPoint .. reason)
 				end
 			end
 		end,
 		changeToonScene =function(domoticz,s,reason,sendmessage,currentSetpoint,currentActiveState)
-			domoticz.log('Huidige setpoint is '.. currentSetpoint)
+			domoticz.log('Huidige setpoint is '.. currentSetpoint,domoticz.LOG_INFO)
 			local CurrentToonScenesSensorValue = otherdevices_svalues[ToonScenesSensorName]
 			local newState 
 			if currentActiveState == -1 then currentActiveState = '50' -- Manual
@@ -51,7 +51,7 @@ return {
 			elseif currentActiveState == 3 then currentActiveState = '10' -- Away
 			end
 			SetScene = s
-			domoticz.log('currentActiveState = '.. currentActiveState)
+			domoticz.log('currentActiveState = '.. currentActiveState,domoticz.LOG_INFO)
 			domoticz.log('s = '.. s)
 			if s == '10' then newState = 'Away' end
 			if s == '20' then newState = 'Sleep' end
