@@ -22,7 +22,7 @@ return {
 			--domoticz.helpers.flash_lights(domoticz,domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,1,2,1)
 			if (domoticz.devices('IsDonker (virt)').state == 'On') then
 				domoticz.devices('Voordeurlamp').switchOn().checkFirst()
-				domoticz.log('Voordeurlamp aangezet omdat iemand aanbelt in het donker')
+				domoticz.log('Voordeurlamp aangezet omdat iemand aanbelt in het donker',domoticz.LOG_INFO)
 			end
 		end
 	end
