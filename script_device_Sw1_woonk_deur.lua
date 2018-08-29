@@ -33,7 +33,7 @@ return {
 			--domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gaan slapen knop ingedrukt is',false,domoticz.helpers.currentSetpoint(domoticz))
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			domoticz.devices('Toon Scenes').switchSelector(20)
-			domoticz.log('Toon Scenes gezet op Sleep (20) omdat de gaan slapen knop ingedrukt is')
+			domoticz.log('Toon Scenes gezet op Sleep (20) omdat de gaan slapen knop ingedrukt is',domoticz.LOG_INFO)
 			--alarm.zones('My Home').armZone(domoticz, domoticz.SECURITY_ARMEDHOME) -- This will  the zone "My Home" to "Armed Home" after the default exit delay
 		elseif (device.state == 'Long Click') then
 			-- Lampen aanzetten
