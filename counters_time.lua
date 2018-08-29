@@ -28,10 +28,10 @@ return {
 		ClosedC_Eetkamerdeur = domoticz.helpers.Counter(domoticz, domoticz.devices('Eetkamerdeur'), tonumber(domoticz.globalData.ClosedC_Eetkamerdeur),'Closed')
 		domoticz.globalData.ClosedC_Eetkamerdeur = ClosedC_Eetkamerdeur
 		if (domoticz.globalData.OpenC_Eetkamerdeur ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur)
+			domoticz.log('domoticz.globalData.OpenC_Eetkamerdeur: ' ..domoticz.globalData.OpenC_Eetkamerdeur,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.ClosedC_Eetkamerdeur ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.ClosedC_Eetkamerdeur: ' ..domoticz.globalData.ClosedC_Eetkamerdeur)		
+			domoticz.log('domoticz.globalData.ClosedC_Eetkamerdeur: ' ..domoticz.globalData.ClosedC_Eetkamerdeur,domoticz.LOG_INFO)		
 		end
 		
 		OpenC_Dakraamslaapk = domoticz.helpers.Counter(domoticz, domoticz.devices('Dakraam slaapkamer'), tonumber(domoticz.globalData.OpenC_Dakraamslaapk),'Open')
@@ -39,10 +39,10 @@ return {
 		ClosedC_Dakraamslaapk = domoticz.helpers.Counter(domoticz, domoticz.devices('Dakraam slaapkamer'), tonumber(domoticz.globalData.ClosedC_Dakraamslaapk),'Closed')
 		domoticz.globalData.ClosedC_Dakraamslaapk = ClosedC_Dakraamslaapk	
 		if (domoticz.globalData.OpenC_Dakraamslaapk ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.OpenC_Dakraamslaapk: ' ..domoticz.globalData.OpenC_Dakraamslaapk)		
+			domoticz.log('domoticz.globalData.OpenC_Dakraamslaapk: ' ..domoticz.globalData.OpenC_Dakraamslaapk,domoticz.LOG_INFO)		
 		end
 		if (domoticz.globalData.ClosedC_Dakraamslaapk ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.ClosedC_Dakraamslaapk: ' ..domoticz.globalData.ClosedC_Dakraamslaapk)
+			domoticz.log('domoticz.globalData.ClosedC_Dakraamslaapk: ' ..domoticz.globalData.ClosedC_Dakraamslaapk,domoticz.LOG_INFO)
 		end
 		
 		OpenC_Balkondeurslaapk = domoticz.helpers.Counter(domoticz, domoticz.devices('Balkondeur slaapkamer'), tonumber(domoticz.globalData.OpenC_Balkondeurslaapk),'Open')
@@ -50,10 +50,10 @@ return {
 		ClosedC_Balkondeurslaapk = domoticz.helpers.Counter(domoticz, domoticz.devices('Balkondeur slaapkamer'), tonumber(domoticz.globalData.ClosedC_Balkondeurslaapk),'Closed')
 		domoticz.globalData.ClosedC_Balkondeurslaapk = ClosedC_Balkondeurslaapk	
 		if (domoticz.globalData.OpenC_Balkondeurslaapk ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.OpenC_Balkondeurslaapk: ' ..domoticz.globalData.OpenC_Balkondeurslaapk)	
+			domoticz.log('domoticz.globalData.OpenC_Balkondeurslaapk: ' ..domoticz.globalData.OpenC_Balkondeurslaapk,domoticz.LOG_INFO)	
 		end
 		if (domoticz.globalData.ClosedC_Balkondeurslaapk ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.ClosedC_Balkondeurslaapk: ' ..domoticz.globalData.ClosedC_Balkondeurslaapk)
+			domoticz.log('domoticz.globalData.ClosedC_Balkondeurslaapk: ' ..domoticz.globalData.ClosedC_Balkondeurslaapk,domoticz.LOG_INFO)
 		end
 		
 		OpenC_Voordeur = domoticz.helpers.Counter(domoticz, domoticz.devices('Front door'), tonumber(domoticz.globalData.OpenC_Voordeur),'Open')
@@ -61,10 +61,10 @@ return {
 		ClosedC_Voordeur = domoticz.helpers.Counter(domoticz, domoticz.devices('Front door'), tonumber(domoticz.globalData.ClosedC_Voordeur),'Closed')
 		domoticz.globalData.ClosedC_Voordeur = ClosedC_Voordeur
 		if (domoticz.globalData.OpenC_Voordeur ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.OpenC_Voordeur: ' ..domoticz.globalData.OpenC_Voordeur)
+			domoticz.log('domoticz.globalData.OpenC_Voordeur: ' ..domoticz.globalData.OpenC_Voordeur,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.ClosedC_Voordeur ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.ClosedC_Voordeur: ' ..domoticz.globalData.ClosedC_Voordeur)
+			domoticz.log('domoticz.globalData.ClosedC_Voordeur: ' ..domoticz.globalData.ClosedC_Voordeur,domoticz.LOG_INFO)
 		end
 		
 		OpenC_BalkondeurNienke = domoticz.helpers.Counter(domoticz, domoticz.devices('Balkondeur Nienke'), tonumber(domoticz.globalData.OpenC_BalkondeurNienke),'Open')
@@ -72,10 +72,10 @@ return {
 		ClosedC_BalkondeurNienke = domoticz.helpers.Counter(domoticz, domoticz.devices('Balkondeur Nienke'), tonumber(domoticz.globalData.ClosedC_BalkondeurNienke),'Closed')
 		domoticz.globalData.ClosedC_BalkondeurNienke = ClosedC_BalkondeurNienke
 		if (domoticz.globalData.OpenC_BalkondeurNienke ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.OpenC_BalkondeurNienke: ' ..domoticz.globalData.OpenC_BalkondeurNienke)
+			domoticz.log('domoticz.globalData.OpenC_BalkondeurNienke: ' ..domoticz.globalData.OpenC_BalkondeurNienke,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.ClosedC_BalkondeurNienke ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.ClosedC_BalkondeurNienke: ' ..domoticz.globalData.ClosedC_BalkondeurNienke)
+			domoticz.log('domoticz.globalData.ClosedC_BalkondeurNienke: ' ..domoticz.globalData.ClosedC_BalkondeurNienke,domoticz.LOG_INFO)
 		end
 		
 		OpenC_Deurbijkeuken  = domoticz.helpers.Counter(domoticz, domoticz.devices('Deur bijkeuken'), tonumber(domoticz.globalData.OpenC_Deurbijkeuken),'Open')
@@ -83,10 +83,10 @@ return {
 		ClosedC_Deurbijkeuken  = domoticz.helpers.Counter(domoticz, domoticz.devices('Deur bijkeuken'), tonumber(domoticz.globalData.ClosedC_Deurbijkeuken),'Closed')
 		domoticz.globalData.ClosedC_Deurbijkeuken = ClosedC_Deurbijkeuken
 		if (domoticz.globalData.OpenC_Deurbijkeuken ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.OpenC_Deurbijkeuken: ' ..domoticz.globalData.OpenC_Deurbijkeuken)
+			domoticz.log('domoticz.globalData.OpenC_Deurbijkeuken: ' ..domoticz.globalData.OpenC_Deurbijkeuken,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.ClosedC_Deurbijkeuken ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.ClosedC_Deurbijkeuken: ' ..domoticz.globalData.ClosedC_Deurbijkeuken)
+			domoticz.log('domoticz.globalData.ClosedC_Deurbijkeuken: ' ..domoticz.globalData.ClosedC_Deurbijkeuken,domoticz.LOG_INFO)
 		end
 		
 		OpenC_Slaapkdeur = domoticz.helpers.Counter(domoticz, domoticz.devices('Slaapkamerdeur'), tonumber(domoticz.globalData.OpenC_Slaapkdeur),'Open')
@@ -94,10 +94,10 @@ return {
 		ClosedC_Slaapkdeur = domoticz.helpers.Counter(domoticz, domoticz.devices('Slaapkamerdeur'), tonumber(domoticz.globalData.ClosedC_Slaapkdeur),'Closed')
 		domoticz.globalData.ClosedC_Slaapkdeur = ClosedC_Slaapkdeur
 		if (domoticz.globalData.OpenC_Slaapkdeur ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.OpenC_Slaapkdeur: ' ..domoticz.globalData.OpenC_Slaapkdeur)
+			domoticz.log('domoticz.globalData.OpenC_Slaapkdeur: ' ..domoticz.globalData.OpenC_Slaapkdeur,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.ClosedC_Slaapkdeur ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.ClosedC_Slaapkdeur: ' ..domoticz.globalData.ClosedC_Slaapkdeur)
+			domoticz.log('domoticz.globalData.ClosedC_Slaapkdeur: ' ..domoticz.globalData.ClosedC_Slaapkdeur,domoticz.LOG_INFO)
 		end
 		
 		OpenC_Dakraamzolder = domoticz.helpers.Counter(domoticz, domoticz.devices('Zolderdakraam achter'), tonumber(domoticz.globalData.OpenC_Dakraamzolder),'Open')
@@ -105,10 +105,10 @@ return {
 		ClosedC_Dakraamzolder = domoticz.helpers.Counter(domoticz, domoticz.devices('Zolderdakraam achter'), tonumber(domoticz.globalData.ClosedC_Dakraamzolder),'Closed')
 		domoticz.globalData.ClosedC_Dakraamzolder = ClosedC_Dakraamzolder
 		if (domoticz.globalData.ClosedC_Dakraamzolder ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder)
+			domoticz.log('domoticz.globalData.ClosedC_Dakraamzolder: ' ..domoticz.globalData.ClosedC_Dakraamzolder,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.OpenC_Dakraamzolder ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder)
+			domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder,domoticz.LOG_INFO)
 		end		
 
 		OpenC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices('Garage deur'), tonumber(domoticz.globalData.OpenC_Deurgarage),'Open')
@@ -116,20 +116,20 @@ return {
 		ClosedC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices('Garage deur'), tonumber(domoticz.globalData.ClosedC_Deurgarage),'Closed')
 		domoticz.globalData.ClosedC_Deurgarage = ClosedC_Deurgarage
 		if (domoticz.globalData.ClosedC_Deurgarage ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.ClosedC_Deurgarage: ' ..domoticz.globalData.ClosedC_Deurgarage)
+			domoticz.log('domoticz.globalData.ClosedC_Deurgarage: ' ..domoticz.globalData.ClosedC_Deurgarage,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.OpenC_Deurgarage ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.OpenC_Deurgarage: ' ..domoticz.globalData.OpenC_Deurgarage)
+			domoticz.log('domoticz.globalData.OpenC_Deurgarage: ' ..domoticz.globalData.OpenC_Deurgarage,domoticz.LOG_INFO)
 		end		
 		MC_PIR_woonk = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging woonkamer'), tonumber(domoticz.globalData.MC_PIR_woonk),'On')
 		domoticz.globalData.MC_PIR_woonk = MC_PIR_woonk
 		NMC_PIR_woonk = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging woonkamer'), tonumber(domoticz.globalData.NMC_PIR_woonk),'Off')
 		domoticz.globalData.NMC_PIR_woonk = NMC_PIR_woonk
 		if (domoticz.globalData.MC_PIR_woonk ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.MC_PIR_woonk: ' ..domoticz.globalData.MC_PIR_woonk)
+			domoticz.log('domoticz.globalData.MC_PIR_woonk: ' ..domoticz.globalData.MC_PIR_woonk,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.NMC_PIR_woonk ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.NMC_PIR_woonk: ' ..domoticz.globalData.NMC_PIR_woonk)
+			domoticz.log('domoticz.globalData.NMC_PIR_woonk: ' ..domoticz.globalData.NMC_PIR_woonk,domoticz.LOG_INFO)
 		end
 		
 		MC_PIR_kamerLars = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging kamer Lars'), tonumber(domoticz.globalData.MC_PIR_kamerLars),'On')
@@ -137,10 +137,10 @@ return {
 		NMC_PIR_kamerLars = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging kamer Lars'), tonumber(domoticz.globalData.NMC_PIR_kamerLars),'Off')
 		domoticz.globalData.NMC_PIR_kamerLars = NMC_PIR_kamerLars
 		if (domoticz.globalData.MC_PIR_kamerLars ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.MC_PIR_kamerLars: ' ..domoticz.globalData.MC_PIR_kamerLars)
+			domoticz.log('domoticz.globalData.MC_PIR_kamerLars: ' ..domoticz.globalData.MC_PIR_kamerLars,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.NMC_PIR_kamerLars ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.NMC_PIR_kamerLars: ' ..domoticz.globalData.NMC_PIR_kamerLars)
+			domoticz.log('domoticz.globalData.NMC_PIR_kamerLars: ' ..domoticz.globalData.NMC_PIR_kamerLars,domoticz.LOG_INFO)
 		end
 		
 		MC_PIR_halboven = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging hal boven'), tonumber(domoticz.globalData.MC_PIR_halboven),'On')
@@ -148,10 +148,10 @@ return {
 		NMC_PIR_halboven = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging hal boven'), tonumber(domoticz.globalData.NMC_PIR_halboven),'Off')
 		domoticz.globalData.NMC_PIR_halboven = NMC_PIR_halboven
 		if (domoticz.globalData.MC_PIR_halboven ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.MC_PIR_halboven: ' ..domoticz.globalData.MC_PIR_halboven)
+			domoticz.log('domoticz.globalData.MC_PIR_halboven: ' ..domoticz.globalData.MC_PIR_halboven,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.NMC_PIR_halboven ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('domoticz.globalData.NMC_PIR_halboven: ' ..domoticz.globalData.NMC_PIR_halboven)
+			domoticz.log('domoticz.globalData.NMC_PIR_halboven: ' ..domoticz.globalData.NMC_PIR_halboven,domoticz.LOG_INFO)
 		end
 		
 		--Floor1
@@ -227,20 +227,20 @@ return {
 			domoticz.globalData.MC_Overall = 0
 		end
 		if (domoticz.globalData.Counters_time_message_interval == message_time) then
-			domoticz.log('OpenC_Floor1 = ' ..domoticz.globalData.OpenC_Floor1)
-			domoticz.log('ClosedC_Floor1 = ' ..domoticz.globalData.ClosedC_Floor1)
-			domoticz.log('MC_Floor1 = ' ..domoticz.globalData.MC_Floor1)
-			domoticz.log('NMC_Floor1 = ' ..domoticz.globalData.NMC_Floor1)
-			domoticz.log('OpenC_Floor2 = ' ..domoticz.globalData.OpenC_Floor2)
-			domoticz.log('ClosedC_Floor2 = ' ..domoticz.globalData.ClosedC_Floor2)
-			domoticz.log('MC_Floor2 = ' ..domoticz.globalData.MC_Floor2)
-			domoticz.log('NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2)
-			domoticz.log('OpenC_Floor3 = ' ..domoticz.globalData.OpenC_Floor3)	
-			domoticz.log('ClosedC_Floor3 = ' ..domoticz.globalData.ClosedC_Floor3)
-			domoticz.log('OpenC_Overall = ' ..domoticz.globalData.OpenC_Overall)
-			domoticz.log('ClosedC_Overall = ' ..domoticz.globalData.ClosedC_Overall)
-			domoticz.log('MC_Overall = ' ..domoticz.globalData.MC_Overall)	
-			domoticz.log('NMC_Overall = ' ..domoticz.globalData.NMC_Overall)
+			domoticz.log('OpenC_Floor1 = ' ..domoticz.globalData.OpenC_Floor1,domoticz.LOG_INFO)
+			domoticz.log('ClosedC_Floor1 = ' ..domoticz.globalData.ClosedC_Floor1,domoticz.LOG_INFO)
+			domoticz.log('MC_Floor1 = ' ..domoticz.globalData.MC_Floor1,domoticz.LOG_INFO)
+			domoticz.log('NMC_Floor1 = ' ..domoticz.globalData.NMC_Floor1,domoticz.LOG_INFO)
+			domoticz.log('OpenC_Floor2 = ' ..domoticz.globalData.OpenC_Floor2,domoticz.LOG_INFO)
+			domoticz.log('ClosedC_Floor2 = ' ..domoticz.globalData.ClosedC_Floor2,domoticz.LOG_INFO)
+			domoticz.log('MC_Floor2 = ' ..domoticz.globalData.MC_Floor2,domoticz.LOG_INFO)
+			domoticz.log('NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2,domoticz.LOG_INFO)
+			domoticz.log('OpenC_Floor3 = ' ..domoticz.globalData.OpenC_Floor3,domoticz.LOG_INFO)	
+			domoticz.log('ClosedC_Floor3 = ' ..domoticz.globalData.ClosedC_Floor3,domoticz.LOG_INFO)
+			domoticz.log('OpenC_Overall = ' ..domoticz.globalData.OpenC_Overall,domoticz.LOG_INFO)
+			domoticz.log('ClosedC_Overall = ' ..domoticz.globalData.ClosedC_Overall,domoticz.LOG_INFO)
+			domoticz.log('MC_Overall = ' ..domoticz.globalData.MC_Overall,domoticz.LOG_INFO)	
+			domoticz.log('NMC_Overall = ' ..domoticz.globalData.NMC_Overall,domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.Counters_time_message_interval >= message_time) then
 			domoticz.globalData.Counters_time_message_interval = 0
