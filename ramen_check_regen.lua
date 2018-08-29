@@ -5,7 +5,7 @@ return {
 		['timer'] = 'every minute',
 	},
 	execute = function(domoticz)
-		domoticz.log(domoticz.devices['Rain Expected Levels'].levelName)
+		domoticz.log(domoticz.devices['Rain Expected Levels'].levelName,domoticz.LOG_INFO)
 		if (domoticz.devices['Rain Expected Levels'].levelName ~= 'Droog') then
 			if (domoticz.devices('Dakraam slaapkamer').state == 'Open' and domoticz.devices('Notifications').level ~= 0) then
 			   domoticz.notify('Dakraam open bij regen','Het dakraam in de slaapkamer staat open en het gaat regenen',domoticz.PRIORITY_HIGH)
