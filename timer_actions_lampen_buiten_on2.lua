@@ -11,7 +11,7 @@ return {
 		-- woonkamer bij zonsondergang
 		if (domoticz.devices('IsDonker (virt)').state == 'On') then
 			domoticz.groups('Buitenlampen').switchOn().checkFirst()
-			domoticz.log('lampen buiten aangezet ivm zonsondergang en ochtends')
+			domoticz.log('lampen buiten aangezet ivm zonsondergang en ochtends',domoticz.LOG_INFO)
 		
 		else
 			domoticz.groups('Buitenlampen').switchOff().checkFirst()
