@@ -30,11 +30,11 @@ return {
 		
 		-- average over 12 items each 6 hours (3 days)
 		
-		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 72 uur was " ..tonumber(domoticz.data.woonk.avg()) .. ".")
-		domoticz.log("De vochtigheid in de kamer van Lars is " ..tonumber(domoticz.devices('Vochtigheid Kamer Lars').humidity) .. ". De gemiddelde vochtigheid in de kamer van Lars de afgelopen 72 uur was " ..tonumber(domoticz.data.k_lars.avg()) .. ".")
-		domoticz.log("De vochtigheid in de badkamer is " ..tonumber(domoticz.devices('Vochtigheid Badkamer Bad').humidity) .. ". De gemiddelde vochtigheid in de badkamer de afgelopen 72 uur was " ..tonumber(domoticz.data.badk.avg()) .. ".")
-		domoticz.log("De vochtigheid buiten is " ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) .. ". De gemiddelde vochtigheid buiten de afgelopen 72 uur was " ..tonumber(domoticz.data.buiten.avg()) .. ".")
-		domoticz.log("De vochtigheid in de bijkeuken is " ..tonumber(domoticz.devices('Vochtigheid Bijkeuken').humidity) .. ". De gemiddelde vochtigheid in de bijkeuken de afgelopen 72 uur was " ..tonumber(domoticz.data.bijkeuken.avg()) .. ".")
+		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 72 uur was " ..tonumber(domoticz.data.woonk.avg()) .. ".",domoticz.LOG_INFO)
+		domoticz.log("De vochtigheid in de kamer van Lars is " ..tonumber(domoticz.devices('Vochtigheid Kamer Lars').humidity) .. ". De gemiddelde vochtigheid in de kamer van Lars de afgelopen 72 uur was " ..tonumber(domoticz.data.k_lars.avg()) .. ".",domoticz.LOG_INFO)
+		domoticz.log("De vochtigheid in de badkamer is " ..tonumber(domoticz.devices('Vochtigheid Badkamer Bad').humidity) .. ". De gemiddelde vochtigheid in de badkamer de afgelopen 72 uur was " ..tonumber(domoticz.data.badk.avg()) .. ".",domoticz.LOG_INFO)
+		domoticz.log("De vochtigheid buiten is " ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) .. ". De gemiddelde vochtigheid buiten de afgelopen 72 uur was " ..tonumber(domoticz.data.buiten.avg()) .. ".",domoticz.LOG_INFO)
+		domoticz.log("De vochtigheid in de bijkeuken is " ..tonumber(domoticz.devices('Vochtigheid Bijkeuken').humidity) .. ". De gemiddelde vochtigheid in de bijkeuken de afgelopen 72 uur was " ..tonumber(domoticz.data.bijkeuken.avg()) .. ".",domoticz.LOG_INFO)
 		
 		local hum_string_woonk
 		if (domoticz.devices('Vochtigheid Woonkamer').humidity > 75) then
