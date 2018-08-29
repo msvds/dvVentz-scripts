@@ -9,10 +9,10 @@ return {
 	execute = function(domoticz, device)
 		if domoticz.devices('Lampen zolder').state == 'On' then
 			domoticz.devices('Lampen zolder').switchOff()
-			domoticz.log('Lampen zolder uitgezet')
+			domoticz.log('Lampen zolder uitgezet',domoticz.LOG_INFO)
 		elseif domoticz.devices('Lampen zolder').state == 'Off' then
 			domoticz.devices('Lampen zolder').switchOn()	
-			domoticz.log('Lampen zolder aangezet')
+			domoticz.log('Lampen zolder aangezet',domoticz.LOG_INFO)
 		end	
 	end
 }
