@@ -12,7 +12,7 @@ return {
 	execute = function(domoticz, device)
 		if device.state == 'On' then
 			local alarm = require "ideAlarmModule"
-			domoticz.log(alarm.statusAll(domoticz))
+			domoticz.log(alarm.statusAll(domoticz),domoticz.LOG_INFO)
 		end
 	end
 }
