@@ -5,9 +5,9 @@ return {
 	},
 	execute = function(domoticz, device)
 		domoticz.groups('Buitenlampen').switchOff().checkFirst()
-		domoticz.log('lampen buiten uitgezet ivm zonsopgang en nacht')
+		domoticz.log('lampen buiten uitgezet ivm zonsopgang en nacht',domoticz.LOG_INFO)
 		domoticz.groups('Lampen woonkamer').switchOff().checkFirst().afterMin(10)
-		domoticz.log('lampen woonkamer uitgezet ivm zonsopgang')
+		domoticz.log('lampen woonkamer uitgezet ivm zonsopgang',domoticz.LOG_INFO)
 		domoticz.devices('Schemerlamp deur').switchOff().checkFirst().afterMin(10)
 		domoticz.log('Schemerlamp deur uitgezet ivm zonsopgang', domoticz.LOG_INFO)
 		domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst().afterMin(10)
