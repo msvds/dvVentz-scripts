@@ -23,7 +23,7 @@ return {
 			if IsDark.state == 'On' then
 				domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 				domoticz.groups('Buitenlampen').switchOn().checkFirst()
-				domoticz.log('Outside Lights turned on')
+				domoticz.log('Outside Lights turned on',domoticz.LOG_INFO)
 			end
 		elseif device.state == 'Click' then
 			-- Alles uit en beveiliging aanzetten bij gaan weggaan (away)
@@ -34,13 +34,13 @@ return {
 			--domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gaan weggaan knop ingedrukt is',false,domoticz.helpers.currentSetpoint(domoticz))
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			domoticz.devices('Toon Scenes').switchSelector(20)
-			domoticz.log('Toon Scenes gezet op Sleep (20) omdat de gaan slapen knop ingedrukt is')
+			domoticz.log('Toon Scenes gezet op Sleep (20) omdat de gaan slapen knop ingedrukt is',domoticz.LOG_INFO)
 			alarm.zones('My Home').armZone(domoticz, domoticz.SECURITY_ARMEDAWAY) -- This will  the zone "My Home" to "Armed Away" after the default exit delay
 		elseif (device.state == 'Long Click') then
 			-- Lampen aanzetten
 			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 			domoticz.groups('Buitenlampen').switchOn().checkFirst()
-			domoticz.log('Outside Lights turned on')
+			domoticz.log('Outside Lights turned on',domoticz.LOG_INFO)
 		end		
 	end
 }
