@@ -13,9 +13,9 @@ return {
 		local Time = require('Time')
 		debug = true
 		if debug == true then 
-			domoticz.log('domoticz.globalData.OpenC_Slaapkdeur = ' ..domoticz.globalData.OpenC_Slaapkdeur)
-			domoticz.log('Open_timeout_floor2 = ' ..Open_timeout_floor2)
-			domoticz.log('domoticz.time.months = ' ..domoticz.time.months)
+			domoticz.log('domoticz.globalData.OpenC_Slaapkdeur = ' ..domoticz.globalData.OpenC_Slaapkdeur,domoticz.LOG_INFO)
+			domoticz.log('Open_timeout_floor2 = ' ..Open_timeout_floor2,domoticz.LOG_INFO)
+			domoticz.log('domoticz.time.months = ' ..domoticz.time.months,domoticz.LOG_INFO)
 		end
 		
 		--Do something when outside temp > limit
