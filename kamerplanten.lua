@@ -20,9 +20,9 @@ return {
 		
 		debug = true
 		if debug == true then 
-			domoticz.log('start kamerplanten.lua')
-			domoticz.log('average_humidities_plant1 = ' ..average_humidities_plant1)
-			domoticz.log('average_humidities_plant2 = ' ..average_humidities_plant2)
+			domoticz.log('start kamerplanten.lua',domoticz.LOG_INFO)
+			domoticz.log('average_humidities_plant1 = ' ..average_humidities_plant1,domoticz.LOG_INFO)
+			domoticz.log('average_humidities_plant2 = ' ..average_humidities_plant2,domoticz.LOG_INFO)
 		end
 		
 		if (domoticz.devices('plant moisture 1').percentage < 25) then				
