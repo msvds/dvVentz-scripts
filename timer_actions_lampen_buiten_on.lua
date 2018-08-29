@@ -10,7 +10,7 @@ return {
 
 		-- woonkamer bij zonsondergang
 		domoticz.groups('Buitenlampen').switchOn().checkFirst()
-		domoticz.log('lampen buiten aangezet ivm zonsondergang en ochtends')
+		domoticz.log('lampen buiten aangezet ivm zonsondergang en ochtends',domoticz.LOG_INFO)
 
 	end
 }
