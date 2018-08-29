@@ -46,7 +46,7 @@ return {
 		lastSeenGentleBreeze = { history = true, maxItems = 1 }
 	},
 	execute = function(domoticz, device, triggerInfo)
-		domoticz.log('Wind', LOG_LEVEL)
+		domoticz.log('Wind',domoticz.LOG_INFO)
 		local LOG_LEVEL = domoticz.LOG_DEBUG -- Script default log level. You may change this.
 		--domoticz.log('triggerInfo.type ' ..triggerInfo.type, LOG_LEVEL)
 		--domoticz.log('domoticz.EVENT_TYPE_TIMER ' ..domoticz.EVENT_TYPE_TIMER, LOG_LEVEL)
@@ -102,8 +102,8 @@ return {
 				alertLevel = domoticz.ALERTLEVEL_GREY
 				alertText = WIND_GENTLE_BREEZE_TEXT
 			end
-			domoticz.log('alertSensor.rawData[1]: '..alertSensor.rawData[1], LOG_LEVEL)
-			domoticz.log('alertText: '..alertText, LOG_LEVEL)
+			domoticz.log('alertSensor.rawData[1]: '..alertSensor.rawData[1],domoticz.LOG_INFO)
+			domoticz.log('alertText: '..alertText,domoticz.LOG_INFO)
 			if(alertSensor.rawData[1] ~= alertText) then
 				alertSensor.updateAlertSensor(alertLevel, alertText)
 			end
@@ -116,14 +116,14 @@ return {
 			local sWindTemperature = tonumber(device.rawData[5])
 			local sWindChill = tonumber(device.rawData[6])
 			
-			domoticz.log('______________________________________________________________________________________', LOG_LEVEL)
-			domoticz.log('Windmeter: Winddirection (in degrees) is: '..sWindDirectionDegrees, LOG_LEVEL)
-			domoticz.log('Windmeter: Winddirection is: '..sWindDirection, LOG_LEVEL)
-			domoticz.log('Windmeter: Windspeed is: '..sWindSpeed, LOG_LEVEL)
-			domoticz.log('Windmeter: Windgust is: '..sWindGust, LOG_LEVEL)
-			domoticz.log('Windmeter: Windtemperature is: '..sWindTemperature, LOG_LEVEL)
-			domoticz.log('Windmeter: Windchill is: '..sWindChill, LOG_LEVEL)
-			domoticz.log('______________________________________________________________________________________', LOG_LEVEL)
+			domoticz.log('______________________________________________________________________________________',domoticz.LOG_INFO)
+			domoticz.log('Windmeter: Winddirection (in degrees) is: '..sWindDirectionDegrees,domoticz.LOG_INFO)
+			domoticz.log('Windmeter: Winddirection is: '..sWindDirection,domoticz.LOG_INFO)
+			domoticz.log('Windmeter: Windspeed is: '..sWindSpeed,domoticz.LOG_INFO)
+			domoticz.log('Windmeter: Windgust is: '..sWindGust,domoticz.LOG_INFO)
+			domoticz.log('Windmeter: Windtemperature is: '..sWindTemperature,domoticz.LOG_INFO)
+			domoticz.log('Windmeter: Windchill is: '..sWindChill,domoticz.LOG_INFO)
+			domoticz.log('______________________________________________________________________________________',domoticz.LOG_INFO)
 			if (sWindGust >= WIND_GENTLE_BREEZE_LEVEL) then domoticz.data['lastSeenGentleBreeze'].add() end
 			if (sWindGust >= WIND_MODERATE_BREEZE_LEVEL) then domoticz.data['lastSeenModerateBreeze'].add() end
 			if (sWindGust >= WIND_FRESH_BREEZE_LEVEL) then domoticz.data['lastSeenFreshBreeze'].add() end
