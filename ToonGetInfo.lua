@@ -51,26 +51,26 @@ return {
         
         -- Update the thermostat sensor to current setpoint
         if domoticz.devices(ToonThermostatSensorName).setPoint*100 ~= currentSetpoint*100 then
-            domoticz.log('Updating thermostat sensor to new set point: ' ..currentSetpoint)
+            domoticz.log('Updating thermostat sensor to new set point: ' ..currentSetpoint,domoticz.LOG_INFO)
             domoticz.devices(ToonThermostatSensorName).updateSetPoint(currentSetpoint).silent()
         end
         
 
         -- Update the temperature sensor to current room temperature
         if domoticz.utils.round(domoticz.devices(ToonTemperatureSensorName).temperature, 1) ~= domoticz.utils.round(currentTemperature, 1) then 
-            domoticz.log('Updating the temperature sensor to new value: ' ..currentTemperature)
+            domoticz.log('Updating the temperature sensor to new value: ' ..currentTemperature,domoticz.LOG_INFO)
             domoticz.devices(ToonTemperatureSensorName).updateTemperature(currentTemperature)
         end
         
         -- Update the toon scene selector sensor to current program state
         if domoticz.devices(ToonScenesSensorName).level ~= currentActiveState then  -- Update toon selector if it has changed
-            domoticz.log('Updating Toon Scenes selector to: '..currentActiveState)
+            domoticz.log('Updating Toon Scenes selector to: '..currentActiveState,domoticz.LOG_INFO)
             domoticz.devices(ToonScenesSensorName).switchSelector(currentActiveState).silent()
         end
         
         -- Updates the toon auto program switch 
         if domoticz.devices(ToonAutoProgramSensorName).level ~= currentProgramState then -- Update toon auto program selector if it has changed
-            domoticz.log('Updating Toon Auto Program selector to: '..currentProgramState)
+            domoticz.log('Updating Toon Auto Program selector to: '..currentProgramState,domoticz.LOG_INFO)
             domoticz.devices(ToonAutoProgramSensorName).switchSelector(currentProgramState).silent()
         end
         
@@ -82,7 +82,7 @@ return {
         end
         
         if domoticz.devices(ToonProgramInformationSensorName).text ~= ToonProgramInformationSensorValue then
-            domoticz.log('Updating Toon Program Information to: '..ToonProgramInformationSensorValue)
+            domoticz.log('Updating Toon Program Information to: '..ToonProgramInformationSensorValue,domoticz.LOG_INFO)
             domoticz.devices(ToonProgramInformationSensorName).updateText(ToonProgramInformationSensorValue)
         end
 	end
