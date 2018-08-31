@@ -219,8 +219,9 @@ return {
 				domoticz.log('Lights Keuken turned off')
 			end
 			if (area == 'Eetkamer' area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
-				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()				
-				domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
+				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()
+				domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
+				domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(50)
 				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst().afterSec(2)
 				domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst().afterSec(2)		
 				domoticz.log('Lights Eetkamer turned off')
@@ -307,8 +308,12 @@ return {
 				domoticz.log('Lights Keuken turned on')
 			end
 			if (area == 'Eetkamer' area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
-				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()				
+				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()		
+				domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
+				domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(50)
 				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst()
+				domoticz.devices('White Temp Yeelight eetkamer 2').dimTo(20)
+				domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(50)
 				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst().afterSec(2)
 				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst().afterSec(2)		
 				domoticz.log('Lights Eetkamer turned on')
@@ -341,7 +346,9 @@ return {
 			if (area == 'Slaapkamer' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
 				domoticz.devices('Dimmer bed Martijn').switchOn()
 				domoticz.devices('Dimmer bed Suzanne').switchOn()
-				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
+				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()				
+				domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
+				domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
 				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst().afterSec(2)
 				domoticz.devices('Dimmer bed Martijn').switchOn().checkFirst().afterSec(2)
 				domoticz.devices('Dimmer bed Suzanne').switchOn().checkFirst().afterSec(2)
