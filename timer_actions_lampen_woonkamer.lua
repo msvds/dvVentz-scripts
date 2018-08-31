@@ -9,9 +9,9 @@ return {
 		local Time = require('Time')
 
 		-- woonkamer bij zonsondergang
-		domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
+		domoticz.helpers.switch_lights(domoticz,'Woonkamer','Off')
 		domoticz.log('lampen woonkamer aangezet ivm zonsondergang', domoticz.LOG_INFO)
-		domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+		domoticz.helpers.switch_lights(domoticz,'Woonkamer','On')
 		domoticz.log('Lamp spoelbak keuken aangezet ivm zonsondergang', domoticz.LOG_INFO)
 	end
 }
