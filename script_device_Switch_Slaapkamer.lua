@@ -36,9 +36,7 @@ return {
 			end
 		elseif (device.state == 'Both_Click') then
 			-- Lampen uitzetten
-			domoticz.devices('Dimmer bed Martijn').switchOff()
-			domoticz.devices('Dimmer bed Suzanne').switchOff()
-			domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
+			domoticz.helpers.switch_lights(domoticz,'Slaapkamer','Off')
 			domoticz.log('Alle lampen slaapkamer uitgezet')
 		end		
 	end
