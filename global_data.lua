@@ -181,33 +181,56 @@ return {
 			--Inside
 			----Floor1
 			------Woonkamer
+			--------Keuken
+			--------Eetkamer
+			--------Speelkamer
+			--------Living (TV)
 			------HalBeneden
+			------ToiletBeneden
 			----Floor2
 			------KamerLars
 			------KamerNienke
 			------Slaapkamer
+			------ToiletBoven
+			------HalBoven
+			------Badkamer
 			----Floor3
 			------Zolderkamer
 			------Logeerkamer
 			--Outside
+			----Achtertuin
+			----Voortuin
+			----Zijkant
 			--All=Inside+Outside
-			if (area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+			------------------------------------------------------------------------
+			--Switch off
+			------------------------------------------------------------------------
+			if (area == 'Living' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 				domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
-				domoticz.devices('Lamp speelkamer').switchOff().checkFirst()
+				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
+				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()		
+				domoticz.log('Lights Living turned off')
+			end
+			if (area == 'Keuken' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
-				domoticz.devices('Lamp ster').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()			
+				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst().afterSec(2)			
+				domoticz.log('Lights Keuken turned off')
+			end
+			if (area == 'Eetkamer' area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()				
 				domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
-				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
-				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
-				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
-				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst()
 				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst().afterSec(2)
-				domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst().afterSec(2)
-				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst().afterSec(2)				
-				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst().afterSec(2)			
-				domoticz.log('Lights Woonkamer turned off')
+				domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst().afterSec(2)		
+				domoticz.log('Lights Eetkamer turned off')
+			end
+			if (area == 'Speelkamer' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+				domoticz.devices('Lamp speelkamer').switchOff().checkFirst()
+				domoticz.devices('Lamp ster').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst().afterSec(2)							
+				domoticz.log('Lights Speelkamer turned off')
 			end
 			if (area == 'HalBeneden' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Single Wall Switch Spiegel Hal').switchOff().checkFirst()
@@ -216,85 +239,144 @@ return {
 				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
 				domoticz.log('Lights hal beneden turned off')
 			end
-			if (area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
-				domoticz.devices('Lamp hal boven').switchOff().checkFirst()
+			if (area == 'ToiletBeneden' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+				domoticz.log('Lights ToiletBeneden turned off')
+			end
+			if (area == 'KamerLars' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+				domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst()
+				domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst().afterSec(2)
+				domoticz.log('Lights KamerLars turned off')
+			end
+			if (area == 'KamerNienke' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+				domoticz.log('Lights KamerLars turned off')
+			end
+			if (area == 'Slaapkamer' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Dimmer bed Martijn').switchOff()
 				domoticz.devices('Dimmer bed Suzanne').switchOff()
 				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
-				domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst()
 				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst().afterSec(2)
 				domoticz.devices('Dimmer bed Martijn').switchOff().checkFirst().afterSec(2)
 				domoticz.devices('Dimmer bed Suzanne').switchOff().checkFirst().afterSec(2)
-				domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst().afterSec(2)
-				domoticz.log('Lights floor2 turned off')
+				domoticz.log('Lights Slaapkamer turned off')
 			end
-			if (area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+			if (area == 'ToiletBoven' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+				domoticz.log('Lights ToiletBoven turned off')
+			end
+			if (area == 'HalBoven' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+				domoticz.devices('Lamp hal boven').switchOff().checkFirst()
+				domoticz.log('Lights HalBoven turned off')
+			end
+			if (area == 'Badkamer' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+				domoticz.log('Lights Badkamer turned off')
+			end
+			if (area == 'Zolderkamer' or area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Lampen zolder').switchOff().checkFirst()
+				domoticz.log('Lights floor3 turned off')
+			end
+			if (area == 'Logeerkamer' or area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Lampen logeerkamer').switchOff().checkFirst()
 				domoticz.log('Lights floor3 turned off')
 			end
-			if (area == 'Outside' or area == 'All') and (onoff == 'Off') then
-				domoticz.devices('Voordeurlamp').switchOff().checkFirst()
+			if (area == 'Achtertuin' or area == 'Outside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Lamp Speelhuisje').switchOff().checkFirst()
 				domoticz.devices('Lamp Garagedeur').switchOff().checkFirst()
-				domoticz.devices('Buiten Zijkant').switchOff().checkFirst()
-				domoticz.log('Lights outside turned off')
+				domoticz.log('Lights Achtertuin turned off')
 			end
-			
-			if (area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+			if (area == 'Voortuin' or area == 'Outside' or area == 'All') and (onoff == 'Off') then
+				domoticz.devices('Voordeurlamp').switchOff().checkFirst()
+				domoticz.log('Lights Voortuin turned off')
+			end
+			if (area == 'Zijkant' or area == 'Outside' or area == 'All') and (onoff == 'Off') then
+				domoticz.devices('Buiten Zijkant').switchOff().checkFirst()
+				domoticz.log('Lights Zijkant turned off')
+			end
+			------------------------------------------------------------------------
+			--Switch on
+			------------------------------------------------------------------------
+			if (area == 'Living' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
 				domoticz.devices('Lamp boven TV').switchOn().checkFirst()
 				domoticz.devices('Grote lamp naast bank').switchOn().checkFirst()
-				domoticz.devices('Lamp speelkamer').switchOn().checkFirst()
-				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
-				domoticz.devices('Lamp ster').switchOn().checkFirst()
-				domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
-				domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(50)
-				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()
-				domoticz.devices('White Temp Yeelight eetkamer 2').dimTo(20)
-				domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(50)
-				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst()
 				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
-				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
-				domoticz.devices('Single Wall Switch Speelkamer').switchOn().checkFirst()
-				domoticz.devices('Single Wall Switch Lampen Keuken').switchOn().checkFirst()
-				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst().afterSec(2)
-				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst().afterSec(2)
-				domoticz.devices('Single Wall Switch Speelkamer').switchOn().checkFirst().afterSec(2)				
+				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()		
+				domoticz.log('Lights Living turned on')
+			end
+			if (area == 'Keuken' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
+				domoticz.devices('Single Wall Switch Lampen Keuken').switchOn().checkFirst()			
 				domoticz.devices('Single Wall Switch Lampen Keuken').switchOn().checkFirst().afterSec(2)			
-				domoticz.log('Lights Woonkamer turned On')
+				domoticz.log('Lights Keuken turned on')
+			end
+			if (area == 'Eetkamer' area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()				
+				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst()
+				domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst().afterSec(2)
+				domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst().afterSec(2)		
+				domoticz.log('Lights Eetkamer turned on')
+			end
+			if (area == 'Speelkamer' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Lamp speelkamer').switchOn().checkFirst()
+				domoticz.devices('Lamp ster').switchOn().checkFirst()
+				domoticz.devices('Single Wall Switch Speelkamer').switchOn().checkFirst()
+				domoticz.devices('Single Wall Switch Speelkamer').switchOn().checkFirst().afterSec(2)							
+				domoticz.log('Lights Speelkamer turned on')
 			end
 			if (area == 'HalBeneden' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
 				domoticz.devices('Single Wall Switch Spiegel Hal').switchOn().checkFirst()
 				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOn().checkFirst()
 				domoticz.devices('Single Wall Switch Spiegel Hal').switchOn().checkFirst().afterSec(2)			
 				--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOn().checkFirst().afterSec(2)
-				domoticz.log('Lights hal beneden turned On')
+				domoticz.log('Lights hal beneden turned on')
 			end
-			if (area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
-				domoticz.devices('Lamp hal boven').switchOn().checkFirst()
+			if (area == 'ToiletBeneden' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.log('Lights ToiletBeneden turned on')
+			end
+			if (area == 'KamerLars' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Single Wall Switch Lamp Lars').switchOn().checkFirst()
+				domoticz.devices('Single Wall Switch Lamp Lars').switchOn().checkFirst().afterSec(2)
+				domoticz.log('Lights KamerLars turned on')
+			end
+			if (area == 'KamerNienke' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.log('Lights KamerLars turned on')
+			end
+			if (area == 'Slaapkamer' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
 				domoticz.devices('Dimmer bed Martijn').switchOn()
 				domoticz.devices('Dimmer bed Suzanne').switchOn()
-				domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
-				domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
 				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
-				domoticz.devices('Single Wall Switch Lamp Lars').switchOn().checkFirst()
 				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst().afterSec(2)
 				domoticz.devices('Dimmer bed Martijn').switchOn().checkFirst().afterSec(2)
 				domoticz.devices('Dimmer bed Suzanne').switchOn().checkFirst().afterSec(2)
-				domoticz.devices('Single Wall Switch Lamp Lars').switchOn().checkFirst().afterSec(2)
-				domoticz.log('Lights floor2 turned On')
+				domoticz.log('Lights Slaapkamer turned on')
 			end
-			if (area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+			if (area == 'ToiletBoven' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.log('Lights ToiletBoven turned on')
+			end
+			if (area == 'HalBoven' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Lamp hal boven').switchOn().checkFirst()
+				domoticz.log('Lights HalBoven turned on')
+			end
+			if (area == 'Badkamer' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.log('Lights Badkamer turned on')
+			end
+			if (area == 'Zolderkamer' or area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'On') then
 				domoticz.devices('Lampen zolder').switchOn().checkFirst()
-				domoticz.devices('Lampen logeerkamer').switchOn().checkFirst()
-				domoticz.log('Lights floor3 turned On')
+				domoticz.log('Lights floor3 turned on')
 			end
-			if (area == 'Outside' or area == 'All') and (onoff == 'On') then
-				domoticz.devices('Voordeurlamp').switchOn().checkFirst()
+			if (area == 'Logeerkamer' or area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Lampen logeerkamer').switchOn().checkFirst()
+				domoticz.log('Lights floor3 turned on')
+			end
+			if (area == 'Achtertuin' or area == 'Outside' or area == 'All') and (onoff == 'On') then
 				domoticz.devices('Lamp Speelhuisje').switchOn().checkFirst()
 				domoticz.devices('Lamp Garagedeur').switchOn().checkFirst()
+				domoticz.log('Lights Achtertuin turned on')
+			end
+			if (area == 'Voortuin' or area == 'Outside' or area == 'All') and (onoff == 'On') then
+				domoticz.devices('Voordeurlamp').switchOn().checkFirst()
+				domoticz.log('Lights Voortuin turned on')
+			end
+			if (area == 'Zijkant' or area == 'Outside' or area == 'All') and (onoff == 'On') then
 				domoticz.devices('Buiten Zijkant').switchOn().checkFirst()
-				domoticz.log('Lights outside turned On')
+				domoticz.log('Lights Zijkant turned on')
 			end
 			--os.execute ('/usr/local/bin/izsynth -e voicerss -v nl-nl -W 75 -t "Alles is uitgeschakeld. Moet er nog een broodje gebakken worden? Weltrusten alvast!"')
 		end,
