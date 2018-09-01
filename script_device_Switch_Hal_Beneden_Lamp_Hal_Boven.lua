@@ -7,11 +7,11 @@ return {
 	},
 
 	execute = function(domoticz, device)
-		if domoticz.devices('Single Wall Switch Hal Boven').state == 'On' then
-			domoticz.devices('Single Wall Switch Hal Boven').switchOff().checkFirst()
+		if domoticz.devices('Lamp hal boven').state == 'On' then
+			domoticz.devices('Lamp hal boven').switchOff()
 			domoticz.log('Lampen hal boven uitgezet',domoticz.LOG_INFO)
-		elseif domoticz.devices('Single Wall Switch Hal Boven').state == 'Off' then
-			domoticz.devices('Single Wall Switch Hal Boven').switchOn()	.checkFirst()
+		elseif domoticz.devices('Lamp hal boven').state == 'Off' then
+			domoticz.devices('Lamp hal boven').switchOn()
 			domoticz.log('Lampen hal boven aangezet',domoticz.LOG_INFO)
 		end	
 	end
