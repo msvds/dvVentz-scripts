@@ -218,7 +218,7 @@ return {
 				domoticz.devices('Single Wall Switch Lampen Keuken').switchOff().checkFirst().afterSec(2)			
 				domoticz.log('Lights Keuken turned off')
 			end
-			if (area == 'Eetkamer' area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
+			if (area == 'Eetkamer' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()
 				domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
 				domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst().afterSec(2)
