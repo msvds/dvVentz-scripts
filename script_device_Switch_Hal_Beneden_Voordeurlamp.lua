@@ -7,11 +7,11 @@ return {
 	},
 
 	execute = function(domoticz, device)
-		if domoticz.devices('Voordeurlamp').state == 'On' then
-			domoticz.devices('Voordeurlamp').switchOff()
+		if domoticz.devices(33).state == 'On' then
+			domoticz.devices(33).switchOff()
 			domoticz.log('Voordeurlamp uitgezet',domoticz.LOG_INFO)
-		elseif domoticz.devices('Voordeurlamp').state == 'Off' then
-			domoticz.devices('Voordeurlamp').switchOn()
+		elseif domoticz.devices(33).state == 'Off' then
+			domoticz.devices(33).switchOn()
 			domoticz.log('Voordeurlamp aangezet',domoticz.LOG_INFO)
 		end	
 	end
