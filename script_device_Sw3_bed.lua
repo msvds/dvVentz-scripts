@@ -8,6 +8,7 @@ return {
 
 	execute = function(domoticz, device)
 		local alarm = require "ideAlarmModule"
+		local IsDark = domoticz.devices(78)
 		if device.state == 'Double Click' then
 			-- Beveiliging uitzetten (thuis)
 			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
