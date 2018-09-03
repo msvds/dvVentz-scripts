@@ -4,7 +4,7 @@ return {
 		timer = {'every 1 minute between sunrise and 5 minutes after sunrise'}
 	},
 	execute = function(domoticz, device)
-		domoticz.groups('Buitenlampen').switchOff().checkFirst()
+		domoticz.helpers.switch_lights(domoticz,'Outside','Off')
 		domoticz.log('lampen buiten uitgezet ivm zonsopgang en nacht',domoticz.LOG_INFO)
 		domoticz.groups('Lampen woonkamer').switchOff().checkFirst().afterMin(10)
 		domoticz.log('lampen woonkamer uitgezet ivm zonsopgang',domoticz.LOG_INFO)
