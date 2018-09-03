@@ -10,12 +10,10 @@ return {
 		local Temperature_limit = '12'
 		message_interval = 60
 		domoticz.globalData.door_bedroom_message_interval = domoticz.globalData.door_bedroom_message_interval + 1  
-		local Time = require('Time')
 		debug = true
 		if debug == true then 
 			domoticz.log('domoticz.globalData.OpenC_Slaapkdeur = ' ..domoticz.globalData.OpenC_Slaapkdeur,domoticz.LOG_INFO)
 			domoticz.log('Open_timeout_floor2 = ' ..Open_timeout_floor2,domoticz.LOG_INFO)
-			domoticz.log('domoticz.time.months = ' ..domoticz.time.months,domoticz.LOG_INFO)
 		end
 		
 		--Do something when outside temp > limit
