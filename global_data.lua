@@ -400,10 +400,10 @@ return {
 			   message = message ..'De voordeur is open, '
 			elseif (domoticz.devices('Balkondeur Nienke').state == 'Open') then
 			   message = message ..'Balkondeur Nienke is open, '
-			elseif (domoticz.devices('Zitkamerdeur').state == 'Open') then
-			   message = message ..'Zitkamerdeur is open, '
-			elseif (domoticz.devices('Zitkamerdeur').lastUpdate.hoursAgo < 20) then
-			   message = message ..'Zitkamerdeur is vandaag open geweest, even checken of hij op slot is, '
+			--elseif (domoticz.devices('Zitkamerdeur').state == 'Open') then
+			   --message = message ..'Zitkamerdeur is open, '
+			--elseif (domoticz.devices('Zitkamerdeur').lastUpdate.hoursAgo < 20) then
+			   --message = message ..'Zitkamerdeur is vandaag open geweest, even checken of hij op slot is, '
 			end
 			if (string.len(message) > 5) then
 				domoticz.notify('Door and windows check', message, domoticz.PRIORITY_HIGH)
