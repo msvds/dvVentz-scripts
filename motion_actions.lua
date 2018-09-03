@@ -33,19 +33,25 @@ return {
 			if (domoticz.devices('Beweging hal boven').state == 'On' and domoticz.devices('Lamp hal boven').lastUpdate.minutesAgo > 5 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 5 and IsDark.state == 'On') then
 				-- hal aan donker
 				-- vertraging zodat als Sw3_bed is ingedrukt, niet meteen de lamp in de hal weer aangaat omdat de bewegingsensor nog op On staat
-				domoticz.helpers.switch_lights(domoticz,'HalBoven','On')
+				if (domoticz.devices('Single Wall Switch Lampen Hal Boven Knop Beneden').lastUpdate.minutesAgo > 3 and domoticz.devices('Single Wall Switch Hal Boven').lastUpdate.minutesAgo > 3) then
+					domoticz.helpers.switch_lights(domoticz,'HalBoven','On')
+				end
 			end
 			if (device.name == domoticz.devices('Slaapkamerdeur').name and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and domoticz.time.matchesRule('at 17:00-21:30') and domoticz.devices('Slaapkamerdeur').state == 'Open' and IsDark.state == 'On') then
 				-- dimmers slaapkamer aan donker tot 0:30
 				-- between 17:00 and 21:30
-				domoticz.helpers.switch_lights(domoticz,'Slaapkamer','On')
+				if (domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3) then
+					domoticz.helpers.switch_lights(domoticz,'Slaapkamer','On')
+				end
 			elseif (device.name == domoticz.devices('Slaapkamerdeur').name and domoticz.time.matchesRule('at 21:30-23:30') and domoticz.devices('Slaapkamerdeur').state == 'Open' and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
 				-- dimmers slaapkamer aan donker tot 23:00
 				-- between 21:30 and 23:00
 				-- dimmer = 8
-				domoticz.helpers.switch_lights(domoticz,'Slaapkamer','On')
-				domoticz.devices('Dimmer bed Martijn').dimTo(8)
-				domoticz.devices('Dimmer bed Suzanne').dimTo(8)
+				if (domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3) then
+					domoticz.helpers.switch_lights(domoticz,'Slaapkamer','On')
+				end
+				--domoticz.devices('Dimmer bed Martijn').dimTo(8)
+				--domoticz.devices('Dimmer bed Suzanne').dimTo(8)
 			end
 			-- woonkamer aan donker + deur open
 			if (domoticz.devices('Eetkamerdeur').state == 'Open' or domoticz.devices('Front door').state == 'Open') then
