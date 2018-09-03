@@ -40,14 +40,14 @@ return {
 			if (device.name == domoticz.devices('Slaapkamerdeur').name and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and domoticz.time.matchesRule('at 17:00-21:30') and domoticz.devices('Slaapkamerdeur').state == 'Open' and IsDark.state == 'On') then
 				-- dimmers slaapkamer aan donker tot 0:30
 				-- between 17:00 and 21:30
-				if (domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3) then
+				if (domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3) and domoticz.devices('Dual Wall Switch Slaapkamer').lastUpdate.minutesAgo > 3 then
 					domoticz.helpers.switch_lights(domoticz,'Slaapkamer','On')
 				end
 			elseif (device.name == domoticz.devices('Slaapkamerdeur').name and domoticz.time.matchesRule('at 21:30-23:30') and domoticz.devices('Slaapkamerdeur').state == 'Open' and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
 				-- dimmers slaapkamer aan donker tot 23:00
 				-- between 21:30 and 23:00
 				-- dimmer = 8
-				if (domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3) then
+				if (domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and domoticz.devices('Dual Wall Switch Slaapkamer').lastUpdate.minutesAgo > 3) then
 					domoticz.helpers.switch_lights(domoticz,'Slaapkamer','On')
 				end
 				--domoticz.devices('Dimmer bed Martijn').dimTo(8)
