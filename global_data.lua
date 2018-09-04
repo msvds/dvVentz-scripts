@@ -283,7 +283,7 @@ return {
 				domoticz.log('Lights Achtertuin turned off')
 			end
 			if (area == 'Voortuin' or area == 'Outside' or area == 'All') and (onoff == 'Off') then
-				domoticz.devices('Voordeurlamp').switchOff().checkFirst()
+				domoticz.devices(33).switchOff().checkFirst()
 				domoticz.log('Lights Voortuin turned off')
 			end
 			if (area == 'Zijkant' or area == 'Outside' or area == 'All') and (onoff == 'Off') then
@@ -377,7 +377,7 @@ return {
 				domoticz.log('Lights Achtertuin turned on')
 			end
 			if (area == 'Voortuin' or area == 'Outside' or area == 'All') and (onoff == 'On') then
-				domoticz.devices('Voordeurlamp').switchOn().checkFirst()
+				domoticz.devices(33).switchOn().checkFirst()
 				domoticz.log('Lights Voortuin turned on')
 			end
 			if (area == 'Zijkant' or area == 'Outside' or area == 'All') and (onoff == 'On') then
