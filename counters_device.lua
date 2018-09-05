@@ -4,7 +4,7 @@
 return {
 	active = true,
 	on = {
-		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging hal boven','Dimmer bed Martijn','Dimmer bed Suzanne','Lampen woonkamer','Lamp hal boven','Schemerlamp deur','Lamp spoelb keuken'},
+		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging hal boven','Dimmer bed Martijn','Dimmer bed Suzanne','Lamp hal boven','Schemerlamp deur','Lamp spoelb keuken'},
 	},
 	execute = function(domoticz,device)	
 		debug = false
@@ -129,13 +129,6 @@ return {
 		elseif (device.name == domoticz.devices('Dimmer bed Suzanne').name and domoticz.devices('Dimmer bed Suzanne').state == 'Off') then
 			domoticz.globalData.MC_Floor2 = 0		  
 			if debug == true then domoticz.log('MC_Floor2 set to zero',domoticz.LOG_INFO) end
-		end
-		if (device.name == domoticz.groups('Lampen woonkamer').name and domoticz.groups('Lampen woonkamer').state == 'On') then
-			domoticz.globalData.NMC_Floor1 = 0
-			if debug == true then domoticz.log('NMC_Floor1 set to zero',domoticz.LOG_INFO) end
-		elseif (device.name == domoticz.groups('Lampen woonkamer').name and domoticz.groups('Lampen woonkamer').state == 'Off') then
-			domoticz.globalData.MC_Floor1 = 0		  
-			if debug == true then domoticz.log('MC_Floor1 set to zero',domoticz.LOG_INFO) end
 		end
 		if (device.name == domoticz.devices('Lamp hal boven').name and domoticz.devices('Lamp hal boven').state == 'On') then
 			domoticz.globalData.NMC_Floor2 = 0
