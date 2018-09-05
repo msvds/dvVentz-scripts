@@ -1,7 +1,7 @@
 return {
 	active = true, -- set to false to disable this script
 	on = {
-		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging hal boven','Dimmer bed Martijn','Dimmer bed Suzanne','Lampen woonkamer','Lamp hal boven','Schemerlamp deur','Lamp spoelb keuken'},
+		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging hal boven','Dimmer bed Martijn','Dimmer bed Suzanne','Lamp hal boven','Schemerlamp deur','Lamp spoelb keuken'},
 	},
 
 	execute = function(domoticz, device)
@@ -15,7 +15,6 @@ return {
 				-- woonkamer aan avonds + donker
 				-- between 16:00 and 1:00 then next day
 				domoticz.helpers.switch_lights(domoticz,'Woonkamer','On')
-				domoticz.groups('Lampen woonkamer').switchOn().checkFirst()
 			elseif (domoticz.time.matchesRule('between 15 minutes before sunset and sunset') and domoticz.devices('Beweging woonkamer').state == 'On' and domoticz.devices('Sw1_woonkamerdeur').lastUpdate.minutesAgo > 3 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and domoticz.devices('Sw4_eetkamerdeur').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
 				-- woonkamer aan avonds + bijna donker
 				domoticz.helpers.switch_lights(domoticz,'Eetkamer','On')
