@@ -6,15 +6,7 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
-		domoticz.groups('Lampen woonkamer').switchOff().checkFirst()
-		domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()
-		domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
-		domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
-		domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
-		domoticz.devices('Lamp hal boven').switchOff()
-		domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()				
-		domoticz.devices('Dimmer bed Martijn').switchOff()
-		domoticz.devices('Dimmer bed Suzanne').switchOff()
+		domoticz.helpers.switch_lights(domoticz,'All','Off')
 		domoticz.log('Lampen uitgezet',domoticz.LOG_INFO)
 		domoticz.devices('Roomlars-Stat').updateSetPoint(10)
 		domoticz.devices('Bathroom-Stat').updateSetPoint(10)
