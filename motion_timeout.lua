@@ -20,32 +20,15 @@ return {
 		--Do something when no movement timeout is reached
 		if (domoticz.globalData.NMC_Floor1 > NM_timeout_floor1) then
 			--if (domoticz.devices('Sony TV').state == 'Off') then
-			--if (MediaCenter.state == 'Off') then		
-			if (domoticz.groups('Lampen woonkamer').state == 'Off') then domoticz.log('No movement floor1 timeout is reached -> lampen woonkamer uit gezet', domoticz.LOG_INFO) end
-			domoticz.groups('Lampen woonkamer').switchOff().checkFirst()
-			domoticz.devices('Yeelight eetkamer 1').switchOff().checkFirst()
-			domoticz.devices('Yeelight eetkamer 2').switchOff().checkFirst()
-			domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
-			domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
+			--if (MediaCenter.state == 'Off') then
+			domoticz.helpers.switch_lights(domoticz,'Floor1','Off')
 			-- Gateway status resetten
 			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(0)
 			domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
 			domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
 		end		
 		if (domoticz.globalData.NMC_Floor2 > NM_timeout_floor2) then
-			if (domoticz.devices('Lamp hal boven').state == 'On') then
-				domoticz.devices('Lamp hal boven').switchOff()
-				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()				
-				domoticz.log('No movement floor2 timeout is reached -> lamp hal boven uitgezet',domoticz.LOG_INFO)
-			end
-			if (domoticz.devices('Dimmer bed Martijn').state == 'On' ) then
-				domoticz.devices('Dimmer bed Martijn').switchOff()
-				domoticz.log('No movement floor2 timeout is reached -> dimmer martijn slaapkamer uitgezet',domoticz.LOG_INFO)
-			end
-			if (domoticz.devices('Dimmer bed Suzanne').state == 'On') then
-				domoticz.devices('Dimmer bed Suzanne').switchOff()
-				domoticz.log('No movement floor2 timeout is reached -> dimmer suzanne slaapkamer uitgezet',domoticz.LOG_INFO)
-			end
+			domoticz.helpers.switch_lights(domoticz,'Floor2','Off')
 			-- Gateway status resetten
 			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
 			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
