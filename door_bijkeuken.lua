@@ -2,6 +2,7 @@
 
 return {
 	active = false, -- set to false to disable this script
+	logging = {marker = "door_bijkeuken"},
 	on = {
 		timer = {'every 10 minutes'},
 		--devices = {'Test Switch'},
