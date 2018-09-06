@@ -1,4 +1,5 @@
 return {
+	logging = {marker = "ToonSetPoint"},
 	on = {
 		devices = {
 			'Toon Thermostat'
