@@ -1,4 +1,5 @@
 return {
+	logging = {marker = "bathRoom"},
 	on = {
 		timer = {
 			'every minute'
