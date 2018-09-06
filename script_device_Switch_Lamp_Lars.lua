@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "script_device_Switch_Lamp_Lars"},
 	on = {
 		devices = {
 			'Sw Lamp Lars'
