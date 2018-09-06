@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "script_device_Sw1_woonk_deur"},
 	on = {
 		devices = {
 			'Sw1_woonkamerdeur' -- Switch naast woonkamerdeur
