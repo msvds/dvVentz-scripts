@@ -1,5 +1,6 @@
 return {
 	active = true,
+	logging = {marker = "timer_thermostaat"},
 	on = {
 		timer = {'every 1 minutes'}
 	},
