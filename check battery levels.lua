@@ -2,6 +2,7 @@ local BATTERY_THRESHOLD = 10
 
 return {
 	active = true,
+	logging = {marker = "check battery levels"},
 	on = {
 		['timer'] = 'every hour'
 	},
