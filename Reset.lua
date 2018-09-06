@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "bathRoom"},
 	on = {
 		devices = {
 			'Reset Domoticz'
