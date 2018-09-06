@@ -1,5 +1,6 @@
 return {
 	active = true,
+	logging = {marker = "test_alerts"},
 	on = {
 		['timer'] = {
 			--'at 23:00 on fri'
