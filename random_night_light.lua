@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "random_night_light"},
 	on = {
 		['timer'] = {
 			'every 30 minutes between sunset and 01:59'
