@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "door_bedroom"},
 	on = {
 		timer = {'every 5 minutes'},
 		--devices = {'Test Switch'},
