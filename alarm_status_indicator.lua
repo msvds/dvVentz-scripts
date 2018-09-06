@@ -1,6 +1,7 @@
 local alarm = require "ideAlarmModule"
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "alarm_status_indicator"},
 	on = {
 		devices = {
 			alarm.zones('My Home').armingModeTextDevID
