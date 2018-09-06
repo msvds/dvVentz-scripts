@@ -2,6 +2,7 @@
 -- test switch idx = 91
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "voordeurbel"},
 	on = {
 		devices = {'Voordeurbel'
 		--,'Test Switch'
