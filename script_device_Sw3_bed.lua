@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "script_device_Sw3_bed"},
 	on = {
 		devices = {
 			'Sw3_bed' -- Switch naast bed
