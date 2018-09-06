@@ -2,6 +2,7 @@
 -- test switch idx = 91
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "smoke_alarm"},
 	on = {
 		devices = {'Smoke Detector Zolder','Smoke Detector Keuken','Smoke Detector Garage','Smoke Detector Zolder Top'
 			--,'Test Switch'
