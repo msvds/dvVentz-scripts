@@ -1,5 +1,6 @@
 return {
 	active = true,
+	logging = {marker = "auto_disarm_alarm"},
 	on = {
 		timer = {
 			'at 6:00'
