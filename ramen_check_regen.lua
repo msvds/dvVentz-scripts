@@ -1,6 +1,7 @@
 -- Send a warning when a window is open and it's going to rain
 return {
 	active = true,
+	logging = {marker = "ramen_check_regen"},
 	on = {
 		['timer'] = 'every minute',
 	},
