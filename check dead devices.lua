@@ -16,6 +16,7 @@ local devicesToCheck = {
 }
 return {
 	active = true,
+	logging = {marker = "check dead devices"},
 	on = {
 		['timer'] = 'every 5 minutes'
 	},
