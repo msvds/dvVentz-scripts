@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "script_device_Switch_Hal_Boven"},
 	on = {
 		devices = {
 			'Single Wall Switch Hal Boven'
