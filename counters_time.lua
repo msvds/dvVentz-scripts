@@ -2,6 +2,7 @@
 -- PIR for floor 3 missing
 return {
 	active = true,
+	logging = {marker = "counters_time"},
 	on = {
 		timer = {'every minute'}
 	},
