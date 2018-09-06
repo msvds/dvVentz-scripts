@@ -1,6 +1,7 @@
 -- temperature checks and notifications are set here
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "temperature_checks"},
 	on = {
 		timer = {'every 15 minutes'}
 	},
