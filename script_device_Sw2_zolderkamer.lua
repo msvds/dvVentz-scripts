@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "script_device_Sw2_zolderkamer"},
 	on = {
 		devices = {
 			'Sw2_chillkamer' -- Switch chill kamer
