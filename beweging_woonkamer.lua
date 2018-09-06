@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "beweging_woonkamer"},
 	on = {
 		devices = {'Beweging woonkamer 1','Beweging woonkamer 2'
 		}
