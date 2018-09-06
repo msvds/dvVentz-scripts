@@ -2,6 +2,7 @@
 
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "timer_actions_lampen_buiten_on2"},
 	on = {
 		timer = {'at 06:10'}
 	},
