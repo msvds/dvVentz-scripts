@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "script_device_Sw5_garage"},
 	on = {
 		devices = {
 			'Sw5_garage' -- Switch garage
