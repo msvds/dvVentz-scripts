@@ -1,5 +1,6 @@
 return {
 	active = true,
+	logging = {marker = "yeelight_white_temp_eetkamer_1"},
 	on = {
 		devices = {
 			'White Temp Yeelight eetkamer 1'
