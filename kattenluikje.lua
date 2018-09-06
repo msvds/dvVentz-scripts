@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "kattenluikje"},
 	on = {
 		devices = {'Kattenluikje'},
 		timer = {'at 10:00'}
