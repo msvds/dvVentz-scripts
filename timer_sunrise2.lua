@@ -1,5 +1,6 @@
 return {
 	active = true,
+	logging = {marker = "timer_sunrise2"},
 	on = {
 		timer = {'every 1 minute between 10 minutes after sunrise and 15 minutes after sunrise'}
 	},
