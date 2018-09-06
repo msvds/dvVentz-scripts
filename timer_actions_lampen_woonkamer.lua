@@ -2,6 +2,7 @@
 
 return {
 	active = false, -- set to false to disable this script
+	logging = {marker = "timer_actions_lampen_woonkamer"},
 	on = {
 		timer = {'at sunset'}
 	},
