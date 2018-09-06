@@ -37,7 +37,7 @@ return {
 			end
 		end
 
-		if (string.len(message) > 5 and domoticz.devices('Notifications').level -- 20) then			
+		if (string.len(message) > 5 and domoticz.devices('Notifications').level == 20) then			
 			domoticz.log('Dead devices found: ' .. message, domoticz.LOG_ERROR)
 			domoticz.notify('Dead devices','Dead devices found: ' .. message,domoticz.PRIORITY_LOW)
 			domoticz.devices('Status Notifications').updateText(message).silent()
