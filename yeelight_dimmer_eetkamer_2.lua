@@ -1,5 +1,6 @@
 return {
 	active = true,
+	logging = {marker = "yeelight_dimmer_eetkamer_2"},
 	on = {
 		devices = {
 			'Yeelight Dimmer eetkamer 2'
