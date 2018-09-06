@@ -1,6 +1,7 @@
 -- humidity checks and notifications are set here
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "script_device_humidity"},
 	on = {
 		timer = {'every 6 hours'}
 	},
