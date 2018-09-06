@@ -29,6 +29,7 @@ local WIND_GENTLE_BREEZE_LEVEL = 3.4
 
 return {
 	active = true,
+	logging = {marker = "windMonitoring"},
 	on = {
 		timer = {'every minute'},
 		devices = {'Wind Klundert'},
