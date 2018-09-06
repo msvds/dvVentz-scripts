@@ -1,5 +1,5 @@
 return {
-	logging = {marker = "bathRoom"},
+	logging = {marker = "ToonGetInfo"},
 	on = {
 		timer = {
 			'every minute'
