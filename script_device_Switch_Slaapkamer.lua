@@ -1,5 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
+	logging = {marker = "script_device_Switch_Slaapkamer"},
 	on = {
 		devices = {
 			'Dual Wall Switch Slaapkamer' -- Dual Wall Switch Slaapkamer
