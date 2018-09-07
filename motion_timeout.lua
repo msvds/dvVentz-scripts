@@ -1,7 +1,7 @@
 -- Switch off when timeout is reached
 
 return {
-	active = true, -- set to false to disable this script
+	active = false, -- set to false to disable this script
 	logging = {marker = "motion_timeout"},
 	on = {
 		timer = {'every 1 minutes'}
