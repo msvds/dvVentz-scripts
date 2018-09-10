@@ -19,6 +19,9 @@ return {
 		local Open_timeout_outside = 10
 		script_interval_minutes = 10
 		message_interval_minutes = 180
+		if tonumber(domoticz.globalData.door_garage_message_interval) >  (message_interval_minutes/script_interval_minutes) then
+			domoticz.globalData.door_garage_message_interval = 0
+		end
 		domoticz.globalData.door_garage_message_interval = domoticz.globalData.door_garage_message_interval + 1  
 		local Time = require('Time')
 		debug = false
