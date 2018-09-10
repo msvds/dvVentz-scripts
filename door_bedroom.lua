@@ -12,6 +12,9 @@ return {
 		--...
 		--36: 180 min: door_bedroom_message_interval = 0: no message
 		--37: 185 min: door_bedroom_message_interval = 1: message -> door_bedroom_message_interval = 1 - 180/5 = -35
+		if tonumber(domoticz.globalData.door_bedroom_message_interval) >  (message_interval_minutes/script_interval_minutes) then
+			domoticz.globalData.door_bedroom_message_interval = 0
+		end
 		local temp_diff = 7
 		local Open_timeout_floor2 = 10
 		local Temperature_limit = '12'
