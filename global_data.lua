@@ -349,8 +349,8 @@ return {
 				domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
 				domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
 				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst().afterSec(2)
-				domoticz.devices('Dimmer bed Martijn').switchOn().checkFirst().afterSec(2)
-				domoticz.devices('Dimmer bed Suzanne').switchOn().checkFirst().afterSec(2)
+				--domoticz.devices('Dimmer bed Martijn').switchOn().checkFirst().afterSec(2)
+				--domoticz.devices('Dimmer bed Suzanne').switchOn().checkFirst().afterSec(2)
 				domoticz.log('Lights Slaapkamer turned on')
 			end
 			if (area == 'ToiletBoven' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
