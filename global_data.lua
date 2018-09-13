@@ -343,8 +343,10 @@ return {
 				domoticz.log('Lights KamerLars turned on')
 			end
 			if (area == 'Slaapkamer' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
-				domoticz.devices('Dimmer bed Martijn').switchOn()
-				domoticz.devices('Dimmer bed Suzanne').switchOn()
+				domoticz.devices('Dimmer bed Martijn').dimTo(8)
+				domoticz.devices('Dimmer bed Suzanne').dimTo(8)
+				--domoticz.devices('Dimmer bed Martijn').switchOn()
+				--domoticz.devices('Dimmer bed Suzanne').switchOn()
 				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()				
 				domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
 				domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
