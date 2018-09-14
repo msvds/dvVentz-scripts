@@ -7,9 +7,9 @@ return {
 
 	execute = function(domoticz, device)
 		if (domoticz.devices('Lampen Speelkamer').state == 'On') then
-			domoticz.helpers.switch_lights(domoticz,'Speelkamer','Off')
-		else
 			domoticz.helpers.switch_lights(domoticz,'Speelkamer','On')
+		else
+			domoticz.helpers.switch_lights(domoticz,'Speelkamer','Off')
 		end
 	end
 }
