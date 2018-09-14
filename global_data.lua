@@ -209,7 +209,8 @@ return {
 				domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 				domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
 				domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
-				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()		
+				domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
+				domoticz.devices('Lampen Living').setState('Off').silent()
 				domoticz.log('Lights Living turned off')
 			end
 			if (area == 'Keuken' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
@@ -300,7 +301,8 @@ return {
 				domoticz.devices('Lamp boven TV').switchOn().checkFirst()
 				domoticz.devices('Grote lamp naast bank').switchOn().checkFirst()
 				domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
-				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()		
+				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
+				domoticz.devices('Lampen Living').setState('On').silent()
 				domoticz.log('Lights Living turned on')
 			end
 			if (area == 'Keuken' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
