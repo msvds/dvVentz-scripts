@@ -251,12 +251,15 @@ return {
 				domoticz.log('Lights KamerLars turned off')
 			end
 			if (area == 'Slaapkamer' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
-				domoticz.devices('Dimmer bed Martijn').switchOff()
-				domoticz.devices('Dimmer bed Suzanne').switchOff()
+				
+				if (domoticz.devices('Dimmer bed Martijn').state == 'On') then	
+					domoticz.devices('Dimmer bed Martijn').switchOff()
+				end
+				if (domoticz.devices('Dimmer bed Suzanne').state == 'On') then
+					domoticz.devices('Dimmer bed Suzanne').switchOff()
+				end
 				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
 				domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst().afterSec(2)
-				domoticz.devices('Dimmer bed Martijn').switchOff().checkFirst().afterSec(2)
-				domoticz.devices('Dimmer bed Suzanne').switchOff().checkFirst().afterSec(2)
 				domoticz.log('Lights Slaapkamer turned off')
 			end
 			if (area == 'ToiletBoven' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
@@ -343,16 +346,16 @@ return {
 				domoticz.log('Lights KamerLars turned on')
 			end
 			if (area == 'Slaapkamer' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
-				domoticz.devices('Dimmer bed Martijn').dimTo(8)
-				domoticz.devices('Dimmer bed Suzanne').dimTo(8)
-				--domoticz.devices('Dimmer bed Martijn').switchOn()
-				--domoticz.devices('Dimmer bed Suzanne').switchOn()
+				if (domoticz.devices('Dimmer bed Martijn').state == 'Off') then
+					domoticz.devices('Dimmer bed Martijn').dimTo(20)
+				end
+				if (domoticz.devices('Dimmer bed Suzanne').state == 'Off') then
+					domoticz.devices('Dimmer bed Suzanne').dimTo(20)
+				end
 				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()				
 				domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
 				domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
 				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst().afterSec(2)
-				--domoticz.devices('Dimmer bed Martijn').switchOn().checkFirst().afterSec(2)
-				--domoticz.devices('Dimmer bed Suzanne').switchOn().checkFirst().afterSec(2)
 				domoticz.log('Lights Slaapkamer turned on')
 			end
 			if (area == 'ToiletBoven' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') then
