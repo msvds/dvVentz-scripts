@@ -210,6 +210,7 @@ return {
 					domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
 					domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 					domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
+					domoticz.devices('Lamp boven TV').switchOff().checkFirst()
 					domoticz.devices('Lampen Living').setState('Off').silent()
 					domoticz.log('Lights Living turned off')
 				end
