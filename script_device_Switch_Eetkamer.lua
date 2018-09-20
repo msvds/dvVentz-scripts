@@ -8,10 +8,10 @@ return {
 	},
 
 	execute = function(domoticz, device)
-		if (domoticz.devices('Yeelight eetkamer 1').state == 'On' or omoticz.devices('Yeelight eetkamer 2').state == 'On') then
+		if (domoticz.devices('Yeelight eetkamer 1').state == 'On' or domoticz.devices('Yeelight eetkamer 2').state == 'On') then
 			domoticz.helpers.switch_lights(domoticz,'Eetkamer','Off')	
 		end
-		if (domoticz.devices('Yeelight eetkamer 1').state == 'Off' or omoticz.devices('Yeelight eetkamer 2').state == 'Off') then
+		if (domoticz.devices('Yeelight eetkamer 1').state == 'Off' or domoticz.devices('Yeelight eetkamer 2').state == 'Off') then
 			domoticz.helpers.switch_lights(domoticz,'Eetkamer','On')
 		end
 	end
