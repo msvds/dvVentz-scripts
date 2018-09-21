@@ -351,11 +351,11 @@ return {
 			if (area == 'Eetkamer' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
 				if (domoticz.devices('Lampen Eetkamer').lastUpdate.minutesAgo > 3) then
 					domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst()		
-					domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
-					domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(50)
+					--domoticz.devices('White Temp Yeelight eetkamer 1').dimTo(20)
+					--domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(50)
 					domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst()
-					domoticz.devices('White Temp Yeelight eetkamer 2').dimTo(20)
-					domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(50)
+					--domoticz.devices('White Temp Yeelight eetkamer 2').dimTo(20)
+					--domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(50)
 					domoticz.devices('Yeelight eetkamer 1').switchOn().checkFirst().afterSec(2)
 					domoticz.devices('Yeelight eetkamer 2').switchOn().checkFirst().afterSec(2)		
 					domoticz.log('Lights Eetkamer turned on')
