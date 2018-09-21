@@ -405,8 +405,8 @@ return {
 						domoticz.devices('Dimmer bed Suzanne').dimTo(20)
 					end
 					domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()				
-					domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
-					domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
+					--domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
+					--domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
 					domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst().afterSec(2)
 					domoticz.log('Lights Slaapkamer turned on')
 				end	
