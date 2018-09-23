@@ -10,7 +10,7 @@ return {
 		local Time = require('Time')
 
 		-- woonkamer bij zonsondergang
-		domoticz.helpers.switch_lights(domoticz,'Outside','Off',3)
+		domoticz.helpers.switch_lights(domoticz,'Outside','Off',0)
 		domoticz.log('Outside Lights turned off',domoticz.LOG_INFO)
 	end
 }
