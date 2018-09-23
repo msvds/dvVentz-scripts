@@ -22,14 +22,14 @@ return {
 		if (domoticz.globalData.NMC_Floor1 > NM_timeout_floor1) then
 			--if (domoticz.devices('Sony TV').state == 'Off') then
 			--if (MediaCenter.state == 'Off') then
-			domoticz.helpers.switch_lights(domoticz,'Floor1','Off')
+			domoticz.helpers.switch_lights(domoticz,'Floor1','Off',3)
 			-- Gateway status resetten
 			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(0)
 			domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
 			--domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
 		end		
 		if (domoticz.globalData.NMC_Floor2 > NM_timeout_floor2) then
-			domoticz.helpers.switch_lights(domoticz,'Floor2','Off')
+			domoticz.helpers.switch_lights(domoticz,'Floor2','Off',3)
 			-- Gateway status resetten
 			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
 			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
