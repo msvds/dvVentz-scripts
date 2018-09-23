@@ -21,12 +21,12 @@ return {
 			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
 			if IsDark.state == 'On' then
 				domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-				domoticz.helpers.switch_lights(domoticz,'Floor1','On')
+				domoticz.helpers.switch_lights(domoticz,'Floor1','On',3)
 			end
 		elseif device.state == 'Click' then
 			-- Alles uit en beveiliging aanzetten bij gaan weggaan (away)
 			domoticz.devices('Status').switchSelector(10) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			domoticz.helpers.switch_lights(domoticz,'Inside','Off')
+			domoticz.helpers.switch_lights(domoticz,'Inside','Off',3)
 			domoticz.helpers.check_doors_and_windows(domoticz)
 			--domoticz.log('Huidige setpoint is '.. domoticz.helpers.currentSetpoint(domoticz))
 			--domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gaan weggaan knop ingedrukt is',false,domoticz.helpers.currentSetpoint(domoticz))
@@ -37,7 +37,7 @@ return {
 		elseif (device.state == 'Long Click') then
 			-- Lampen aanzetten
 			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			domoticz.helpers.switch_lights(domoticz,'Floor1','On')
+			domoticz.helpers.switch_lights(domoticz,'Floor1','On',3)
 		end		
 	end
 }
