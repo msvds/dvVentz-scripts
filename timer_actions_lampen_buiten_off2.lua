@@ -9,7 +9,7 @@ return {
 	execute = function(domoticz, device)
 		local Time = require('Time')
 
-		domoticz.helpers.switch_lights(domoticz,'Outside','Off')
+		domoticz.helpers.switch_lights(domoticz,'Outside','Off',3)
 		domoticz.log('Outside Lights turned off ivm zonsopgang',domoticz.LOG_INFO)
 	end
 }
