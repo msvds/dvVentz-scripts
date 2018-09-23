@@ -9,8 +9,10 @@ return {
 		domoticz.log(domoticz.devices('Lampen Living').state)
 		if (domoticz.devices('Lampen Living').state == 'Off') then
 			domoticz.helpers.switch_lights(domoticz,'Living','On')
+			domoticz.log('1')
 		else
 			domoticz.helpers.switch_lights(domoticz,'Living','Off')
+			domoticz.log('2')
 		end
 	end
 }
