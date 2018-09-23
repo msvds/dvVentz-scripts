@@ -15,7 +15,7 @@ return {
 			domoticz.log('lampen buiten aangezet ivm zonsondergang en ochtends',domoticz.LOG_INFO)
 		
 		else
-			domoticz.helpers.switch_lights(domoticz,'Outside','Off')
+			domoticz.helpers.switch_lights(domoticz,'Outside','Off',0)
 		end
 	end
 }
