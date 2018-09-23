@@ -495,7 +495,7 @@ return {
 			--local MediaCenter = domoticz.devices(11)
 			--local Televisie = domoticz.devices(7)
 			--local Televisie_lage_resolutie = domoticz.devices(9)
-			domoticz.helpers.switch_lights(domoticz,'Inside','Off')
+			domoticz.helpers.switch_lights(domoticz,'Inside','Off',0)
 			domoticz.helpers.check_doors_and_windows(domoticz)
 		end,
 		sendnotification = function(domoticz,not_title,not_text)
