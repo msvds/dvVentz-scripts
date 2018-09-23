@@ -7,7 +7,7 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
-		domoticz.helpers.switch_lights(domoticz,'All','Off')
+		domoticz.helpers.switch_lights(domoticz,'All','Off',0)
 		domoticz.log('Lampen uitgezet',domoticz.LOG_INFO)
 		domoticz.devices('Roomlars-Stat').updateSetPoint(10)
 		domoticz.devices('Bathroom-Stat').updateSetPoint(10)
@@ -28,6 +28,6 @@ return {
 		domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
 		domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 		domoticz.log('Status op Home gezet',domoticz.LOG_INFO)
-		domoticz.helpers.switch_lights(domoticz,'All','Off')
+		domoticz.helpers.switch_lights(domoticz,'All','Off',0)
 	end
 }
