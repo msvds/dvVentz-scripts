@@ -7,9 +7,16 @@ return {
 		timer = {'every 1 minutes'}
 	},
 	execute = function(domoticz, device)
-		local NM_timeout_floor1 = 10
-		local NM_timeout_floor2 = 10
-		local NM_timeout_kamerLars = 15
+		--timeout nacht
+		local NM_timeout_floor1 = 5
+		local NM_timeout_floor2 = 5
+		local NM_timeout_kamerLars = 5
+		if (domoticz.time.matchesRule('at 7:00-23:30')) then		
+			--timeout dag
+			NM_timeout_floor1 = 30
+			NM_timeout_floor2 = 15
+			NM_timeout_kamerLars = 15
+		end			
 		local Time = require('Time')
 		--local MediaCenter = domoticz.devices(11)
 		--local Televisie = domoticz.devices(7)
@@ -18,8 +25,8 @@ return {
 		--domoticz.log('domoticz.globalData.NMC_Floor2 = ' ..domoticz.globalData.NMC_Floor2)
 		--domoticz.log('NM_timeout_floor2 = ' ..NM_timeout_floor2)
 		--domoticz.log('domoticz.devices('Lamp hal boven').state = ' ..domoticz.devices('Lamp hal boven').state)
-		--Do something when no movement timeout is reached
-		if (domoticz.globalData.NMC_Floor1 > NM_timeout_floor1) then
+		--Do something when no movement timeout is reached		
+		if (domoticz.globalData.NMC_Floor1 > NM_timeout_floor1) then			
 			--if (domoticz.devices('Sony TV').state == 'Off') then
 			--if (MediaCenter.state == 'Off') then
 			domoticz.helpers.switch_lights(domoticz,'Floor1','Off',3)
