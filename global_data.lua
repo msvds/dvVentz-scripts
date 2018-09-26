@@ -295,17 +295,21 @@ return {
 			end
 			if (area == 'Slaapkamer' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				if (domoticz.devices('Lampen Slaapkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
-					if (domoticz.devices('Dimmer bed Martijn').state == 'On') then	
-						domoticz.devices('Dimmer bed Martijn').switchOff()
-					end
-					if (domoticz.devices('Dimmer bed Suzanne').state == 'On') then
-						domoticz.devices('Dimmer bed Suzanne').switchOff()
-					end
+					--if (domoticz.devices('Dimmer bed Martijn').state == 'On') then	
+					--	domoticz.devices('Dimmer bed Martijn').switchOff()
+					--end
+					--if (domoticz.devices('Dimmer bed Suzanne').state == 'On') then
+					--	domoticz.devices('Dimmer bed Suzanne').switchOff()
+					--end
+					domoticz.devices('Dimmer bed Martijn').switchOff()
+					domoticz.devices('Dimmer bed Suzanne').switchOff()
 					domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
 					domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst().afterSec(2)
 					if (domoticz.devices('Lampen Slaapkamer').state == 'On') then
 						domoticz.devices('Lampen Slaapkamer').setState('Off').silent()
 					end
+					domoticz.devices('Dimmer bed Martijn').switchOff().afterSec(2)
+					domoticz.devices('Dimmer bed Suzanne').switchOff().afterSec(2)
 					domoticz.log('Lights Slaapkamer turned off')
 				end
 			end
