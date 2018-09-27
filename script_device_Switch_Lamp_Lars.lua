@@ -8,7 +8,7 @@ return {
 	},
 
 	execute = function(domoticz, device)
-		if (domoticz.time.matchesRule('at 7:00-21:00') then
+		if (domoticz.time.matchesRule('at 6:00-22:00') then
 			if device.state == 'Double Click' then
 				if domoticz.devices('Single Wall Switch Lamp Lars').state == 'On' then
 					if domoticz.devices('Leeslamp Lars').state == 'On' then
