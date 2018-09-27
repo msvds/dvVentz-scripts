@@ -86,8 +86,8 @@ _C.helpers = {
 		end
 
 		if not testMode then
-			--domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(30)
-			--domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(30)
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(10)
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(10)
 			domoticz.devices('Gateway light eetkamer').switchSelector(30)--pink
 			domoticz.devices('Gateway light hal boven').switchSelector(30)--pink
 			domoticz.notify('Alarm Zone Alert!',
