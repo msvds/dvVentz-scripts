@@ -274,6 +274,7 @@ return {
 			end
 			if (area == 'KamerNienke' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') and (domoticz.devices('Lampen KamerNienke').state == 'On') then
 				if (domoticz.devices('Lampen KamerNienke').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
+					domoticz.devices('Leeslamp Nienke').switchOff().checkFirst()
 					domoticz.devices('Lampen KamerNienke').setState('Off').silent()
 					domoticz.log('Lights KamerNienke turned off')
 				end
