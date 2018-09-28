@@ -1,43 +1,40 @@
 return {
 	active = true, -- set to false to disable this script
-	logging = {marker = "script_device_Sw6_badkamer"},
+	logging = {marker = "script_device_Sw6_Nienke"},
 	on = {
 		devices = {
-			'Sw6_badkamer' -- Switch badkamer
+			'Sw6_Nienke'
 		},
 	},
 
 	execute = function(domoticz, device)
-		if device.state == 'Double Click' then
-			-- Beveiliging uitzetten (thuis)
-			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			for i=1, alarm.qtyAlarmZones() do
-				alarm.zones(i).disArmZone(domoticz)
+		if (domoticz.time.matchesRule('at 7:00-20:20') or domoticz.time.matchesRule('at 23:00-06:00')) then
+			if device.state == 'Double Click' then
+				--if domoticz.devices('Single Wall Switch Lamp Lars').state == 'On' then
+				--	domoticz.devices('Single Wall Switch Lamp Lars').switchOff()
+				--	domoticz.devices('Leeslamp Lars').switchOn()
+				--else
+				--	domoticz.devices('Single Wall Switch Lamp Lars').switchOn()
+				--	domoticz.devices('Leeslamp Lars').switchOff()
+				--end
+				if domoticz.devices('Leeslamp Nienke').state == 'On' then
+					domoticz.devices('Leeslamp Nienke').switchOff()
+				else
+					domoticz.devices('Leeslamp Nienke').switchOn()
+				end
+			elseif device.state == 'Click' then
+				domoticz.devices('Leeslamp Nienke').switchOff()
+				--domoticz.devices('Single Wall Switch Lamp Nienke').switchOff()
+				domoticz.log('Lampen kamer Nienke uitgezet',domoticz.LOG_INFO)
+			elseif (device.state == 'Long Click') then
+				domoticz.devices('Leeslamp Nienke').switchOn()
+				--domoticz.devices('Single Wall Switch Lamp Nienke').switchOn()	
+				domoticz.log('Lampen kamer Nienke aangezet',domoticz.LOG_INFO)
 			end
-			-- Gateway status resetten
-			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(0)
-			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
-			domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
-			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
-			if IsDark.state == 'On' then
-				domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-				domoticz.helpers.switch_lights(domoticz,'Floor1','On',0)
-			end
-		elseif device.state == 'Click' then
-			-- Alles uit en beveiliging aanzetten bij gaan weggaan (away)
-			domoticz.devices('Status').switchSelector(10) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			domoticz.helpers.switch_lights(domoticz,'Inside','Off',0)
-			domoticz.helpers.check_doors_and_windows(domoticz)
-			--domoticz.log('Huidige setpoint is '.. domoticz.helpers.currentSetpoint(domoticz))
-			--domoticz.helpers.changeSetPoint(domoticz,'10','omdat de gaan weggaan knop ingedrukt is',false,domoticz.helpers.currentSetpoint(domoticz))
-			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			domoticz.devices('Toon Scenes').switchSelector(20)
-			domoticz.log('Toon Scenes gezet op Sleep (20) omdat de gaan slapen knop ingedrukt is',domoticz.LOG_INFO)
-			alarm.zones('My Home').armZone(domoticz, domoticz.SECURITY_ARMEDAWAY) -- This will  the zone "My Home" to "Armed Away" after the default exit delay
-		elseif (device.state == 'Long Click') then
-			-- Lampen aanzetten
-			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			domoticz.helpers.switch_lights(domoticz,'Floor1','On',0)
-		end		
+		else
+			domoticz.devices('Leeslamp Nienke').switchOff()
+			--domoticz.devices('Single Wall Switch Lamp Nienke').switchOff()
+			domoticz.log('Lampen kamer Nienke uitgezet',domoticz.LOG_INFO)
+		end
 	end
 }
