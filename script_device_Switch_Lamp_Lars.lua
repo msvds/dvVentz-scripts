@@ -11,21 +11,11 @@ return {
 		if (domoticz.time.matchesRule('at 7:00-20:50') or domoticz.time.matchesRule('at 23:00-06:00')) then
 			if device.state == 'Double Click' then
 				if domoticz.devices('Single Wall Switch Lamp Lars').state == 'On' then
-					if domoticz.devices('Leeslamp Lars').state == 'On' then
-						domoticz.devices('Single Wall Switch Lamp Lars').switchOff()
-						domoticz.devices('Leeslamp Lars').switchOn()
-					else
-						domoticz.devices('Single Wall Switch Lamp Lars').switchOff()
-						domoticz.devices('Leeslamp Lars').switchOn()
-					end
+					domoticz.devices('Single Wall Switch Lamp Lars').switchOff()
+					domoticz.devices('Leeslamp Lars').switchOn()
 				else
-					if domoticz.devices('Leeslamp Lars').state == 'On' then
-						domoticz.devices('Single Wall Switch Lamp Lars').switchOn()
-						domoticz.devices('Leeslamp Lars').switchOff()
-					else
-						domoticz.devices('Single Wall Switch Lamp Lars').switchOn()
-						domoticz.devices('Leeslamp Lars').switchOff()
-					end
+					domoticz.devices('Single Wall Switch Lamp Lars').switchOn()
+					domoticz.devices('Leeslamp Lars').switchOff()
 				end	
 			elseif device.state == 'Click' then
 				domoticz.devices('Leeslamp Lars').switchOff()
