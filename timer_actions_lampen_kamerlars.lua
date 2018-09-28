@@ -4,8 +4,13 @@ return {
 	active = true, -- set to false to disable this script
 	logging = {marker = "timer_actions_lampen_kamerlars"},
 	on = {
-		timer = {'at 20:50'}
+		devices = {
+			'Sw Lamp Lars'
+		},
 	},
+	--on = {
+	--	timer = {'at 20:50'}
+	--},
 	execute = function(domoticz, device)
 		local Time = require('Time')
 		domoticz.devices('Leeslamp Lars').switchOff()
