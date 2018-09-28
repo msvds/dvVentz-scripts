@@ -15,8 +15,8 @@ return {
 		local Time = require('Time')
 		domoticz.devices('Leeslamp Lars').switchOff()
 		domoticz.devices('Single Wall Switch Lamp Lars').switchOff()	
-		domoticz.devices('Leeslamp Lars').switchOn().forMin(1).afterSec(5)
-		--domoticz.devices('Leeslamp Lars').switchOff().afterMin(2)
+		domoticz.devices('Leeslamp Lars').switchOn().forSec(20).afterSec(2)
+		domoticz.devices('Leeslamp Lars').switchOff().afterSec(30)
 		domoticz.log('Lars lampen uitgezet',domoticz.LOG_INFO)
 	end
 }
