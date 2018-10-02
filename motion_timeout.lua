@@ -43,7 +43,7 @@ return {
 			--domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.NMC_PIR_kamerLars > NM_timeout_kamerLars) then
-			if (domoticz.devices('Roomlars-Stat').SetPoint ~= '10') then
+			if (domoticz.devices('Roomlars-Stat').setPoint ~= '10') then
 				domoticz.devices('Roomlars-Stat').updateSetPoint(10)
 				--domoticz.log('No movement kamer Lars timeout is reached -> verwarming Lars naar 10 graden gezet',domoticz.LOG_INFO)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
