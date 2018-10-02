@@ -50,6 +50,11 @@ return {
         local currentBoiletSetPoint = jsonThermostatInfo.currentInternalBoilerSetpoint
         ----
         
+	domoticz.log('currentSetpoint: ' ..currentSetpoint,domoticz.LOG_INFO)
+	domoticz.log('currentActiveState: ' ..currentActiveState,domoticz.LOG_INFO)
+	domoticz.log('currentProgramState: ' ..currentProgramState,domoticz.LOG_INFO)
+	domoticz.log('currentTemperature: ' ..currentTemperature,domoticz.LOG_INFO)
+		
         -- Update the thermostat sensor to current setpoint
         if domoticz.devices(ToonThermostatSensorName).setPoint*100 ~= currentSetpoint*100 then
             domoticz.log('Updating thermostat sensor to new set point: ' ..currentSetpoint,domoticz.LOG_INFO)
