@@ -4,12 +4,12 @@ return {
 	active = true, -- set to false to disable this script
 	logging = {marker = "voordeurbel"},
 	on = {
-		devices = {'Voordeurbel'
+		devices = {'Deurbel'
 		--,'Test Switch'
 		}
 	},
 	execute = function(domoticz, device)
-		if domoticz.devices('Voordeurbel').state == 'Group On' then			
+		if domoticz.devices('Deurbel').state == 'Group On' then			
 			local Time = require('Time')
 			domoticz.devices('Xiaomi Gateway Doorbell hal boven').switchSelector(10)
 			local sceneCmd = 'curl -s -i -H "Accept: application/json" "http://192.168.178.3:8084/json.htm?type=command&param=setcolbrightnessvalue&idx=53&hue=236&brightness=1&iswhite=false"'
