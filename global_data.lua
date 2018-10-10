@@ -289,6 +289,8 @@ return {
 					--end
 					domoticz.devices('Dimmer bed Martijn').switchOff()
 					domoticz.devices('Dimmer bed Suzanne').switchOff()
+					domoticz.devices('Lamp bed Martijn').switchOff()
+					domoticz.devices('Lamp bed Suzanne').switchOff()
 					domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst()
 					domoticz.devices('Yeelight slaapkamer').switchOff().checkFirst().afterSec(2)
 					domoticz.devices('Lampen Slaapkamer').setState('Off').silent()
