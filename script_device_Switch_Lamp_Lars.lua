@@ -10,25 +10,25 @@ return {
 	execute = function(domoticz, device)
 		if (domoticz.time.matchesRule('at 7:00-20:50') or domoticz.time.matchesRule('at 23:00-06:00')) then
 			if device.state == 'Double Click' then
-				if domoticz.devices('Single Wall Switch Lamp Lars').state == 'On' then
-					domoticz.devices('Single Wall Switch Lamp Lars').switchOff()
+				if domoticz.devices('Lamp Lars').state == 'On' then
+					domoticz.devices('Lamp Lars').switchOff()
 					domoticz.devices('Leeslamp Lars').switchOn()
 				else
-					domoticz.devices('Single Wall Switch Lamp Lars').switchOn()
+					domoticz.devices('Lamp Lars').switchOn()
 					domoticz.devices('Leeslamp Lars').switchOff()
 				end	
 			elseif device.state == 'Click' then
 				domoticz.devices('Leeslamp Lars').switchOff()
-				domoticz.devices('Single Wall Switch Lamp Lars').switchOff()
+				domoticz.devices('Lamp Lars').switchOff()
 				domoticz.log('Lampen kamer Lars uitgezet',domoticz.LOG_INFO)
 			elseif (device.state == 'Long Click') then
 				domoticz.devices('Leeslamp Lars').switchOn()
-				domoticz.devices('Single Wall Switch Lamp Lars').switchOn()	
+				domoticz.devices('Lamp Lars').switchOn()	
 				domoticz.log('Lampen kamer Lars aangezet',domoticz.LOG_INFO)
 			end
 		else
 			domoticz.devices('Leeslamp Lars').switchOff()
-			domoticz.devices('Single Wall Switch Lamp Lars').switchOff()
+			domoticz.devices('Lamp Lars').switchOff()
 			domoticz.log('Lampen kamer Lars uitgezet',domoticz.LOG_INFO)
 		end
 	end
