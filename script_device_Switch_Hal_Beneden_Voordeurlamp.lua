@@ -8,6 +8,7 @@ return {
 	},
 
 	execute = function(domoticz, device)
+		--33 - Voordeurlamp
 		if domoticz.devices(33).state == 'On' then
 			domoticz.devices(33).switchOff()
 			domoticz.log('Voordeurlamp uitgezet',domoticz.LOG_INFO)
