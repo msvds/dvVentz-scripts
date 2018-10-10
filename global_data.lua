@@ -241,8 +241,8 @@ return {
 				if (domoticz.devices('Lampen Speelkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Lamp speelkamer').switchOff().checkFirst()
 					domoticz.devices('Lamp ster').switchOff().checkFirst()
-					domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst()
-					domoticz.devices('Single Wall Switch Speelkamer').switchOff().checkFirst().afterSec(2)
+					domoticz.devices('Lamp speelkamer muur').switchOff().checkFirst()
+					domoticz.devices('Lamp speelkamer muur').switchOff().checkFirst().afterSec(2)
 					domoticz.devices('Lampen Speelkamer').setState('Off').silent()
 					domoticz.log('Lights Speelkamer turned off')
 				end
@@ -410,8 +410,8 @@ return {
 				if (domoticz.devices('Lampen Speelkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Lamp speelkamer').switchOn().checkFirst()
 					domoticz.devices('Lamp ster').switchOn().checkFirst()
-					domoticz.devices('Single Wall Switch Speelkamer').switchOn().checkFirst()
-					domoticz.devices('Single Wall Switch Speelkamer').switchOn().checkFirst().afterSec(2)							
+					domoticz.devices('Lamp speelkamer muur').switchOn().checkFirst()
+					domoticz.devices('Lamp speelkamer muur').switchOn().checkFirst().afterSec(2)							
 					domoticz.devices('Lampen Speelkamer').setState('On').silent()
 					domoticz.log('Lights Speelkamer turned on')
 				end	
