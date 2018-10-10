@@ -266,8 +266,8 @@ return {
 			if (area == 'KamerLars' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') and (domoticz.devices('Lampen KamerLars').state == 'On') then
 				if (domoticz.devices('Lampen KamerLars').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Leeslamp Lars').switchOff().checkFirst()
-					domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst()
-					domoticz.devices('Single Wall Switch Lamp Lars').switchOff().checkFirst().afterSec(2)
+					domoticz.devices('Lamp Lars').switchOff().checkFirst()
+					domoticz.devices('Lamp Lars').switchOff().checkFirst().afterSec(2)
 					domoticz.devices('Lampen KamerLars').setState('Off').silent()
 					domoticz.log('Lights KamerLars turned off')
 				end
@@ -435,8 +435,8 @@ return {
 			if (area == 'KamerLars' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'On') and (domoticz.devices('Lampen KamerLars').state == 'Off')  then
 				if (domoticz.devices('Lampen KamerLars').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Leeslamp Lars').switchOn().checkFirst()
-					domoticz.devices('Single Wall Switch Lamp Lars').switchOn().checkFirst()
-					domoticz.devices('Single Wall Switch Lamp Lars').switchOn().checkFirst().afterSec(2)
+					domoticz.devices('Lamp Lars').switchOn().checkFirst()
+					domoticz.devices('Lamp Lars').switchOn().checkFirst().afterSec(2)
 					domoticz.devices('Lampen KamerLars').setState('On').silent()
 					domoticz.log('Lights KamerLars turned on')
 				end	
