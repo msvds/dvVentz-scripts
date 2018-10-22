@@ -38,9 +38,9 @@ return {
 				elseif domoticz.devices('Yeelight light slaapkamer').level == 60 then
 					domoticz.devices('Yeelight light slaapkamer').switchSelector(70)				
 				end
-				domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
-				domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
-				domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
+				--domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
+				--domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
+				--domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
 			end
 		elseif device.state == 'Click' then
 			-- Alles uit en beveiliging aanzetten bij gaan slapen (sleep)
@@ -54,6 +54,11 @@ return {
 			alarm.zones('My Home').armZone(domoticz, domoticz.SECURITY_ARMEDHOME) -- This will  the zone "My Home" to "Armed Home" after the default exit delay
 			domoticz.devices('Toon Scenes').switchSelector(20)
 			domoticz.log('Toon Scenes gezet op Sleep (20) omdat de gaan slapen knop ingedrukt is',domoticz.LOG_INFO)
+			-- Gateway status resetten
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(0)
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
+			domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
+			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
 		elseif (device.state == 'Long Click') then
 			-- Lampen aanzetten
 			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
