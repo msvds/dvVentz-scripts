@@ -25,28 +25,28 @@ return {
 			if IsDark.state == 'On' then
 				if domoticz.devices('Yeelight slaapkamer').state == "Off" then
 					domoticz.devices('Yeelight light slaapkamer').switchSelector(10)
-					domoticz.devices('Yeelight slaapkamer').setState == "On
+					domoticz.devices('Yeelight slaapkamer').setState('On')
 				elseif domoticz.devices('Yeelight light slaapkamer').level == 10 then
 					domoticz.devices('Yeelight light slaapkamer').switchSelector(20)
-					domoticz.devices('Yeelight slaapkamer').setState == "On
+					domoticz.devices('Yeelight slaapkamer').setState('On')
 				elseif domoticz.devices('Yeelight light slaapkamer').level == 20 then
 					domoticz.devices('Yeelight light slaapkamer').switchSelector(30)
-					domoticz.devices('Yeelight slaapkamer').setState == "On
+					domoticz.devices('Yeelight slaapkamer').setState('On')
 				elseif domoticz.devices('Yeelight light slaapkamer').level == 30 then
 					domoticz.devices('Yeelight light slaapkamer').switchSelector(40)
-					domoticz.devices('Yeelight slaapkamer').setState == "On
+					domoticz.devices('Yeelight slaapkamer').setState('On')
 				elseif domoticz.devices('Yeelight light slaapkamer').level == 40 then
 					domoticz.devices('Yeelight light slaapkamer').switchSelector(50)
-					domoticz.devices('Yeelight slaapkamer').setState == "On
+					domoticz.devices('Yeelight slaapkamer').setState('On')
 				elseif domoticz.devices('Yeelight light slaapkamer').level == 50 then
 					domoticz.devices('Yeelight light slaapkamer').switchSelector(60)
-					domoticz.devices('Yeelight slaapkamer').setState == "On
+					domoticz.devices('Yeelight slaapkamer').setState('On')
 				elseif domoticz.devices('Yeelight light slaapkamer').level == 60 then
 					domoticz.devices('Yeelight light slaapkamer').switchSelector(70)
-					domoticz.devices('Yeelight slaapkamer').setState == "On
+					domoticz.devices('Yeelight slaapkamer').setState('On')
 				else
 					domoticz.devices('Yeelight slaapkamer').switchOff()
-					domoticz.devices('Yeelight slaapkamer').setState == "Off
+					domoticz.devices('Yeelight slaapkamer').setState('Off')
 				end
 				--domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
 				--domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
