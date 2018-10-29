@@ -12,7 +12,7 @@ return {
 			domoticz.devices('Toon Scenes').switchSelector(30)
 			domoticz.log('Thermostaat timer programma: Scenes gezet op Home (30)',domoticz.LOG_INFO)
 		end
-		if (domoticz.time.matchesRule('at 8:00-8:05 on mon,thu')) then			
+		if (domoticz.time.matchesRule('at 8:00-8:05 on mon,thu,fri')) then			
 			domoticz.devices('Toon Auto Program').state = 'No'
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			domoticz.devices('Toon Scenes').switchSelector(10)
@@ -47,13 +47,13 @@ return {
 			domoticz.devices('Roomnienke-Stat').updateSetPoint(10)
 			domoticz.log('Alle thermostaatkranen teruggezet op 10 graden volgens timer programma',domoticz.LOG_INFO)
 		end
-		if (domoticz.time.matchesRule('at 21:15-21:20 on mon,tue,wed,thu,fri')) then				
+		if (domoticz.time.matchesRule('at 21:15-21:20 on sun,mon,tue,wed,thu')) then				
 			domoticz.devices('Toon Auto Program').state = 'No'
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			domoticz.devices('Toon Scenes').switchSelector(20)
 			domoticz.log('Thermostaat timer programma: Scenes gezet op Sleep (20)',domoticz.LOG_INFO)
 		end
-		if (domoticz.time.matchesRule('at 22:15-22:20 on sat,sun')) then				
+		if (domoticz.time.matchesRule('at 22:15-22:20 on fri,sat')) then				
 			domoticz.devices('Toon Auto Program').state = 'No'
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			domoticz.devices('Toon Scenes').switchSelector(20)
