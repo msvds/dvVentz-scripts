@@ -30,7 +30,7 @@ return {
 			domoticz.devices('Toon Scenes').switchSelector(30)
 			domoticz.log('Thermostaat timer programma: Scenes gezet op Home (30)',domoticz.LOG_INFO)
 		end
-		if (domoticz.time.matchesRule('at 18:10-18:15 on tue') and domoticz.devices('SomeoneHome').state == 'On') then				
+		if (domoticz.time.matchesRule('at 18:10-18:15 on thu') and domoticz.devices('SomeoneHome').state == 'On') then				
 			domoticz.devices('Toon Auto Program').state = 'No'
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			domoticz.devices('Toon Scenes').switchSelector(30)
