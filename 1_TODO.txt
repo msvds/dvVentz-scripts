@@ -1,2 +1,3 @@
 TODO list:
+- fix gas & elec
 - 
