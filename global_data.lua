@@ -410,6 +410,7 @@ return {
 					domoticz.log('Lights Eetkamer turned on')
 				end	
 			end
+			domoticz.log("Lampen Speelkamer " ..domoticz.devices('Lampen Speelkamer').lastUpdate.minutesAgo)
 			if (area == 'Speelkamer' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') and (domoticz.devices('Lampen Speelkamer').state == 'Off')  then
 				if (domoticz.devices('Lampen Speelkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Lamp speelkamer').switchOn().checkFirst()
