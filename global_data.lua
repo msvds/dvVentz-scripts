@@ -239,7 +239,7 @@ return {
 				end
 			end
 			domoticz.log("Lampen Speelkamer " ..domoticz.devices('Lampen Speelkamer').lastUpdate.minutesAgo)
-			if (area == 'Speelkamer' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') and (domoticz.devices('Lampen Speelkamer').state == 'On') then
+			if (area == 'Speelkamer' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') and (domoticz.devices('Lampen Speelkamer').state == 'Off') then
 				if (domoticz.devices('Lampen Speelkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Lamp speelkamer').switchOff().checkFirst()
 					domoticz.devices('Lamp ster').switchOff().checkFirst()
@@ -411,7 +411,7 @@ return {
 				end	
 			end
 			domoticz.log("Lampen Speelkamer " ..domoticz.devices('Lampen Speelkamer').lastUpdate.minutesAgo)
-			if (area == 'Speelkamer' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') and (domoticz.devices('Lampen Speelkamer').state == 'Off')  then
+			if (area == 'Speelkamer' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') and (domoticz.devices('Lampen Speelkamer').state == 'On')  then
 				if (domoticz.devices('Lampen Speelkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Lamp speelkamer').switchOn().checkFirst()
 					domoticz.devices('Lamp ster').switchOn().checkFirst()
