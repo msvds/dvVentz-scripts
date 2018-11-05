@@ -209,6 +209,9 @@ return {
 			------------------------------------------------------------------------
 			
 			--domoticz.log(domoticz.devices('Lampen Living').lastUpdate.minutesAgo)
+			domoticz.log("area = " ..area)
+			domoticz.log("onoff = " ..onoff)
+			domoticz.log("lastUpdateminutesAgo = " ..lastUpdateminutesAgo)
 			if (area == 'Living' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'Off') and (domoticz.devices('Lampen Living').state == 'On') then
 				if (domoticz.devices('Lampen Living').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
