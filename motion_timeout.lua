@@ -13,9 +13,9 @@ return {
 		local NM_timeout_kamerLars = 5
 		if (domoticz.time.matchesRule('at 7:00-23:30')) then		
 			--timeout dag
-			NM_timeout_floor1 = 30
-			NM_timeout_floor2 = 15
-			NM_timeout_kamerLars = 15
+			NM_timeout_floor1 = 45
+			NM_timeout_floor2 = 10
+			NM_timeout_kamerLars = 5
 		end			
 		local Time = require('Time')
 		--local MediaCenter = domoticz.devices(11)
