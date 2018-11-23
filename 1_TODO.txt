@@ -3,4 +3,3 @@ TODO list:
 - analyse Toon Thermostat & Toon Temperature
 - lamp zolder achter het schot smart maken
 - IKEA tradfri bedienbaar maken vanuit domoticz
-- Check thermostaat knoppen werking vanuit Domoticz
