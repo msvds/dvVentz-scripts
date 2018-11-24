@@ -1,5 +1,3 @@
 TODO list:
 - fix gas & elec
 - analyse Toon Thermostat & Toon Temperature
-- lamp zolder achter het schot smart maken
-- IKEA tradfri bedienbaar maken vanuit domoticz
