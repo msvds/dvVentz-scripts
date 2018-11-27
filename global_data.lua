@@ -332,6 +332,7 @@ return {
 			end
 			if (area == 'Logeerkamer' or area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				--if (domoticz.devices('Lampen Logeerkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
+				--	domoticz.devices('Lampen logeerkamer').switchOff().checkFirst()
 				--	domoticz.devices('Lampen Logeerkamer').setState('Off').silent()
 				--	domoticz.log('Lights Logeerkamer turned off')
 				--end	
