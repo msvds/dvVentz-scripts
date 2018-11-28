@@ -1,3 +1,4 @@
 TODO list:
 - fix gas & elec
 - analyse Toon Thermostat & Toon Temperature
+- remove life360 needs
