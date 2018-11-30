@@ -20,8 +20,8 @@ return {
 				alarm.zones('My Home').disArmZone(domoticz)
 			end
 			--alarm.zones('My Home').disArmZone(domoticz) -- This will disarm the zone "My Home"
-		elseif (device.name == 'SomeoneHome' and device.state == 'Off' and domoticz.devices('Status').state ~= 20 and domoticz.devices('Status').state ~= 50) then
-			--arm home only when Status is not equal to Holiday or Guests
+		elseif (device.name == 'SomeoneHome' and device.state == 'Off' and domoticz.devices('Status').state ~= 50) then
+			--arm home only when Status is not equal to  Guests
 			alarm.zones('My Home').armZone(domoticz, domoticz.SECURITY_ARMEDAWAY) -- This will  the zone "My Home" to "Armed Away" after the default exit delay
 		end
 	end
