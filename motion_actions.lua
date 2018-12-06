@@ -52,8 +52,8 @@ return {
 			--domoticz.devices('Dimmer bed Martijn').dimTo(8)
 			--domoticz.devices('Dimmer bed Suzanne').dimTo(8)
 		end
-		-- woonkamer aan donker + deur open
-		if ((domoticz.devices('Eetkamerdeur').state == 'Open' or domoticz.devices('Front door').state == 'Open') and IsDark.state == 'On') then
+		-- woonkamer aan donker + deur open (geen actie bij weggaan, dus na knop indrukken)
+		if ((domoticz.devices('Eetkamerdeur').state == 'Open' or domoticz.devices('Front door').state == 'Open') and domoticz.devices('Sw1_woonkamerdeur').lastUpdate.minutesAgo > 3 and domoticz.devices('Sw4_eetkamerdeur').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
 			domoticz.log('Eetkamerdeur of voordeur open bij thuiskomst terwijl het donker is, lampen woonkamer aangezet', domoticz.LOG_INFO)
 			domoticz.helpers.switch_lights(domoticz,'Woonkamer','On',0)
 		end		
