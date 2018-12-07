@@ -1,12 +1,12 @@
 return {
 	active = true, -- set to false to disable this script
-	logging = {marker = "Werk"},
+	logging = {marker = "Fel_licht"},
 	on = {
-		devices = {'Werk'},
+		devices = {'Fel licht'},
 	},
 
 	execute = function(domoticz, device)
-		if (domoticz.devices('Werk').state == 'On') then
+		if (domoticz.devices('Fel licht').state == 'On') then
 			--activeer sfeerlichten
 			domoticz.devices('Tradfri - Group - bar').dimTo(100)
 			domoticz.devices('Tradfri - Group - boven tv').dimTo(100)
@@ -15,17 +15,11 @@ return {
 			domoticz.devices('Tradfri - Group - entree').dimTo(100)
 			domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(100)
 			domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(100)
-			domoticz.devices('Sfeer').setState('Off').silent()
+			domoticz.devices('Normaal licht').setState('Off').silent()
+			domoticz.devices('Zacht licht').setState('Off').silent()
 		else
 			--deactiveer sfeerlichten, terug naar normaal
-			domoticz.devices('Tradfri - Group - bar').dimTo(50)
-			domoticz.devices('Tradfri - Group - boven tv').dimTo(50)
-			domoticz.devices('Tradfri - Group - keuken').dimTo(50)			
-			domoticz.devices('Tradfri - Group - hal').dimTo(50)
-			domoticz.devices('Tradfri - Group - entree').dimTo(50)
-			domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(50)
-			domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(50)
-			domoticz.devices('Sfeer').setState('Off').silent()
+			domoticz.devices('Normaal licht').setState('On')
 		end
 	end
 }
