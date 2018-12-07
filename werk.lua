@@ -1,12 +1,12 @@
 return {
 	active = true, -- set to false to disable this script
-	logging = {marker = "Sfeer"},
+	logging = {marker = "Werk"},
 	on = {
 		devices = {'Werk'},
 	},
 
 	execute = function(domoticz, device)
-		if (domoticz.devices('Werl').state == 'On') then
+		if (domoticz.devices('Werk').state == 'On') then
 			--activeer sfeerlichten
 			domoticz.devices('Tradfri - Group - bar').dimTo(100)
 			domoticz.devices('Tradfri - Group - boven tv').dimTo(100)
