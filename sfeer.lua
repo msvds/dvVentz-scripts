@@ -6,7 +6,7 @@ return {
 	},
 
 	execute = function(domoticz, device)
-		if (domoticz.devices('Sfeer').state == 'Off') then
+		if (domoticz.devices('Sfeer').state == 'On') then
 			--activeer sfeerlichten
 			domoticz.devices('Tradfri - Group - bar').dimTo(10)
 			domoticz.devices('Tradfri - Group - boven tv').dimTo(10)
