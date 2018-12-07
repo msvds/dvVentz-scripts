@@ -15,7 +15,7 @@ return {
 			domoticz.devices('Tradfri - Group - entree').dimTo(10)
 			domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(10)
 			domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(10)
-			domoticz.devices('Werk').setState('Off')
+			domoticz.devices('Werk').setState('Off').silent()
 		else
 			--deactiveer sfeerlichten, terug naar normaal
 			domoticz.devices('Tradfri - Group - bar').dimTo(50)
@@ -25,7 +25,7 @@ return {
 			domoticz.devices('Tradfri - Group - entree').dimTo(50)
 			domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(50)
 			domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(50)
-			domoticz.devices('Werk').setState('Off')
+			domoticz.devices('Werk').setState('Off').silent()
 		end
 	end
 }
