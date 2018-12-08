@@ -8,7 +8,7 @@ return {
 	},
 
 	execute = function(domoticz, device)
-		if device.state == 'Switch 1' then
+		if device.state == 'Switch 2' then
 			if (domoticz.devices('Tradfri - Group - bar').state == 'Off') then
 				domoticz.devices('Tradfri - Group - bar').switchOn()	
 				domoticz.log('Lampen bar aangezet')
@@ -16,7 +16,7 @@ return {
 				domoticz.devices('Tradfri - Group - bar').switchOff()	
 				domoticz.log('Lampen bar uitgezet')
 			end
-		elseif device.state == 'Switch 2' then
+		elseif device.state == 'Switch 1' then
 			if (domoticz.devices('Tradfri - Group - keuken').state == 'Off') then
 				domoticz.devices('Tradfri - Group - keuken').switchOn()
 				domoticz.devices('Lamp spoelb keuken').switchOn()
