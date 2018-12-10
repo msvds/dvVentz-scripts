@@ -226,7 +226,9 @@ return {
 				if (domoticz.devices('Lampen Keuken').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Lamp spoelb keuken').switchOff().checkFirst()
 					domoticz.devices('Tradfri - Group - bar').switchOff().checkFirst()
-					domoticz.devices('Tradfri - Group - keuken').switchOff().checkFirst()
+					domoticz.devices('Tradfri - Group - keuken').switchOff().checkFirst()					
+					domoticz.devices('Tradfri - Group - bar').switchOff().checkFirst().afterSec(2)
+					domoticz.devices('Tradfri - Group - keuken').switchOff().checkFirst().afterSec(2)
 					domoticz.devices('Lampen Keuken').setState('Off').silent()
 					domoticz.log('Lights Keuken turned off')
 				end
@@ -395,7 +397,9 @@ return {
 				if (domoticz.devices('Lampen Keuken').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Lamp spoelb keuken').switchOn().checkFirst()
 					domoticz.devices('Tradfri - Group - bar').switchOn().checkFirst()
-					domoticz.devices('Tradfri - Group - keuken').switchOn().checkFirst()			
+					domoticz.devices('Tradfri - Group - keuken').switchOn().checkFirst()					
+					domoticz.devices('Tradfri - Group - bar').switchOn().checkFirst().afterSec(2)
+					domoticz.devices('Tradfri - Group - keuken').switchOn().checkFirst().afterSec(2)
 					domoticz.devices('Lampen Keuken').setState('On').silent()
 					domoticz.log('Lights Keuken turned on')
 				end	
