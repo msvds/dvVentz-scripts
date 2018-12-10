@@ -217,7 +217,8 @@ return {
 					domoticz.devices('Grote lamp naast bank').switchOff().checkFirst()
 					domoticz.devices('Schemerlamp deur').switchOff().checkFirst()
 					domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
-					domoticz.devices('Lamp boven TV').switchOff().checkFirst()
+					domoticz.devices('Tradfri - Group - boven tv').switchOff().checkFirst()			
+					domoticz.devices('Tradfri - Group - boven tv').switchOff().checkFirst().afterSec(2)
 					domoticz.devices('Lampen Living').setState('Off').silent()
 					domoticz.log('Lights Living turned off')
 				end
@@ -385,7 +386,8 @@ return {
 			------------------------------------------------------------------------
 			if (area == 'Living' or area == 'Woonkamer' or area == 'Floor1' or area == 'Inside' or area == 'All') and (onoff == 'On') then
 				if (domoticz.devices('Lampen Living').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
-					domoticz.devices('Lamp boven TV').switchOn().checkFirst()
+					domoticz.devices('Tradfri - Group - boven tv').switchOn().checkFirst()			
+					domoticz.devices('Tradfri - Group - boven tv').switchOn().checkFirst().afterSec(2)
 					domoticz.devices('Grote lamp naast bank').switchOn().checkFirst()
 					domoticz.devices('Schemerlamp deur').switchOn().checkFirst()
 					domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
