@@ -93,7 +93,7 @@ _C.helpers = {
 			domoticz.notify('Alarm Zone Alert!',
 				msg, domoticz.PRIORITY_HIGH)
 			domoticz.helpers.sendnotification(domoticz,'Alarm gaat af!','Het alarm gaat af doordat sensor ' ..trippedSensors ' is getriggerd')
-			domoticz.helpers.flash_lights(domoticz,domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Lamp boven TV').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,3,5,5)
+			domoticz.helpers.flash_lights(domoticz,domoticz.devices('Schemerlamp deur').state,domoticz.devices('Lamp spoelb keuken').state,domoticz.devices('Tradfri - Group - boven tv').state,domoticz.devices('Schemerlamp bank').state,domoticz.devices('Lamp hal boven').state,3,5,5)
 		
 		else
 			domoticz.log('(TESTMODE IS ACTIVE) '..msg, domoticz.LOG_INFO)
