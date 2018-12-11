@@ -3,7 +3,7 @@ return {
 	logging = {marker = "script_device_Switch_Hal_Beneden"},
 	on = {
 		devices = {
-			'Dual Wall Switch Keuken' -- Dual Wall Switch Hal_Beneden
+			'Dual Wall Switch Hall Beneden' -- Dual Wall Switch Hal_Beneden
 		},
 	},
 
