@@ -261,6 +261,10 @@ return {
 					--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst()
 					domoticz.devices('Lamp Spiegel Hal').switchOff().checkFirst().afterSec(2)			
 					--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOff().checkFirst().afterSec(2)
+					domoticz.devices('Tradfri - Group - hal').switchOff().checkFirst()
+					domoticz.devices('Tradfri - Group - entree').switchOff().checkFirst()
+					domoticz.devices('Tradfri - Group - hal').switchOff().checkFirst().afterSec(2)
+					domoticz.devices('Tradfri - Group - entree').switchOff().checkFirst().afterSec(2)
 					domoticz.devices('Lampen HalBeneden').setState('Off').silent()
 					domoticz.log('Lights hal beneden turned off')
 				end
@@ -437,6 +441,10 @@ return {
 					--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOn().checkFirst()
 					domoticz.devices('Lamp Spiegel Hal').switchOn().checkFirst().afterSec(2)			
 					--domoticz.devices('Single Wall Switch Lampen Hal Beneden').switchOn().checkFirst().afterSec(2)
+					domoticz.devices('Tradfri - Group - hal').switchOn().checkFirst()
+					domoticz.devices('Tradfri - Group - entree').switchOn().checkFirst()
+					domoticz.devices('Tradfri - Group - hal').switchOn().checkFirst().afterSec(2)
+					domoticz.devices('Tradfri - Group - entree').switchOn().checkFirst().afterSec(2)
 					domoticz.devices('Lampen HalBeneden').setState('On').silent()
 					domoticz.log('Lights hal beneden turned on')
 				end	
