@@ -26,6 +26,7 @@ return {
 			domoticz.helpers.switch_lights(domoticz,'Eetkamer','On',0)
 			-- KERST, tijdelijk extra de kerstboom aan!
 			domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
+			domoticz.devices('Lampjes speelhuisje').switchOn().checkFirst()
 		elseif (domoticz.time.matchesRule('at 01:00-06:00') and domoticz.devices('Beweging woonkamer').state == 'On'  and IsDark.state == 'On') then
 			-- beneden verdieping nachts + donker
 			domoticz.helpers.switch_lights(domoticz,'Floor1','On',0)
