@@ -6,7 +6,7 @@ Version 1.3.1
 --]]
 
 local FAN_DEVICE = 'Centrale Afzuiging Boost' -- Fan device
-local FORCE_FAN_DEVICE = 'Sw6_Nienke' -- (Optional)
+local FORCE_FAN_DEVICE = '' --= 'Sw6_Nienke' -- (Optional)
 local FORCE_FAN_TIME = 15 -- Minutes to force the fan when button pushed
 local HUMIDITY_SENSORS =  {'Vochtigheid Badkamer Bad','Vochtigheid Badkamer Douche'}
 local FAN_DELTA_TRIGGER = 3 -- % Rise in humidity that will trigger the fan
