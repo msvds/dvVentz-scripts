@@ -33,7 +33,7 @@ return {
 	},
 	on = {
 		devices = {
-			FORCE_FAN_DEVICE
+			FORCE_FAN_DEVICE_1,FORCE_FAN_DEVICE_2
 		},
 		timer = {
 			'every 1 minutes'
