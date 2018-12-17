@@ -9,15 +9,18 @@ return {
 		if (domoticz.time.matchesRule('at 15:00-22:30') and domoticz.devices('SomeoneHome').state == 'On') then				
 			if (domoticz.devices('Lampjes speelhuisje').lastUpdate.minutesAgo > 3) then
 				domoticz.devices('Lampjes speelhuisje').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
 			end
 			domoticz.log('Lampjes speelhuisje aangezet',domoticz.LOG_INFO)
 		elseif (domoticz.time.matchesRule('at 7:15-8:00') and domoticz.devices('SomeoneHome').state == 'On') then			
 			if (domoticz.devices('Lampjes speelhuisje').lastUpdate.minutesAgo > 3) then
 				domoticz.devices('Lampjes speelhuisje').switchOn().checkFirst()
+				domoticz.devices('Schemerlamp bank').switchOn().checkFirst()
 			end
 			domoticz.log('Lampjes speelhuisje aangezet',domoticz.LOG_INFO)
 		else
 			domoticz.devices('Lampjes speelhuisje').switchOff().checkFirst()
+			domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
 			domoticz.log('Lampjes speelhuisje uitgezet',domoticz.LOG_INFO)
 		end
 	end
