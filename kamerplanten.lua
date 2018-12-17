@@ -26,14 +26,14 @@ return {
 			domoticz.log('average_humidities_plant2 = ' ..average_humidities_plant2,domoticz.LOG_INFO)
 		end
 		
-		if (domoticz.devices('plant moisture 1').percentage < 25) then				
-        		message = message .. 'De plant in de hal boven begint heel erg droog te worden (<25%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
+		if (domoticz.devices('plant moisture 1').percentage < 20) then				
+        		message = message .. 'De plant in de hal boven begint heel erg droog te worden (<20%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
+		elseif (domoticz.devices('plant moisture 1').percentage < 25) then				
+        		message = message .. 'De plant in de hal boven begint erg droog te worden (<25%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
 		elseif (domoticz.devices('plant moisture 1').percentage < 30) then				
-        		message = message .. 'De plant in de hal boven begint erg droog te worden (<30%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
+        		message = message .. 'De plant in de hal boven begint droog te worden (<30%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
 		elseif (domoticz.devices('plant moisture 1').percentage < 35) then				
-        		message = message .. 'De plant in de hal boven begint droog te worden (<35%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
-		elseif (domoticz.devices('plant moisture 1').percentage < 40) then				
-        		message = message .. 'De plant in de hal boven begint een beetje droog te worden (<40%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
+        		message = message .. 'De plant in de hal boven begint een beetje droog te worden (<35%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
 		end
     
 		if (domoticz.devices('plant moisture 2').percentage < 5) then				
