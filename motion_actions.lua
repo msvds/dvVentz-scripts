@@ -35,7 +35,7 @@ return {
 		if (domoticz.devices('Beweging hal boven').state == 'On' and domoticz.devices('Lamp hal boven').lastUpdate.minutesAgo > 5 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 5 and IsDark.state == 'On') then
 			-- hal aan donker
 			-- vertraging zodat als Sw3_bed is ingedrukt, niet meteen de lamp in de hal weer aangaat omdat de bewegingsensor nog op On staat
-			if (domoticz.devices('Single Wall Switch Lampen Hal Boven Knop Beneden').lastUpdate.minutesAgo > 3 and domoticz.devices('Single Wall Switch Hal Boven').lastUpdate.minutesAgo > 3) then
+			if (domoticz.devices('Single Wall Switch Hal Boven').lastUpdate.minutesAgo > 3) then
 				domoticz.helpers.switch_lights(domoticz,'HalBoven','On',3)
 			end
 		end
