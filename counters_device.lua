@@ -5,7 +5,7 @@ return {
 	active = true,
 	logging = {marker = "counters_device"},
 	on = {
-		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging hal boven','Dimmer bed Martijn','Dimmer bed Suzanne','Lamp hal boven','Schemerlamp deur','Lamp spoelb keuken'},
+		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging kamer Nienke','Beweging hal boven','Dimmer bed Martijn','Dimmer bed Suzanne','Lamp hal boven','Schemerlamp deur','Lamp spoelb keuken'},
 	},
 	execute = function(domoticz,device)	
 		debug = false
@@ -107,6 +107,15 @@ return {
 			domoticz.globalData.MC_PIR_kamerLars = 0
 			domoticz.globalData.MC_Floor2   = 0
 			if debug == true then domoticz.log('MC_PIR_kamerLars and MC_Floor2 set to zero',domoticz.LOG_INFO) end
+		end
+		if (device.name == domoticz.devices('Beweging kamer Nienke').name and domoticz.devices('Beweging kamer Nienke').state == 'On') then
+			domoticz.globalData.NMC_PIR_kamerNienke = 0
+			domoticz.globalData.NMC_Floor2  = 0	
+			if debug == true then domoticz.log('NMC_PIR_kamerNienke and NMC_Floor2 set to zero',domoticz.LOG_INFO) end
+		elseif (device.name == domoticz.devices('Beweging kamer Nienke').name and domoticz.devices('Beweging kamer Nienke').state == 'Off') then
+			domoticz.globalData.MC_PIR_kamerNienke = 0
+			domoticz.globalData.MC_Floor2   = 0
+			if debug == true then domoticz.log('MC_PIR_kamerNienke and MC_Floor2 set to zero',domoticz.LOG_INFO) end
 		end
 		if (device.name == domoticz.devices('Beweging hal boven').name and domoticz.devices('Beweging hal boven').state == 'On') then
 			domoticz.globalData.NMC_PIR_halboven = 0
