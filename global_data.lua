@@ -665,6 +665,8 @@ return {
 		NMC_PIR_woonk = { initial = 0 },
 		MC_PIR_kamerLars = { initial = 0 },
 		NMC_PIR_kamerLars = { initial = 0 },
+		MC_PIR_kamerNienke = { initial = 0 },
+		NMC_PIR_kamerNienke = { initial = 0 },
 		MC_PIR_halboven = { initial = 0 },
 		NMC_PIR_halboven = { initial = 0 },
 		MC_PIR_garage  = { initial = 0 },
