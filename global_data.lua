@@ -567,6 +567,8 @@ return {
 			local message = ''
 			if (domoticz.devices('Dakraam slaapkamer').state == 'Open') then
 			   message = message ..'Dakraam slaapkamer is open, '
+			elseif (domoticz.devices('Zolderdakraam voor').state == 'Open') then
+			   message = message ..'Dakraam zolder voor is open, '
 			elseif (domoticz.devices('Zolderdakraam achter').state == 'Open') then
 			   message = message ..'Dakraam zolder achter is open, '			
 			elseif (domoticz.devices('Eetkamerdeur').state == 'Open') then
@@ -657,6 +659,8 @@ return {
 		ClosedC_Slaapkdeur = { initial = 0 },
 		OpenC_Dakraamzolder = { initial = 0 },
 		ClosedC_Dakraamzolder = { initial = 0 },
+		OpenC_Dakraamzoldervoor = { initial = 0 },
+		ClosedC_Dakraamzoldervoor = { initial = 0 },
 		OpenC_Deurbijkeuken = { initial = 0 },
 		ClosedC_Deurbijkeuken = { initial = 0 },
 		OpenC_Deurgarage = { initial = 0 },
