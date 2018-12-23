@@ -19,9 +19,9 @@ return {
 			end
 			domoticz.log('Lampjes speelhuisje aangezet',domoticz.LOG_INFO)
 		else
-			domoticz.devices('Lampjes speelhuisje').switchOff().checkFirst()
-			domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
-			domoticz.log('Lampjes speelhuisje uitgezet',domoticz.LOG_INFO)
+			--domoticz.devices('Lampjes speelhuisje').switchOff().checkFirst()
+			--domoticz.devices('Schemerlamp bank').switchOff().checkFirst()
+			--domoticz.log('Lampjes speelhuisje uitgezet',domoticz.LOG_INFO)
 		end
 	end
 }
