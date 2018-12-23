@@ -288,6 +288,8 @@ return {
 			if (area == 'KamerNienke' or area == 'Floor2' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				if (domoticz.devices('Lampen KamerNienke').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Leeslamp Nienke').switchOff().checkFirst()
+					domoticz.devices('Single Wall Switch Lamp Nienke').switchOff().checkFirst()
+					domoticz.devices('Single Wall Switch Lamp Nienke').switchOff().checkFirst().afterSec(2)
 					domoticz.devices('Lampen KamerNienke').setState('Off').silent()
 					domoticz.log('Lights KamerNienke turned off')
 				end
@@ -334,16 +336,19 @@ return {
 			if (area == 'Zolderkamer' or area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
 				if (domoticz.devices('Lampen Zolderkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Lampen zolder').switchOff().checkFirst()
+					domoticz.devices('Lampen zolder').switchOff().checkFirst().afterSec(2)
 					domoticz.devices('Lampen Zolderkamer').setState('Off').silent()
 					domoticz.log('Lights Zolderkamer turned off')
 				end	
 			end
 			if (area == 'Logeerkamer' or area == 'Floor3' or area == 'Inside' or area == 'All') and (onoff == 'Off') then
-				--if (domoticz.devices('Lampen Logeerkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
-				--	domoticz.devices('Lampen logeerkamer').switchOff().checkFirst()
-				--	domoticz.devices('Lampen Logeerkamer').setState('Off').silent()
-				--	domoticz.log('Lights Logeerkamer turned off')
-				--end	
+				if (domoticz.devices('Lampen Logeerkamer').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
+					domoticz.devices('Lampen chillkamer').switchOff().checkFirst()
+					domoticz.devices('Lampen chillkamer').switchOff().checkFirst().afterSec(2)
+					domoticz.devices('Lamp achter schot').switchOff().checkFirst()
+					domoticz.devices('Lampen Logeerkamer').setState('Off').silent()
+					domoticz.log('Lights Logeerkamer turned off')
+				end	
 			end
 			if (area == 'Achtertuin' or area == 'Outside' or area == 'All') and (onoff == 'Off') then
 				if (domoticz.devices('Lampen Achtertuin').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
