@@ -2,7 +2,7 @@ return {
 	active = true, -- set to false to disable this script
 	logging = {marker = "motion_actions"},
 	on = {
-		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging hal boven'},
+		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging kamer Nienke','Beweging hal boven'},
 	},
 
 	execute = function(domoticz, device)
@@ -84,6 +84,16 @@ return {
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 				domoticz.devices('Toon Scenes').switchSelector(40).formin(30)
 				domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Lars de verwarming daar is aangedaan')
+			end
+		end
+		--verwarming
+		if (domoticz.devices('Beweging kamer Nienke').state == 'On') then
+			domoticz.log('MC_PIR_kamerNienke = ' ..domoticz.globalData.MC_PIR_kamerNienke)
+			if (domoticz.globalData.MC_PIR_kamerNienke > 10 and domoticz.devices('Temperatuur Kamer Nienke').temperature <= 19) then
+				domoticz.devices('Roomnienke-Stat').updateSetPoint(21).formin(30)
+				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
+				domoticz.devices('Toon Scenes').switchSelector(40).formin(30)
+				domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Nienke de verwarming daar is aangedaan')
 			end
 		end
 	end
