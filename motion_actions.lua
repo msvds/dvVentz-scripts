@@ -10,6 +10,7 @@ return {
 		local IsDark = domoticz.devices(78)
 		local SomeoneHome = domoticz.devices(96)
 		local Time = require('Time')
+		local Heating_On_Minutes = 3
 		--domoticz.log('IsDark.state = ' ..IsDark.state)			
 		if (domoticz.time.matchesRule('between sunset and 01:00') and domoticz.devices('Beweging woonkamer').state == 'On' and domoticz.devices('Sw1_woonkamerdeur').lastUpdate.minutesAgo > 3 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 3 and domoticz.devices('Sw4_eetkamerdeur').lastUpdate.minutesAgo > 3 and IsDark.state == 'On') then
 			-- woonkamer aan avonds + donker
@@ -79,7 +80,7 @@ return {
 		--verwarming
 		if (domoticz.devices('Beweging kamer Lars').state == 'On') then
 			domoticz.log('MC_PIR_kamerLars = ' ..domoticz.globalData.MC_PIR_kamerLars)
-			if (domoticz.globalData.MC_PIR_kamerLars > 10 and domoticz.devices('Temperatuur Kamer Lars').temperature <= 19) then
+			if (domoticz.globalData.MC_PIR_kamerLars > Heating_On_Minutes and domoticz.devices('Temperatuur Kamer Lars').temperature <= 19) then
 				domoticz.devices('Roomlars-Stat').updateSetPoint(21).formin(30)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 				domoticz.devices('Toon Scenes').switchSelector(40).formin(30)
@@ -91,7 +92,7 @@ return {
 		if (domoticz.devices('Beweging kamer Nienke').state == 'On') then
 			domoticz.log('MC_PIR_kamerNienke = ' ..domoticz.globalData.MC_PIR_kamerNienke)
 			domoticz.log('temp kamerNienke = ' ..domoticz.devices('Temperatuur Kamer Nienke').temperature)
-			if (domoticz.globalData.MC_PIR_kamerNienke > 10 and domoticz.devices('Temperatuur Kamer Nienke').temperature <= 19) then
+			if (domoticz.globalData.MC_PIR_kamerNienke > Heating_On_Minutes and domoticz.devices('Temperatuur Kamer Nienke').temperature <= 19) then
 				domoticz.devices('Roomnienke-Stat').updateSetPoint(21).formin(30)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 				domoticz.devices('Toon Scenes').switchSelector(40).formin(30)
