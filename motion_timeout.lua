@@ -11,17 +11,20 @@ return {
 		local NM_timeout_floor1 = 5
 		local NM_timeout_floor2 = 5
 		local NM_timeout_kamerLars = 5
+		local NM_timeout_kamerNienke = 5
 		if (domoticz.time.matchesRule('at 7:00-23:30')) then		
 			if (domoticz.devices('Status').state ~= 50) then
 				--timeout dag
 				NM_timeout_floor1 = 45
 				NM_timeout_floor2 = 10
 				NM_timeout_kamerLars = 5
+				NM_timeout_kamerNienke = 5
 			else
 				--timeout dag met gasten
 				NM_timeout_floor1 = 90
 				NM_timeout_floor2 = 30
-				NM_timeout_kamerLars = 5				
+				NM_timeout_kamerLars = 5
+				NM_timeout_kamerNienke = 5
 			end		
 		end	
 		local Time = require('Time')
@@ -52,6 +55,15 @@ return {
 		if (domoticz.globalData.NMC_PIR_kamerLars > NM_timeout_kamerLars) then
 			if (domoticz.devices('Roomlars-Stat').setPoint ~= '10') then
 				domoticz.devices('Roomlars-Stat').updateSetPoint(10)
+				--domoticz.log('No movement kamer Lars timeout is reached -> verwarming Lars naar 10 graden gezet',domoticz.LOG_INFO)
+				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
+				--domoticz.devices('Toon Scenes').switchSelector(30)
+				--domoticz.log('Toon Scenes teruggezet op Home (30) door beweging timeout in kamer Lars de verwarming daar is uitgezet')
+			end
+		end
+		if (domoticz.globalData.NMC_PIR_kamerNienke > NM_timeout_kamerNienke) then
+			if (domoticz.devices('Roomnienke-Stat').setPoint ~= '10') then
+				domoticz.devices('Roomnienke-Stat').updateSetPoint(10)
 				--domoticz.log('No movement kamer Lars timeout is reached -> verwarming Lars naar 10 graden gezet',domoticz.LOG_INFO)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 				--domoticz.devices('Toon Scenes').switchSelector(30)
