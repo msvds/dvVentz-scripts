@@ -144,6 +144,17 @@ return {
 			domoticz.log('domoticz.globalData.NMC_PIR_kamerLars: ' ..domoticz.globalData.NMC_PIR_kamerLars,domoticz.LOG_INFO)
 		end
 		
+		MC_PIR_kamerNienke = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging kamer Nienke'), tonumber(domoticz.globalData.MC_PIR_kamerNienke),'On')
+		domoticz.globalData.MC_PIR_kamerNienke = MC_PIR_kamerNienke
+		NMC_PIR_kamerNienke = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging kamer Nienke'), tonumber(domoticz.globalData.NMC_PIR_kamerNienke),'Off')
+		domoticz.globalData.NMC_PIR_kamerNienke = NMC_PIR_kamerNienke
+		if (domoticz.globalData.MC_PIR_kamerNienke ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
+			domoticz.log('domoticz.globalData.MC_PIR_kamerNienke: ' ..domoticz.globalData.MC_PIR_kamerNienke,domoticz.LOG_INFO)
+		end
+		if (domoticz.globalData.NMC_PIR_kamerNienke ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
+			domoticz.log('domoticz.globalData.NMC_PIR_kamerNienke: ' ..domoticz.globalData.NMC_PIR_kamerNienke,domoticz.LOG_INFO)
+		end
+		
 		MC_PIR_halboven = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging hal boven'), tonumber(domoticz.globalData.MC_PIR_halboven),'On')
 		domoticz.globalData.MC_PIR_halboven = MC_PIR_halboven
 		NMC_PIR_halboven = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging hal boven'), tonumber(domoticz.globalData.NMC_PIR_halboven),'Off')
@@ -181,6 +192,7 @@ return {
 		--BalkondeurNienke
 		--Slaapkdeur
 		--PIR_kamerLars
+		--PIR_kamerNienke
 		--PIR_halboven
 		if (domoticz.globalData.OpenC_Dakraamslaapk ~= 0 or domoticz.globalData.OpenC_Balkondeurslaapk ~= 0 or domoticz.globalData.OpenC_BalkondeurNienke ~= 0 or domoticz.globalData.OpenC_Slaapkdeur ~= 0) then
 			domoticz.globalData.OpenC_Floor2 = domoticz.globalData.OpenC_Floor2 + 1
@@ -195,6 +207,14 @@ return {
 			domoticz.globalData.NMC_Floor2 = 0
 		end
 		if (domoticz.globalData.NMC_PIR_kamerLars ~= 0 and domoticz.globalData.NMC_PIR_halboven ~= 0) then
+			domoticz.globalData.NMC_Floor2 = domoticz.globalData.NMC_Floor2 + 1
+			domoticz.globalData.MC_Floor2 = 0
+		end
+		if (domoticz.globalData.MC_PIR_kamerNienke ~= 0 or domoticz.globalData.MC_PIR_halboven ~= 0) then
+			domoticz.globalData.MC_Floor2 = domoticz.globalData.MC_Floor2 + 1
+			domoticz.globalData.NMC_Floor2 = 0
+		end
+		if (domoticz.globalData.NMC_PIR_kamerNienke ~= 0 and domoticz.globalData.NMC_PIR_halboven ~= 0) then
 			domoticz.globalData.NMC_Floor2 = domoticz.globalData.NMC_Floor2 + 1
 			domoticz.globalData.MC_Floor2 = 0
 		end
