@@ -30,7 +30,7 @@ return {
 		elseif (domoticz.time.matchesRule('at 01:00-06:00') and domoticz.devices('Beweging woonkamer').state == 'On'  and IsDark.state == 'On') then
 			-- beneden verdieping nachts + donker
 			domoticz.helpers.switch_lights(domoticz,'Floor1','On',0)
-			domoticz.log('Beweging nachts in de woonkamer!')			
+			domoticz.log('Beweging nachts in de woonkamer!',domoticz.LOG_INFO)			
 		end
 		if (domoticz.devices('Beweging hal boven').state == 'On' and domoticz.devices('Lamp hal boven').lastUpdate.minutesAgo > 5 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 5 and IsDark.state == 'On') then
 			-- hal aan donker
@@ -83,17 +83,19 @@ return {
 				domoticz.devices('Roomlars-Stat').updateSetPoint(21).formin(30)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 				domoticz.devices('Toon Scenes').switchSelector(40).formin(30)
-				domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Lars de verwarming daar is aangedaan')
+				domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Lars de verwarming daar is aangedaan',domoticz.LOG_INFO)
 			end
 		end
 		--verwarming
+		domoticz.log('Test1',domoticz.LOG_INFO)
 		if (domoticz.devices('Beweging kamer Nienke').state == 'On') then
 			domoticz.log('MC_PIR_kamerNienke = ' ..domoticz.globalData.MC_PIR_kamerNienke)
+			domoticz.log('temp kamerNienke = ' ..domoticz.devices('Temperatuur Kamer Nienke').temperature)
 			if (domoticz.globalData.MC_PIR_kamerNienke > 10 and domoticz.devices('Temperatuur Kamer Nienke').temperature <= 19) then
 				domoticz.devices('Roomnienke-Stat').updateSetPoint(21).formin(30)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 				domoticz.devices('Toon Scenes').switchSelector(40).formin(30)
-				domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Nienke de verwarming daar is aangedaan')
+				domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Nienke de verwarming daar is aangedaan',domoticz.LOG_INFO)
 			end
 		end
 	end
