@@ -79,7 +79,7 @@ return {
 		if (domoticz.devices('Temperatuur Badkamer Bad').temperature - domoticz.data.badk.avg() > 2) then
 			message = message .."De temperatuur stijgt snel in de badkamer, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Badkamer Bad').temperature - domoticz.data.badk.avg()) 
 			domoticz.devices('Bathroom-Stat').updateSetPoint(10)
-			message = message .." De verwarming in de badkamer is terug op 10 graden gezet")
+			message = message .." De verwarming in de badkamer is terug op 10 graden gezet"
 		end
 		if (domoticz.devices('Temperatuur Buiten').temperature - domoticz.data.buiten.avg() > 5) then
 			message = message .."De temperatuur stijgt snel buiten, namelijk het verschil in temperatuur met het gemiddelde van de afgelopen 24 uur is " ..tonumber(domoticz.devices('Temperatuur Buiten').temperature - domoticz.data.buiten.avg())
