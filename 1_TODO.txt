@@ -2,3 +2,5 @@ TODO list:
 - fix gas & elec
 - analyse Toon Thermostat & Toon Temperature
 - remove life360 needs
+- when MAX! was changed manually, set it back after 1:30 hr (maybe based on incr temp)
+- when tradfri status is not correct, switch it when it was pushed within 2-3 sec
