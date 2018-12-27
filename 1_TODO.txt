@@ -4,3 +4,4 @@ TODO list:
 - remove life360 needs
 - when MAX! was changed manually, set it back after 1:30 hr (maybe based on incr temp)
 - when tradfri status is not correct, switch it when it was pushed within 2-3 sec
+- https://github.com/gerard33/sony-bravia
