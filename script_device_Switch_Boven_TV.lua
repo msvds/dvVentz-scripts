@@ -8,10 +8,16 @@ return {
 	},
 
 	execute = function(domoticz, device)
-		if (domoticz.devices('Tradfri - Group - boven tv').state == 'Off') then
-			domoticz.devices('Tradfri - Group - boven tv').switchOn()
-			domoticz.devices('Tradfri - Group - boven tv').switchOn().afterSec(2)
-			domoticz.log('Lampen boven tv aangezet',domoticz.LOG_INFO)
+		if (device.lastUpdate.secondsAgo > 5) then
+			if (domoticz.devices('Tradfri - Group - boven tv').state == 'Off') then
+				domoticz.devices('Tradfri - Group - boven tv').switchOn()
+				domoticz.devices('Tradfri - Group - boven tv').switchOn().afterSec(2)
+				domoticz.log('Lampen boven tv aangezet',domoticz.LOG_INFO)
+			else
+				domoticz.devices('Tradfri - Group - boven tv').switchOff()			
+				domoticz.devices('Tradfri - Group - boven tv').switchOff().afterSec(2)
+				domoticz.log('Lampen boven tv uitgezet',domoticz.LOG_INFO)
+			end
 		else
 			domoticz.devices('Tradfri - Group - boven tv').switchOff()			
 			domoticz.devices('Tradfri - Group - boven tv').switchOff().afterSec(2)
