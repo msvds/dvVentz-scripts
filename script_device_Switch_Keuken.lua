@@ -9,7 +9,7 @@ return {
 
 	execute = function(domoticz, device)
 		if device.state == 'Switch 2' then
-			if (device.lastUpdate.secondsAgo > 5) then
+			if (device.lastUpdate.secondsAgo > 2) then
 				if (domoticz.devices('Tradfri - Group - bar').state == 'Off') then
 					domoticz.devices('Tradfri - Group - bar').switchOn()	
 					domoticz.devices('Tradfri - Group - bar').switchOn().afterSec(2)
@@ -25,7 +25,7 @@ return {
 				domoticz.log('Lampen bar uitgezet',domoticz.LOG_INFO)
 			end
 		elseif device.state == 'Switch 1' then			
-			if (device.lastUpdate.secondsAgo > 5) then
+			if (device.lastUpdate.secondsAgo > 2) then
 				if (domoticz.devices('Tradfri - Group - keuken').state == 'Off') then
 					domoticz.devices('Tradfri - Group - keuken').switchOn()
 					domoticz.devices('Tradfri - Group - keuken').switchOn().afterSec(2)
@@ -44,7 +44,7 @@ return {
 				domoticz.log('Lampen keuken uitgezet',domoticz.LOG_INFO)
 			end
 		elseif (device.state == 'Both_Click') then
-			if (device.lastUpdate.secondsAgo > 5) then
+			if (device.lastUpdate.secondsAgo > 2) then
 				if (domoticz.devices('Tradfri - Group - bar').state == 'Off') then
 					domoticz.devices('Tradfri - Group - bar').switchOn()	
 					domoticz.devices('Tradfri - Group - bar').switchOn().afterSec(2)
