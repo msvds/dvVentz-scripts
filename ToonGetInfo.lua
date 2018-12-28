@@ -19,7 +19,8 @@ return {
         local ToonBoilerModulation = domoticz.variables('UV_ToonboilerModulationLevel').value -- Sensor showing current Boiler Modulation
 		local ToonBurnerName = domoticz.variables('UV_ToonBurnerName').value
     	local ToonBoilerSetpoint = domoticz.variables('UV_ToonBoilerTempSetpointSensorName').value  -- Sensor showing current boiler set point water temp out
-        
+        local P1SmartMeterPower     = domoticz.variables('UV_P1SmartMeterElectra').value
+		local P1SmartMeterGas1      = domoticz.variables('UV_P1SmartMeterGasMeterStand').value
 		-- Handle json
         --local json = assert(loadfile "C:\\Program Files (x86)\\Domoticz\\scripts\\lua\\json.lua")()  -- For Windows
         local json = assert(loadfile "/home/pi/domoticz/scripts/lua/JSON.lua")()  -- For Linux
@@ -41,6 +42,32 @@ return {
         -- JSON data from Toon contains a extra "," which should not be there.
         BoilerInfo = string.gsub(BoilerInfo, ",}", "}")
         jsonBoilerInfo = json:decode(BoilerInfo)
+				
+		-- http://IP_TOON/hdrv_zwave?action=getDevices.json 
+        local handle4 = assert(io.popen(string.format('curl http://%s/hdrv_zwave?action=getDevices.json', ToonIP)))
+        local GasPowerInfo = handle4:read('*all')
+        handle4:close()
+        
+        -- JSON data from Toon contains a extra "." which should not be there.
+        GasPowerInfo = string.gsub(GasPowerInfo, "dev_4.", "dev_4")
+        GasPowerInfo = string.gsub(GasPowerInfo, "dev_4:", "dev_4\":")
+        
+        local jsonGasPower = json:decode(GasPowerInfo)
+        
+        domoticz.log(jsonGasPower,domoticz.LOG_INFO)
+		local CurrentElectricityFlowHoog = tonumber(jsonGasPower.dev_44.CurrentElectricityFlow )
+		local CurrentElectricityQuantityHoog = tonumber(jsonGasPower.dev_44.CurrentElectricityQuantity)
+		local CurrentElectricityFlowLaag = tonumber(jsonGasPower.dev_46.CurrentElectricityFlow )
+		local CurrentElectricityQuantityLaag = tonumber(jsonGasPower.dev_46.CurrentElectricityQuantity)
+		local CurrentGasFlow = tonumber(jsonGasPower.dev_41.CurrentGasFlow)
+		local CurrentGasQuantity = tonumber(jsonGasPower.dev_41.CurrentGasQuantity)
+		local CurrentElectricityQuantity =   CurrentElectricityFlowHoog + CurrentElectricityFlowLaag
+		local CurrentElectricityDeliveredLaag = 0
+		local CurrentElectricityDeliveredHoog = 0
+		local totalDeliveredPower = 0
+        domoticz.devices(P1SmartMeterPower).updateP1(CurrentElectricityQuantityLaag, CurrentElectricityQuantityHoog, CurrentElectricityDeliveredLaag, CurrentElectricityDeliveredHoog, CurrentElectricityQuantity, totalDeliveredPower).silent()
+        
+        domoticz.devices(P1SmartMeterGas1).updateGas(CurrentGasQuantity).silent()
         
 		-- Update the Boiler Water In to current value
         local currentboilerInTemp = tonumber(jsonBoilerInfo.boilerInTemp)
