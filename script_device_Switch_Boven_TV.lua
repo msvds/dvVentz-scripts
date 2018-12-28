@@ -8,7 +8,7 @@ return {
 	},
 
 	execute = function(domoticz, device)
-		if (device.lastUpdate.secondsAgo > 5) then
+		if (device.lastUpdate.secondsAgo > 2) then
 			if (domoticz.devices('Tradfri - Group - boven tv').state == 'Off') then
 				domoticz.devices('Tradfri - Group - boven tv').switchOn()
 				domoticz.devices('Tradfri - Group - boven tv').switchOn().afterSec(2)
