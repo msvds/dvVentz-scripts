@@ -65,6 +65,13 @@ return {
 		local CurrentElectricityDeliveredLaag = 0
 		local CurrentElectricityDeliveredHoog = 0
 		local totalDeliveredPower = 0
+		domoticz.log(CurrentElectricityFlowHoog,domoticz.LOG_INFO)
+		domoticz.log(CurrentElectricityQuantityHoog,domoticz.LOG_INFO)
+		domoticz.log(CurrentElectricityFlowLaag,domoticz.LOG_INFO)
+		domoticz.log(CurrentElectricityQuantityLaag,domoticz.LOG_INFO)
+		domoticz.log(CurrentGasFlow,domoticz.LOG_INFO)
+		domoticz.log(CurrentGasQuantity,domoticz.LOG_INFO)		
+		domoticz.log(CurrentElectricityQuantity,domoticz.LOG_INFO)
 		domoticz.devices(P1SmartMeterPower).updateP1(CurrentElectricityQuantityLaag, CurrentElectricityQuantityHoog, CurrentElectricityDeliveredLaag, CurrentElectricityDeliveredHoog, CurrentElectricityQuantity, totalDeliveredPower).silent()
         
         domoticz.devices(P1SmartMeterGas1).updateGas(CurrentGasQuantity).silent()
