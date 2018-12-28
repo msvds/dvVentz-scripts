@@ -49,25 +49,25 @@ return {
         handle4:close()
         
         -- JSON data from Toon contains a extra "." which should not be there.
---        GasPowerInfo = string.gsub(GasPowerInfo, "dev_4.", "dev_4")
---        GasPowerInfo = string.gsub(GasPowerInfo, "dev_4:", "dev_4\":")
+        GasPowerInfo = string.gsub(GasPowerInfo, "dev_3.", "dev_3")
+        GasPowerInfo = string.gsub(GasPowerInfo, "dev_3:", "dev_3\":")
         
---        local jsonGasPower = json:decode(GasPowerInfo)
+        local jsonGasPower = json:decode(GasPowerInfo)
         
---        domoticz.log(jsonGasPower,domoticz.LOG_INFO)
---		local CurrentElectricityFlowHoog = tonumber(jsonGasPower.dev_44.CurrentElectricityFlow )
---		local CurrentElectricityQuantityHoog = tonumber(jsonGasPower.dev_44.CurrentElectricityQuantity)
---		local CurrentElectricityFlowLaag = tonumber(jsonGasPower.dev_46.CurrentElectricityFlow )
---		local CurrentElectricityQuantityLaag = tonumber(jsonGasPower.dev_46.CurrentElectricityQuantity)
---		local CurrentGasFlow = tonumber(jsonGasPower.dev_41.CurrentGasFlow)
---		local CurrentGasQuantity = tonumber(jsonGasPower.dev_41.CurrentGasQuantity)
---		local CurrentElectricityQuantity =   CurrentElectricityFlowHoog + CurrentElectricityFlowLaag
---		local CurrentElectricityDeliveredLaag = 0
---		local CurrentElectricityDeliveredHoog = 0
---		local totalDeliveredPower = 0
---      domoticz.devices(P1SmartMeterPower).updateP1(CurrentElectricityQuantityLaag, CurrentElectricityQuantityHoog, CurrentElectricityDeliveredLaag, CurrentElectricityDeliveredHoog, CurrentElectricityQuantity, totalDeliveredPower).silent()
+        domoticz.log(jsonGasPower,domoticz.LOG_INFO)
+		local CurrentElectricityFlowHoog = tonumber(jsonGasPower.dev_34.CurrentElectricityFlow )
+		local CurrentElectricityQuantityHoog = tonumber(jsonGasPower.dev_34.CurrentElectricityQuantity)
+		local CurrentElectricityFlowLaag = tonumber(jsonGasPower.dev_36.CurrentElectricityFlow )
+		local CurrentElectricityQuantityLaag = tonumber(jsonGasPower.dev_36.CurrentElectricityQuantity)
+		local CurrentGasFlow = tonumber(jsonGasPower.dev_31.CurrentGasFlow)
+		local CurrentGasQuantity = tonumber(jsonGasPower.dev_31.CurrentGasQuantity)
+		local CurrentElectricityQuantity =   CurrentElectricityFlowHoog + CurrentElectricityFlowLaag
+		local CurrentElectricityDeliveredLaag = 0
+		local CurrentElectricityDeliveredHoog = 0
+		local totalDeliveredPower = 0
+		domoticz.devices(P1SmartMeterPower).updateP1(CurrentElectricityQuantityLaag, CurrentElectricityQuantityHoog, CurrentElectricityDeliveredLaag, CurrentElectricityDeliveredHoog, CurrentElectricityQuantity, totalDeliveredPower).silent()
         
---        domoticz.devices(P1SmartMeterGas1).updateGas(CurrentGasQuantity).silent()
+        domoticz.devices(P1SmartMeterGas1).updateGas(CurrentGasQuantity).silent()
         
 		-- Update the Boiler Water In to current value
         local currentboilerInTemp = tonumber(jsonBoilerInfo.boilerInTemp)
