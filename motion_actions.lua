@@ -81,9 +81,9 @@ return {
 		if (domoticz.devices('Beweging kamer Lars').state == 'On') then
 			domoticz.log('MC_PIR_kamerLars = ' ..domoticz.globalData.MC_PIR_kamerLars)
 			if (domoticz.globalData.MC_PIR_kamerLars > Heating_On_Minutes and domoticz.devices('Temperatuur Kamer Lars').temperature <= 19) then
-				domoticz.devices('Roomlars-Stat').updateSetPoint(21).formin(30)
+				domoticz.devices('Roomlars-Stat').updateSetPoint(21).forMin(30)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-				domoticz.devices('Toon Scenes').switchSelector(40).formin(30)
+				domoticz.devices('Toon Scenes').switchSelector(40).forMin(30)
 				domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Lars de verwarming daar is aangedaan',domoticz.LOG_INFO)
 			end
 		end
@@ -93,9 +93,9 @@ return {
 			domoticz.log('MC_PIR_kamerNienke = ' ..domoticz.globalData.MC_PIR_kamerNienke)
 			domoticz.log('temp kamerNienke = ' ..domoticz.devices('Temperatuur Kamer Nienke').temperature)
 			if (domoticz.globalData.MC_PIR_kamerNienke > Heating_On_Minutes and domoticz.devices('Temperatuur Kamer Nienke').temperature <= 19) then
-				domoticz.devices('Roomnienke-Stat').updateSetPoint(21).formin(30)
+				domoticz.devices('Roomnienke-Stat').updateSetPoint(21).forMin(30)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-				domoticz.devices('Toon Scenes').switchSelector(40).formin(30)
+				domoticz.devices('Toon Scenes').switchSelector(40).forMin(30)
 				domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Nienke de verwarming daar is aangedaan',domoticz.LOG_INFO)
 			end
 		end
