@@ -9,7 +9,7 @@ return {
 		if (domoticz.time.matchesRule('at 7:20-7:45 on mon,tue,wed,thu,fri') and domoticz.devices('SomeoneHome').state == 'On') then				
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			domoticz.devices('Toon Scenes').switchSelector(30)
-			domoticz.devices('Bathroom-Stat').updateSetPoint(21).formin(30)
+			domoticz.devices('Bathroom-Stat').updateSetPoint(21).forMin(30)
 			domoticz.devices('Toon Auto Program').state = 'No'
 			domoticz.log('Thermostaat timer programma: Scenes gezet op Home (30)',domoticz.LOG_INFO)
 		end
