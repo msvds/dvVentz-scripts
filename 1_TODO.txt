@@ -2,9 +2,10 @@ TODO list:
 - analyse Toon Thermostat & Toon Temperature
 - remove life360 needs
 - https://github.com/gerard33/sony-bravia
-- https://ehoco.nl/gasmeterstand-uploaden-naar-mindergas-nl/
+
 
 
 X when MAX! was changed manually, set it back after some time (maybe based on incr temp)
 X when tradfri status is not correct, switch it when it was pushed within 2-3 sec
 X fix gas & elec
+X https://ehoco.nl/gasmeterstand-uploaden-naar-mindergas-nl/
