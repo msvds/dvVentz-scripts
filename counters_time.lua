@@ -110,7 +110,18 @@ return {
 		end
 		if (domoticz.globalData.OpenC_Dakraamzolder ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
 			domoticz.log('domoticz.globalData.OpenC_Dakraamzolder: ' ..domoticz.globalData.OpenC_Dakraamzolder,domoticz.LOG_INFO)
-		end		
+		end
+		
+		OpenC_Dakraamzoldervoor = domoticz.helpers.Counter(domoticz, domoticz.devices('Zolderdakraam voor'), tonumber(domoticz.globalData.OpenC_Dakraamzoldervoor),'Open')
+		domoticz.globalData.OpenC_Dakraamzoldervoor = OpenC_Dakraamzoldervoor
+		ClosedC_Dakraamzoldervoor = domoticz.helpers.Counter(domoticz, domoticz.devices('Zolderdakraam voor'), tonumber(domoticz.globalData.ClosedC_Dakraamzoldervoor),'Closed')
+		domoticz.globalData.ClosedC_Dakraamzoldervoor = ClosedC_Dakraamzoldervoor
+		if (domoticz.globalData.ClosedC_Dakraamzoldervoor ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
+			domoticz.log('domoticz.globalData.ClosedC_Dakraamzoldervoor: ' ..domoticz.globalData.ClosedC_Dakraamzoldervoor,domoticz.LOG_INFO)
+		end
+		if (domoticz.globalData.OpenC_Dakraamzoldervoor ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
+			domoticz.log('domoticz.globalData.OpenC_Dakraamzoldervoor: ' ..domoticz.globalData.OpenC_Dakraamzoldervoor,domoticz.LOG_INFO)
+		end
 
 		OpenC_Deurgarage = domoticz.helpers.Counter(domoticz, domoticz.devices('Garage deur'), tonumber(domoticz.globalData.OpenC_Deurgarage),'Open')
 		domoticz.globalData.OpenC_Deurgarage = OpenC_Deurgarage
@@ -213,32 +224,34 @@ return {
 			domoticz.globalData.ClosedC_Floor2 = domoticz.globalData.ClosedC_Floor2 + 1
 			domoticz.globalData.OpenC_Floor2 = 0
 		end		
-		if (domoticz.globalData.MC_PIR_kamerLars ~= 0 or domoticz.globalData.MC_PIR_halboven ~= 0) then
+		if (domoticz.globalData.MC_PIR_kamerLars ~= 0 or domoticz.globalData.MC_PIR_halboven ~= 0 or domoticz.globalData.MC_PIR_kamerNienke ~= 0) then
 			domoticz.globalData.MC_Floor2 = domoticz.globalData.MC_Floor2 + 1
 			domoticz.globalData.NMC_Floor2 = 0
 		end
-		if (domoticz.globalData.NMC_PIR_kamerLars ~= 0 and domoticz.globalData.NMC_PIR_halboven ~= 0) then
-			domoticz.globalData.NMC_Floor2 = domoticz.globalData.NMC_Floor2 + 1
-			domoticz.globalData.MC_Floor2 = 0
-		end
-		if (domoticz.globalData.MC_PIR_kamerNienke ~= 0 or domoticz.globalData.MC_PIR_halboven ~= 0) then
-			domoticz.globalData.MC_Floor2 = domoticz.globalData.MC_Floor2 + 1
-			domoticz.globalData.NMC_Floor2 = 0
-		end
-		if (domoticz.globalData.NMC_PIR_kamerNienke ~= 0 and domoticz.globalData.NMC_PIR_halboven ~= 0) then
+		if (domoticz.globalData.NMC_PIR_kamerLars ~= 0 and domoticz.globalData.NMC_PIR_halboven ~= 0 and domoticz.globalData.NMC_PIR_kamerNienke ~= 0) then
 			domoticz.globalData.NMC_Floor2 = domoticz.globalData.NMC_Floor2 + 1
 			domoticz.globalData.MC_Floor2 = 0
 		end
 		
 		--Floor3
-		--Dakraamzolder
-		if (domoticz.globalData.OpenC_Dakraamzolder ~= 0) then
+		--Zolderdakraam voor
+		--Zolderdakraam achter
+		--PIR_chillkamer
+		if (domoticz.globalData.OpenC_Dakraamzolder ~= 0 or domoticz.globalData.OpenC_Dakraamzoldervoor ~= 0) then
 			domoticz.globalData.OpenC_Floor3 = domoticz.globalData.OpenC_Floor3 + 1
 			domoticz.globalData.ClosedC_Floor3 = 0
 		end
-		if (domoticz.globalData.OClosedC_Dakraamzolder ~= 0) then
+		if (domoticz.globalData.ClosedC_Dakraamzolder ~= 0 and domoticz.globalData.ClosedC_Dakraamzoldervoor ~= 0) then
 			domoticz.globalData.ClosedC_Floor3 = domoticz.globalData.ClosedC_Floor3 + 1
 			domoticz.globalData.OpenC_Floor3 = 0
+		end
+		if (domoticz.globalData.MC_PIR_chillkamer ~= 0) then
+			domoticz.globalData.MC_Floor3 = domoticz.globalData.MC_Floor3 + 1
+			domoticz.globalData.NMC_Floor3 = 0
+		end
+		if (domoticz.globalData.NMC_PIR_chillkamer ~= 0) then
+			domoticz.globalData.NMC_Floor3 = domoticz.globalData.NMC_Floor3 + 1
+			domoticz.globalData.MC_Floor3 = 0
 		end
 		
 		--Total
