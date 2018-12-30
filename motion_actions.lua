@@ -2,7 +2,7 @@ return {
 	active = true, -- set to false to disable this script
 	logging = {marker = "motion_actions"},
 	on = {
-		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging kamer Nienke','Beweging chillkamer','Beweging hal boven'},
+		devices = {'Eetkamerdeur','Dakraam slaapkamer','Balkondeur slaapkamer','Front door','Balkondeur Nienke','Slaapkamerdeur','Deur bijkeuken','Zolderdakraam achter','Zolderdakraam voor','Garage deur','Beweging woonkamer','Beweging kamer Lars','Beweging kamer Nienke','Beweging badkamer','Beweging chillkamer','Beweging hal boven'},
 	},
 
 	execute = function(domoticz, device)
