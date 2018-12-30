@@ -190,7 +190,7 @@ return {
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			--forMinutes = 0: no forMin
 			--forMinutes = 30: forMin(30)
-			domoticz.log(forMinutes,domoticz.LOG_INFO)
+			domoticz.log('forMinutes = '.. forMinutes,domoticz.LOG_INFO)
 			
 			if (ToonScene == 'Off') then
 				ToonSceneNr = 0
