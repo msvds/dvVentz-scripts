@@ -10,7 +10,7 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
-		domoticz.helpers.change_heat(domoticz,'KamerLars','Comfort','30')
+		domoticz.helpers.change_heat(domoticz,'KamerLars','Comfort')
 		--if domoticz.devices('Test Switch').state == 'Off' then
 			--domoticz.devices('Gateway light eetkamer').switchOff()
 			--domoticz.devices('Gateway light eetkamer').switchSelector(30)
