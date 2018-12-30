@@ -155,6 +155,17 @@ return {
 			domoticz.log('domoticz.globalData.NMC_PIR_kamerNienke: ' ..domoticz.globalData.NMC_PIR_kamerNienke,domoticz.LOG_INFO)
 		end
 		
+		MC_PIR_chillkamer = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging chillkamer'), tonumber(domoticz.globalData.MC_PIR_chillkamer),'On')
+		domoticz.globalData.MC_PIR_chillkamer = MC_PIR_chillkamer
+		NMC_PIR_chillkamer = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging chillkamer'), tonumber(domoticz.globalData.NMC_PIR_chillkamer),'Off')
+		domoticz.globalData.NMC_PIR_chillkamer = NMC_PIR_chillkamer
+		if (domoticz.globalData.MC_PIR_chillkamer ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
+			domoticz.log('domoticz.globalData.MC_PIR_chillkamer: ' ..domoticz.globalData.MC_PIR_chillkamer,domoticz.LOG_INFO)
+		end
+		if (domoticz.globalData.NMC_PIR_chillkamer ~= 0 and domoticz.globalData.Counters_time_message_interval == message_time) then
+			domoticz.log('domoticz.globalData.NMC_PIR_chillkamer: ' ..domoticz.globalData.NMC_PIR_chillkamer,domoticz.LOG_INFO)
+		end
+		
 		MC_PIR_halboven = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging hal boven'), tonumber(domoticz.globalData.MC_PIR_halboven),'On')
 		domoticz.globalData.MC_PIR_halboven = MC_PIR_halboven
 		NMC_PIR_halboven = domoticz.helpers.Counter(domoticz, domoticz.devices('Beweging hal boven'), tonumber(domoticz.globalData.NMC_PIR_halboven),'Off')
