@@ -1,8 +1,8 @@
 TODO list:
 - analyse Toon Thermostat & Toon Temperature
 - remove life360 needs
-- https://github.com/gerard33/sony-bravia
-
+- sonoff toevoegen aan eq3 max voor dagelijkse reboot in de nacht
+- beweging sensor toevoegen aan chillroom
 
 
 X when MAX! was changed manually, set it back after some time (maybe based on incr temp)
