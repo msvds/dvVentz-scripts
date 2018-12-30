@@ -755,6 +755,8 @@ return {
 		NMC_PIR_kamerNienke = { initial = 0 },		
 		MC_PIR_chillkamer = { initial = 0 },
 		NMC_PIR_chillkamer = { initial = 0 },
+		MC_PIR_badkamer = { initial = 0 },
+		NMC_PIR_badkamer = { initial = 0 },
 		MC_PIR_halboven = { initial = 0 },
 		NMC_PIR_halboven = { initial = 0 },
 		MC_PIR_garage  = { initial = 0 },
