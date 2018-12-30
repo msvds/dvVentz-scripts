@@ -9,3 +9,4 @@ X when MAX! was changed manually, set it back after some time (maybe based on in
 X when tradfri status is not correct, switch it when it was pushed within 2-3 sec
 X fix gas & elec
 X https://ehoco.nl/gasmeterstand-uploaden-naar-mindergas-nl/
+X https://ehoco.nl/speedtest-op-raspberry-pi/
