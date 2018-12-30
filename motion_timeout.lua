@@ -9,22 +9,28 @@ return {
 	execute = function(domoticz, device)
 		--timeout nacht
 		local NM_timeout_floor1 = 10
-		local NM_timeout_floor2 = 5
+		local NM_timeout_floor2 = 5		
+		local NM_timeout_floor3 = 5
 		local NM_timeout_kamerLars = 5
 		local NM_timeout_kamerNienke = 5
+		local NM_timeout_chillkamer = 5
 		if (domoticz.time.matchesRule('at 7:00-23:30')) then		
 			if (domoticz.devices('Status').state ~= 50) then
 				--timeout dag
 				NM_timeout_floor1 = 30
 				NM_timeout_floor2 = 10
+				NM_timeout_floor3 = 10
 				NM_timeout_kamerLars = 5
-				NM_timeout_kamerNienke = 5
+				NM_timeout_kamerNienke = 5				
+				NM_timeout_chillkamer = 5
 			else
 				--timeout dag met gasten
 				NM_timeout_floor1 = 60
 				NM_timeout_floor2 = 20
+				NM_timeout_floor3 = 20
 				NM_timeout_kamerLars = 5
 				NM_timeout_kamerNienke = 5
+				NM_timeout_chillkamer = 5
 			end		
 		end	
 		local Time = require('Time')
@@ -53,6 +59,13 @@ return {
 			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
 			--domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
 		end
+		if (domoticz.globalData.NMC_Floor3 > NM_timeout_floor3) then
+			domoticz.helpers.switch_lights(domoticz,'Floor3','Off',10)
+			-- Gateway status resetten
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone zolder').switchSelector(0)
+			domoticz.devices('Gateway light zolder').switchSelector(0)--off
+			--domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
+		end
 		if (domoticz.globalData.NMC_PIR_kamerLars > NM_timeout_kamerLars) then
 			--if (domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint ~= '10') then
 				domoticz.helpers.change_heat(domoticz,'KamerLars','Away')
@@ -61,6 +74,11 @@ return {
 		if (domoticz.globalData.NMC_PIR_kamerNienke > NM_timeout_kamerNienke) then
 			--if (domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').setPoint ~= '10') then
 				domoticz.helpers.change_heat(domoticz,'KamerNienke','Away')
+			--end
+		end
+		if (domoticz.globalData.NMC_PIR_chillkamer > NM_timeout_chillkamer) then
+			--if (domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').setPoint ~= '10') then
+				domoticz.helpers.change_heat(domoticz,'Logeerkamer','Away')
 			--end
 		end
 	end
