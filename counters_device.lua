@@ -80,7 +80,16 @@ return {
 			domoticz.globalData.OpenC_Dakraamzolder = 0
 			domoticz.globalData.OpenC_Floor3 = 0
 			if debug == true then domoticz.log('OpenC_Dakraamzolder and OpenC_Floor3 set to zero',domoticz.LOG_INFO) end
-		end		
+		end
+		if (device.name == domoticz.devices('Zolderdakraam voor').name and domoticz.devices('Zolderdakraam voor').state == 'Open') then
+			domoticz.globalData.ClosedC_Dakraamzoldervoor = 0
+			domoticz.globalData.ClosedC_Floor3 = 0
+			if debug == true then domoticz.log('ClosedC_Dakraamzoldervoor and ClosedC_Floor3 set to zero',domoticz.LOG_INFO) end
+		elseif (device.name == domoticz.devices('Zolderdakraam voor').name and domoticz.devices('Zolderdakraam voor').state == 'Closed') then
+			domoticz.globalData.OpenC_Dakraamzoldervoor = 0
+			domoticz.globalData.OpenC_Floor3 = 0
+			if debug == true then domoticz.log('OpenC_Dakraamzoldervoor and OpenC_Floor3 set to zero',domoticz.LOG_INFO) end
+		end
 		if (device.name == domoticz.devices('Garage deur').name and domoticz.devices('Garage deur').state == 'Open') then
 			domoticz.globalData.ClosedC_Deurgarage = 0
 			domoticz.globalData.ClosedC_Outside = 0
@@ -110,21 +119,21 @@ return {
 		end
 		if (device.name == domoticz.devices('Beweging kamer Nienke').name and domoticz.devices('Beweging kamer Nienke').state == 'On') then
 			domoticz.globalData.NMC_PIR_kamerNienke = 0
-			domoticz.globalData.NMC_Floor1  = 0	
-			if debug == true then domoticz.log('NMC_PIR_kamerNienke and NMC_Floor1 set to zero',domoticz.LOG_INFO) end
+			domoticz.globalData.NMC_Floor2  = 0	
+			if debug == true then domoticz.log('NMC_PIR_kamerNienke and NMC_Floor2 set to zero',domoticz.LOG_INFO) end
 		elseif (device.name == domoticz.devices('Beweging kamer Nienke').name and domoticz.devices('Beweging kamer Nienke').state == 'Off') then
 			domoticz.globalData.MC_PIR_kamerNienke = 0
-			domoticz.globalData.MC_Floor1   = 0
-			if debug == true then domoticz.log('MC_PIR_kamerNienke and MC_Floor1 set to zero',domoticz.LOG_INFO) end
+			domoticz.globalData.MC_Floor2   = 0
+			if debug == true then domoticz.log('MC_PIR_kamerNienke and MC_Floor2 set to zero',domoticz.LOG_INFO) end
 		end
 		if (device.name == domoticz.devices('Beweging chillkamer').name and domoticz.devices('Beweging chillkamer').state == 'On') then
 			domoticz.globalData.NMC_PIR_chillkamer = 0
-			domoticz.globalData.NMC_Floor2  = 0	
-			if debug == true then domoticz.log('NMC_PIR_chillkamer and NMC_Floor2 set to zero',domoticz.LOG_INFO) end
+			domoticz.globalData.NMC_Floor3  = 0	
+			if debug == true then domoticz.log('NMC_PIR_chillkamer and NMC_Floor3 set to zero',domoticz.LOG_INFO) end
 		elseif (device.name == domoticz.devices('Beweging chillkamer').name and domoticz.devices('Beweging chillkamer').state == 'Off') then
 			domoticz.globalData.MC_PIR_chillkamer = 0
-			domoticz.globalData.MC_Floor2   = 0
-			if debug == true then domoticz.log('MC_PIR_chillkamer and MC_Floor2 set to zero',domoticz.LOG_INFO) end
+			domoticz.globalData.MC_Floor3   = 0
+			if debug == true then domoticz.log('MC_PIR_chillkamer and MC_Floor3 set to zero',domoticz.LOG_INFO) end
 		end
 		if (device.name == domoticz.devices('Beweging hal boven').name and domoticz.devices('Beweging hal boven').state == 'On') then
 			domoticz.globalData.NMC_PIR_halboven = 0
