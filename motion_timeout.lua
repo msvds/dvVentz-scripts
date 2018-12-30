@@ -53,12 +53,12 @@ return {
 			--domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
 		end
 		if (domoticz.globalData.NMC_PIR_kamerLars > NM_timeout_kamerLars) then
-			if (domoticz.devices('Roomlars-Stat').setPoint ~= '10') then
+			if (domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint ~= '10') then
 				domoticz.helpers.change_heat(domoticz,'KamerLars','Away',0)
 			end
 		end
 		if (domoticz.globalData.NMC_PIR_kamerNienke > NM_timeout_kamerNienke) then
-			if (domoticz.devices('Roomnienke-Stat').setPoint ~= '10') then
+			if (domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').setPoint ~= '10') then
 				domoticz.helpers.change_heat(domoticz,'KamerNienke','Away',0)
 			end
 		end
