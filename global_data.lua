@@ -176,7 +176,7 @@ return {
 			end
 			return 0
 		end,
-		change_heat = function(domoticz,area,ToonScene,forMinutes)
+		change_heat = function(domoticz,area,ToonScene)
 			--Inside
 			----Floor1
 			------Woonkamer
@@ -188,9 +188,6 @@ return {
 			----Floor3
 			------Logeerkamer
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			--forMinutes = 0: no forMin
-			--forMinutes = iets anders: forMin(30)
-			--domoticz.log('forMinutes = '.. forMinutes,domoticz.LOG_INFO)
 			
 			if (ToonScene == 'Off') then
 				ToonSceneNr = 0
@@ -220,86 +217,38 @@ return {
 			end
 			if (area == 'KamerLars' or area == 'Floor2' or area == 'Inside') then
 				if (ToonScene == 'Home') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(19)
-					else
-						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(19).forMin(30)
-					end
 				elseif (ToonScene == 'Comfort') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(21)
-					else
-						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(21).forMin(30)
-					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(14)
-					else
-						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(14).forMin(30)
-					end
 				end
 			end
 			if (area == 'KamerNienke' or area == 'Floor2' or area == 'Inside') then
 				if (ToonScene == 'Home') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(19)
-					else
-						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(19).forMin(30)
-					end
 				elseif (ToonScene == 'Comfort') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(21)
-					else
-						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(21).forMin(30)
-					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(14)
-					else
-						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(14).forMin(30)
-					end
 				end
 			end
 			if (area == 'Badkamer' or area == 'Floor2' or area == 'Inside') then
 				if (ToonScene == 'Home') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(19)
-					else
-						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(19).forMin(30)
-					end
 				elseif (ToonScene == 'Comfort') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(21)
-					else
-						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(21).forMin(30)
-					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(14)
-					else
-						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(14).forMin(30)
-					end
 				end
 			end
 			if (area == 'Logeerkamer' or area == 'Floor3' or area == 'Inside') then
 				if (ToonScene == 'Home') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(19)
-					else
-						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(19).forMin(30)
-					end
 				elseif (ToonScene == 'Comfort') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(21)
-					else
-						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(21).forMin(30)
-					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
-					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(14)
-					else
-						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(14).forMin(30)
-					end
 				end
 			end
 			--domoticz.log('Alle thermostaatkranen teruggezet op 10 graden volgens timer programma',domoticz.LOG_INFO)
