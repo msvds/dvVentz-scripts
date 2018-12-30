@@ -90,7 +90,7 @@ return {
 			end
 		end
 		--verwarming
-		domoticz.log('Test1',domoticz.LOG_INFO)
+		--domoticz.log('Test1',domoticz.LOG_INFO)
 		if (domoticz.devices('Beweging kamer Nienke').state == 'On') then
 			domoticz.log('MC_PIR_kamerNienke = ' ..domoticz.globalData.MC_PIR_kamerNienke)
 			domoticz.log('temp kamerNienke = ' ..domoticz.devices('Temperatuur Kamer Nienke').temperature)
