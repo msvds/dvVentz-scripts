@@ -2,7 +2,7 @@ TODO list:
 - analyse Toon Thermostat & Toon Temperature
 - remove life360 needs
 - sonoff toevoegen aan eq3 max voor dagelijkse reboot in de nacht
-- beweging sensor toevoegen aan chillroom
+
 
 
 X when MAX! was changed manually, set it back after some time (maybe based on incr temp)
@@ -10,3 +10,4 @@ X when tradfri status is not correct, switch it when it was pushed within 2-3 se
 X fix gas & elec
 X https://ehoco.nl/gasmeterstand-uploaden-naar-mindergas-nl/
 X https://ehoco.nl/speedtest-op-raspberry-pi/
+X beweging sensor toevoegen aan chillroom
