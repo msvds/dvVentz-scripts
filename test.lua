@@ -10,12 +10,13 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
-		if domoticz.devices('Test Switch').state == 'Off' then
-			domoticz.devices('Gateway light eetkamer').switchOff()
-			domoticz.devices('Gateway light eetkamer').switchSelector(30)
-			domoticz.devices('Gateway light eetkamer').switchOff()
-			domoticz.devices('Gateway light eetkamer').switchSelector(30)
-			domoticz.devices('Gateway light eetkamer').switchOff()
+		domoticz.helpers.change_heat(domoticz,'KamerLars','Comfort','30')
+		--if domoticz.devices('Test Switch').state == 'Off' then
+			--domoticz.devices('Gateway light eetkamer').switchOff()
+			--domoticz.devices('Gateway light eetkamer').switchSelector(30)
+			--domoticz.devices('Gateway light eetkamer').switchOff()
+			--domoticz.devices('Gateway light eetkamer').switchSelector(30)
+			--domoticz.devices('Gateway light eetkamer').switchOff()
 			--domoticz.devices('Xiaomi Gateway Doorbell eetkamer').switchSelector(10)
 			-- set to pink
 			--local sceneCmd = 'curl -s -i -H "Accept: application/json" "http://msvds:venefTWI@msvds.duckdns.org:8080/json.htm?type=command&param=setcolbrightnessvalue&idx=413&hex=ff00ff&brightness=100&iswhite=false"'
@@ -85,6 +86,6 @@ return {
 			--		domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet', domoticz.LOG_INFO)
 			--	end
 			--e--n-d
-		end
+		--end
 	end
 }
