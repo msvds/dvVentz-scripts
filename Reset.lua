@@ -9,7 +9,7 @@ return {
 	execute = function(domoticz, device)
 		domoticz.helpers.switch_lights(domoticz,'All','Off',0)
 		domoticz.log('Lampen uitgezet',domoticz.LOG_INFO)
-		domoticz.helpers.change_heat(domoticz,'Inside','Away',0)
+		domoticz.helpers.change_heat(domoticz,'Inside','Away')
 		local alarm = require "ideAlarmModule"
 		alarm.zones('My Home').disArmZone(domoticz)
 		domoticz.log('Alarm uitgezet',domoticz.LOG_INFO)
