@@ -216,6 +216,7 @@ return {
 		--PIR_kamerLars
 		--PIR_kamerNienke
 		--PIR_halboven
+		--PIR_badkamer
 		if (domoticz.globalData.OpenC_Dakraamslaapk ~= 0 or domoticz.globalData.OpenC_Balkondeurslaapk ~= 0 or domoticz.globalData.OpenC_BalkondeurNienke ~= 0 or domoticz.globalData.OpenC_Slaapkdeur ~= 0) then
 			domoticz.globalData.OpenC_Floor2 = domoticz.globalData.OpenC_Floor2 + 1
 			domoticz.globalData.ClosedC_Floor2 = 0
@@ -224,11 +225,11 @@ return {
 			domoticz.globalData.ClosedC_Floor2 = domoticz.globalData.ClosedC_Floor2 + 1
 			domoticz.globalData.OpenC_Floor2 = 0
 		end		
-		if (domoticz.globalData.MC_PIR_kamerLars ~= 0 or domoticz.globalData.MC_PIR_halboven ~= 0 or domoticz.globalData.MC_PIR_kamerNienke ~= 0) then
+		if (domoticz.globalData.MC_PIR_kamerLars ~= 0 or domoticz.globalData.MC_PIR_halboven ~= 0 or domoticz.globalData.MC_PIR_badkamer ~= 0 or domoticz.globalData.MC_PIR_kamerNienke ~= 0) then
 			domoticz.globalData.MC_Floor2 = domoticz.globalData.MC_Floor2 + 1
 			domoticz.globalData.NMC_Floor2 = 0
 		end
-		if (domoticz.globalData.NMC_PIR_kamerLars ~= 0 and domoticz.globalData.NMC_PIR_halboven ~= 0 and domoticz.globalData.NMC_PIR_kamerNienke ~= 0) then
+		if (domoticz.globalData.NMC_PIR_kamerLars ~= 0 and domoticz.globalData.NMC_PIR_halboven ~= 0 and domoticz.globalData.NMC_PIR_badkamer ~= 0 and domoticz.globalData.NMC_PIR_kamerNienke ~= 0) then
 			domoticz.globalData.NMC_Floor2 = domoticz.globalData.NMC_Floor2 + 1
 			domoticz.globalData.MC_Floor2 = 0
 		end
