@@ -189,8 +189,8 @@ return {
 			------Logeerkamer
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			--forMinutes = 0: no forMin
-			--forMinutes = 30: forMin(30)
-			domoticz.log('forMinutes = '.. forMinutes,domoticz.LOG_INFO)
+			--forMinutes = iets anders: forMin(30)
+			--domoticz.log('forMinutes = '.. forMinutes,domoticz.LOG_INFO)
 			
 			if (ToonScene == 'Off') then
 				ToonSceneNr = 0
@@ -223,19 +223,19 @@ return {
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(19)
 					else
-						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(19).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(19).forMin(30)
 					end
 				elseif (ToonScene == 'Comfort') then
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(21)
 					else
-						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(21).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(21).forMin(30)
 					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(14)
 					else
-						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(14).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(14).forMin(30)
 					end
 				end
 			end
@@ -244,19 +244,19 @@ return {
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(19)
 					else
-						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(19).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(19).forMin(30)
 					end
 				elseif (ToonScene == 'Comfort') then
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(21)
 					else
-						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(21).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(21).forMin(30)
 					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(14)
 					else
-						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(14).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(14).forMin(30)
 					end
 				end
 			end
@@ -265,19 +265,19 @@ return {
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(19)
 					else
-						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(19).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(19).forMin(30)
 					end
 				elseif (ToonScene == 'Comfort') then
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(21)
 					else
-						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(21).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(21).forMin(30)
 					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(14)
 					else
-						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(14).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(14).forMin(30)
 					end
 				end
 			end
@@ -286,19 +286,19 @@ return {
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(19)
 					else
-						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(19).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(19).forMin(30)
 					end
 				elseif (ToonScene == 'Comfort') then
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(21)
 					else
-						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(21).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(21).forMin(30)
 					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
 					if (forMinutes == 0) then
 						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(14)
 					else
-						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(14).forMin(forMinutes)
+						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(14).forMin(30)
 					end
 				end
 			end
