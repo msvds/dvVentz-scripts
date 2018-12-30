@@ -7,70 +7,29 @@ return {
 	execute = function(domoticz, device)
 		local Time = require('Time')		
 		if (domoticz.time.matchesRule('at 7:20-7:45 on mon,tue,wed,thu,fri') and domoticz.devices('SomeoneHome').state == 'On') then				
-			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			domoticz.devices('Toon Scenes').switchSelector(30)
-			domoticz.devices('Bathroom-Stat').updateSetPoint(21).forMin(30)
-			domoticz.devices('Toon Auto Program').state = 'No'
-			domoticz.log('Thermostaat timer programma: Scenes gezet op Home (30)',domoticz.LOG_INFO)
+			domoticz.helpers.change_heat(domoticz,'Floor1','Home',0)
+			domoticz.helpers.change_heat(domoticz,'Badkamer','Comfort',30)
 		end
 		if (domoticz.time.matchesRule('at 8:00-8:05 on mon,thu,fri')) then			
-			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			domoticz.devices('Toon Scenes').switchSelector(10)
-			domoticz.devices('Toon Auto Program').state = 'No'
-			domoticz.devices('Roomlars-Stat').updateSetPoint(10)
-			domoticz.devices('Bathroom-Stat').updateSetPoint(10)
-			domoticz.devices('Chillroom-Stat').updateSetPoint(10)
-			domoticz.devices('Roomnienke-Stat').updateSetPoint(10)
-			domoticz.log('Thermostaat timer programma: Scenes gezet op Away (10)',domoticz.LOG_INFO)
+			domoticz.helpers.change_heat(domoticz,'Inside','Away',0)
 		end
 		if (domoticz.time.matchesRule('at 14:00-14:05 on mon') and domoticz.devices('SomeoneHome').state == 'On') then				
-			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			domoticz.devices('Toon Scenes').switchSelector(30)
-			domoticz.devices('Toon Auto Program').state = 'No'
-			domoticz.log('Thermostaat timer programma: Scenes gezet op Home (30)',domoticz.LOG_INFO)
+			domoticz.helpers.change_heat(domoticz,'Floor1','Home',0)
 		end
 		if (domoticz.time.matchesRule('at 17:00-17:05 on mon,tue,wed,fri') and domoticz.devices('SomeoneHome').state == 'On') then				
-			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			domoticz.devices('Toon Scenes').switchSelector(30)
-			domoticz.devices('Toon Auto Program').state = 'No'
-			domoticz.log('Thermostaat timer programma: Scenes gezet op Home (30)',domoticz.LOG_INFO)
+			domoticz.helpers.change_heat(domoticz,'Floor1','Home',0)
 		end
 		if (domoticz.time.matchesRule('at 18:00-18:05 on thu') and domoticz.devices('SomeoneHome').state == 'On') then				
-			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			domoticz.devices('Toon Scenes').switchSelector(30)
-			domoticz.devices('Toon Auto Program').state = 'No'
-			domoticz.log('Thermostaat timer programma: Scenes gezet op Home (30)',domoticz.LOG_INFO)
+			domoticz.helpers.change_heat(domoticz,'Floor1','Home',0)
 		end
 		if (domoticz.time.matchesRule('at 23:55-23:59')) then				
-			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			domoticz.devices('Toon Scenes').switchSelector(20)
-			domoticz.log('Thermostaat timer programma: Scenes gezet op Sleep (20)',domoticz.LOG_INFO)
-			domoticz.devices('Roomlars-Stat').updateSetPoint(10)
-			domoticz.devices('Bathroom-Stat').updateSetPoint(10)
-			domoticz.devices('Chillroom-Stat').updateSetPoint(10)
-			domoticz.devices('Roomnienke-Stat').updateSetPoint(10)
-			domoticz.devices('Toon Auto Program').state = 'No'
-			domoticz.log('Alle thermostaatkranen teruggezet op 10 graden volgens timer programma',domoticz.LOG_INFO)
+			domoticz.helpers.change_heat(domoticz,'Inside','Sleep',0)
 		end
 		if (domoticz.time.matchesRule('at 21:15-21:20 on sun,mon,tue,wed,thu')) then				
-			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			domoticz.devices('Toon Scenes').switchSelector(20)
-			domoticz.devices('Toon Auto Program').state = 'No'
-			domoticz.devices('Roomlars-Stat').updateSetPoint(10)
-			domoticz.devices('Bathroom-Stat').updateSetPoint(10)
-			domoticz.devices('Chillroom-Stat').updateSetPoint(10)
-			domoticz.devices('Roomnienke-Stat').updateSetPoint(10)
-			domoticz.log('Thermostaat timer programma: Scenes gezet op Sleep (20)',domoticz.LOG_INFO)
+			domoticz.helpers.change_heat(domoticz,'Inside','Sleep',0)
 		end
 		if (domoticz.time.matchesRule('at 22:15-22:20 on fri,sat')) then				
-			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-			domoticz.devices('Toon Scenes').switchSelector(20)
-			domoticz.devices('Toon Auto Program').state = 'No'
-			domoticz.devices('Roomlars-Stat').updateSetPoint(10)
-			domoticz.devices('Bathroom-Stat').updateSetPoint(10)
-			domoticz.devices('Chillroom-Stat').updateSetPoint(10)
-			domoticz.devices('Roomnienke-Stat').updateSetPoint(10)
-			domoticz.log('Thermostaat timer programma: Scenes gezet op Sleep (20)',domoticz.LOG_INFO)
+			domoticz.helpers.change_heat(domoticz,'Inside','Sleep',0)
 		end
 		
 	end
