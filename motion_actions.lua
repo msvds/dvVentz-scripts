@@ -81,8 +81,8 @@ return {
 		if (domoticz.devices('Beweging kamer Lars').state == 'On') then
 			domoticz.log('MC_PIR_kamerLars = ' ..domoticz.globalData.MC_PIR_kamerLars)
 			if (domoticz.globalData.MC_PIR_kamerLars > Heating_On_Minutes and domoticz.devices('Temperatuur Kamer Lars').temperature <= 19) then
-				domoticz.helpers.change_heat(domoticz,'KamerLars','Comfort',30)
-				domoticz.helpers.change_heat(domoticz,'Floor1','Home',0)
+				domoticz.helpers.change_heat(domoticz,'KamerLars','Comfort','30')
+				domoticz.helpers.change_heat(domoticz,'Floor1','Home','0')
 				--domoticz.devices('Roomlars-Stat').updateSetPoint(21).forMin(30)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 				--domoticz.devices('Toon Scenes').switchSelector(40).forMin(30)
@@ -95,8 +95,8 @@ return {
 			domoticz.log('MC_PIR_kamerNienke = ' ..domoticz.globalData.MC_PIR_kamerNienke)
 			domoticz.log('temp kamerNienke = ' ..domoticz.devices('Temperatuur Kamer Nienke').temperature)
 			if (domoticz.globalData.MC_PIR_kamerNienke > Heating_On_Minutes and domoticz.devices('Temperatuur Kamer Nienke').temperature <= 19) then
-				domoticz.helpers.change_heat(domoticz,'KamerNienke','Comfort',30)
-				domoticz.helpers.change_heat(domoticz,'Floor1','Home',0)
+				domoticz.helpers.change_heat(domoticz,'KamerNienke','Comfort','30')
+				domoticz.helpers.change_heat(domoticz,'Floor1','Home','0')
 				--domoticz.devices('Roomnienke-Stat').updateSetPoint(21).forMin(30)
 				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 				--domoticz.devices('Toon Scenes').switchSelector(40).forMin(30)
