@@ -78,29 +78,26 @@ return {
 		end
 		
 		--verwarming
-		if (domoticz.devices('Beweging kamer Lars').state == 'On') then
+		if (domoticz.devices('Beweging kamer Lars').state == 'On' and domoticz.time.matchesRule('at 08:00-20:00')) then
 			domoticz.log('MC_PIR_kamerLars = ' ..domoticz.globalData.MC_PIR_kamerLars)
 			if (domoticz.globalData.MC_PIR_kamerLars > Heating_On_Minutes and domoticz.devices('Temperatuur Kamer Lars').temperature <= 19) then
 				domoticz.helpers.change_heat(domoticz,'KamerLars','Comfort')
 				domoticz.helpers.change_heat(domoticz,'Floor1','Home')
-				--domoticz.devices('Roomlars-Stat').updateSetPoint(21).forMin(30)
-				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-				--domoticz.devices('Toon Scenes').switchSelector(40).forMin(30)
-				--domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Lars de verwarming daar is aangedaan',domoticz.LOG_INFO)
 			end
 		end
-		--verwarming
-		--domoticz.log('Test1',domoticz.LOG_INFO)
-		if (domoticz.devices('Beweging kamer Nienke').state == 'On') then
+		if (domoticz.devices('Beweging kamer Nienke').state == 'On' and domoticz.time.matchesRule('at 08:00-20:00')) then
 			domoticz.log('MC_PIR_kamerNienke = ' ..domoticz.globalData.MC_PIR_kamerNienke)
 			domoticz.log('temp kamerNienke = ' ..domoticz.devices('Temperatuur Kamer Nienke').temperature)
 			if (domoticz.globalData.MC_PIR_kamerNienke > Heating_On_Minutes and domoticz.devices('Temperatuur Kamer Nienke').temperature <= 19) then
 				domoticz.helpers.change_heat(domoticz,'KamerNienke','Comfort')
 				domoticz.helpers.change_heat(domoticz,'Floor1','Home')
-				--domoticz.devices('Roomnienke-Stat').updateSetPoint(21).forMin(30)
-				--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-				--domoticz.devices('Toon Scenes').switchSelector(40).forMin(30)
-				--domoticz.log('Toon Scenes gezet op Comfort (40) door beweging in kamer Nienke de verwarming daar is aangedaan',domoticz.LOG_INFO)
+			end
+		end
+		if (domoticz.devices('Beweging chillkamer').state == 'On' and domoticz.time.matchesRule('at 08:00-21:30')) then
+			domoticz.log('MC_PIR_chillkamer = ' ..domoticz.globalData.MC_PIR_chillkamer)
+			if (domoticz.globalData.MC_PIR_chillkamer > Heating_On_Minutes) then
+				domoticz.helpers.change_heat(domoticz,'Logeerkamer','Comfort')
+				domoticz.helpers.change_heat(domoticz,'Floor1','Home')
 			end
 		end
 	end
