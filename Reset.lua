@@ -9,14 +9,7 @@ return {
 	execute = function(domoticz, device)
 		domoticz.helpers.switch_lights(domoticz,'All','Off',0)
 		domoticz.log('Lampen uitgezet',domoticz.LOG_INFO)
-		domoticz.devices('Roomlars-Stat').updateSetPoint(10)
-		domoticz.devices('Bathroom-Stat').updateSetPoint(10)
-		domoticz.devices('Chillroom-Stat').updateSetPoint(10)
-		domoticz.devices('Roomnienke-Stat').updateSetPoint(10)
-		domoticz.log('Thermostaat kranen op 10 graden gezet',domoticz.LOG_INFO)
-		--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
-		domoticz.devices('Toon Scenes').switchSelector(30)
-		domoticz.log('Thermostaat op Home gezet',domoticz.LOG_INFO)
+		domoticz.helpers.change_heat(domoticz,'Inside','Away',0)
 		local alarm = require "ideAlarmModule"
 		alarm.zones('My Home').disArmZone(domoticz)
 		domoticz.log('Alarm uitgezet',domoticz.LOG_INFO)
