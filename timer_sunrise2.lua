@@ -5,7 +5,7 @@ return {
 		timer = {'every 1 minute between 10 minutes after sunrise and 15 minutes after sunrise'}
 	},
 	execute = function(domoticz, device)
-		if (domoticz.devices('Lux woonkamer').value > 2) then
+		if (domoticz.devices('Lux woonkamer').lux > 2) then
 			domoticz.helpers.switch_lights(domoticz,'Inside','Off',3)
 		end
 		domoticz.log('lampen binnen uitgezet ivm zonsopgang',domoticz.LOG_INFO)
