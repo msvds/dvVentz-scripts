@@ -1,10 +1,10 @@
 TODO list:
 - analyse Toon Thermostat & Toon Temperature
 - remove life360 needs
-- sonoff toevoegen aan eq3 max voor dagelijkse reboot in de nacht
 
 
 
+X sonoff toevoegen aan eq3 max en ikea gateway voor dagelijkse reboot in de nacht, elke 12 uur
 X when MAX! was changed manually, set it back after some time (maybe based on incr temp)
 X when tradfri status is not correct, switch it when it was pushed within 2-3 sec
 X fix gas & elec
