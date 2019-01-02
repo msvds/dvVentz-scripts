@@ -46,7 +46,7 @@ return {
 		--domoticz.log('domoticz.devices('Lamp hal boven').state = ' ..domoticz.devices('Lamp hal boven').state)
 		--Do something when no movement timeout is reached		
 		if (domoticz.globalData.NMC_Floor1 > NM_timeout_floor1) then			
-			if (domoticz.devices('Sony TV').state == 'Off') then
+			if (domoticz.devices('Sony Television').state == 'Off') then
 				domoticz.helpers.switch_lights(domoticz,'Floor1','Off',3)
 				domoticz.helpers.change_heat(domoticz,'Floor1','Away')
 				-- Gateway status resetten
