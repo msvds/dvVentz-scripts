@@ -62,13 +62,13 @@ return {
 			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
 			--domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
 		end
-		if (domoticz.globalData.NMC_Floor3 > NM_timeout_floor3) then
-			domoticz.helpers.switch_lights(domoticz,'Floor3','Off',10)
+		--if (domoticz.globalData.NMC_Floor3 > NM_timeout_floor3) then
+			--domoticz.helpers.switch_lights(domoticz,'Floor3','Off',10)
 			-- Gateway status resetten
-			domoticz.devices('Xiaomi Gateway Alarm Ringtone zolder').switchSelector(0)
-			domoticz.devices('Gateway light zolder').switchSelector(0)--off
+			--domoticz.devices('Xiaomi Gateway Alarm Ringtone zolder').switchSelector(0)
+			--domoticz.devices('Gateway light zolder').switchSelector(0)--off
 			--domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
-		end
+		--end
 		if (domoticz.globalData.NMC_PIR_kamerLars > NM_timeout_kamerLars) then
 			domoticz.helpers.change_heat(domoticz,'KamerLars','Away')
 		end
