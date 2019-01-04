@@ -4,6 +4,7 @@ TODO list:
 - backup works, but not the automatic backup. Fix this
 - Add notification at the end of backup and other automatic things to see if they work
   Use https://www.domoticz.com/wiki/Domoticz_API/JSON_URL%27s
+- Fix xiaomi sensors with errors (voordeur knop, balkon deuren?)
 
 
 X sonoff toevoegen aan eq3 max en ikea gateway voor dagelijkse reboot in de nacht, elke 12 uur
