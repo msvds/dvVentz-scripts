@@ -6,6 +6,7 @@ TODO list:
   Use https://www.domoticz.com/wiki/Domoticz_API/JSON_URL%27s
 - Fix xiaomi sensors with errors (voordeur knop, balkon deuren?)
 - Speedtest not at each whole hour
+- sell vibrate sensor
 
 X sonoff toevoegen aan eq3 max en ikea gateway voor dagelijkse reboot in de nacht, elke 12 uur
 X when MAX! was changed manually, set it back after some time (maybe based on incr temp)
