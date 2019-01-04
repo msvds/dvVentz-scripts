@@ -82,11 +82,11 @@ return {
 				--domoticz.devices('Dimmer bed Suzanne').switchOn()
 				domoticz.log('Slaapkamerdeur open terwijl het donker is, Nachtlampje Suzanne aangezet', domoticz.LOG_INFO)
 			end
-			domoticz.devices('Lamp hal boven').switchOn().checkFirst()
-			domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
-			domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
-			domoticz.devices('Yeelight light slaapkamer').switchSelector(10)
-			domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
+			--domoticz.devices('Lamp hal boven').switchOn().checkFirst()
+			--domoticz.devices('White Temp Yeelight slaapkamer').dimTo(20)
+			--domoticz.devices('Yeelight Dimmer slaapkamer').dimTo(50)
+			--domoticz.devices('Yeelight light slaapkamer').switchSelector(10)
+			--domoticz.devices('Yeelight slaapkamer').switchOn().checkFirst()
 			domoticz.log('Lights turned on',domoticz.LOG_INFO)
 		end		
 	end
