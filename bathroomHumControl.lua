@@ -8,7 +8,7 @@ Version 1.3.1
 local FAN_DEVICE = 'Centrale Afzuiging Boost' -- Fan device
 local FORCE_FAN_DEVICE_1 = 'Wall Switch WC Beneden' --= 'Sw6_Nienke' -- (Optional)
 local FORCE_FAN_DEVICE_2 = 'Wall Switch WC Boven' --= 'Sw6_Nienke' -- (Optional)
-local FORCE_FAN_TIME = 15 -- Minutes to force the fan when button pushed
+local FORCE_FAN_TIME = 5 -- Minutes to force the fan when button pushed
 local HUMIDITY_SENSORS =  {'Vochtigheid Badkamer Bad','Vochtigheid Badkamer Douche'}
 local FAN_DELTA_TRIGGER = 3 -- % Rise in humidity that will trigger the fan
 local FAN_MAX_TIME = 90 -- Maximum minutes that the fan can be on in case we never reach the target humidity;default = 60
