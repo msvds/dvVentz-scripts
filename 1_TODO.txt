@@ -2,10 +2,10 @@ TODO list:
 - analyse Toon Thermostat & Toon Temperature
 - remove life360 needs
 - backup works, but not the automatic backup. Fix this
-- Add notification at the end of backup and other automatic things to see if they work
+- Add notification at the end of backup and other automatic (crontab) things to see if they work
   Use https://www.domoticz.com/wiki/Domoticz_API/JSON_URL%27s
 - Fix xiaomi sensors with errors (voordeur knop, balkon deuren?)
-
+- Speedtest not at each whole hour
 
 X sonoff toevoegen aan eq3 max en ikea gateway voor dagelijkse reboot in de nacht, elke 12 uur
 X when MAX! was changed manually, set it back after some time (maybe based on incr temp)
