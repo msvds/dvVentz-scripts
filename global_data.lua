@@ -293,8 +293,8 @@ return {
 				if (domoticz.devices('Lampen Living').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
 					domoticz.devices('Grote lamp naast bank').switchOff()
 					domoticz.devices('Schemerlamp deur').switchOff()
-					--temporary removed for christmas (kerst)
-					--domoticz.devices('Schemerlamp bank').switchOff()
+					--temporary removed next for christmas (kerst)
+					domoticz.devices('Schemerlamp bank').switchOff()
 					domoticz.devices('Tradfri - Group - boven tv').switchOff()			
 					domoticz.devices('Tradfri - Group - boven tv').switchOff().checkFirst().afterSec(2)
 					domoticz.devices('Lampen Living').setState('Off').silent()
