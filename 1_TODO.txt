@@ -1,5 +1,5 @@
 TODO list:
-- analyse Toon Thermostat & Toon Temperature
+
 - remove life360 needs
 - backup works, but not the automatic backup. Fix this
 - Add notification at the end of backup and other automatic (crontab) things to see if they work
@@ -17,3 +17,4 @@ X fix gas & elec
 X https://ehoco.nl/gasmeterstand-uploaden-naar-mindergas-nl/
 X https://ehoco.nl/speedtest-op-raspberry-pi/
 X beweging sensor toevoegen aan chillroom
+X analyse Toon Thermostat & Toon Temperature
