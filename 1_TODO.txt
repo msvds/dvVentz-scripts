@@ -5,7 +5,6 @@ TODO list:
 - Add notification at the end of backup and other automatic (crontab) things to see if they work
   Use https://www.domoticz.com/wiki/Domoticz_API/JSON_URL%27s
 - Fix xiaomi sensors with errors (voordeur knop, balkon deuren?)
-
 - sell vibrate sensor
 - block ports xiaomi? Het blijkt dat de Home Gateway via poorten 8053(UDP) en 80(TCP) naar buiten verbinding maakt.
 Wanneer deze poorten geblokkeerd zijn in de firewall werkt de app niet meer, status "offline" bij elke sensor, maar domoticz kan ze nog wel uitlezen en aansturen
