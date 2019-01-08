@@ -7,9 +7,9 @@ return {
 
 	execute = function(domoticz, device)
 		if (device.state == 'On') then
-			domoticz.helpers.change_heat(domoticz,'Floor1','Away')
-		else
 			domoticz.helpers.change_heat(domoticz,'Floor1','Comfort')
+		else
+			domoticz.helpers.change_heat(domoticz,'Floor1','Away')
 		end
 	end
 }
