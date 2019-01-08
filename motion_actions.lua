@@ -30,7 +30,7 @@ return {
 			domoticz.devices('Lampjes speelhuisje').switchOn().checkFirst()
 		elseif (domoticz.time.matchesRule('at 01:00-06:00') and domoticz.devices('Beweging woonkamer').state == 'On'  and IsDark.state == 'On') then
 			-- beneden verdieping nachts + donker
-			domoticz.helpers.switch_lights(domoticz,'Floor1','On',0)
+			domoticz.helpers.switch_lights(domoticz,'Woonkamer','On',0)
 			domoticz.log('Beweging nachts in de woonkamer!',domoticz.LOG_INFO)			
 		end
 		if (domoticz.devices('Beweging hal boven').state == 'On' and domoticz.devices('Lamp hal boven').lastUpdate.minutesAgo > 5 and domoticz.devices('Sw3_bed').lastUpdate.minutesAgo > 5 and IsDark.state == 'On') then
