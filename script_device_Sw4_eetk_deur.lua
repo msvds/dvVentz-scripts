@@ -24,7 +24,7 @@ return {
 			-- Lampen aanzetten
 			if IsDark.state == 'On' then
 				domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-				domoticz.helpers.switch_lights(domoticz,'Floor1','On',0)
+				domoticz.helpers.switch_lights(domoticz,'Woonkamer','On',0)
 			end
 		elseif device.state == 'Click' then
 			-- Alles uit en beveiliging aanzetten bij gaan weggaan (away)
@@ -40,7 +40,7 @@ return {
 		elseif (device.state == 'Long Click') then
 			-- Lampen aanzetten
 			domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
-			domoticz.helpers.switch_lights(domoticz,'Floor1','On',0)
+			domoticz.helpers.switch_lights(domoticz,'Woonkamer','On',0)
 		end		
 	end
 }
