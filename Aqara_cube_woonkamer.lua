@@ -12,6 +12,11 @@ return {
 		elseif (device.state == 'flip180') then
 			--deactiveer Normaal, normaal uit
 			domoticz.devices('Tradfri - Group - bar').dimTo(5)
+		elseif (device.state == 'rotate') then
+		elseif (device.state == 'move') then
+		elseif (device.state == 'tap_twice') then
+		elseif (device.state == 'shake_air') then
+		elseif (device.state == 'alert') then
 		end
 	end
 }
