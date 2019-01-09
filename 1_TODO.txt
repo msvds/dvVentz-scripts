@@ -2,8 +2,7 @@ TODO list:
 
 - remove life360 needs
 - backup works, but not the automatic backup. Fix this
-- Add notification at the end of backup and other automatic (crontab) things to see if they work
-  Use https://www.domoticz.com/wiki/Domoticz_API/JSON_URL%27s
+- add backup image
 - Fix xiaomi sensors with errors (voordeur knop, balkon deuren?)
 - sell vibrate sensor
 - block ports xiaomi? Het blijkt dat de Home Gateway via poorten 8053(UDP) en 80(TCP) naar buiten verbinding maakt.
