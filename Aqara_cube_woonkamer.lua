@@ -11,6 +11,7 @@ return {
 			--domoticz.devices('Tradfri - Group - bar').dimTo(50)
 			if (domoticz.devices('Fel licht').state == 'On') then								
 				--activeer Normaal
+				domoticz.log('1',domoticz.LOG_INFO)
 				domoticz.devices('Tradfri - Group - bar').dimTo(50)
 				domoticz.devices('Tradfri - Group - boven tv').dimTo(50)
 				domoticz.devices('Tradfri - Group - keuken').dimTo(50)			
@@ -23,6 +24,7 @@ return {
 				domoticz.devices('Normaal licht').setState('On').silent()
 			elseif (domoticz.devices('Zacht licht').state == 'On') then
 				--activeer fel licht
+				domoticz.log('2',domoticz.LOG_INFO)
 				domoticz.devices('Tradfri - Group - bar').dimTo(100)
 				domoticz.devices('Tradfri - Group - boven tv').dimTo(100)
 				domoticz.devices('Tradfri - Group - keuken').dimTo(100)			
@@ -35,6 +37,7 @@ return {
 				domoticz.devices('Zacht licht').setState('Off').silent()
 			elseif (domoticz.devices('Normaal licht').state == 'On') then
 				--activeer sfeerlichten
+				domoticz.log('3',domoticz.LOG_INFO)
 				domoticz.devices('Tradfri - Group - bar').dimTo(10)
 				domoticz.devices('Tradfri - Group - boven tv').dimTo(10)
 				domoticz.devices('Tradfri - Group - keuken').dimTo(10)			
@@ -47,6 +50,7 @@ return {
 				domoticz.devices('Zacht licht').setState('On').silent()
 			else
 				--activeer Normaal
+				domoticz.log('4',domoticz.LOG_INFO)
 				domoticz.devices('Tradfri - Group - bar').dimTo(50)
 				domoticz.devices('Tradfri - Group - boven tv').dimTo(50)
 				domoticz.devices('Tradfri - Group - keuken').dimTo(50)			
