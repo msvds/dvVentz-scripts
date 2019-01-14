@@ -17,11 +17,6 @@ return {
 					domoticz.devices('Single Wall Switch Lamp Nienke').switchOn()
 					domoticz.devices('Leeslamp Nienke').switchOff()
 				end
-				if domoticz.devices('Leeslamp Nienke').state == 'On' then
-					domoticz.devices('Leeslamp Nienke').switchOff()
-				else
-					domoticz.devices('Leeslamp Nienke').switchOn()
-				end
 			elseif device.state == 'Click' then
 				domoticz.devices('Leeslamp Nienke').switchOff()
 				domoticz.devices('Single Wall Switch Lamp Nienke').switchOff()
