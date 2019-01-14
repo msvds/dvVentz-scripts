@@ -11,11 +11,11 @@ return {
 		if (domoticz.time.matchesRule('at 7:10-20:50') or domoticz.time.matchesRule('at 23:00-06:00')) then
 			if device.state == 'Double Click' then
 				if domoticz.devices('Lamp Lars').state == 'On' then
+					domoticz.devices('Lamp Lars').switchOn()
+					domoticz.devices('Leeslamp Lars').switchOff()					
+				else
 					domoticz.devices('Lamp Lars').switchOff()
 					domoticz.devices('Leeslamp Lars').switchOn()
-				else
-					domoticz.devices('Lamp Lars').switchOn()
-					domoticz.devices('Leeslamp Lars').switchOff()
 				end	
 			elseif device.state == 'Click' then
 				domoticz.devices('Leeslamp Lars').switchOff()
