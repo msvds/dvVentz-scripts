@@ -48,6 +48,8 @@ _C.ALARM_ZONES = {
 		alertDevices={},--{'Xiaomi RGB Gateway','Schemerlamp deur'},--{'Xiaomi Gateway Alarm Ringtone'},
 		sensors = {
 			['Eetkamerdeur'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = false, ['enabled'] = true},
+			['Zitkamerdeur'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = false, ['enabled'] = true},
+			['Beweging balkon'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = false, ['enabled'] = true},
 			['Balkondeur slaapkamer'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
 			['Balkondeur Nienke'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
 			['Garage deur'] = {['class'] = SENSOR_CLASS_A, ['nag'] = true, ['nagTimeoutMins'] = 5, ['armWarn'] = true, ['enabled'] = true},
