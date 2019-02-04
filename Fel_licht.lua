@@ -11,8 +11,6 @@ return {
 			domoticz.devices('Tradfri - Group - bar').dimTo(100)
 			domoticz.devices('Tradfri - Group - boven tv').dimTo(100)
 			domoticz.devices('Tradfri - Group - keuken').dimTo(100)			
-			domoticz.devices('Tradfri - Group - hal').dimTo(100)
-			domoticz.devices('Tradfri - Group - entree').dimTo(100)
 			domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(100)
 			domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(100)
 			domoticz.devices('Normaal licht').setState('Off').silent()
