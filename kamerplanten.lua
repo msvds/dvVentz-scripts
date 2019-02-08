@@ -36,14 +36,14 @@ return {
         		message = message .. 'De plant in de hal boven begint een beetje droog te worden (<35%), namelijk ' ..tonumber(domoticz.devices('plant moisture 1').percentage) .. '), '
 		end
     
-		if (domoticz.devices('plant moisture 2').percentage < 5) then				
-			message = message .. 'De plant in de badkamer begint heel erg droog te worden (<5%), namelijk ' ..tonumber(domoticz.devices('plant moisture 2').percentage) .. '), '
-		elseif (domoticz.devices('plant moisture 2').percentage < 10) then				
-			message = message .. 'De plant in de badkamer begint erg droog te worden (<10%), namelijk ' ..tonumber(domoticz.devices('plant moisture 2').percentage) .. '), '
+		if (domoticz.devices('plant moisture 2').percentage < 8) then				
+			message = message .. 'De plant in de badkamer begint heel erg droog te worden (<8%), namelijk ' ..tonumber(domoticz.devices('plant moisture 2').percentage) .. '), '
+		elseif (domoticz.devices('plant moisture 2').percentage < 12) then				
+			message = message .. 'De plant in de badkamer begint erg droog te worden (<17%), namelijk ' ..tonumber(domoticz.devices('plant moisture 2').percentage) .. '), '
 		elseif (domoticz.devices('plant moisture 2').percentage < 15) then				
 			message = message .. 'De plant in de badkamer begint droog te worden (<15%), namelijk ' ..tonumber(domoticz.devices('plant moisture 2').percentage) .. '), '
-		elseif (domoticz.devices('plant moisture 2').percentage < 20) then				
-			message = message .. 'De plant in de badkamer begint een beetje droog te worden (<20%), namelijk ' ..tonumber(domoticz.devices('plant moisture 2').percentage) .. '), '
+		elseif (domoticz.devices('plant moisture 2').percentage < 17) then				
+			message = message .. 'De plant in de badkamer begint een beetje droog te worden (<17%), namelijk ' ..tonumber(domoticz.devices('plant moisture 2').percentage) .. '), '
 		end
 		
 		--if (average_humidities_plant1 - domoticz.devices('plant moisture 1').percentage > 6) then
