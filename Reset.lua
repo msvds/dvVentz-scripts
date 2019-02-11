@@ -3,7 +3,7 @@ return {
 	logging = {marker = "Reset"},
 	on = {
 		devices = {
-			'Reset Domoticz'
+			'Reset Domoticz','Reset'
 		},
 	},
 	execute = function(domoticz, device)
