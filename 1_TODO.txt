@@ -1,5 +1,5 @@
 TODO list:
-
+- check plant sensors
 - remove life360 needs
 - backup works, but not the automatic backup. Fix this
 - add backup image
