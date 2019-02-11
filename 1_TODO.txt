@@ -19,4 +19,4 @@ X https://ehoco.nl/speedtest-op-raspberry-pi/
 X beweging sensor toevoegen aan chillroom
 X analyse Toon Thermostat & Toon Temperature
 X Speedtest not at each whole hour
-X add to google home: vakantie, gasten, alarm, reset
+X add to google home: slapen, vertrekken, naar boven
