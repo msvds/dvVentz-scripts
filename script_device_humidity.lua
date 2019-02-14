@@ -24,7 +24,8 @@ return {
 		local message2 = ''
 		
 		-- add new data
-		domoticz.data.woonk.add(domoticz.devices('Vochtigheid Woonkamer').humidity)
+		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity),domoticz.LOG_INFO)
+		domoticz.data.woonk.add(domoticz.devices('Vochtigheid woonkamer').humidity)
 		domoticz.data.k_lars.add(domoticz.devices('Vochtigheid Kamer Lars').humidity)
 		domoticz.data.k_nienke.add(domoticz.devices('Vochtigheid Kamer Nienke').humidity)
 		domoticz.data.badk.add(domoticz.devices('Vochtigheid Badkamer Bad').humidity)
