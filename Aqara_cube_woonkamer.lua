@@ -33,7 +33,18 @@ return {
 			domoticz.devices('Normaal licht').setState('Off').silent()
 			domoticz.devices('Zacht licht').setState('Off').silent()
 		elseif (device.state == 'rotate') then
-			domoticz.helpers.change_heat(domoticz,'Floor1','Home')
+			domoticz.helpers.switch_lights(domoticz,'All','Off',0)
+			domoticz.log('Lampen uitgezet',domoticz.LOG_INFO)
+			domoticz.helpers.change_heat(domoticz,'Inside','Away')
+			local alarm = require "ideAlarmModule"
+			alarm.zones('My Home').disArmZone(domoticz)
+			domoticz.log('Alarm uitgezet',domoticz.LOG_INFO)
+			-- Gateway status resetten
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone eetkamer').switchSelector(0)
+			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
+			domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
+			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
+			domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
 		elseif (device.state == 'move') then
 			domoticz.helpers.change_heat(domoticz,'Inside','Home')
 			local alarm = require "ideAlarmModule"
