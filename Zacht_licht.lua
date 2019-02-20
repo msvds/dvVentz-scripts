@@ -13,11 +13,14 @@ return {
 			domoticz.devices('Tradfri - Group - keuken').dimTo(10)			
 			domoticz.devices('Yeelight Dimmer eetkamer 1').dimTo(10)
 			domoticz.devices('Yeelight Dimmer eetkamer 2').dimTo(10)
-			domoticz.devices('Normaal licht').setState('Off').silent()			
+			domoticz.devices('Normaal licht').setState('Off').silent()
+			domoticz.devices('Zacht licht').setState('Off').silent()
 			domoticz.devices('Fel licht').setState('Off').silent()
 		else
-			--deactiveer sfeerlichten, terug naar normaal
-			domoticz.devices('Normaal licht').setState('On')			
+			domoticz.helpers.switch_lights(domoticz,'Floor1','Off',0)
+			domoticz.devices('Normaal licht').setState('Off').silent()
+			domoticz.devices('Zacht licht').setState('Off').silent()
+			domoticz.devices('Fel licht').setState('Off').silent()			
 		end
 	end
 }
