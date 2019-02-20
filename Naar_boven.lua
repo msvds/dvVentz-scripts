@@ -14,6 +14,7 @@ return {
 			--0=Off/10=Away/20=Sleep/30=Home/40=Comfort/50=Manual
 			domoticz.devices('Toon Scenes').switchSelector(20)
 			domoticz.log('Toon Scenes gezet op Sleep (20) omdat de gaan slapen knop ingedrukt is',domoticz.LOG_INFO)
+			domoticz.devices('Naar Boven').setState('Off').silent()
 		end
 	end
 }
