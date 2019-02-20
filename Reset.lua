@@ -22,5 +22,7 @@ return {
 		domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 		domoticz.log('Status op Home gezet',domoticz.LOG_INFO)
 		domoticz.helpers.switch_lights(domoticz,'All','Off',0)
+		domoticz.devices('Reset').setState('Off').silent()
+		domoticz.devices('Reset Domoticz').setState('Off').silent()
 	end
 }
