@@ -8,8 +8,10 @@ return {
 	execute = function(domoticz, device)
 		if (device.state == 'On') then
 			domoticz.helpers.change_heat(domoticz,'Floor1','Comfort')
+			domoticz.devices('Verwarming beneden warm').setState('Off').silent()
 		else
 			domoticz.helpers.change_heat(domoticz,'Floor1','Away')
+			domoticz.devices('Verwarming beneden warm').setState('Off').silent()
 		end
 	end
 }
