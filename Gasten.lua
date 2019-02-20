@@ -13,6 +13,7 @@ return {
 			domoticz.devices('Xiaomi Gateway Alarm Ringtone hal boven').switchSelector(0)
 			domoticz.devices('Gateway light eetkamer').switchSelector(0)--off
 			domoticz.devices('Gateway light hal boven').switchSelector(0)--off
+			domoticz.devices('Gasten').setState('Off').silent()
 		end
 	end
 }
