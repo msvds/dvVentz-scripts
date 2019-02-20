@@ -1,4 +1,5 @@
 TODO list:
+- make sure that eq3 stay on manual
 - check plant sensors
 - remove life360 needs
 - backup works, but not the automatic backup. Fix this
