@@ -15,6 +15,7 @@ return {
 			domoticz.devices('Toon Scenes').switchSelector(20)
 			domoticz.log('Toon Scenes gezet op Sleep (20) omdat de gaan slapen knop ingedrukt is',domoticz.LOG_INFO)
 			alarm.zones('My Home').armZone(domoticz, domoticz.SECURITY_ARMEDAWAY) -- This will  the zone "My Home" to "Armed Away" after the default exit delay
+			domoticz.devices('Vertrekken').setState('Off').silent()
 		end
 	end
 }
