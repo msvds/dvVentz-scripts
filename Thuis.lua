@@ -19,5 +19,6 @@ return {
 		domoticz.log('Gateway status gereset',domoticz.LOG_INFO)
 		domoticz.devices('Status').switchSelector(40) --0=Off/10=Away/20=Holiday/30=Sleep/40=Home/50=Guests/60=Home no notif
 		domoticz.log('Status op Home gezet',domoticz.LOG_INFO)
+		domoticz.devices('Thuis').setState('Off').silent()
 	end
 }
