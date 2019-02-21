@@ -215,63 +215,63 @@ return {
 			end
 			if (area == 'HalBeneden' or area == 'Floor1' or area == 'Inside') then
 			end
-			domoticz.log('setpoint = '.. tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint) * 100,domoticz.LOG_INFO)
+			domoticz.log('setpoint = '.. tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint),domoticz.LOG_INFO)
 			if (area == 'KamerLars' or area == 'Floor2' or area == 'Inside') then
 				if (ToonScene == 'Home') then
-					if (tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint) * 100 ~= 18) then
+					if (tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint) ~= 18) then
 						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(18)
 					end
 				elseif (ToonScene == 'Comfort') then
-					if (tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint) * 100 ~= 20) then
+					if (tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint) ~= 20) then
 						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(20)
 					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
-					if (tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint) * 100 ~= 12) then
+					if (tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint) ~= 12) then
 						domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').updateSetPoint(12)
 					end
 				end
 			end
 			if (area == 'KamerNienke' or area == 'Floor2' or area == 'Inside') then
 				if (ToonScene == 'Home') then
-					if (tonumber(domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').setPoint) * 100 ~= 18) then
+					if (tonumber(domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').setPoint) ~= 18) then
 						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(18)
 					end
 				elseif (ToonScene == 'Comfort') then
-					if (tonumber(domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').setPoint) * 100 ~= 20) then
+					if (tonumber(domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').setPoint) ~= 20) then
 						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(20)
 					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
-					if (tonumber(domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').setPoint) * 100 ~= 12) then
+					if (tonumber(domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').setPoint) ~= 12) then
 						domoticz.devices('eQ-3 - Roomnienke-Rad - Thermostat').updateSetPoint(12)
 					end
 				end
 			end
 			if (area == 'Badkamer' or area == 'Floor2' or area == 'Inside') then
 				if (ToonScene == 'Home') then
-					if (tonumber(domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').setPoint) * 100 ~= 18) then
+					if (tonumber(domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').setPoint) ~= 18) then
 						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(18)
 					end
 				elseif (ToonScene == 'Comfort') then
-					if (tonumber(domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').setPoint) * 100 ~= 20) then
+					if (tonumber(domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').setPoint) ~= 20) then
 						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(20)
 					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
-					if (tonumber(domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').setPoint) * 100 ~= 12) then
+					if (tonumber(domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').setPoint) ~= 12) then
 						domoticz.devices('eQ-3 - Bathroom-Rad - Thermostat').updateSetPoint(12)
 					end
 				end
 			end
 			if (area == 'Logeerkamer' or area == 'Floor3' or area == 'Inside') then
 				if (ToonScene == 'Home') then
-					if (tonumber(domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').setPoint) * 100 ~= 18) then
+					if (tonumber(domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').setPoint) ~= 18) then
 						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(18)
 					end
 				elseif (ToonScene == 'Comfort') then
-					if (tonumber(domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').setPoint) * 100 ~= 20) then
+					if (tonumber(domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').setPoint) ~= 20) then
 						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(20)
 					end
 				elseif (ToonScene == 'Away' or ToonScene == 'Sleep' or ToonScene == 'Off') then
-					if (tonumber(domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').setPoint) * 100 ~= 12) then
+					if (tonumber(domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').setPoint) ~= 12) then
 						domoticz.devices('eQ-3 - Chillroom-Rad - Thermostat').updateSetPoint(12)
 					end
 				end
