@@ -215,6 +215,7 @@ return {
 			end
 			if (area == 'HalBeneden' or area == 'Floor1' or area == 'Inside') then
 			end
+			domoticz.log('setpoint = '.. tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint) * 100,domoticz.LOG_INFO)
 			if (area == 'KamerLars' or area == 'Floor2' or area == 'Inside') then
 				if (ToonScene == 'Home') then
 					if (tonumber(domoticz.devices('eQ-3 - Roomlars-Rad - Thermostat').setPoint) * 100 ~= 18) then
