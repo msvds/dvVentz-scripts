@@ -24,7 +24,7 @@ return {
 		local message2 = ''
 		
 		-- add new data
-		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity),domoticz.LOG_INFO)
+		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(domoticz.devices('Vochtigheid woonkamer').humidity),domoticz.LOG_INFO)
 		domoticz.data.woonk.add(domoticz.devices('Vochtigheid woonkamer').humidity)
 		domoticz.data.k_lars.add(domoticz.devices('Vochtigheid Kamer Lars').humidity)
 		domoticz.data.k_nienke.add(domoticz.devices('Vochtigheid Kamer Nienke').humidity)
@@ -36,30 +36,30 @@ return {
 		
 		-- average over 96 items each 15 minutes (1 day)
 		
-		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) .. ".",domoticz.LOG_INFO)
+		domoticz.log("De vochtigheid in de woonkamer is " ..tonumber(domoticz.devices('Vochtigheid woonkamer').humidity) .. ". De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.woonk.avg()) .. ".",domoticz.LOG_INFO)
 		domoticz.log("De vochtigheid in de kamer van Lars is " ..tonumber(domoticz.devices('Vochtigheid Kamer Lars').humidity) .. ". De gemiddelde vochtigheid in de kamer van Lars de afgelopen 24 uur was " ..tonumber(domoticz.data.k_lars.avg()) .. ".",domoticz.LOG_INFO)
 		domoticz.log("De vochtigheid in de badkamer is " ..tonumber(domoticz.devices('Vochtigheid Badkamer Bad').humidity) .. ". De gemiddelde vochtigheid in de badkamer de afgelopen 24 uur was " ..tonumber(domoticz.data.badk.avg()) .. ".",domoticz.LOG_INFO)
 		domoticz.log("De vochtigheid buiten is " ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) .. ". De gemiddelde vochtigheid buiten de afgelopen 24 uur was " ..tonumber(domoticz.data.buiten.avg()) .. ".",domoticz.LOG_INFO)
 		domoticz.log("De vochtigheid in de bijkeuken is " ..tonumber(domoticz.devices('Vochtigheid Bijkeuken').humidity) .. ". De gemiddelde vochtigheid in de bijkeuken de afgelopen 24 uur was " ..tonumber(domoticz.data.bijkeuken.avg()) .. ".",domoticz.LOG_INFO)
 		
 		local hum_string_woonk
-		if (domoticz.devices('Vochtigheid Woonkamer').humidity > 70) then
+		if (domoticz.devices('Vochtigheid woonkamer').humidity > 70) then
 			hum_string_woonk = "extreem"
-		elseif (domoticz.devices('Vochtigheid Woonkamer').humidity > 65) then
+		elseif (domoticz.devices('Vochtigheid woonkamer').humidity > 65) then
 			hum_string_woonk = "heel erg"
-		elseif (domoticz.devices('Vochtigheid Woonkamer').humidity > 63) then
+		elseif (domoticz.devices('Vochtigheid woonkamer').humidity > 63) then
 			hum_string_woonk = "erg"
-		elseif (domoticz.devices('Vochtigheid Woonkamer').humidity > 61) then
+		elseif (domoticz.devices('Vochtigheid woonkamer').humidity > 61) then
 			hum_string_woonk = "redelijk"
 		end
 
-		if (domoticz.devices('Vochtigheid Woonkamer').humidity > 61) then
-			if (domoticz.devices('Vochtigheid Buiten').humidity < domoticz.devices('Vochtigheid Woonkamer').humidity) then
-				message = message ..'De vochtigheid in de woonkamer begint ' ..hum_string_woonk .. ' hoog te worden, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity) .. '. Buiten is de vochtigheid lager, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) ..' dus een raampje open zetten kan helpen. De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was ' ..tonumber(domoticz.data.woonk.avg())  ..'.\r'	
+		if (domoticz.devices('Vochtigheid woonkamer').humidity > 61) then
+			if (domoticz.devices('Vochtigheid Buiten').humidity < domoticz.devices('Vochtigheid woonkamer').humidity) then
+				message = message ..'De vochtigheid in de woonkamer begint ' ..hum_string_woonk .. ' hoog te worden, namelijk ' ..tonumber(domoticz.devices('Vochtigheid woonkamer').humidity) .. '. Buiten is de vochtigheid lager, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) ..' dus een raampje open zetten kan helpen. De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was ' ..tonumber(domoticz.data.woonk.avg())  ..'.\r'	
 			--TODO Need to adapt intervals at the end of next line
-				--domoticz.helpers.message("De vochtigheid in de woonkamer begint " ..hum_string_woonk .. " hoogte worden, namelijk " ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity) .. ". Buiten is de vochtigheid lager, namelijk " ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) .." dus een raampje open zetten kan helpen.", 100,90)	
-			elseif (domoticz.devices('Vochtigheid Buiten').humidity > domoticz.devices('Vochtigheid Woonkamer').humidity) then
-				message = message ..'De vochtigheid in de woonkamer begint ' ..hum_string_woonk .. ' te worden, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity) .. '. Buiten is de vochtigheid hoger, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) ..' dus een raampje open zetten helpt helaas niet. De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was ' ..tonumber(domoticz.data.woonk.avg())  ..'.\r'  
+				--domoticz.helpers.message("De vochtigheid in de woonkamer begint " ..hum_string_woonk .. " hoogte worden, namelijk " ..tonumber(domoticz.devices('Vochtigheid woonkamer').humidity) .. ". Buiten is de vochtigheid lager, namelijk " ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) .." dus een raampje open zetten kan helpen.", 100,90)	
+			elseif (domoticz.devices('Vochtigheid Buiten').humidity > domoticz.devices('Vochtigheid woonkamer').humidity) then
+				message = message ..'De vochtigheid in de woonkamer begint ' ..hum_string_woonk .. ' te worden, namelijk ' ..tonumber(domoticz.devices('Vochtigheid woonkamer').humidity) .. '. Buiten is de vochtigheid hoger, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) ..' dus een raampje open zetten helpt helaas niet. De gemiddelde vochtigheid in de woonkamer de afgelopen 24 uur was ' ..tonumber(domoticz.data.woonk.avg())  ..'.\r'  
 			end
 		end
 		
@@ -68,7 +68,7 @@ return {
 				message = message ..'De vochtigheid in de kamer van Lars begint hoog te worden, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Kamer Lars').humidity) .. '. Buiten is de vochtigheid lager, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) ..' dus een raampje open zetten kan helpen. De gemiddelde vochtigheid in de kamer van Lars de afgelopen 24 uur was ' ..tonumber(domoticz.data.k_lars.avg())  ..'.\r'  
 				--TODO Need to adapt intervals at the end of next line
 				--domoticz.helpers.message("De vochtigheid in de kamer van Lars begint hoog te worden, namelijk " ..tonumber(domoticz.devices('Vochtigheid Kamer Lars').humidity) .. ". Buiten is de vochtigheid lager, namelijk " ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) .." dus een raampje open zetten kan helpen.", 100,90)	
-			elseif (domoticz.devices('Vochtigheid Buiten').humidity > domoticz.devices('Vochtigheid Woonkamer').humidity) then
+			elseif (domoticz.devices('Vochtigheid Buiten').humidity > domoticz.devices('Vochtigheid woonkamer').humidity) then
 				message = message ..'De vochtigheid in de kamer van Lars begint hoog te worden, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Kamer Lars').humidity) .. '. Buiten is de vochtigheid hoger, namelijk ' ..tonumber(domoticz.devices('Vochtigheid Buiten').humidity) ..' dus een raampje open zetten helpt helaas niet. De gemiddelde vochtigheid in de kamer van Lars de afgelopen 24 uur was '  ..tonumber(domoticz.data.k_lars.avg())..'.\r'  
 			end
 		end
@@ -79,8 +79,8 @@ return {
 			message = message ..hum_string_badk .. ' namelijk het verschil in vochtigheid met het gemiddelde van de afgelopen 24 uur is ' ..tonumber((domoticz.devices('Vochtigheid Badkamer').humidity - domoticz.data.badk.avg()))..'.\r'  
 		end
 		
-		if (domoticz.devices('Vochtigheid Woonkamer').humidity - domoticz.data.woonk.avg() > 8) then
-			message = message ..'De vochtigheid stijgt snel in de woonkamer, namelijk het verschil in vochtigheid met het gemiddelde van de afgelopen 24 uur is ' ..tonumber(domoticz.devices('Vochtigheid Woonkamer').humidity - domoticz.data.woonk.avg()) ..'. Misschien moet de afzuigkap aan?'  
+		if (domoticz.devices('Vochtigheid woonkamer').humidity - domoticz.data.woonk.avg() > 8) then
+			message = message ..'De vochtigheid stijgt snel in de woonkamer, namelijk het verschil in vochtigheid met het gemiddelde van de afgelopen 24 uur is ' ..tonumber(domoticz.devices('Vochtigheid woonkamer').humidity - domoticz.data.woonk.avg()) ..'. Misschien moet de afzuigkap aan?'  
 		end
 		
 		if (domoticz.devices('Vochtigheid Bijkeuken').humidity > 65) then
