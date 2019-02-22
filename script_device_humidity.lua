@@ -74,9 +74,9 @@ return {
 		end
 		
 		local hum_string_badk
-		if (domoticz.devices('Vochtigheid Badkamer').humidity - domoticz.data.badk.avg() > 10) then
+		if (domoticz.devices('Vochtigheid Badkamer Bad').humidity - domoticz.data.badk.avg() > 10) then
 			hum_string_badk = "Waarschijnlijk wordt er gedouched of zit er iemand in bad"		
-			message = message ..hum_string_badk .. ' namelijk het verschil in vochtigheid met het gemiddelde van de afgelopen 24 uur is ' ..tonumber((domoticz.devices('Vochtigheid Badkamer').humidity - domoticz.data.badk.avg()))..'.\r'  
+			message = message ..hum_string_badk .. ' namelijk het verschil in vochtigheid met het gemiddelde van de afgelopen 24 uur is ' ..tonumber((domoticz.devices('Vochtigheid Badkamer Bad').humidity - domoticz.data.badk.avg()))..'.\r'  
 		end
 		
 		if (domoticz.devices('Vochtigheid woonkamer').humidity - domoticz.data.woonk.avg() > 8) then
