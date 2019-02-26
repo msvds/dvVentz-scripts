@@ -209,6 +209,10 @@ return {
 				message = 'Thermostaat timer programma: Scenes gezet op Manual (50)'
 			end				
 			domoticz.log(message,domoticz.LOG_INFO)
+			domoticz.devices('eQ-3 - Chillroom-Rad - Mode').setState('Manual')
+			domoticz.devices('eQ-3 - Roomlars-Rad - Mode').setState('Manual')
+			domoticz.devices('eQ-3 - Roomnienke-Rad - Mode').setState('Manual')
+			domoticz.devices('eQ-3 - Bathroom-Rad - Mode').setState('Manual')
 			if (area == 'Woonkamer' or area == 'Floor1' or area == 'Inside') then
 				domoticz.devices('Toon Scenes').switchSelector(ToonSceneNr)
 				domoticz.devices('Toon Auto Program').state = 'No'
