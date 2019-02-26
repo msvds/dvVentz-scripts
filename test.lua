@@ -10,8 +10,9 @@ return {
 		},
 	},
 	execute = function(domoticz, device)
-		sentence = "test test test"
-		os.execute('/home/pi/stream2chromecast/notification_chromecast_batch.sh "'..sentence..'" &')
+		domoticz.devices('eQ-3 - Chillroom-Rad - Mode').setState('Manual')
+		--sentence = "test test test"
+		--os.execute('/home/pi/stream2chromecast/notification_chromecast_batch.sh "'..sentence..'" &')
 		--domoticz.helpers.change_heat(domoticz,'KamerLars','Comfort')
 		--if domoticz.devices('Test Switch').state == 'Off' then
 			--domoticz.devices('Gateway light eetkamer').switchOff()
