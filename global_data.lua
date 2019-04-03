@@ -466,7 +466,7 @@ return {
 			end
 			if (area == 'Voortuin' or area == 'Outside' or area == 'All') and (onoff == 'Off') then
 				if (domoticz.devices('Lampen Voortuin').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
-					domoticz.devices(33).switchOff()
+					domoticz.devices(213).switchOff()
 					domoticz.devices('Lampen Voortuin').setState('Off').silent()
 					domoticz.log('Lights Voortuin turned off',domoticz.LOG_INFO)
 				end	
@@ -641,7 +641,7 @@ return {
 			end
 			if (area == 'Voortuin' or area == 'Outside' or area == 'All') and (onoff == 'On') then
 				if (domoticz.devices('Lampen Voortuin').lastUpdate.minutesAgo > lastUpdateminutesAgo or lastUpdateminutesAgo == 0) then
-					domoticz.devices(33).switchOn()
+					domoticz.devices(213).switchOn()
 					domoticz.devices('Lampen Voortuin').setState('On').silent()
 					domoticz.log('Lights Voortuin turned on',domoticz.LOG_INFO)
 				end	
