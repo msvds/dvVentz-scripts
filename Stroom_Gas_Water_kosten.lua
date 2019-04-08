@@ -1,6 +1,6 @@
 return {
 	active = true, -- set to false to disable this script
-	logging = {marker = "script_device_Leeslamp_Lars"},
+	logging = {marker = "Stroom_Gas_Water_kosten"},
 	on = { timer   = { "every 5 minutes" }},                    -- script draait iedere 5 minuten
 	-- on = { devices = { "Stroom","Gas"}},--,"Waterverbruik" }},    -- Verwijder -- aan het begin van deze regel en plaats -- voor bovenstaande regel als 
                                                                 -- je het script wilt draaien zodra er een nieuw verbruik aan Domoticz is doorgegeven
